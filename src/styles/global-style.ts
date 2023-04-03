@@ -3,6 +3,10 @@ import { createGlobalStyle } from "styled-components";
 import "./fonts/pretendard.css";
 
 export const GlobalStyle = createGlobalStyle`
+    :root{
+        --color-sub-2: #222222;
+        --color-main-4: #F9D5A2;
+    }
 
     body{
         font-family: Pretendard;
