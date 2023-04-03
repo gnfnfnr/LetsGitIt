@@ -11,7 +11,7 @@ const NoticeBox = styled.div`
   font-weight: 600;
 
   max-width: 40%;
-  height: 60%;
+  height: 60vh;
   @media (max-width: 900px) {
     max-width: 400px;
     height: 380px;
@@ -50,27 +50,36 @@ const NoticeButton = styled.div`
   padding: 20px 0;
   background: var(--color-main-4);
   text-align: center;
-  margin-top: 24px;
   color: #000000;
+  margin-top: 36px;
 `;
 
 export default function Notice() {
   const [data, setData] = useState(noticeData);
-  const [noticeDelete, setNoticeDelete] = useState<boolean>(false);
-  const [check, setCheck] = useState<boolean>(false);
+  const [showDelete, setShowDelete] = useState<boolean>(false);
+  const [checked, setChecked] = useState<number[]>([]);
+
   return (
     <NoticeBox>
       <NoticeHeader>
         <span>전체 알림</span>
-        {noticeDelete ? (
+        {showDelete ? (
           <div>
-            <button>전체 선택</button>
-            <HeaderComplete onClick={() => setNoticeDelete(false)}>
+            <button
+              onClick={() =>
+                checked.length
+                  ? setChecked([])
+                  : setChecked(data.map(({ id }) => id))
+              }
+            >
+              전체 {checked.length ? "취소" : "선택"}
+            </button>
+            <HeaderComplete onClick={() => setShowDelete(false)}>
               완료
             </HeaderComplete>
           </div>
         ) : (
-          <button onClick={() => setNoticeDelete(true)}>알림 삭제</button>
+          <button onClick={() => setShowDelete(true)}>알림 삭제</button>
         )}
       </NoticeHeader>
       <NoticeList>
@@ -78,12 +87,23 @@ export default function Notice() {
           <NoticeItem
             key={dt.id}
             {...dt}
-            noticeDelete={noticeDelete}
-            setNoticeDelete={setNoticeDelete}
+            showDelete={showDelete}
+            checked={checked}
+            setChecked={setChecked}
           />
         ))}
       </NoticeList>
-      {noticeDelete && <NoticeButton>삭제하기</NoticeButton>}
+      {showDelete && (
+        <NoticeButton
+          onClick={() => {
+            console.log(checked);
+            setShowDelete(false);
+            setChecked([]);
+          }}
+        >
+          삭제하기
+        </NoticeButton>
+      )}
     </NoticeBox>
   );
 }

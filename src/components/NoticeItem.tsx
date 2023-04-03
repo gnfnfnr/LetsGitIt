@@ -7,11 +7,12 @@ interface Data {
   sort: string;
   date: string;
   read: boolean;
-  noticeDelete: boolean;
-  setNoticeDelete: Dispatch<SetStateAction<boolean>>;
+  showDelete: boolean;
+  checked: number[];
+  setChecked: Dispatch<SetStateAction<number[]>>;
 }
 
-const NoticeItemBox = styled.li<{ check: boolean; noticeDelete: boolean }>`
+const NoticeItemBox = styled.li<{ check: boolean; showDelete: boolean }>`
   display: flex;
   gap: 20px;
   padding: 12px 0 9px;
@@ -22,15 +23,6 @@ const NoticeItemBox = styled.li<{ check: boolean; noticeDelete: boolean }>`
     border-bottom: 1px solid #b2b2b2;
   }
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  & {
-    -ms-overflow-style: none; /* 인터넷 익스플로러 */
-    scrollbar-width: none; /* 파이어폭스 */
-  }
-
   &::before {
     content: "";
     position: absolute;
@@ -39,8 +31,8 @@ const NoticeItemBox = styled.li<{ check: boolean; noticeDelete: boolean }>`
     width: 14px;
     height: 14px;
 
-    ${({ noticeDelete, check }) =>
-      noticeDelete
+    ${({ showDelete, check }) =>
+      showDelete
         ? `
             ${check && "content: '✔'"};
             border: 2px solid var(--color-main-4);
@@ -83,16 +75,22 @@ const ItemSort = styled.span`
 `;
 
 export default function NoticeItem({
-  noticeDelete,
-  setNoticeDelete,
+  showDelete,
+  checked,
+  setChecked,
   ...data
 }: Data) {
-  const [check, setCheck] = useState<boolean>(false);
   return (
     <NoticeItemBox
-      onClick={() => setCheck(!check)}
-      check={check}
-      noticeDelete={noticeDelete}
+      onClick={() => {
+        setChecked(
+          checked.includes(data.id)
+            ? checked.filter((el) => el !== data.id)
+            : [...checked, data.id]
+        );
+      }}
+      check={checked.includes(data.id)}
+      showDelete={showDelete}
     >
       <ItemTitle>댓글</ItemTitle>
       <ItemContent>
