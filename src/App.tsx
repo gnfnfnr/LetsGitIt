@@ -2,13 +2,16 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Notice from "./pages/Notice";
 import { GlobalStyle } from "./styles/global-style";
+import Home from "./pages/Home";
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<Notice />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<EditProfile />} />
       </Routes>
     </BrowserRouter>
   );
