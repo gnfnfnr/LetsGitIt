@@ -9,7 +9,7 @@ const NoticeBox = styled.div`
   display: flex;
   flex-direction: column;
   font-weight: 600;
-
+  border-radius: 5%;
   max-width: 40%;
   height: 60vh;
   @media (max-width: 900px) {
@@ -32,7 +32,7 @@ const NoticeList = styled.ul`
   all: unset;
   list-style: none;
   font-weight: 500;
-  height: calc(100% - 59px);
+  height: calc(100% - 164px);
   overflow: auto;
 
   //   height: 228px;

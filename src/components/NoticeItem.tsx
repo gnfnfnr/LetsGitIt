@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
 
 interface Data {
@@ -12,7 +12,11 @@ interface Data {
   setChecked: Dispatch<SetStateAction<number[]>>;
 }
 
-const NoticeItemBox = styled.li<{ check: boolean; showDelete: boolean }>`
+const NoticeItemBox = styled.li<{
+  check: boolean;
+  showDelete: boolean;
+  read: boolean;
+}>`
   display: flex;
   gap: 20px;
   padding: 12px 0 9px;
@@ -22,9 +26,9 @@ const NoticeItemBox = styled.li<{ check: boolean; showDelete: boolean }>`
   &:not(:last-child) {
     border-bottom: 1px solid #b2b2b2;
   }
-
+  ${({ read }) => read && "color: var(--color-sub-3);"}
   &::before {
-    content: "";
+    ${({ read }) => !read && "content: '';"}
     position: absolute;
     top: 14px;
     left: 0;
@@ -34,7 +38,8 @@ const NoticeItemBox = styled.li<{ check: boolean; showDelete: boolean }>`
     ${({ showDelete, check }) =>
       showDelete
         ? `
-            ${check && "content: '✔'"};
+            ${check ? "content: '✔'" : "content: ''"};
+            color: white;
             border: 2px solid var(--color-main-4);
             border-radius: 4px;
             text-align: center;
@@ -91,6 +96,7 @@ export default function NoticeItem({
       }}
       check={checked.includes(data.id)}
       showDelete={showDelete}
+      read={data.read}
     >
       <ItemTitle>댓글</ItemTitle>
       <ItemContent>
