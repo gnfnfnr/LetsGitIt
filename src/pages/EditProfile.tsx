@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Select from "react-select";
+import regionData from "../resource/regionData.json";
+import SelectLanguage from "../components/SelectLanguage";
 
 const EditProfileBox = styled.div`
   max-width: 1280px;
@@ -87,11 +89,18 @@ const InputItem = styled.li`
   width: 100%;
 
   & input[type="text"] {
+    color: #222222;
+    font-weight: 500;
+    font-size: 20px;
     background: var(--color-sub-3);
     border-radius: 10px;
     padding: 18px 16px;
     width: 100%;
     box-sizing: border-box;
+  }
+
+  & input[type="text"]::placeholder {
+    color: rgba(34, 34, 34, 0.7);
   }
 `;
 
@@ -138,31 +147,9 @@ const MiddleLongInput = styled.input`
   max-width: 220px;
 `;
 
-const CustomSelect = styled(Select)`
-  & .select__control {
-    padding: 10px 16px;
-    background: var(--color-sub-3);
-    border: none;
-    max-width: 240px;
-    width: 100%;
-    border-radius: 10px;
-    height: 56px;
-  }
-
-  & .select__indicator-separator,
-  .select__dropdown-indicator {
-    display: none;
-  }
-
-  & .select__menu {
-    color: #7c08ed;
-    max-width: 240px;
-    width: 100%;
-  }
-`;
-
 const RegionSelect = styled(Select)`
   & .select__control {
+    color: #222222;
     padding: 10px 16px;
     background: var(--color-sub-3);
     border: none;
@@ -176,122 +163,42 @@ const RegionSelect = styled(Select)`
   }
 
   & .select__menu {
-    color: var(--color-sub-2);
-    max-width: 300px;
+    color: #222222;
+    max-width: 240px;
     width: 100%;
-  }
-`;
-
-const RangeInput = styled.input`
-  margin: auto;
-  height: 13px;
-  width: 100%;
-  cursor: pointer;
-  // background: rgba(255, 255, 255, 0.5);
-  background: ;
-  border-radius: 10px;
-  overflow: hidden;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
-
-  &::-webkit-slider-runnable-track {
-    // background: linear-gradient(90deg, #7c08ed 0%, #f9d5a2 100%);
+    background: var(--color-sub-1);
     z-index: 10;
   }
 
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 20px;
-    height: 13px;
-
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    z-index: 3;
-    position: relative;
+  & .select__option {
+    border-radius: 5px;
   }
-
-  &::-webkit-slider-thumb::before {
-    content: "";
-    background: blue;
-    width: 50px;
-    height: 80px;
-    position: absolute;
-    top: 50%;
-    left: 0;
-  }
-
-  &::-moz-range-track {
-    height: 13px;
-    background: #ddd;
-  }
-
-  &::-moz-range-thumb {
-    background: #fff;
-    height: 13px;
-    width: 20px;
-    border-radius: 0 !important;
-    box-shadow: -200px 0 0 200px dodgerblue;
-    box-sizing: border-box;
+  & .select__menu::-webkit-scrollbar {
+    display: none;
   }
 `;
 
-const RangeSelect = styled.div`
-  position: relative;
-  z-index: 2;
-`;
-const RangeBackGround = styled.div<{ range: string }>`
-  width: ${({ range }) => range}%;
-  height: 13px;
-  left: 0px;
-  top: 50%;
-  position: absolute;
-  z-index: 1;
-  transform: translateY(-50%);
-  background: linear-gradient(90deg, #7c08ed 0%, #f9d5a2 100%);
-  border-radius: 10px;
-  // z-index: 6;
+const NewRangeBox = styled.div`
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-left: 22px;
 `;
 
-const RangeDivison = styled.div`
+const NewRange = styled.div`
+  display: flex;
   width: 100%;
-  height: 2px;
-  left: 0px;
-  top: 50%;
-  position: absolute;
-  z-index: 1;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.5);
-
-  &::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    position: absolute;
-    top: -2px;
-    right: 0px;
-    border-radius: 50%;
-    background: #f8d3a2;
-  }
-
-  &::after {
-    content: "";
-    width: 6px;
-    height: 6px;
-    position: absolute;
-    top: -2px;
-    left: 0px;
-    border-radius: 50%;
-    background: #f8d3a2;
-  }
+  height: 13px;
+  background: var(--color-sub-3);
+  border-radius: 10px;
 `;
 
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
-];
+const BorderInput = styled.input`
+  border-left: 1px solid;
+  padding-left: 17px;
+  /* max-width: 50px; */
+  width: min-content;
+`;
 
 export default function EditProfile() {
   const [emailInput, setEmailInput] = useState("");
@@ -302,13 +209,19 @@ export default function EditProfile() {
     { site: "Velog", input: "" },
   ]);
   const [introInput, setIntroInput] = useState("");
-  const [languages, setLanguages] = useState([]);
-  const [tools, setTools] = useState([]);
+  const [languages, setLanguages] = useState([
+    {
+      name: { value: "", label: "" },
+      range: "50",
+      index: 0,
+    },
+  ]);
+  const [tools, setTools] = useState("");
   const [region, setRegion] = useState("");
   const [education, setEducation] = useState({ college: "", major: "" });
   const [career, setCareer] = useState([{ start: "", end: "" }]);
   const [isClearable, setIsClearable] = useState(true);
-  const [languageRange, setLanguageRange] = useState("50");
+  console.log(languages, region);
   return (
     <EditProfileBox>
       <EditProfileInputs>
@@ -360,36 +273,80 @@ export default function EditProfile() {
         <InputsList>
           <InputItem>
             <label htmlFor="language">프로그래밍 언어</label>
-            <CustomSelect
-              className="basic-single"
-              classNamePrefix="select"
-              isClearable={isClearable}
-              name="color"
-              options={options}
-              placeholder="언어를 선택해주세요"
-            />
-            <RangeSelect>
-              <RangeInput
-                type="range"
-                value={languageRange}
-                onChange={(event) => setLanguageRange(event.target.value)}
-              />
-              <RangeDivison />
-              <RangeBackGround range={languageRange} />
-            </RangeSelect>
+            {languages.map(
+              ({ index }) =>
+                languages.length < 6 && (
+                  <SelectLanguage
+                    key={index}
+                    locate={index}
+                    languages={languages}
+                    setLanguages={setLanguages}
+                  />
+                )
+            )}
+            {languages.length < 5 && (
+              <NewRangeBox
+                onClick={() =>
+                  setLanguages([
+                    ...languages,
+                    {
+                      name: { value: "", label: "" },
+                      range: "50",
+                      index: languages.length,
+                    },
+                  ])
+                }
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M9 11V20H11V11H20V9H11V0H9V9H0V11H9Z"
+                    fill="#EAEAEA"
+                  />
+                </svg>
+                <NewRange />
+              </NewRangeBox>
+            )}
           </InputItem>
           <InputItem>
             <label htmlFor="career">소프트웨어 툴</label>
+            <div>
+              <BorderInput
+                placeholder="elicpse github"
+                value={tools}
+                onChange={(event) => setTools(event.target.value)}
+              />
+            </div>
           </InputItem>
           <InputItem>
             <label htmlFor="region">지역</label>
             <RegionSelect
+              theme={(theme: any) => ({
+                ...theme,
+                borderRadius: 10,
+                colors: {
+                  ...theme.colors,
+                  neutral90: "#222222",
+                  primary50: "#b2b2b2",
+                  primary25: "#b2b2b2",
+                  primary: "#b2b2b2",
+                },
+              })}
               className="basic-single"
               classNamePrefix="select"
               isClearable={isClearable}
               name="color"
-              options={options}
+              options={regionData}
               placeholder="지역을 선택해주세요"
+              defaultValue={region ? region : null}
+              onChange={(op: any) => setRegion(op)}
             />
           </InputItem>
           <InputItem>
@@ -432,7 +389,6 @@ export default function EditProfile() {
           </InputItem>
         </InputsList>
       </EditProfileInputs>
-
       <EditProfileButton>
         <ButtonCancel>취소하기</ButtonCancel>
         <ButtonComplete>수정하기</ButtonComplete>
