@@ -48,4 +48,13 @@ public class User {
 
     @Column(name="intro") //소개글
     String intro;
+
+    @Column(name="career") //경력 회사 이름
+    String career;
+
+    @Column(name="career_year1") //경력 연도
+    String year1;
+
+    @Column(name="career_yaer2")
+    String year2;
 }
