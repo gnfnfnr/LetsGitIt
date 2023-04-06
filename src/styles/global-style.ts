@@ -26,4 +26,8 @@ export const GlobalStyle = createGlobalStyle`
         all: unset;
         cursor: pointer;
     }
+
+    input{
+        all: unset;
+    }
 `;

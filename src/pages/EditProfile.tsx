@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Select from "react-select";
 
 const EditProfileBox = styled.div`
   max-width: 1280px;
@@ -28,6 +29,11 @@ const EditProfileButton = styled.div`
     border-radius: 20px;
     font-weight: 600;
     font-size: 20px;
+    text-align: center;
+    @media (max-width: 300px) {
+      padding: 10px 12px;
+      font-size: 14px;
+    }
   }
 `;
 const ButtonCancel = styled.button`
@@ -39,13 +45,8 @@ const ButtonComplete = styled.button`
 `;
 
 const BasicInput = styled.input`
-  all: unset;
-  background: var(--color-sub-3);
-  border-radius: 10px;
-  padding: 18px 16px;
   max-width: 400px;
-  width: 100%;
-  box-sizing: border-box;
+
   @media (max-width: 800px) {
     max-width: 100%;
   }
@@ -84,6 +85,14 @@ const InputItem = styled.li`
   gap: 16px;
   margin-bottom: 70px;
   width: 100%;
+
+  & input[type="text"] {
+    background: var(--color-sub-3);
+    border-radius: 10px;
+    padding: 18px 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
 `;
 
 const InputsDetialList = styled.ul`
@@ -106,30 +115,184 @@ const InputDetailItem = styled.li`
 `;
 
 const MiddleInput = styled.input`
-  all: unset;
-  padding: 18px 16px;
-  box-sizing: border-box;
-  background: var(--color-sub-3);
-  border-radius: 10px;
   max-width: 300px;
-  width: 100%;
 `;
 
-const ShortInputBox = styled.div`
+const MultiInputBox = styled.div`
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  align-items: center;
+`;
 
-  & > input[type="text"] {
-    all: unset;
-    padding: 18px 16px;
-    box-sizing: border-box;
+const ShortInput = styled.input`
+  max-width: 200px;
+`;
+
+const NumberInput = styled.input`
+  all: unset;
+  width: 64px;
+`;
+
+const MiddleLongInput = styled.input`
+  max-width: 220px;
+`;
+
+const CustomSelect = styled(Select)`
+  & .select__control {
+    padding: 10px 16px;
     background: var(--color-sub-3);
+    border: none;
+    max-width: 240px;
+    width: 100%;
     border-radius: 10px;
-    max-width: 200px;
+    height: 56px;
+  }
+
+  & .select__indicator-separator,
+  .select__dropdown-indicator {
+    display: none;
+  }
+
+  & .select__menu {
+    color: #7c08ed;
+    max-width: 240px;
     width: 100%;
   }
 `;
+
+const RegionSelect = styled(Select)`
+  & .select__control {
+    padding: 10px 16px;
+    background: var(--color-sub-3);
+    border: none;
+    max-width: 300px;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  & .select__indicator-separator {
+    display: none;
+  }
+
+  & .select__menu {
+    color: var(--color-sub-2);
+    max-width: 300px;
+    width: 100%;
+  }
+`;
+
+const RangeInput = styled.input`
+  margin: auto;
+  height: 13px;
+  width: 100%;
+  cursor: pointer;
+  // background: rgba(255, 255, 255, 0.5);
+  background: ;
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  &::-webkit-slider-runnable-track {
+    // background: linear-gradient(90deg, #7c08ed 0%, #f9d5a2 100%);
+    z-index: 10;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 13px;
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 3;
+    position: relative;
+  }
+
+  &::-webkit-slider-thumb::before {
+    content: "";
+    background: blue;
+    width: 50px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+
+  &::-moz-range-track {
+    height: 13px;
+    background: #ddd;
+  }
+
+  &::-moz-range-thumb {
+    background: #fff;
+    height: 13px;
+    width: 20px;
+    border-radius: 0 !important;
+    box-shadow: -200px 0 0 200px dodgerblue;
+    box-sizing: border-box;
+  }
+`;
+
+const RangeSelect = styled.div`
+  position: relative;
+  z-index: 2;
+`;
+const RangeBackGround = styled.div<{ range: string }>`
+  width: ${({ range }) => range}%;
+  height: 13px;
+  left: 0px;
+  top: 50%;
+  position: absolute;
+  z-index: 1;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, #7c08ed 0%, #f9d5a2 100%);
+  border-radius: 10px;
+  // z-index: 6;
+`;
+
+const RangeDivison = styled.div`
+  width: 100%;
+  height: 2px;
+  left: 0px;
+  top: 50%;
+  position: absolute;
+  z-index: 1;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.5);
+
+  &::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    position: absolute;
+    top: -2px;
+    right: 0px;
+    border-radius: 50%;
+    background: #f8d3a2;
+  }
+
+  &::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    position: absolute;
+    top: -2px;
+    left: 0px;
+    border-radius: 50%;
+    background: #f8d3a2;
+  }
+`;
+
+const options = [
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
+];
+
 export default function EditProfile() {
   const [emailInput, setEmailInput] = useState("");
   const [platformInputs, setPlatformInputs] = useState([
@@ -144,8 +307,8 @@ export default function EditProfile() {
   const [region, setRegion] = useState("");
   const [education, setEducation] = useState({ college: "", major: "" });
   const [career, setCareer] = useState([{ start: "", end: "" }]);
-  const today = new Date();
-
+  const [isClearable, setIsClearable] = useState(true);
+  const [languageRange, setLanguageRange] = useState("50");
   return (
     <EditProfileBox>
       <EditProfileInputs>
@@ -153,6 +316,7 @@ export default function EditProfile() {
           <InputItem>
             <label htmlFor="email">이메일</label>
             <BasicInput
+              type="text"
               placeholder="example@gmail.com"
               id="email"
               value={emailInput}
@@ -166,6 +330,7 @@ export default function EditProfile() {
                 <InputDetailItem key={site}>
                   <label htmlFor={site}>{site}</label>
                   <BasicInput
+                    type="text"
                     placeholder="URL을 입력해주세요"
                     id={site}
                     value={input}
@@ -194,39 +359,43 @@ export default function EditProfile() {
         </InputsList>
         <InputsList>
           <InputItem>
-            <label htmlFor="introduce">프로그래밍 언어</label>
-            <input
-              placeholder="언어를 추가하세요"
-              id="introduce"
-              value={introInput}
-              onChange={(event) => setIntroInput(event.target.value)}
+            <label htmlFor="language">프로그래밍 언어</label>
+            <CustomSelect
+              className="basic-single"
+              classNamePrefix="select"
+              isClearable={isClearable}
+              name="color"
+              options={options}
+              placeholder="언어를 선택해주세요"
             />
+            <RangeSelect>
+              <RangeInput
+                type="range"
+                value={languageRange}
+                onChange={(event) => setLanguageRange(event.target.value)}
+              />
+              <RangeDivison />
+              <RangeBackGround range={languageRange} />
+            </RangeSelect>
           </InputItem>
           <InputItem>
             <label htmlFor="career">소프트웨어 툴</label>
-            <div>
-              <input
-                type="text"
-                id="career"
-                placeholder=""
-                // value={region}
-                // onChange={(event) => setRegion(event.target.value)}
-              />
-            </div>
           </InputItem>
           <InputItem>
             <label htmlFor="region">지역</label>
-            <MiddleInput
-              placeholder="언어를 추가하세요"
-              id="region"
-              value={region}
-              onChange={(event) => setRegion(event.target.value)}
+            <RegionSelect
+              className="basic-single"
+              classNamePrefix="select"
+              isClearable={isClearable}
+              name="color"
+              options={options}
+              placeholder="지역을 선택해주세요"
             />
           </InputItem>
           <InputItem>
             <label htmlFor="education">교육</label>
-            <ShortInputBox>
-              <input
+            <MultiInputBox>
+              <ShortInput
                 type="text"
                 placeholder="학교"
                 id="education"
@@ -235,7 +404,7 @@ export default function EditProfile() {
                   setEducation({ ...education, college: event.target.value })
                 }
               />
-              <input
+              <ShortInput
                 type="text"
                 placeholder="전공"
                 id="education"
@@ -244,22 +413,22 @@ export default function EditProfile() {
                   setEducation({ ...education, major: event.target.value })
                 }
               />
-            </ShortInputBox>
+            </MultiInputBox>
           </InputItem>
           <InputItem>
             <label htmlFor="career">경력</label>
-            <div>
-              <input type="number" placeholder="YYYY" />
+            <MultiInputBox>
+              <NumberInput type="number" placeholder="YYYY" />
               ~
-              <input type="number" placeholder="YYYY" />
-              <input
+              <NumberInput type="number" placeholder="YYYY" />
+              <MiddleLongInput
                 type="text"
                 id="career"
                 placeholder="회사"
                 // value={region}
                 // onChange={(event) => setRegion(event.target.value)}
               />
-            </div>
+            </MultiInputBox>
           </InputItem>
         </InputsList>
       </EditProfileInputs>
