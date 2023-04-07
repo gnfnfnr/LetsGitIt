@@ -1,0 +1,9 @@
+{
+  "short_name": "Let's git it",
+  "name": "Let's git it",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
