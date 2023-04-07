@@ -57,4 +57,38 @@ public class User {
 
     @Column(name="career_yaer2")
     String year2;
+
+    @Column(name="tool")
+    String tool;
+
+    //프로그래밍 언어 총 5개 입력가능하고 숙련도도 입력받는다
+    @Column(name="lang1")
+    String lang1;
+
+    @Column(name="lang1_skill")
+    String lang1Skill;
+
+    @Column(name="lang2")
+    String lang2;
+
+    @Column(name="lang2_skill")
+    String lang2Skill;
+
+    @Column(name="lang3")
+    String lang3;
+
+    @Column(name="lang3_skill")
+    String lang3Skill;
+
+    @Column(name="lang4")
+    String lang4;
+
+    @Column(name="lang4_skill")
+    String lang4Skill;
+
+    @Column(name="lang5")
+    String lang5;
+
+    @Column(name="lang5_skill")
+    String lang5Skill;
 }
