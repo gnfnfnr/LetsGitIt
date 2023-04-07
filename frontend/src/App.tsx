@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
       <GlobalStyle />
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/" element={<EditProfile />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/mypage/edit" element={<EditProfile />} />
       </Routes>
     </BrowserRouter>
   );

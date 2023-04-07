@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import styled from "styled-components";
 import NoticeItem from "../components/NoticeItem";
 import noticeData from "../resource/noticeData.json";
@@ -12,9 +12,19 @@ const NoticeBox = styled.div`
   border-radius: 5%;
   max-width: 40%;
   height: 60vh;
+  position: absolute;
+  z-index: 10;
+  top: 80px;
+  right: 10%;
   @media (max-width: 900px) {
     max-width: 400px;
     height: 380px;
+  }
+
+  @media (max-width: 450px) {
+    right: 50%;
+    transform: translateX(50%);
+    width: 100%;
   }
 `;
 const NoticeHeader = styled.div`
@@ -25,7 +35,7 @@ const NoticeHeader = styled.div`
   padding-bottom: 26px;
 `;
 const HeaderComplete = styled.button`
-  color: #f9d5a2;
+  color: var(--color-main-4);
   padding-left: 28px;
 `;
 const NoticeList = styled.ul`
@@ -52,9 +62,24 @@ const NoticeButton = styled.div`
   text-align: center;
   color: #000000;
   margin-top: 36px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 `;
 
-export default function Notice() {
+const HeaderSelect = styled.div`
+  display: flex;
+  gap: 16px;
+
+  & > span:last-child {
+    cursor: pointer;
+  }
+`;
+
+interface Open {
+  setShowNotice: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function Notice({ setShowNotice }: Open) {
   const [data, setData] = useState(noticeData);
   const [showDelete, setShowDelete] = useState<boolean>(false);
   const [checked, setChecked] = useState<number[]>([]);
@@ -62,7 +87,12 @@ export default function Notice() {
   return (
     <NoticeBox>
       <NoticeHeader>
-        <span>전체 알림</span>
+        <HeaderSelect>
+          <span>전체 알림</span>
+          {!showDelete && (
+            <span onClick={() => setShowDelete(true)}>알림 삭제</span>
+          )}
+        </HeaderSelect>
         {showDelete ? (
           <div>
             <button
@@ -79,7 +109,13 @@ export default function Notice() {
             </HeaderComplete>
           </div>
         ) : (
-          <button onClick={() => setShowDelete(true)}>알림 삭제</button>
+          <button
+            onClick={() => {
+              setShowNotice(false);
+            }}
+          >
+            닫기
+          </button>
         )}
       </NoticeHeader>
       <NoticeList>

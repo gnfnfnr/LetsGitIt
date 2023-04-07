@@ -58,7 +58,7 @@ const LargeInput = styled.textarea`
   all: unset;
   resize: none;
   height: 230px;
-  border: 2px solid #b2b2b2;
+  border: 2px solid var(--color-sub-3);
   border-radius: 10px;
   padding: 18px 16px;
   box-sizing: border-box;
@@ -89,7 +89,7 @@ const InputItem = styled.li`
   width: 100%;
 
   & input[type="text"] {
-    color: #222222;
+    color: var(--color-sub-2);
     font-weight: 500;
     font-size: 20px;
     background: var(--color-sub-3);
@@ -100,7 +100,7 @@ const InputItem = styled.li`
   }
 
   & input[type="text"]::placeholder {
-    color: rgba(34, 34, 34, 0.7);
+    color: #222222b2;
   }
 `;
 
@@ -121,10 +121,6 @@ const InputDetailItem = styled.li`
   flex-direction: column;
   gap: 16px;
   margin-bottom: 16px;
-`;
-
-const MiddleInput = styled.input`
-  max-width: 300px;
 `;
 
 const MultiInputBox = styled.div`
@@ -149,7 +145,7 @@ const MiddleLongInput = styled.input`
 
 const RegionSelect = styled(Select)`
   & .select__control {
-    color: #222222;
+    color: var(--color-sub-2);
     padding: 10px 16px;
     background: var(--color-sub-3);
     border: none;
@@ -163,7 +159,7 @@ const RegionSelect = styled(Select)`
   }
 
   & .select__menu {
-    color: #222222;
+    color: var(--color-sub-2);
     max-width: 240px;
     width: 100%;
     background: var(--color-sub-1);
@@ -263,6 +259,7 @@ export default function EditProfile() {
           </InputItem>
           <InputItem>
             <label htmlFor="introduce">소개글</label>
+            {/* <span>1/1000 자</span> */}
             <LargeInput
               id="introduce"
               value={introInput}
@@ -308,7 +305,7 @@ export default function EditProfile() {
                     fillRule="evenodd"
                     clipRule="evenodd"
                     d="M9 11V20H11V11H20V9H11V0H9V9H0V11H9Z"
-                    fill="#EAEAEA"
+                    fill="var(--color-sub-3)"
                   />
                 </svg>
                 <NewRange />
@@ -333,10 +330,10 @@ export default function EditProfile() {
                 borderRadius: 10,
                 colors: {
                   ...theme.colors,
-                  neutral90: "#222222",
-                  primary50: "#b2b2b2",
-                  primary25: "#b2b2b2",
-                  primary: "#b2b2b2",
+                  neutral90: "var(--color-sub-2)",
+                  primary50: "var(--color-sub-3)",
+                  primary25: "var(--color-sub-3)",
+                  primary: "var(--color-sub-3)",
                 },
               })}
               className="basic-single"
