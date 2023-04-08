@@ -11,8 +11,15 @@ const Wrapper = styled.div`
   height: 350px;
   border-radius: 20px;
   padding: 20px;
-
+  
   button {
+    width: 240px;
+    height: 58px;
+    text-align: center;
+    box-sizing: border-box;
+    font-weight: 550;
+    padding: 12px;
+    margin-top: 70px;
     border: solid 2px #f9d5a2;
     border-radius: 60px;
     color: #f9d5a2;
@@ -22,38 +29,127 @@ const Wrapper = styled.div`
 const ImportProjectIcon = styled(ProjectIcon)`
   margin: 150px 0 100px 0;
   cursor: pointer;
+  &.hide{
+    display: none;
+  }
 `;
 
 const ProjectContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const ProjectItem = styled.div`
-  padding: 5px;
+  padding: 15px;
   width: 400px;
   height: 120px;
+  box-sizing: border-box;
   border: solid 2px #b2b2b2;
   border-radius: 10px;
-  &.title {
+  flex-direction: column;
+  flex-basis: calc(33.333% - 30px);
+  p {
+    margin-top: 0px;
+    margin-bottom: 5px;
     font-size: 20px;
     color: #f9d5a2;
   }
-
-  &.content {
+  span {
+    margin-top: 0;
     font-size: 18px;
     color: white;
   }
-
   &.selected {
     border: none;
     background-color: #333333;
+  } 
+  margin-right: 30px;
+  &~&{
+    margin-right: 30px;
+    margin-bottom: 30px;
   }
 `;
 
+interface ProjectItemInterface {
+  title: string;
+  content: string;
+  selected: boolean;
+}
+
 const Portfolio = () => {
+  const [importPortfolio, setImportPortfolio] = useState<Boolean>(false);
+  const [isInitial, setIsInitial] = useState<Boolean>(true);
+  const [importProjectItems, setImportProjectItems] = useState<ProjectItemInterface[]>([{
+    title: "Repo Name",
+    content: "Repo Intro",
+    selected: false
+  },
+  {
+    title: "Repo Name2",
+    content: "Repo Intro2",
+    selected: false
+  },
+  {
+    title: "Repo Name3",
+    content: "Repo Intro3",
+    selected: false
+  },
+  {
+    title: "Repo Name",
+    content: "Repo Intro",
+    selected: false
+  },
+  {
+    title: "Repo Name2",
+    content: "Repo Intro2",
+    selected: false
+  },
+  {
+    title: "Repo Name3",
+    content: "Repo Intro3",
+    selected: false
+  }]);
+
+  const onClickImportPorject = () => {
+    setImportPortfolio(true);
+    setIsInitial(false);
+  }
+
+  const handleSelectedClick = (index: number) => {
+    const updatedItems = importProjectItems.map((item, i) => {
+      if (i === index) {
+        return {
+          ...item,
+          selected: !item.selected
+        };
+      }
+      return item;
+    });
+    setImportProjectItems(updatedItems);
+  };
+  
+
+
   return (
     <Wrapper>
-      <ImportProjectIcon />
+      <ImportProjectIcon 
+      onClick={onClickImportPorject} 
+      className={isInitial ? "" : "hide"}/>
+      {importPortfolio && (
+        <ProjectContainer>
+          {importProjectItems.map((project, index) => (
+            <ProjectItem 
+              onClick={() => handleSelectedClick(index)}
+              className={importProjectItems[index]?.selected ? "selected" : ""}
+              key={index}
+            >
+              <p>{project.title}</p>
+              <span>{project.content}</span>
+            </ProjectItem>
+          ))}
+        </ProjectContainer>
+)}
+    {importPortfolio && <button>선택한 프로젝트 가져오기</button>}
     </Wrapper>
   );
 };
