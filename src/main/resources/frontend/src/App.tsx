@@ -5,6 +5,7 @@ import { GlobalStyle } from "./styles/global-style";
 import Home from "./pages/Home";
 import EditProfile from "./pages/EditProfile";
 import Header from "./components/Header/Header";
+import MyPage from "./pages/MyPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mypage/edit" element={<EditProfile />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
     </BrowserRouter>
   );
