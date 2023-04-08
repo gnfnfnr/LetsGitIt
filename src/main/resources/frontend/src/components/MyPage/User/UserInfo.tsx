@@ -5,11 +5,12 @@ import { RxNotionLogo } from "react-icons/rx";
 import { SiVelog } from "react-icons/si";
 
 const Wrapper = styled.div`
-  height: 300px;
-  width: 370px;
+  height: 348px;
+  width: 510px;
+  box-sizing: border-box;
   background-color: #222222;
-  color: white;
-  padding: 20px;
+  color: #b2b2b2;
+  padding: 40px 20px 20px 25px;
   border-radius: 20px;
   justify-content: flex-start;
   font-size: 20px;
@@ -22,24 +23,29 @@ const EmailIcon = styled(AiTwotoneMail)`
 
 const Button = styled.button`
   display: flex;
-  padding: 8px;
-  justify-content: center;
+  padding: 6px;
   align-items: center;
-  height: 30px;
-  width: 100%;
-  flex-grow: 1;
+  height: 15px;
+  width: 80%;
+  background-color: #b2b2b2;
+  color: black;
   svg {
-    margin-right: 5px;
+    margin-right: 8px;
+  }
+  :hover {
+    background-color: #222222;
+    color: #b2b2b2;
   }
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 15px;
+  margin: 20px 0 20px 0;
+  width: 460px;
   font-size: 18px;
   & > * {
-    margin-right: 6px;
+    margin-right: 10px;
   }
   & > *:last-child {
     margin-right: 0;
@@ -54,7 +60,7 @@ const EmailContainer = styled.div`
 `;
 
 export default function UserInfo() {
-  const [content, SetContent] = useState("À¯Àú ¼Ò°³±Û");
+  const [content, SetContent] = useState("ìœ ì € ì†Œê°œê¸€");
   const [useremail, setUserEmail] = useState("user@gmail.com");
 
   return (

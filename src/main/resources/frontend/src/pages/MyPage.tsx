@@ -123,7 +123,7 @@ const UserNameContainer = styled.div`
 `;
 
 const MyPage = () => {
-  const [afterEditProfile, setAfterEditProfile] = useState(false);
+  const [afterEditProfile, setAfterEditProfile] = useState(true);
   //false = before, true=after
 
   const [username, setUsername] = useState("username");

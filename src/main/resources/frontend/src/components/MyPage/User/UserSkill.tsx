@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-const MedalIcon = require("../../../styles/Icons/MedalIcon.svg") as string;
+import { ReactComponent as MedalIcon } from "../../../styles/Icons/MedalIcon.svg";
 
 const Wrapper = styled.div`
-  height: 300px;
-  width: 370px;
+  height: 348px;
+  width: 510px;
+  box-sizing: border-box;
   background-color: #222222;
   color: white;
   padding: 20px;
@@ -16,8 +17,9 @@ const Wrapper = styled.div`
 const ToolContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 15px;
   font-size: 18px;
+  width: 450px;
+  margin-left: 10px;
   justify-content: space-between;
 `;
 
@@ -27,9 +29,8 @@ const Tool = styled.div`
   align-items: center;
   border-left: 5px solid white;
   padding-left: 8px;
-  & + & {
-    margin-left: 10px;
-  }
+  margin-top: 8px;
+
 `;
 
 const Medalcontainer = styled.div`
@@ -45,7 +46,7 @@ const Medalcontainer = styled.div`
 const LanguageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+  margin: 15px 0 15px 0;
   display: flex;
   flex-wrap: wrap;
 `;
@@ -57,6 +58,7 @@ const Language = styled.div`
   font-size: 20px;
 
   span {
+    margin-left: 10px;
     width: 100px;
     display: inline-block;
   }
@@ -67,9 +69,8 @@ interface ProgressBarProps {
   }
   
 const ProgressBar = styled.div<ProgressBarProps>`
-  width: 200px;
+  width: 360px;
   height: 10px;
-  margin-left: 10px;
   position: relative;
   border-radius: 4px;
 
@@ -79,7 +80,7 @@ const ProgressBar = styled.div<ProgressBarProps>`
     top: 50%;
     transform: translateY(-50%);
     height: 2px;
-    background-image: linear-gradient(to right, #7c08ed, #f9d5a2);
+    background-color: #B2B2B2;
     width: 100%;
   }
   &::after {
@@ -95,16 +96,39 @@ const ProgressBar = styled.div<ProgressBarProps>`
     border-radius: 4px;
   }
 `;
+
+  const DotContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: -4px;
+`;
+
+const Dot = styled.div`
+  display: flex;
+  width: 6px;
+  height: 6px;
+  background: #F8D3A2;
+  border-radius: 10px;
+  z-index:1;
+`;
+
 interface LanguageItemProps {
-    name: string;
-    percentage: number;
-  }
-  
+  name: string;
+  percentage: number;
+}
+
   const LanguageItem: React.FC<LanguageItemProps> = ({ name, percentage }) => {
     return (
       <Language>
         <span>{name}</span>
         <ProgressBar width={percentage} />
+        {percentage === 100 ? (
+          ""
+        ) : (
+          <DotContainer>
+            <Dot />
+          </DotContainer>
+        )}
       </Language>
     );
   };
@@ -113,7 +137,8 @@ interface LanguageItemProps {
     tool: string;
   }
   
-  const ToolItem: React.FC<ToolItemProps> = React.memo(({ tool }) => <div>{tool}</div>);
+  const ToolItem: React.FC<ToolItemProps> = React.memo(({ tool }) => 
+  <Tool>{tool}</Tool>);
   
 
 export default function UserSkill() {
