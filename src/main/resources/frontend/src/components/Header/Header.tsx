@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
@@ -6,7 +7,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: flex-end;
   background-color: black;
-  height: 50px;
+  height: 100px;
 `;
 const NavWrapper = styled.div`
   display: flex;
@@ -44,10 +45,35 @@ const InfoContainer = styled.div`
     margin-right: 30px;
     border: none;
     cursor: pointer;
+
+    :hover {
+      text-decoration: underline;
+      text-decoration-color: #f9d5a2;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+  }
+`;
+
+const Dot = styled.div`
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #f9d5a2;
+  border-radius: 10px;
+  position: relative;
+  top: -18px;
+  left: 20px;
+  visibility: hidden;
+  &.new {
+    visibility: visible;
   }
 `;
 
 const Header = () => {
+  const [newMessage, setNewMessage] = useState <Boolean>(true);
+  const [newAlert, setNewAlert] = useState <Boolean>(false);
+
   const headers = [
     { name: "팀매칭", path: "/teammatching" },
     { name: "게시판", path: "/board" },
@@ -67,7 +93,10 @@ const Header = () => {
         ))}
       </NavWrapper>
       <InfoContainer>
+        <Dot className={newMessage ? "new" : ""} />
         <button onClick={onClickMessage}>쪽지</button>
+        <Dot className={newAlert ? "new" : ""} />
+
         <button onClick={onClickAlert}>알림</button>
       </InfoContainer>
     </Wrapper>
