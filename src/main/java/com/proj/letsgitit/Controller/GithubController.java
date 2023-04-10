@@ -12,6 +12,7 @@ public class GithubController {
 
     @GetMapping("/login")
     public String home(){
-        return "https://github.com/login/oauth/authorize?client_id=" + clientId+ "&redirect_uri=http://localhost:9000/login/oauth2";
+        return "index";
+        //return "https://github.com/login/oauth/authorize?client_id=" + clientId+ "&redirect_uri=http://localhost:9000/login/oauth2";
     }
 }
