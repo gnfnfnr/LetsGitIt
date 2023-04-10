@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-sub-3: #B2B2B2;
         --color-sub-2: #222222;
         --color-main-4: #F9D5A2;
+        --width-max: 1280px;
     }
 
     body{
