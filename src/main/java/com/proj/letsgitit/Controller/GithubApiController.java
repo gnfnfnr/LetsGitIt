@@ -43,9 +43,33 @@ public class GithubApiController {
         conn.disconnect();
 
         System.out.println(responseData);
-        return ResponseEntity.ok().body(responseData);
+        access(responseData, redirectAttributes);
     }
+    public void access(String response, RedirectAttributes redirectAttributes) throws IOException {
 
+        /**
+         * JSON 데이터를 처리하기 위해
+         * Spring Boot에 기본적으로 포함되어 있는 Jackson 라이브러리를 사용함
+         **/
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, String> map = objectMapper.readValue(response, Map.class);
+        String access_token = map.get("access_token");
+
+        URL url = new URL("https://api.github.com/user");
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
+        conn.setRequestProperty("Accept", "application/json");
+        conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36");
+        conn.setRequestProperty("Authorization", "token " + access_token);
+
+        int responseCode = conn.getResponseCode();
+
+        String result = getResponse(conn, responseCode);
+
+        conn.disconnect();
+
+        System.out.println(result);
+    }
     private String getResponse(HttpURLConnection conn, int responseCode) throws IOException {
         StringBuilder sb = new StringBuilder();
         if (responseCode == 200) {
