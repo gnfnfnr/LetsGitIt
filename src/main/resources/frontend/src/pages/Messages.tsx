@@ -1,11 +1,13 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
 import messagesData from "../resource/messagesData.json";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const MessagesHeader = styled.header`
   max-width: var(--width-max);
   margin: 120px auto 55px;
+  padding: 0 20px;
+  color: var(--color-sub-1);
 `;
 const HeaderDivsion = styled.div`
   margin-top: 30px;
@@ -27,11 +29,16 @@ const MessagesMain = styled.main`
   color: var(--color-sub-1);
   max-width: var(--width-max);
   margin: 0 auto;
+  }
 `;
-const MessagesList = styled.ul`
+const MessagesList = styled.ul<{ move: number }>`
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
+  @media (max-width: 900px) {
+    width: ${({ move }) => (move ? 50 : 100)}%;
+  }
 `;
 
 const ItemUser = styled.div`
@@ -42,10 +49,11 @@ const ItemUser = styled.div`
   justify-content: center;
 `;
 const UserImage = styled.img`
-  max-width: 50px;
-  max-height: 50px;
-  object-fit: contain;
-  padding: 0 26px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  padding: 0px 26px;
+  border-radius: 50%;
 `;
 const ItemContent = styled.div`
   display: flex;
@@ -65,6 +73,8 @@ interface Data {
   checked: number[];
   setChecked: Dispatch<SetStateAction<number[]>>;
   Children: JSX.Element;
+  move: number;
+  setMove: Dispatch<SetStateAction<number>>;
 }
 
 const CheckListBox = styled.li<{
@@ -110,20 +120,33 @@ const CheckButton = styled.div<{
 `}
 `;
 
-const MessagesAllSelect = styled.div`
+const MessageDelete = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  cursor: default;
+`;
+
+const DeleteAllSelect = styled.div`
   display: flex;
   padding: 0 25px;
-  margin-bottom: 50px;
   gap: 20px;
 `;
 
-function CheckList({ checked, setChecked, Children, id, read }: Data) {
-  const navigate = useNavigate();
+function CheckList({
+  checked,
+  setChecked,
+  Children,
+  id,
+  read,
+  move,
+  setMove,
+}: Data) {
   return (
     <CheckListBox
       check={checked.includes(id)}
       read={read}
-      onClick={() => navigate(`/messages/${id}`)}
+      onClick={() => setMove(move === id ? 0 : id)}
     >
       <CheckButton
         check={checked.includes(id)}
@@ -144,6 +167,11 @@ export default function Messages() {
   const [data, setData] = useState(messagesData);
   const [checked, setChecked] = useState<number[]>([]);
   const [allCheck, setAllCheck] = useState<boolean>(false);
+  const [move, setMove] = useState(0);
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate(move ? `/messages/${move}` : "/messages");
+  }, [move]);
   return (
     <>
       <MessagesHeader>
@@ -155,23 +183,23 @@ export default function Messages() {
           </span>
           <span>받은 지원서</span>
         </HeaderDivsion>
-        <div>
-          <span>삭제</span>
-        </div>
+        <MessageDelete>
+          <DeleteAllSelect
+            onClick={() => {
+              setAllCheck(!allCheck);
+              checked.length
+                ? setChecked([])
+                : setChecked(data.map(({ id }) => id));
+            }}
+          >
+            <CheckButton check={allCheck} />
+            전체 선택
+          </DeleteAllSelect>
+          <button>삭제</button>
+        </MessageDelete>
       </MessagesHeader>
       <MessagesMain>
-        <MessagesAllSelect
-          onClick={() => {
-            setAllCheck(!allCheck);
-            checked.length
-              ? setChecked([])
-              : setChecked(data.map(({ id }) => id));
-          }}
-        >
-          <CheckButton check={allCheck} />
-          전체 선택
-        </MessagesAllSelect>
-        <MessagesList>
+        <MessagesList move={move}>
           {data.map(({ id, username, read, last, createdAt, image }) => (
             <CheckList
               key={id}
@@ -179,6 +207,8 @@ export default function Messages() {
               read={read}
               checked={checked}
               setChecked={setChecked}
+              move={move}
+              setMove={setMove}
               Children={
                 <>
                   <ItemUser>
@@ -195,6 +225,7 @@ export default function Messages() {
           ))}
         </MessagesList>
       </MessagesMain>
+      <Outlet />
     </>
   );
 }
