@@ -1,35 +1,12 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
 import messagesData from "../resource/messagesData.json";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useOutletContext } from "react-router-dom";
 
-const MessagesHeader = styled.header`
-  max-width: var(--width-max);
-  margin: 120px auto 55px;
-  padding: 0 20px;
-  color: var(--color-sub-1);
-`;
-const HeaderDivsion = styled.div`
-  margin-top: 30px;
-  & > span:first-child {
-    color: var(--color-sub-1);
-  }
-
-  & > span:last-child {
-    color: var(--color-sub-3);
-  }
-`;
-const HeaderTitle = styled.h3`
-  margin: 0;
-  font-weight: 600;
-  font-size: 48px;
-  color: var(--color-sub-1);
-`;
 const MessagesMain = styled.main`
   color: var(--color-sub-1);
   max-width: var(--width-max);
-  margin: 0 auto;
-  }
+  margin: 55px auto 0;
 `;
 const MessagesList = styled.ul<{ move: number }>`
   list-style: none;
@@ -120,19 +97,6 @@ const CheckButton = styled.div<{
 `}
 `;
 
-const MessageDelete = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 50px;
-  cursor: default;
-`;
-
-const DeleteAllSelect = styled.div`
-  display: flex;
-  padding: 0 25px;
-  gap: 20px;
-`;
-
 function CheckList({
   checked,
   setChecked,
@@ -162,42 +126,29 @@ function CheckList({
     </CheckListBox>
   );
 }
+interface Message {
+  id: number;
+  username: string;
+  last: string;
+  read: boolean;
+  createdAt: string;
+  image: string;
+}
 
 export default function Messages() {
-  const [data, setData] = useState(messagesData);
-  const [checked, setChecked] = useState<number[]>([]);
-  const [allCheck, setAllCheck] = useState<boolean>(false);
+  const { data, checked, setChecked } = useOutletContext<{
+    data: Message[];
+    checked: number[];
+    setChecked: Dispatch<SetStateAction<number[]>>;
+  }>();
+
   const [move, setMove] = useState(0);
   const navigate = useNavigate();
   useEffect(() => {
-    navigate(move ? `/messages/${move}` : "/messages");
+    navigate(move ? `/received/messages/${move}` : "/received/messages");
   }, [move]);
   return (
     <>
-      <MessagesHeader>
-        <HeaderTitle>쪽지</HeaderTitle>
-        <HeaderDivsion>
-          <span>
-            받은 쪽지
-            <span>{data.filter(({ read }) => !read).length}</span>
-          </span>
-          <span>받은 지원서</span>
-        </HeaderDivsion>
-        <MessageDelete>
-          <DeleteAllSelect
-            onClick={() => {
-              setAllCheck(!allCheck);
-              checked.length
-                ? setChecked([])
-                : setChecked(data.map(({ id }) => id));
-            }}
-          >
-            <CheckButton check={allCheck} />
-            전체 선택
-          </DeleteAllSelect>
-          <button>삭제</button>
-        </MessageDelete>
-      </MessagesHeader>
       <MessagesMain>
         <MessagesList move={move}>
           {data.map(({ id, username, read, last, createdAt, image }) => (
