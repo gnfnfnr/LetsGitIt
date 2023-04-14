@@ -1,6 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
-import messagesData from "../resource/messagesData.json";
 import { Outlet, useNavigate, useOutletContext } from "react-router-dom";
 
 const MessagesMain = styled.main`

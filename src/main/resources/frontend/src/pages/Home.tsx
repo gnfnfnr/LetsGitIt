@@ -26,7 +26,7 @@ export default function Home() {
     <>
       <nav>
         <NavList>
-          <NavBtn onClick={() => navigate("/messages")}>쪽지</NavBtn>
+          <NavBtn onClick={() => navigate("/received/messages")}>쪽지</NavBtn>
           <NavBtn onClick={() => navigate("/mypage/edit")}>프로필 수정</NavBtn>
           <li>
             <NavBtn>

@@ -6,7 +6,7 @@ import EditProfile from "./pages/EditProfile";
 import Messages from "./pages/Messages";
 import Chatting from "./pages/Chatting";
 import Received from "./pages/Received";
-import Application from "./pages/Application";
+import Applications from "./pages/Applications";
 
 function App() {
   return (
@@ -19,7 +19,10 @@ function App() {
           <Route path="/received/messages" element={<Messages />}>
             <Route path="/received/messages/:id" element={<Chatting />} />
           </Route>
-          <Route path="/received/application" element={<Application />}></Route>
+          <Route
+            path="/received/applications"
+            element={<Applications />}
+          ></Route>
         </Route>
       </Routes>
     </BrowserRouter>

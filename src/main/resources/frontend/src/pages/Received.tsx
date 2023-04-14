@@ -3,6 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import messagesData from "../resource/messagesData.json";
+import applicationData from "../resource/applicationData.json";
 
 const ReceivedHeader = styled.header`
   max-width: var(--width-max);
@@ -71,7 +72,7 @@ interface Message {
 }
 
 export default function Received() {
-  const [data, setData] = useState(messagesData);
+  const [data, setData] = useState<any[]>(messagesData);
   const [checked, setChecked] = useState<number[]>([]);
   return (
     <>
@@ -93,10 +94,10 @@ export default function Received() {
           </NavLink>
           <NavLink
             onClick={() => {
-              setData(messagesData);
+              setData(applicationData);
               setChecked([]);
             }}
-            to="/received/application"
+            to="/received/applications"
             style={({ isActive }) => ({
               color: isActive ? "var(--color-sub-1)" : "var(--color-sub-3)",
             })}

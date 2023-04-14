@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Select from "react-select";
 import regionData from "../resource/regionData.json";
@@ -190,10 +190,9 @@ const NewRange = styled.div`
 `;
 
 const BorderInput = styled.input`
-  border-left: 1px solid;
+  border-left: 2px solid var(--color-sub-3);
   padding-left: 17px;
-  /* max-width: 50px; */
-  width: min-content;
+  width: 100%;
 `;
 
 export default function EditProfile() {
@@ -212,12 +211,15 @@ export default function EditProfile() {
       index: 0,
     },
   ]);
-  const [tools, setTools] = useState("");
+  const [tools, setTools] = useState([""]);
   const [region, setRegion] = useState("");
   const [education, setEducation] = useState({ college: "", major: "" });
   const [career, setCareer] = useState([{ start: "", end: "" }]);
   const [isClearable, setIsClearable] = useState(true);
-  console.log(languages, region);
+  const toolRef = useRef<null[] | HTMLInputElement[]>([]);
+  useEffect(() => {
+    toolRef.current[toolRef.current.length - 1]?.focus();
+  }, [tools.length]);
   return (
     <EditProfileBox>
       <EditProfileInputs>
@@ -314,13 +316,31 @@ export default function EditProfile() {
           </InputItem>
           <InputItem>
             <label htmlFor="career">소프트웨어 툴</label>
-            <div>
-              <BorderInput
-                placeholder="elicpse github"
-                value={tools}
-                onChange={(event) => setTools(event.target.value)}
-              />
-            </div>
+            <MultiInputBox>
+              {tools.map((tool, index) => (
+                <BorderInput
+                  ref={(el) => (toolRef.current[index] = el)}
+                  placeholder="github"
+                  value={tool}
+                  onChange={(event) =>
+                    setTools(
+                      tools.map((el, idx) => {
+                        return index === idx ? event.target.value : el;
+                      })
+                    )
+                  }
+                  onKeyPress={(e) => {
+                    if (e.key === "Enter") {
+                      if (toolRef.current[index + 1]) {
+                        toolRef.current[index + 1]?.focus();
+                      } else {
+                        setTools([...tools, ""]);
+                      }
+                    }
+                  }}
+                />
+              ))}
+            </MultiInputBox>
           </InputItem>
           <InputItem>
             <label htmlFor="region">지역</label>
