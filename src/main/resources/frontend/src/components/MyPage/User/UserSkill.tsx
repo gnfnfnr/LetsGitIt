@@ -141,7 +141,17 @@ interface LanguageItemProps {
   <Tool>{tool}</Tool>);
   
 
-export default function UserSkill() {
+  type UserSkillProps = {
+    type: "portfolio" | ""; 
+  }
+export default function UserSkill(props : UserSkillProps) {
+  const { type } = props;
+  const [componentType, setComponentType] = useState<boolean>(true);
+  useEffect(()=> {
+    if(type === "portfolio"){
+      setComponentType(false);
+    }
+  },[])
   const [languages, setLanguages] = useState([
     { name: "C++", percentage: 100 },
     { name: "Python", percentage: 80 },
@@ -158,12 +168,14 @@ export default function UserSkill() {
 
   return (
     <Wrapper>
+      {componentType &&
       <Medalcontainer>
-        <MedalIcon />
-        <MedalIcon />
-        <MedalIcon />
-      </Medalcontainer>
-
+      <MedalIcon />
+      <MedalIcon />
+      <MedalIcon />
+    </Medalcontainer>
+      }
+    
       <LanguageContainer>
         {languages.map((language) => (
           <LanguageItem
