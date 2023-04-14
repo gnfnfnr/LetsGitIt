@@ -224,7 +224,7 @@ export default function EditProfile() {
   const [tools, setTools] = useState([""]);
   const [region, setRegion] = useState("");
   const [education, setEducation] = useState({ college: "", major: "" });
-  const [career, setCareer] = useState([{ start: "", end: "" }]);
+  const [career, setCareer] = useState({ start: "", end: "" });
   const [isClearable, setIsClearable] = useState(true);
   const toolRef = useRef<null[] | HTMLInputElement[]>([]);
   const regex = /^http[s]?:\/\/([\S]{3,})/i;
@@ -423,9 +423,27 @@ export default function EditProfile() {
           <InputItem>
             <label htmlFor="career">경력</label>
             <MultiInputBox>
-              <NumberInput type="number" placeholder="YYYY" />
+              <NumberInput
+                placeholder="YYYY"
+                value={career.start}
+                onChange={(event) =>
+                  setCareer({
+                    ...career,
+                    start: event.target.value.replace(/[^0-9]/g, ""),
+                  })
+                }
+              />
               ~
-              <NumberInput type="number" placeholder="YYYY" />
+              <NumberInput
+                placeholder="YYYY"
+                value={career.end}
+                onChange={(event) =>
+                  setCareer({
+                    ...career,
+                    end: event.target.value.replace(/[^0-9]/g, ""),
+                  })
+                }
+              />
               <MiddleLongInput
                 type="text"
                 id="career"
