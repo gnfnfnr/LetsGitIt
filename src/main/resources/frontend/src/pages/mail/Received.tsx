@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
-import messagesData from "../resource/messagesData.json";
-import applicationData from "../resource/applicationData.json";
-import CheckButton from "../components/CheckButton";
+import messagesData from "../../resource/messagesData.json";
+import applicationData from "../../resource/applicationData.json";
+import CheckButton from "../../components/CheckButton";
 
 const ReceivedHeader = styled.header`
   max-width: var(--width-max);

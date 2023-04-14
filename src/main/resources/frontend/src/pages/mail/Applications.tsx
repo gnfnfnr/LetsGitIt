@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { useOutletContext } from "react-router-dom";
 import styled from "styled-components";
-import CheckButton from "../components/CheckButton";
+import CheckButton from "../../components/CheckButton";
 
 const ApplicationsBox = styled.main`
   color: var(--color-sub-1);

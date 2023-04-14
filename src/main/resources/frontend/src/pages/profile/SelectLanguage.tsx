@@ -1,7 +1,7 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
 import Select from "react-select";
-import languageData from "../resource/languageData.json";
+import languageData from "../../resource/languageData.json";
 
 const CustomSelect = styled(Select)`
   & .select__control {
@@ -160,8 +160,17 @@ export default function SelectLanguage({
   languages,
   setLanguages,
 }: Language) {
-  const [isClearable, setIsClearable] = useState(true);
-
+  const [fullData, setFullData] = useState<any[]>(languageData);
+  useEffect(() => {
+    const disabled = languages.map(({ name }) => name.label);
+    setFullData(
+      fullData.map((el) =>
+        disabled.includes(el.label)
+          ? { ...el, isDisabled: true }
+          : { ...el, isDisabled: false }
+      )
+    );
+  }, [languages]);
   return (
     <>
       <CustomSelect
@@ -177,14 +186,14 @@ export default function SelectLanguage({
         })}
         className="basic-single"
         classNamePrefix="select"
-        isClearable={isClearable}
+        isClearable={true}
         name="color"
         defaultValue={
-          Object.keys(!languages[locate].name).length
+          Object.keys(languages[locate].name).length
             ? languages[locate].name
             : null
         }
-        options={languageData}
+        options={fullData}
         placeholder="언어를 선택해주세요"
         onChange={(op: any) =>
           setLanguages(
@@ -192,7 +201,7 @@ export default function SelectLanguage({
               locate === el.index
                 ? {
                     index: el.index,
-                    name: op,
+                    name: { ...op },
                     range: el.range,
                   }
                 : el

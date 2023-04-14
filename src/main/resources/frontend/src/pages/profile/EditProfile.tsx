@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Select from "react-select";
-import regionData from "../resource/regionData.json";
-import SelectLanguage from "../components/SelectLanguage";
+import regionData from "../../resource/regionData.json";
+import SelectLanguage from "./SelectLanguage";
 
 const EditProfileBox = styled.div`
   max-width: 1280px;
@@ -195,6 +195,16 @@ const BorderInput = styled.input`
   width: 100%;
 `;
 
+const WarnInput = styled.span`
+  font-size: 14px;
+  margin-left: 10px;
+`;
+
+const CountInput = styled.span`
+  font-size: 14px;
+  float: right;
+`;
+
 export default function EditProfile() {
   const [emailInput, setEmailInput] = useState("");
   const [platformInputs, setPlatformInputs] = useState([
@@ -206,7 +216,7 @@ export default function EditProfile() {
   const [introInput, setIntroInput] = useState("");
   const [languages, setLanguages] = useState([
     {
-      name: { value: "", label: "" },
+      name: { value: "Bash", label: "Bash" },
       range: "50",
       index: 0,
     },
@@ -217,9 +227,12 @@ export default function EditProfile() {
   const [career, setCareer] = useState([{ start: "", end: "" }]);
   const [isClearable, setIsClearable] = useState(true);
   const toolRef = useRef<null[] | HTMLInputElement[]>([]);
+  const regex = /^http[s]?:\/\/([\S]{3,})/i;
+  const maxInput = 500;
   useEffect(() => {
     toolRef.current[toolRef.current.length - 1]?.focus();
   }, [tools.length]);
+
   return (
     <EditProfileBox>
       <EditProfileInputs>
@@ -239,33 +252,49 @@ export default function EditProfile() {
             <InputsDetialList>
               {platformInputs.map(({ site, input }) => (
                 <InputDetailItem key={site}>
-                  <label htmlFor={site}>{site}</label>
+                  <label htmlFor={site}>
+                    {site}
+                    {!regex.test(input) && (
+                      <WarnInput>올바른 주소를 입력해주세요</WarnInput>
+                    )}
+                  </label>
                   <BasicInput
                     type="text"
                     placeholder="URL을 입력해주세요"
                     id={site}
                     value={input}
-                    onChange={(event) =>
+                    onChange={(event) => {
                       setPlatformInputs(
                         platformInputs.map((el) => ({
                           site: el.site,
                           input:
                             site === el.site ? event.target.value : el.input,
                         }))
-                      )
-                    }
+                      );
+                    }}
                   />
                 </InputDetailItem>
               ))}
             </InputsDetialList>
           </InputItem>
           <InputItem>
-            <label htmlFor="introduce">소개글</label>
-            {/* <span>1/1000 자</span> */}
+            <label htmlFor="introduce">
+              소개글
+              <CountInput>
+                {/* introInput.replace(/[\0-\x7f]|([0-\u07ff]|(.))/g, "$&$1$2").length */}
+                {introInput.length} / {maxInput} 자
+              </CountInput>
+            </label>
             <LargeInput
               id="introduce"
               value={introInput}
-              onChange={(event) => setIntroInput(event.target.value)}
+              onChange={(event) =>
+                setIntroInput(
+                  introInput.length > maxInput - 1
+                    ? event.target.value.substring(0, maxInput)
+                    : event.target.value
+                )
+              }
             />
           </InputItem>
         </InputsList>
@@ -319,12 +348,14 @@ export default function EditProfile() {
             <MultiInputBox>
               {tools.map((tool, index) => (
                 <BorderInput
+                  key={`tools${index}`}
                   ref={(el) => (toolRef.current[index] = el)}
                   placeholder="github"
                   value={tool}
                   onChange={(event) =>
                     setTools(
                       tools.map((el, idx) => {
+                        console.log(el);
                         return index === idx ? event.target.value : el;
                       })
                     )

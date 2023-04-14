@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { GlobalStyle } from "./styles/global-style";
 import Home from "./pages/Home";
-import EditProfile from "./pages/EditProfile";
-import Messages from "./pages/Messages";
-import Chatting from "./pages/Chatting";
-import Received from "./pages/Received";
-import Applications from "./pages/Applications";
+import EditProfile from "./pages/profile/EditProfile";
+import Messages from "./pages/mail/Messages";
+import Chatting from "./pages/mail/Chatting";
+import Received from "./pages/mail/Received";
+import Applications from "./pages/mail/Applications";
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Outlet, useNavigate, useOutletContext } from "react-router-dom";
-import CheckButton from "../components/CheckButton";
+import CheckButton from "../../components/CheckButton";
 
 const MessagesMain = styled.main`
   color: var(--color-sub-1);
