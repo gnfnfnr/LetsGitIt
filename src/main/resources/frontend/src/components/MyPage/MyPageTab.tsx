@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import styled from "styled-components";
-import Archive from "./Archive";
-import Portfolio from "./Portfolio";
 import { ReactComponent as leftarrowIcon } from "../../styles/Icons/leftarrowIcon.svg";
 import { ReactComponent as rightarrowIcon } from "../../styles/Icons/rightarrowIcon.svg";
+
+const Archive = lazy(() => import("./Archive"));
+const Portfolio = lazy(() => import("./Portfolio"));
 
 const TabWrapper = styled.div`
   display: flex;
@@ -17,7 +18,7 @@ const TabWrapper = styled.div`
 const TabContainer = styled.div`
   display: inline-flex;
   flex-direction: row;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 `;
 
 interface TabListProps {
@@ -25,26 +26,26 @@ interface TabListProps {
   color?: string;
 }
 
-const TabList = styled.div <TabListProps >`
-    width: 137px;
-    height: 53px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    color: #B2B2B2;
-    font-size: 24px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    &.active{
-      color: black;
-      background-color: #F9D5A2;
-    }
-    & + & {
-      margin-left: 10px;
-    }
-  `;
+const TabList = styled.div<TabListProps>`
+  width: 137px;
+  height: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: #b2b2b2;
+  font-size: 24px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  &.active {
+    color: black;
+    background-color: #f9d5a2;
+  }
+  & + & {
+    margin-left: 10px;
+  }
+`;
 
 const ProfileComment = styled.div`
   display: flex;
@@ -82,9 +83,8 @@ const RArrowIcon = styled(rightarrowIcon)`
   margin: 0 5px 0 5px;
 `;
 
-
 const MyPageTab = () => {
-  const [isInit, setIsinit] = useState(true);
+  const [isInit, setIsinit] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const onClickTab = (tabId: number) => {
     setActiveTab(tabId);
@@ -94,17 +94,17 @@ const MyPageTab = () => {
     {
       Title: <div onClick={() => onClickTab(0)}>Portfolio</div>,
       Content: (
-        <div>
+        <Suspense>
           <Portfolio />
-        </div>
+        </Suspense>
       )
     },
     {
       Title: <div onClick={() => onClickTab(1)}>Archieve</div>,
       Content: (
-        <div>
+        <Suspense>
           <Archive />
-        </div>
+        </Suspense>
       )
     }
   ];

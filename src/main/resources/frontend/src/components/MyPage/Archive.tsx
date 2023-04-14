@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { FaFolder } from "react-icons/fa";
 import { GiFeather } from "react-icons/gi";
+import PostCard from "../PostCard";
 
 const ArchieveWapper = styled.div`
   width: 1000px;
-  height: 350px;
+  min-height: 350px;
   display: flex;
   border-radius: 20px;
   background-color: #222222;
@@ -28,7 +29,10 @@ const Title = styled.div`
   }
 `;
 
-const ComponentWapper = styled.div``;
+const ComponentWapper = styled.div`
+  display: flex;
+  margin: 20px 0 50px 15px;
+`;
 
 const Archive = () => {
   return (
@@ -36,13 +40,17 @@ const Archive = () => {
       <Title>
         <GiFeather /> 내 게시글
       </Title>
-      <ComponentWapper></ComponentWapper>
+      <ComponentWapper>
+        <PostCard type="" />
+      </ComponentWapper>
 
       <Title>
         <BsFillBookmarkFill />
         스크랩한 글
       </Title>
-      <ComponentWapper></ComponentWapper>
+      <ComponentWapper>
+        <PostCard type="bookmark" />
+      </ComponentWapper>
 
       <Title>
         <FaFolder />
