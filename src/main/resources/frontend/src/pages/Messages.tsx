@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Outlet, useNavigate, useOutletContext } from "react-router-dom";
+import CheckButton from "../components/CheckButton";
 
 const MessagesMain = styled.main`
   color: var(--color-sub-1);
@@ -74,28 +75,6 @@ const CheckListBox = styled.li<{
   }
 `;
 
-const CheckButton = styled.div<{
-  check: boolean;
-}>`
-  ${({ check }) =>
-    `
-    width: 14px;
-    height: 14px;
-    color: white;
-    position: relative;
-    &::before{
-      ${check ? "content: '✔'" : "content: ''"};
-      width: 14px;
-      height: 14px;
-      border: 2px solid var(--color-main-4);
-      border-radius: 4px;
-      text-align: center;
-      font-size: 8px;
-      position: absolute;
-    }
-`}
-`;
-
 function CheckList({
   checked,
   setChecked,
@@ -167,7 +146,7 @@ export default function Messages() {
                   </ItemUser>
                   <ItemContent>
                     <ContentText>{last}</ContentText>
-                    <ContentDate>{createdAt}</ContentDate>
+                    <ContentDate>{createdAt.slice(0, 10)}</ContentDate>
                   </ItemContent>
                 </>
               }

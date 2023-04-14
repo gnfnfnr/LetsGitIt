@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import messagesData from "../resource/messagesData.json";
 import applicationData from "../resource/applicationData.json";
+import CheckButton from "../components/CheckButton";
 
 const ReceivedHeader = styled.header`
   max-width: var(--width-max);
@@ -13,12 +14,14 @@ const ReceivedHeader = styled.header`
 `;
 const HeaderDivsion = styled.div`
   margin-top: 30px;
-  & > span:first-child {
-    color: var(--color-sub-1);
+
+  & > a:not(:last-child) {
+    margin-right: 35px;
   }
 
-  & > span:last-child {
-    color: var(--color-sub-3);
+  & > a > span {
+    margin-left: 8px;
+    color: #f9d5a2;
   }
 `;
 const HeaderTitle = styled.h3`
@@ -40,36 +43,6 @@ const DeleteAllSelect = styled.div`
   padding: 0 25px;
   gap: 20px;
 `;
-
-const CheckButton = styled.div<{
-  check: boolean;
-}>`
-  ${({ check }) =>
-    `
-    width: 14px;
-    height: 14px;
-    color: white;
-    position: relative;
-    &::before{
-      ${check ? "content: '✔'" : "content: ''"};
-      width: 14px;
-      height: 14px;
-      border: 2px solid var(--color-main-4);
-      border-radius: 4px;
-      text-align: center;
-      font-size: 8px;
-      position: absolute;
-    }
-`}
-`;
-interface Message {
-  id: number;
-  username: string;
-  last: string;
-  read: boolean;
-  createdAt: string;
-  image: string;
-}
 
 export default function Received() {
   const [data, setData] = useState<any[]>(messagesData);
@@ -103,6 +76,7 @@ export default function Received() {
             })}
           >
             받은 지원서
+            {data.filter(({ read }) => !read).length && <span>N</span>}
           </NavLink>
         </HeaderDivsion>
         <MessageDelete>

@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { useOutletContext } from "react-router-dom";
 import styled from "styled-components";
+import CheckButton from "../components/CheckButton";
 
 const ApplicationsBox = styled.main`
   color: var(--color-sub-1);
@@ -29,6 +30,11 @@ const ListItem = styled.li`
   display: flex;
   gap: 20px;
   align-items: center;
+  flex-wrap: wrap;
+
+  &:hover {
+    background: #333333;
+  }
 `;
 
 const UserImage = styled.img`
@@ -45,18 +51,22 @@ const ItemTitle = styled.div`
   border-bottom: 1px solid rgba(178, 178, 178, 0.8);
   padding-bottom: 8px;
 
-  & > span:first-child {
-    font-weight: 500;
-    font-size: 24px;
-    color: #f9d5a2;
-  }
-
   &>span: last-child {
     font-size: 14px;
   }
 `;
+
+const UserName = styled.span<{ read: boolean }>`
+  font-weight: 500;
+  font-size: 24px;
+  color: ${({ read }) => (read ? "inherit" : "var(--color-main-4)")};
+`;
 const ItemContent = styled.div`
-  width: calc(100% - 70px);
+  width: calc(100% - 124px);
+
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;
 const ItemLink = styled.div`
   text-align: end;
@@ -66,10 +76,12 @@ const ItemLink = styled.div`
   }
 `;
 
-const ItemTag = styled.span`
+const ItemTag = styled.div`
   background: #333333;
   border-radius: 4px;
   padding: 7px;
+  width: max-content;
+  margin-bottom: 8px;
 `;
 
 interface AData {
@@ -98,11 +110,21 @@ export default function Applications() {
       <ApplicationsList>
         {data.map(({ id, user, read, createdAt, project }) => (
           <ListItem key={id}>
+            <CheckButton
+              check={checked.includes(id)}
+              onClick={() => {
+                setChecked(
+                  checked.includes(id)
+                    ? checked.filter((el) => el !== id)
+                    : [...checked, id]
+                );
+              }}
+            />
             {user && <UserImage src={user.image} />}
 
             <ItemContent>
               <ItemTitle>
-                <span>username 님의 지원서</span>
+                <UserName read={read}>username 님의 지원서</UserName>
                 <span>{createdAt.slice(0, 10)}</span>
               </ItemTitle>
               {project && (
