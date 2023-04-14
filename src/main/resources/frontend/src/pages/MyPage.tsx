@@ -3,7 +3,7 @@ import styled from "styled-components";
 import UserInfo from "../components/MyPage/User/UserInfo";
 import UserSkill from "../components/MyPage/User/UserSkill";
 import MyPageTab from "../components/MyPage/MyPageTab";
-import { ReactComponent as arrowIcon} from "../styles/Icons/leftarrowIcon.svg";
+import { ReactComponent as arrowIcon } from "../styles/Icons/leftarrowIcon.svg";
 import profile from "../styles/Icons/BasicProfile.png";
 
 const ArrowIcon = styled(arrowIcon)`
@@ -36,32 +36,6 @@ const Avatar = styled.img`
   height: 120px;
   border-radius: 5px;
   justify-content: center;
-`;
-
-const ButtonContainer = styled.div`
-  display: inline-flex;
-  flex-direction: row;
-  margin-top: 110px;
-`;
-
-interface ButtonProps {
-  backgroundColor?: string;
-  color?: string;
-}
-
-const Button = styled.button<ButtonProps>`
-  width: 137px;
-  height: 53px;
-  background-color: ${(props) => props.backgroundColor || "#f9d5a2"};
-  border-radius: 10px;
-  color: ${(props) => props.color || "black"};
-  font-size: 24px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  & + & {
-    margin-left: 10px;
-  }
 `;
 
 const EditButton = styled.button`
@@ -99,6 +73,7 @@ const ProfileContainer = styled.div`
 const TabContainer = styled.div`
   display: flex;
   justify-items: center;
+  margin-bottom: 100px;
 `;
 
 const Comment = styled.div`
@@ -135,7 +110,7 @@ const MyPage = () => {
           <Avatar src={profile} alt="프로필 사진" />
           <p className="username">{username}</p>
         </UserNameContainer>
-        {afterEditProfile && <UserSkill />}
+        {afterEditProfile && <UserSkill type="" />}
       </TopContainer>
       <ProfileContainer>
         <EditButton className={afterEditProfile ? "editMode" : ""}>
