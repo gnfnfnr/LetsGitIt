@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import "react-quill/dist/quill.snow.css";
-import ReactQuill from "react-quill";
+import Editor from "../../Editor";
 
 const PortfolioContainer = styled.div`
   display: flex;
@@ -34,7 +34,6 @@ const ButtonContainer = styled.div`
 
 const Title = styled.input`
   border: none;
-  background-color: #222222;
   border-bottom: solid 2px #b2b2b2;
   color: #eaeaea;
   padding: 5px 5px 5px 50px;
@@ -56,9 +55,9 @@ const HrWrapper = styled.div`
 
 const TitleContainer = styled.div`
   display: flex;
-  background-color: #222222;
+  //background-color: #222222;
   color: white;
-  padding: 5px 5px 5px 50px;
+  padding: 5px 5px 0px 50px;
   font-size: 32px;
   ${Hr} {
     margin-bottom: 5px;
@@ -86,25 +85,9 @@ const Content = styled.div`
 `;
 
 const EditorWrapper = styled.div`
-  .ql-editor {
-    min-height: 200px;
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 10px;
-    color: white;
-  }
-
-  .ql-editor p {
-    margin: 0;
-  }
-
-  .ql-toolbar {
-    background-color: #222222;
-    color: #b2b2b2;
-    &:hover {
-      color: #f9d5a2;
-    }
-  }
+  display: flex;
+  background-color: black;
+  padding: 0px 0px 5px 50px;
 `;
 
 interface PropsInterface {
@@ -117,14 +100,6 @@ const ProjectDetail = ({ title, content }: PropsInterface) => {
   const [projectContent, setProjectContent] = useState<string>(content);
   const [isEditMode, setIsEditMode] = useState<boolean>(true); //User일 때
   const [editPage, setEditPage] = useState<boolean>(false);
-  const modules = {
-    toolbar: [
-      [{ header: "1" }, { header: "2" }],
-      ["bold", "italic", "underline", "strike"],
-      [{ list: "ordered" }, { list: "bullet" }],
-      ["blockquote", "code-block", "link", "image"]
-    ]
-  };
   const [currTitle, setCurrTitle] = useState(title);
   const [curContent, setCurContent] = useState(content);
 
@@ -178,20 +153,17 @@ const ProjectDetail = ({ title, content }: PropsInterface) => {
           <Hr />
         </HrWrapper>
       </TitleContainer>
-      <ContentContainer>
+      
         {editPage ? (
           <EditorWrapper>
-            <ReactQuill
-              style={{ height: "300px", width: "710px", marginLeft: "30px" }}
-              onChange={currContentHandle}
-              modules={modules}
-              value={curContent}
-            ></ReactQuill>
+            <Editor content={content}/>
           </EditorWrapper>
         ) : (
+          <ContentContainer>
           <Content>{projectContent}</Content>
+          </ContentContainer>
         )}
-      </ContentContainer>
+      
     </PortfolioContainer>
   );
 };

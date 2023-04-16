@@ -29,7 +29,7 @@ const ProjectDetailContainer = styled.div`
   box-sizing: border-box;
   padding: 40px 100px 20px 100px;
   min-height: 800px;
-  background-color: #222222;
+  //background-color: #222222;
   color: #eaeaea;
   border-radius: 20px;
   flex-direction: column;
