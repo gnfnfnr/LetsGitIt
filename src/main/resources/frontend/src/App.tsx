@@ -7,6 +7,7 @@ import EditProfile from "./pages/EditProfile";
 import Header from "./components/Header/Header";
 import MyPage from "./pages/MyPage";
 import TeamMatchingCreate from "./pages/TeamMatchingCreate";
+import Apply from "./pages/Apply";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/mypage/edit" element={<EditProfile />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/TeamMatchingCreate" element={<TeamMatchingCreate />} />
+        <Route path="/apply" element={<Apply />} />
       </Routes>
     </BrowserRouter>
   );

@@ -10,7 +10,8 @@ const Wrapper  = styled.div`
     align-items: center;
     justify-items: center;
     justify-content: center;
-`
+`;
+
 const Title = styled.input`
   border: none;
   border-bottom: solid 2px #b2b2b2;
