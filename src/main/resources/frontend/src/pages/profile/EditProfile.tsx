@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Select from "react-select";
 import regionData from "../../resource/regionData.json";
-import SelectLanguage from "./SelectLanguage";
+import SelectLanguage from "../../components/SelectLanguage";
 
 const EditProfileBox = styled.div`
   max-width: 1280px;

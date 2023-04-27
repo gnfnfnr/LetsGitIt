@@ -28,6 +28,7 @@ export default function Home() {
         <NavList>
           <NavBtn onClick={() => navigate("/received/messages")}>쪽지</NavBtn>
           <NavBtn onClick={() => navigate("/mypage/edit")}>프로필 수정</NavBtn>
+          <NavBtn onClick={() => navigate("/matching")}>팀매칭</NavBtn>
           <li>
             <NavBtn>
               <span onClick={() => setShowNotice(true)}>알림</span>

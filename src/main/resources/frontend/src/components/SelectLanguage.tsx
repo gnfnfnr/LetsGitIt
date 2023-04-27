@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
 import Select from "react-select";
-import languageData from "../../resource/languageData.json";
+import languageData from "../resource/languageData.json";
 
 const CustomSelect = styled(Select)`
   & .select__control {
