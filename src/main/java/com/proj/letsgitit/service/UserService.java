@@ -35,6 +35,8 @@ public class UserService implements OAuth2UserService {
         User member = saveOrUpdate(oAuth2User);
 
         session.setAttribute("oAuthToken", userRequest.getAccessToken().getTokenValue());
+        Map<String, Object> attributes = oAuth2User.getAttributes(); // OAuth 서비스의 유저 정보들
+
         return new DefaultOAuth2User(
                 Collections.singleton(new SimpleGrantedAuthority(member.getRole().getKey())),
                 oAuth2User.getAttributes(), "login");
