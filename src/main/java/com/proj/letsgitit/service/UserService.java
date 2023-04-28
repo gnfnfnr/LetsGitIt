@@ -29,13 +29,13 @@ public class UserService implements OAuth2UserService {
 
         DefaultOAuth2UserService service = new DefaultOAuth2UserService();
         OAuth2User oAuth2User = service.loadUser(userRequest);
-
+        System.out.println("oAuth2User : " + oAuth2User);
         User member = saveOrUpdate(oAuth2User);
 
         session.setAttribute("oAuthToken", userRequest.getAccessToken().getTokenValue());
 
         return new DefaultOAuth2User(
-                Collections.singleton(new SimpleGrantedAuthority(member.getRole())),
+                Collections.singleton(new SimpleGrantedAuthority(member.getRole().toString())),
                 oAuth2User.getAttributes(), "login");
         //nameAttributeKey = Principal name에 저장됨
     }
@@ -49,7 +49,9 @@ public class UserService implements OAuth2UserService {
                 .email(oAuth2User.getAttribute("email"))
                 .build();
 
-        User member = userRepository.findByLogin(oAuthMember.getLogin());
-        return userRepository.save(member);
+        //User member = userRepository.findByLogin(oAuthMember.getLogin());
+        User user = userRepository.save(oAuthMember);
+        System.out.println(user);
+        return user;
     }
 }

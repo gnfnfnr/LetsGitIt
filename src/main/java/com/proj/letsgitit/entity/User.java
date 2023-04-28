@@ -27,10 +27,10 @@ public class User {
     String name; //근데 이건 무슨 컬럼이지..? 일단 노션에 써있어서 넣음 -> 깃에서 레포 이름 가져올 때 객체명
 
     @Column(name="id")  //이건 깃이 부여한 id...? 아마도
-    Long id;
+    int id;
 
     @Column(name="html_url") //유저 깃 주소
-    URL htmlUrl;
+    String htmlUrl;
 
     @Column(name="blog")
     String blog;
@@ -98,8 +98,12 @@ public class User {
     @Column(name="lang5_skill")
     String lang5Skill;
 
+    @Column(name="role")
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     @Builder
-    public User(String login, String name, Long id, URL htmlUrl, String email) {
+    public User(String login, String name, int id, String htmlUrl, String email) {
         this.login = login;
         this.name = name;
         this.id = id;
