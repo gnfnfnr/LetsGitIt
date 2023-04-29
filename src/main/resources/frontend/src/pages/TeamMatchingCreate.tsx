@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Editor from "../components/Editor";
-import ProjectRoadmap from "../components/TeamMatchingCreate/ProjectRoadmap";
-import TeamStatus from "../components/TeamMatchingCreate/TeamStatus";
+import ProjectRoadmap from "../components/TeamMatching/TeamMatchingCreate/ProjectRoadmap";
+import TeamStatus from "../components/TeamMatching/TeamMatchingCreate/TeamStatus";
 
 const Wrapper  = styled.div`
     display; flex;
@@ -98,7 +98,7 @@ const TeamMatchingCreate = () => {
       </TitleContainer>
 
       <EditorWrapper>
-            <Editor content={content}/>
+            <Editor content={content} type="post"/>
     </EditorWrapper>
     <ProjectStatus>
         <p>프로젝트 팀원구성</p>

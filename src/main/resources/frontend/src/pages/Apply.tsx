@@ -7,11 +7,11 @@ const Wrapper  = styled.div`
     display; flex;
     flex-direction: column;
     align-items: center;
-    justify-items: center;
     justify-content: center;
     p{
         font-size: 36px;
         font-weight: 600;
+        margin-bottom: 30px;
         color: #EAEAEA;
     }
     button{
@@ -32,19 +32,30 @@ const Wrapper  = styled.div`
 
 const EditorWrapper = styled.div`
     display: flex;
+    margin-left: 100px;
+    margin-bottom: 170px;
 `;
 
 const PortfolioWrapper = styled.div`
     display: flex;
+    background-color: #222222;
+    margin-bottom: 170px;
+`;
+
+const Editcontainer = styled.div`
+    display: flex;
+    flex-direction: column;
 `;
 
 const Apply = () => {
     return(
         <Wrapper>
+            <Editcontainer>
             <p>지원서</p>
             <EditorWrapper>
-                <Editor content=""/>
+                <Editor content="" type="apply"/>
             </EditorWrapper>
+            </Editcontainer>
             <p>포트폴리오</p>
             <PortfolioWrapper>
             </PortfolioWrapper>

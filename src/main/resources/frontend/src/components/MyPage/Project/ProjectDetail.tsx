@@ -88,6 +88,7 @@ const EditorWrapper = styled.div`
   display: flex;
   background-color: black;
   padding: 0px 0px 5px 50px;
+  margin-bottom: 150px;
 `;
 
 interface PropsInterface {
@@ -156,7 +157,7 @@ const ProjectDetail = ({ title, content }: PropsInterface) => {
       
         {editPage ? (
           <EditorWrapper>
-            <Editor content={content}/>
+            <Editor content={content} type="project"/>
           </EditorWrapper>
         ) : (
           <ContentContainer>
