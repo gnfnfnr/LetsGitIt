@@ -9,8 +9,6 @@ const Wrapper = styled.div<{ isVisible: boolean }>`
     background-color: #333333;
     width: 145px;
     height: ${props => props.isVisible ? '210px' : '130px'};
-    //min-height: 130px;
-    //max-height: 210px;
     border-radius: 10px;
     align-items: center;
     justify-content: center;
