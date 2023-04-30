@@ -6,14 +6,17 @@ const Wrapper = styled.div`
     flex-direction: row;
     font-size: 12px;
     color: var(--color-sub-1);
-    .span{
+    span{
         color: var(--color-main-4);
+        margin-left: 5px;
     }
 `;
 
 const Container = styled.div`
     display: flex;
-    
+    &+&{
+        margin-left: 10px;
+    }
 `;
 const PostInfo = () => {
     const [views, setViews] = useState(1234);

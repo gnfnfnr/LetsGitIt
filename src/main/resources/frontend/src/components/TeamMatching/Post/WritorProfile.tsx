@@ -6,7 +6,8 @@ const Wrapper = styled.div`
     flex-direction: column;
     font-size: 12px;
     background-color: #333333;
-    
+    width: 145px;
+    height: 130px;
     border-radius: 10px;
 `;
 
