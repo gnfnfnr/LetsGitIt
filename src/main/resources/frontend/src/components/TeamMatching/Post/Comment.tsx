@@ -1,12 +1,18 @@
 import { useState } from "react";
 import styled from "styled-components";
 import basicProfile from "../../../styles/Icons/BasicProfile.png";
+import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs"
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 12px;
   color: var(--color-sub-1);
+  svg{
+      width: 12px;
+      height: 8px;
+      fill: var(--color-sub-1);
+  }
 `;
 
 const WriteCommentBox = styled.div`
@@ -62,7 +68,6 @@ const CommentBoxContainer = styled.div`
 const CommentBox = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
   margin-top: 20px;
   span{
       &.content{
@@ -115,6 +120,18 @@ const ContentContainer = styled.div`
   flex-direction: column;
 `;
 
+const ReplyContainer = styled.div`
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+`;
+
+const ReplyComment = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
 const PostComment = () => {
   const [commentNum, setCommentNum] = useState(2);
   const [user, setUser] = useState({
@@ -130,7 +147,12 @@ const PostComment = () => {
       username: "user1",
       content: "예시 댓글 어쩌고 저쩌고",
       time: "2023.03.28 12:01",
-      reply: []
+      reply: [{
+        //profileImg: img,
+        username: "user1",
+        content: "대댓글",
+        time: "2023.03.28 12:05"
+      },]
     },
     {
       //profileImg: img,
@@ -141,12 +163,23 @@ const PostComment = () => {
         {
           //profileImg: img,
           username: "user1",
-          content: "대댓글",
+          content: "대댓글11",
           time: "2023.03.28 12:05"
-        }
+        },
+        {
+            //profileImg: img,
+            username: "user1",
+            content: "대댓글22",
+            time: "2023.03.28 12:05"
+          },
       ]
     }
   ]);
+  const [showReply, setShowReply] = useState(true);
+  const onClickReply = () => {
+    setShowReply(!showReply);
+  }
+ 
   return (
     <Wrapper>
     <Top>
@@ -174,9 +207,28 @@ const PostComment = () => {
               <CommentBottom>
                 <span>답글쓰기</span>
                 {comment.reply.length > 0 ? (
-                  <span> 답글 {comment.reply.length} 개</span>
+                  <ReplyContainer onClick={onClickReply}> 
+                      답글 {comment.reply.length} 개 <BsFillCaretDownFill/> 
+                    </ReplyContainer>
                 ) : ( "" )}
-              </CommentBottom>
+                </CommentBottom>
+                {showReply && 
+                comment.reply.map((item) => (
+ 
+                    <CommentBox>
+                        <Avatar src={basicProfile} />
+                        <ContentContainer>
+                        <CommentTop>
+                            <span className="username">{item.username}</span>
+                            <span className="time">{item.time}</span>
+                        </CommentTop>
+                        <span className="content">{item.content}</span>
+                        </ContentContainer>
+                    </CommentBox>
+                    
+                ))
+                }
+              
             </ContentContainer>
           </CommentBox>
         ))}
