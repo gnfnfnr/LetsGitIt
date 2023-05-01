@@ -21,7 +21,7 @@ const CardContainer = styled.div`
 const Title = styled.div`
   padding: 20px 0 15px 20px;
   font-size: 18px;
-  color: #eaeaea;
+  color: var(--color-sub-1);
   font-weight: 500;
 `;
 
@@ -73,9 +73,9 @@ const PostInfoContainer = styled.div`
   padding: 8px 10px 8px 10px;
   box-sizing: border-box;
   border-radius: 10px;
-  background-color: #222222;
+  background-color: var(--color-sub-2);
   border: none;
-  color: #eaeaea;
+  color: var(--color-sub-1);
   justify-content: space-between;
   align-items: center;
   position: absolute;
@@ -118,10 +118,10 @@ const CommentInput = styled.input`
   width: 400px;
   min-height: 50px;
   border-radius: 20px;
-  background-color: #eaeaea;
+  background-color: var(--color-sub-1);
   box-sizing: border-box;
   padding: 2px 5px 2px 15px;
-  color: #222222;
+  color: var(--color-sub-2);
 `;
 
 interface props {

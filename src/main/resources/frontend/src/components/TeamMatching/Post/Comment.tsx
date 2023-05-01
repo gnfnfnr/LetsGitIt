@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   font-size: 12px;
   color: var(--color-sub-1);
+  margin-bottom: 30px;
   svg{
       width: 12px;
       height: 8px;
@@ -20,7 +21,7 @@ const WriteCommentBox = styled.div`
   flex-direction: row;
   width: 732px;
   height: 75px;
-  background-color: #333333;
+  background-color: var(--color-sub-4);
   padding: 10px;
   box-sizing: border-box;
   border-radius: 10px;
@@ -127,11 +128,6 @@ const ReplyContainer = styled.div`
   cursor: pointer;
 `;
 
-const ReplyComment = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
-
 const PostComment = () => {
   const [commentNum, setCommentNum] = useState(2);
   const [user, setUser] = useState({
@@ -179,6 +175,12 @@ const PostComment = () => {
   const onClickReply = () => {
     setShowReply(!showReply);
   }
+  const [commentInput, setCommentInput] = useState("");
+
+  const onHandleCommentInput = (event : React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    setCommentInput(event.target.value);
+  }
  
   return (
     <Wrapper>
@@ -190,7 +192,11 @@ const PostComment = () => {
         <Avatar src={basicProfile} />
         <CommentInputContainer>
             <span>{user.username}</span>
-            <CommentInput placeholder="댓글로 프로젝트에 대해서 문의해보세요" />
+            <CommentInput 
+                value={commentInput}
+                onChange={onHandleCommentInput}
+                placeholder="댓글로 프로젝트에 대해서 문의해보세요" 
+            />
         </CommentInputContainer>
       </WriteCommentBox>
 

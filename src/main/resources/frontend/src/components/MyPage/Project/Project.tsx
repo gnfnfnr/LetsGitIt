@@ -25,14 +25,14 @@ const ProjectItem = styled.div<ProjectItemProps>`
   height: 200px;
   padding: 15px;
   box-sizing: border-box;
-  border: solid 2px #b2b2b2;
+  border: solid 2px var(--color-sub-3);
   border-radius: 10px;
   flex-direction: column;
   position: relative;
   p {
     margin: 0px 0px 15px 0px;
     font-size: 20px;
-    color: #f9d5a2;
+    color: var(--color-main-4);
   }
   span {
     margin-top: 0;
@@ -44,7 +44,7 @@ const ProjectItem = styled.div<ProjectItemProps>`
     `
     &:hover {
       border: none;
-      background-color: #333333;
+      background-color: var(--color-sub-4);;
       cursor: pointer;
     }
   `}
@@ -70,7 +70,7 @@ const Setting = styled(IoMdSettings)`
   height: 21px;
   width: 20px;
   justify-content: right;
-  fill: #eaeaea;
+  fill: var(--color-sub-1);
   cursor: pointer;
   margin-right: 50px;
 `;
@@ -110,15 +110,15 @@ const Button = styled.button<Props>`
   align-items: center;
   align-content: center;
   border-radius: 10px;
-  color: #222222;
+  color: var(--color-sub-2);
   background-color: ${(props) => props.backgroundColor};
 `;
 
 const ImportButton = styled.button`
   height: 81px;
   width: 382px;
-  border: 2px solid #f9d5a2;
-  color: #f9d5a2;
+  border: 2px solid var(--color-main-4);
+  color: var(--color-main-4);
   font-size: 24px;
   font-weight: 600;
   text-align: center;
@@ -142,12 +142,14 @@ interface ProjectProps {
   selectedProject: ProjectItemInterface[];
   handleProjectClick: (id: number) => void;
   removeProject: (id: number) => void;
+  reloadPortfolio: () => void;
 }
 
 const Project = ({
   selectedProject,
   handleProjectClick,
-  removeProject
+  removeProject,
+  reloadPortfolio
 }: ProjectProps) => {
   const [settingMode, setSettingMode] = useState(false);
 
@@ -172,16 +174,23 @@ const Project = ({
     removeProject(id);
   };
 
+  const [view, setView] = useState(false);
+
+  const onClick = () => {
+    setView(true);
+    reloadPortfolio();
+  }
+
   return (
     <Wrapper>
       <Top>
         <p>{selectedProject.length} Projects </p>
         {settingMode ? (
           <ButtonContainer>
-            <Button onClick={onCancel} backgroundColor="#B2B2B2">
+            <Button onClick={onCancel} backgroundColor="var(--color-sub-3)">
               취소
             </Button>
-            <Button backgroundColor="#F9D5A2">완료</Button>
+            <Button backgroundColor="var(--color-main-4)">완료</Button>
           </ButtonContainer>
         ) : (
           <Setting onClick={handleSettingMode} />
@@ -207,7 +216,7 @@ const Project = ({
       </ProjectItems>
       {settingMode && (
         <ImportButtonContainer>
-          <ImportButton>깃허브에서 프로젝트 가져오기</ImportButton>
+          <ImportButton onClick={onClick}>깃허브에서 프로젝트 가져오기</ImportButton>
         </ImportButtonContainer>
       )}
     </Wrapper>

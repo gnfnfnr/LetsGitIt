@@ -80,7 +80,7 @@ const ProgressBar = styled.div<ProgressBarProps>`
     top: 50%;
     transform: translateY(-50%);
     height: 2px;
-    background-color: #B2B2B2;
+    background-color: var(--color-sub-3);
     width: 100%;
   }
   &::after {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import styled from "styled-components";
 import { ReactComponent as ProjectIcon } from "../../styles/Icons/ImportProjectIcon.svg";
 import PortfolioComplete from "./PortfolioComplete";
@@ -12,8 +12,7 @@ const Wrapper = styled.div`
   height: 350px;
   border-radius: 20px;
   padding: 20px;
-
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 `;
 
 const Button = styled.button`
@@ -24,13 +23,13 @@ const Button = styled.button`
   font-weight: 550;
   padding: 12px;
   margin-top: 70px;
-  border: solid 2px #f9d5a2;
+  border: solid 2px var(--color-main-4);
   border-radius: 60px;
-  color: #f9d5a2;
+  color: var(--color-main-4);
 `;
 
 const ImportProjectIcon = styled(ProjectIcon)`
-  margin: 150px 0 100px 0;
+  margin: 150px 0 50px 0;
   cursor: pointer;
   &.hide {
     display: none;
@@ -51,7 +50,7 @@ const ProjectItem = styled.div`
   width: 400px;
   height: 120px;
   box-sizing: border-box;
-  border: solid 2px #b2b2b2;
+  border: solid 2px var(--color-sub-3);
   border-radius: 10px;
   flex-direction: column;
   flex-basis: calc(33.333% - 30px);
@@ -59,17 +58,18 @@ const ProjectItem = styled.div`
     margin-top: 0px;
     margin-bottom: 5px;
     font-size: 20px;
-    color: #f9d5a2;
+    color: var(--color-main-4);
   }
   span {
     margin-top: 0;
     font-size: 18px;
     color: white;
   }
-  &.selected {
+  :hover, &.selected {
     border: none;
-    background-color: #333333;
+    background-color: var(--color-sub-4);
   }
+  
   margin-right: 30px;
   & ~ & {
     margin-right: 30px;
@@ -165,6 +165,11 @@ const Portfolio = () => {
     setSelectedProject(updatedProjects);
   };
 
+
+  function onClickReload() {
+   
+  }
+
   return (
     <Wrapper>
       {!isDone && (
@@ -200,6 +205,7 @@ const Portfolio = () => {
         <PortfolioComplete
           selectedProject={selectedProject}
           onRemoveSelectedProject={onRemoveSelectedProject}
+          onClickReload={onClickReload}
         />
       )}
     </Wrapper>

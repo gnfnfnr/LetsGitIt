@@ -12,10 +12,11 @@ const PortfolioContainer = styled.div`
   width: 1000px;
   box-sizing: border-box;
   padding: 40px 100px 20px 100px;
-  background-color: #222222;
-  color: #eaeaea;
+  background-color: var(--color-sub-2);
+  color: var(--color-sub-1);
   border-radius: 20px;
   flex-direction: column;
+  margin-bottom: 100px;
 `;
 
 const UserProfileContainer = styled.div`
@@ -23,14 +24,14 @@ const UserProfileContainer = styled.div`
   flex: 1;
 `;
 
-const ProjectDetailContainer = styled.div`
+const ProjectDetailContainer = styled.div<{ backgroundColor: boolean }>`
   display: flex;
   width: 1000px;
   box-sizing: border-box;
   padding: 40px 100px 20px 100px;
   min-height: 800px;
-  //background-color: #222222;
-  color: #eaeaea;
+  background-color: ${props => props.backgroundColor ? 'var(--color-sub-2)' : 'none'};
+  color: var(--color-sub-1);
   border-radius: 20px;
   flex-direction: column;
   height: 1100px;
@@ -88,14 +89,21 @@ interface ProjectItemInterface {
 interface PortfolioCompleteProps {
   selectedProject: ProjectItemInterface[];
   onRemoveSelectedProject: (id: number) => void;
+  onClickReload: () => void;
 }
 
 const PortfolioComplete = ({
   selectedProject,
-  onRemoveSelectedProject
+  onRemoveSelectedProject,
+  onClickReload
 }: PortfolioCompleteProps) => {
   const [showDetail, setShowDetail] = useState(false);
   const [onClickProject, setOnClickProject] = useState<ProjectItemInterface>();
+  const [backgroundColor, setBackgroundColor] = useState(true);
+
+  const removeBackgroundColor = () => {
+    setBackgroundColor(!backgroundColor);
+  }
 
   const goBack = () => {
     setShowDetail(false);
@@ -110,14 +118,20 @@ const PortfolioComplete = ({
     onRemoveSelectedProject(id);
   };
 
+  const reloadPortfolio = () =>{
+    onClickReload();
+  }
+
   return (
     <>
       {showDetail ? (
-        <ProjectDetailContainer>
+        <ProjectDetailContainer 
+          backgroundColor={ backgroundColor ? true : false}>
           <Back onClick={goBack} />
           <ProjectDetail
             title={onClickProject?.title || ""}
             content={onClickProject?.content || ""}
+            removeBackgroundColor={removeBackgroundColor}
           />
         </ProjectDetailContainer>
       ) : (
@@ -143,6 +157,7 @@ const PortfolioComplete = ({
                 selectedProject={selectedProject}
                 handleProjectClick={handleProjectClick}
                 removeProject={removeProject}
+                reloadPortfolio={reloadPortfolio}
               />
             </ProjectContainer>
           </BottomContainer>

@@ -10,22 +10,22 @@ const QuillWrapper = styled.div`
 const EditorWrapper = styled.div`
   .ql-toolbar {
     box-sizing: border-box;
-    background-color: #222222;
+    background-color: var(--color-sub-2);
     width: 745px;
     height: 60px;
     display: flex;
     align-items: center;
 
     button svg {
-      fill: #eaeaea !important;
+      fill: var(--color-sub-1) !important;
     }
 
     button:hover svg {
-      fill: #f9d5a2 !important;
+      fill: var(--color-main-4) !important;
     }
 
     &:hover {
-      color: #f9d5a2 !important;
+      color: var(--color-main-4) !important;
     }
   }
 
@@ -40,44 +40,44 @@ const EditorWrapper = styled.div`
   .ql-editor {
     box-sizing: border-box;
     margin-top: 40px;
-    background-color: #222222;
+    background-color: var(--color-sub-2);
     font-size: 15px;
     line-height: 1.5;
     padding: 30px;
-    color: #B2B2B2;
+    color: var(--color-sub-3);
 
     &.ql-blank::before {
-      color: #B2B2B2;
+      color: var(--color-sub-3);
     }
   }
 
   .ql-toolbar .ql-stroke {
     fill: none;
-    stroke: #B2B2B2;
+    stroke: var(--color-sub-3);
   }
 
   .ql-toolbar .ql-fill {
-    fill: #B2B2B2;
+    fill: var(--color-sub-3);
     stroke: none;
   }
 
   .ql-toolbar .ql-picker {
-    color: #B2B2B2;
+    color: var(--color-sub-3);
   }
 
   .ql-snow.ql-toolbar .ql-formats button:hover {
-    fill: #f9d5a2;
+    fill: var(--color-main-4);
     z-index: 10;
   }
 
   .ql-snow.ql-toolbar button.ql-active .ql-fill,
   .ql-snow.ql-toolbar button:hover .ql-fill {
-    fill: #f9d5a2;
+    fill: var(--color-main-4);
   }
 
   .ql-snow.ql-toolbar button.ql-active .ql-stroke,
   .ql-snow.ql-toolbar button:hover .ql-stroke {
-    stroke: #f9d5a2;
+    stroke: var(--color-main-4);
   }
 `;
 

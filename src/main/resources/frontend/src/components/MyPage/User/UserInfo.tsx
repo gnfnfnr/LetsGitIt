@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   width: 510px;
   box-sizing: border-box;
   background-color: #222222;
-  color: #b2b2b2;
+  color: var(--color-sub-3);
   padding: 40px 20px 20px 25px;
   border-radius: 20px;
   justify-content: flex-start;
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 `;
 
 const EmailIcon = styled(AiTwotoneMail)`
-  fill: #b2b2b2;
+  fill: var(--color-sub-3);
   margin-right: 5px;
 `;
 
@@ -27,14 +27,14 @@ const Button = styled.button`
   align-items: center;
   height: 15px;
   width: 80%;
-  background-color: #b2b2b2;
+  background-color: var(--color-sub-3);
   color: black;
   svg {
     margin-right: 8px;
   }
   :hover {
     background-color: #222222;
-    color: #b2b2b2;
+    color: var(--color-sub-3);
   }
 `;
 

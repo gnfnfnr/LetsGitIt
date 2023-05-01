@@ -26,7 +26,7 @@ const NavStyle = styled(NavLink)`
   text-decoration: none;
 
   &.active {
-    background: linear-gradient(to right, #9734dd, #f9d5a2 70%);
+    background: linear-gradient(to right, #9734dd, var(--color-main-4) 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration: none;
@@ -35,7 +35,6 @@ const NavStyle = styled(NavLink)`
 
 const InfoContainer = styled.div`
   display: flex;
-
   margin: 0 60px 0 30px;
   button {
     font-size: 17px;
@@ -48,7 +47,7 @@ const InfoContainer = styled.div`
 
     :hover {
       text-decoration: underline;
-      text-decoration-color: #f9d5a2;
+      text-decoration-color: var(--color-main-4);
       text-decoration-thickness: 2px;
       text-underline-offset: 3px;
     }
@@ -59,7 +58,7 @@ const Dot = styled.div`
   display: inline-block;
   width: 12px;
   height: 12px;
-  background: #f9d5a2;
+  background: var(--color-main-4);
   border-radius: 10px;
   position: relative;
   top: -18px;

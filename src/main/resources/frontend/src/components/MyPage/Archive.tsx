@@ -10,7 +10,7 @@ const ArchieveWapper = styled.div`
   min-height: 350px;
   display: flex;
   border-radius: 20px;
-  background-color: #222222;
+  background-color: var(--color-sub-2);
   color: white;
   flex-direction: column;
   padding: 20px;

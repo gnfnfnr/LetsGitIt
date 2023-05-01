@@ -6,7 +6,7 @@ const Wrapper = styled.div<{ isVisible: boolean }>`
     display: flex;
     flex-direction: column;
     font-size: 12px;
-    background-color: #333333;
+    background-color: var(--color-sub-4);
     width: 145px;
     height: ${props => props.isVisible ? '210px' : '130px'};
     border-radius: 10px;
@@ -22,6 +22,7 @@ const Username = styled.div`
     text-align: center;
     color: var(--color-sub-1);
     border-radius: 10px;
+    cursor: pointer;
     background-color: var(--color-sub-2);
     &:hover{
         color: var(--color-sub-3);

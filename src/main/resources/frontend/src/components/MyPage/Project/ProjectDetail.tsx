@@ -15,7 +15,7 @@ const Button = styled.button`
   padding: 10px;
   border: none;
   border-radius: 10px;
-  color: #222222;
+  color: var(--color-sub-2);
   font-size: 16px;
   font-weight: 600;
   z-index: 1;
@@ -34,8 +34,8 @@ const ButtonContainer = styled.div`
 
 const Title = styled.input`
   border: none;
-  border-bottom: solid 2px #b2b2b2;
-  color: #eaeaea;
+  border-bottom: solid 2px var(--color-sub-3);
+  color: var(--color-sub-1);
   padding: 5px 5px 5px 50px;
   font-size: 32px;
   position: relative;
@@ -44,18 +44,17 @@ const Title = styled.input`
 
 const Hr = styled.hr`
   border: none;
-  border-top: 2px solid #b2b2b2;
+  border-top: 2px solid var(--color-sub-3);
 `;
 
 const HrWrapper = styled.div`
   display: flex;
   flex: 1;
-  border-top: 2px solid #b2b2b2;
+  border-top: 2px solid var(--color-sub-3);
 `;
 
 const TitleContainer = styled.div`
   display: flex;
-  //background-color: #222222;
   color: white;
   padding: 5px 5px 0px 50px;
   font-size: 32px;
@@ -67,7 +66,7 @@ const TitleContainer = styled.div`
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #222222;
+  background-color: var(--color-sub-2);
   color: white;
   padding: 5px 5px 5px 50px;
   font-size: 32px;
@@ -78,10 +77,12 @@ const ContentContainer = styled.div`
 
 const Content = styled.div`
   border: none;
-  background-color: #222222;
+  background-color: var(--color-sub-2);
   color: white;
   font-size: 15px;
   padding: 5px 5px 5px 50px;
+  margin-top: 20px;
+  
 `;
 
 const EditorWrapper = styled.div`
@@ -94,18 +95,20 @@ const EditorWrapper = styled.div`
 interface PropsInterface {
   title: string;
   content: string;
+  removeBackgroundColor: () => void;
 }
 
-const ProjectDetail = ({ title, content }: PropsInterface) => {
+const ProjectDetail = ({ title, content, removeBackgroundColor }: PropsInterface) => {
   const [projectTitle, setProjectTitle] = useState<string>(title);
   const [projectContent, setProjectContent] = useState<string>(content);
-  const [isEditMode, setIsEditMode] = useState<boolean>(true); //User일 때
-  const [editPage, setEditPage] = useState<boolean>(false);
+  const [isUser, setIsUser] = useState<boolean>(true); //User일 때
+  const [isEditMode, setIsEditMode] = useState<boolean>(false); 
   const [currTitle, setCurrTitle] = useState(title);
   const [curContent, setCurContent] = useState(content);
 
   const onEditButton = () => {
-    setEditPage(true);
+    setIsEditMode(true);
+    removeBackgroundColor();
   };
 
   const currTitleHandle = (e: any) => {
@@ -114,7 +117,10 @@ const ProjectDetail = ({ title, content }: PropsInterface) => {
   };
 
   const onExitEditPage = () => {
-    setEditPage(false);
+    setIsEditMode(false);
+    removeBackgroundColor();
+    //setCurrTitle(title);
+    //setCurContent(content);
   };
 
   const onSubmitEdit = () => {};
@@ -126,22 +132,22 @@ const ProjectDetail = ({ title, content }: PropsInterface) => {
 
   return (
     <PortfolioContainer>
-      {isEditMode ? (
+      {isUser ? (
         <ButtonContainer>
-          <Button onClick={onEditButton} style={{ backgroundColor: "#F9D5A2" }}>
+          <Button onClick={onEditButton} style={{ backgroundColor: "var(--color-main-4)" }}>
             수정하기
           </Button>
         </ButtonContainer>
-      ) : null}
-      {editPage ? (
+      ) : ""}
+      {isEditMode ? (
         <ButtonContainer>
           <Button
-            style={{ backgroundColor: "#B2B2B2" }}
+            style={{ backgroundColor: "var(--color-sub-3)" }}
             onClick={onExitEditPage}
           >
             나가기
           </Button>
-          <Button style={{ backgroundColor: "#F9D5A2" }}>저장하기</Button>
+          <Button style={{ backgroundColor: "var(--color-main-4)" }}>저장하기</Button>
         </ButtonContainer>
       ) : null}
       <TitleContainer>
@@ -154,8 +160,7 @@ const ProjectDetail = ({ title, content }: PropsInterface) => {
           <Hr />
         </HrWrapper>
       </TitleContainer>
-      
-        {editPage ? (
+        {isEditMode ? (
           <EditorWrapper>
             <Editor content={content} type="project"/>
           </EditorWrapper>

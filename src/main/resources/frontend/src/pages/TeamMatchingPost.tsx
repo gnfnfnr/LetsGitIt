@@ -9,21 +9,39 @@ import ProjectTeamMember from "../components/TeamMatching/Post/ProjectTeamMember
 import ProjectMethod from "../components/TeamMatching/Post/ProjectMethod";
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 4fr 2fr;
-  grid-template-rows: 1fr 4fr 4fr;
-  padding: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
 `;
 
+const PostBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: var(--color-sub-2);
+  border-radius: 20px;
+  width: 1200px;
+  justify-content: center;
+`;
+const Middle = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+`;
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 const ProfileContainer = styled.div`
-  display: grid;
-  grid-row: span 3;
+  display: flex;
+  flex: 1;
   padding: 0 20px 0 20px;
 `;
 
 const ContentContainer = styled.div`
   display: grid;
   padding: 0 20px 0 20px;
+  align-items: start;
 `;
 
 const CommentContainer = styled.div`
@@ -33,14 +51,19 @@ const CommentContainer = styled.div`
 
 const ProjectInfoContainer = styled.div`
   display: flex;
+  flex: 3;
+  width: 300px;
   flex-direction: column;
-  grid-row: span 3;
   padding: 0 20px 0 20px;
-  
+`;
+
+const Head = styled.div`
+  display: inline-flex;
+  margin-top: 40px;
+  margin-bottom: 20px;
 `;
 
 const GoBack = styled.div`
-  grid-column: span 3;
   padding: 0 20px 0 20px;
   color: var(--color-sub-1);
   font-size: 16px;
@@ -57,7 +80,7 @@ const ButtonContainer = styled.div`
   flex-direction: row;
   margin-bottom: 40px;
   align-items: left;
-  button{
+  button {
     cursor: pointer;
     font-size: 15px;
     font-weight: 500;
@@ -67,7 +90,7 @@ const ButtonContainer = styled.div`
     margin-right: 10px;
     border-radius: 10px;
 
-    svg{
+    svg {
       width: 11px;
       height: 12px;
       fill: var(--color-sub-4);
@@ -79,10 +102,10 @@ const BookMarkButton = styled.button`
   color: var(--color-sub-2);
   background-color: var(--color-sub-1);
   width: 88px;
-  &.marked{
+  &.marked {
     color: var(--color-sub-1);
     background-color: var(--color-sub-2);
-    svg{
+    svg {
       width: 13px;
       height: 12px;
       fill: var(--color-sub-1);
@@ -96,41 +119,55 @@ const StateButton = styled.button`
   width: 97px;
 `;
 
-
 const TeamMatchingPost = () => {
-    const [processState, setProcessState] = useState(true); //false = 모집완료
-    const [bookMark, setBookMark] = useState(false);
+  const [processState, setProcessState] = useState(true); //false = 모집완료
+  const [bookMark, setBookMark] = useState(false);
 
-    const handleClickBookMark = () => {
-      setBookMark(!bookMark);
-    }
+  const handleClickBookMark = () => {
+    setBookMark(!bookMark);
+  };
 
-    return (
-        <Wrapper>
-            <GoBack><BiArrowBack/>목록</GoBack>
-            <ProfileContainer>
-                <WritorProfile />
-            </ProfileContainer>
+  return (
+    <Wrapper>
+      <PostBox>
+        <Head>
+          <GoBack>
+            <BiArrowBack />
+            목록
+          </GoBack>
+        </Head>
+        <ContentWrapper>
+          <ProfileContainer>
+            <WritorProfile />
+          </ProfileContainer>
+          <Middle>
             <ContentContainer>
-                <PostContent />
+              <PostContent />
             </ContentContainer>
-            <ProjectInfoContainer>
-            <ButtonContainer>
-  <StateButton >{processState ? "모집 진행중" : "모집 완료"}</StateButton>
-  <BookMarkButton 
-  className={ bookMark ? "marked" : ""}
-  onClick={handleClickBookMark}> 스크랩 { bookMark ? <BsCheckLg /> : <BsFillBookmarkFill/> } </BookMarkButton>
- </ButtonContainer>
-
-                <ProjectMethod />
-                <ProjectTeamMember/>
-            </ProjectInfoContainer>
             <CommentContainer>
-                <Comment />
+              <Comment />
             </CommentContainer>
-            
-        </Wrapper>
-    )
-}
+          </Middle>
+          <ProjectInfoContainer>
+            <ButtonContainer>
+              <StateButton>
+                {processState ? "모집 진행중" : "모집 완료"}
+              </StateButton>
+              <BookMarkButton
+                className={bookMark ? "marked" : ""}
+                onClick={handleClickBookMark}
+              >
+                스크랩 {bookMark ? <BsCheckLg /> : <BsFillBookmarkFill />}
+              </BookMarkButton>
+            </ButtonContainer>
+
+            <ProjectMethod />
+            <ProjectTeamMember />
+          </ProjectInfoContainer>
+        </ContentWrapper>
+      </PostBox>
+    </Wrapper>
+  );
+};
 
 export default TeamMatchingPost;

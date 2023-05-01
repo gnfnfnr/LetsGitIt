@@ -14,8 +14,8 @@ const Wrapper  = styled.div`
 
 const Title = styled.input`
   border: none;
-  border-bottom: solid 2px #b2b2b2;
-  color: #eaeaea;
+  border-bottom: solid 2px var(--color-sub-3);
+  color: var(--color-sub-1);
   padding: 5px 5px 5px 50px;
   font-size: 32px;
   position: relative;
@@ -24,14 +24,14 @@ const Title = styled.input`
 
 const Hr = styled.hr`
   border: none;
-  border-top: 2px solid #b2b2b2;
+  border-top: 2px solid var(--color-sub-3);
   width: 80%;
 `;
 
 const HrWrapper = styled.div`
   display: flex;
   flex: 1;
-  border-top: 2px solid #b2b2b2;
+  border-top: 2px solid var(--color-sub-3);
   width: 100%;
 `;
 const TitleContainer = styled.div`
@@ -49,23 +49,22 @@ const EditorWrapper = styled.div`
   display: flex;
   background-color: black;
   padding: 0px 0px 5px 50px;
+  height: 800px;
 `;
 
 const ProjectStatus = styled.div`
   height: 65px;
   display: flex;
-  background-color: #222222;
+  background-color: var(--color-sub-2);
   align-items: center;
-  border-top: 2px solid #B2B2B2;
+  border-top: 2px solid var(--color-sub-3);
   padding: 0 0 0 30px;
   margin-top: 40px;
   p{
     font-size: 20px;
     font-weight: 550;
-    color: #EAEAEA;
-    & + & {
-        margin-right: 400px;
-    } 
+    color: var(--color-sub-1);
+    margin-right: 200px;
   }
 `;
 
@@ -73,6 +72,7 @@ const ProjectStatusContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 
 `;
 
@@ -101,8 +101,8 @@ const TeamMatchingCreate = () => {
             <Editor content={content} type="post"/>
     </EditorWrapper>
     <ProjectStatus>
-        <p>프로젝트 팀원구성</p>
-        <p>프로젝트 진행방식</p>
+        <p>• 프로젝트 팀원구성</p>
+        <p>• 프로젝트 진행방식</p>
     </ProjectStatus>
     <ProjectStatusContainer>
         <TeamStatus />

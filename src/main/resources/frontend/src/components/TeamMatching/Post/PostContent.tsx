@@ -18,14 +18,17 @@ const Top = styled.div`
     text-align: left;
     font-size: 13px;
     margin-bottom: 30px;
-    h2{
+    p{
         font-size: 32px;
+        font-weight: 500;
         margin-bottom: 10px;
+        margin-top: 0;
     }
 `;
 
 const ContentContainer = styled.div`
     text-align: left;
+    margin-bottom: 30px;
 `;
 
 const InfoContainer = styled.div`
@@ -60,7 +63,7 @@ const PostContent = () => {
     return (
         <Wrapper>
             <Top>
-                <h2>{title}</h2>
+                <p>{title}</p>
                 <InfoContainer>
                 {date}
             <PostInfo />

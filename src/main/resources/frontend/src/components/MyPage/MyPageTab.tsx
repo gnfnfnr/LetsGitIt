@@ -33,14 +33,14 @@ const TabList = styled.div<TabListProps>`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  color: #b2b2b2;
+  color: var(--color-sub-3);
   font-size: 24px;
   font-weight: 600;
   border: none;
   cursor: pointer;
   &.active {
     color: black;
-    background-color: #f9d5a2;
+    background-color: var(--color-main-4);
   }
   & + & {
     margin-left: 10px;
@@ -50,7 +50,7 @@ const TabList = styled.div<TabListProps>`
 const ProfileComment = styled.div`
   display: flex;
   align-items: center;
-  color: #f9d5a2;
+  color: var(--color-main-4);
   position: absolute;
   top: -4px;
   left: -40px;
@@ -64,7 +64,7 @@ const ArchiveComment = styled.div`
   display: flex;
   align-items: center;
   position: absolute;
-  color: #f9d5a2;
+  color: var(--color-main-4);
   right: -130px;
   top: 18px;
   width: 500px;

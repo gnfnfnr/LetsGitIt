@@ -7,14 +7,14 @@ const Wrapper = styled.div`
   flex-direction: column;
   p {
     font-size: 20px;
-    color: #eaeaea;
+    color: var(--color-sub-1);
     font-weight: 550;
     margin-bottom: 10px;
   }
 `;
 
 const Label = styled.label`
-  background-color: #333333;
+  background-color: var(--color-sub-4);
   border-radius: 10px;
   margin-top: 5px;
   padding: 10px 7px 10px 7px;
@@ -28,12 +28,12 @@ const Label = styled.label`
   }
 `;
 const RadioButton = styled.input`
-  background-color: #333333;
+  background-color: var(--color-sub-4);
   appearance: none;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 3px solid #eaeaea;
+  border: 3px solid var(--color-sub-1);
   margin-right: 10px;
   position: relative;
   outline: none;
@@ -49,7 +49,7 @@ const RadioButton = styled.input`
     width: 80%;
     height: 80%;
     border-radius: 50%;
-    background-color: #f9d5a2;
+    background-color: var(--color-main-4);
     opacity: 0;
     transition: all 0.2s ease-in-out;
   }
@@ -62,7 +62,7 @@ const RadioButton = styled.input`
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
-  color: #eaeaea;
+  color: var(--color-sub-1);
   label {
     margin: 5px 0;
   }
@@ -74,14 +74,14 @@ const ButtonContainer = styled.div`
     appearance: none;
     width: 20px;
     height: 20px;
-    border: 3px solid #eaeaea;
+    border: 3px solid var(--color-sub-1);
     border-radius: 50%;
     outline: none;
     transition: all 0.3s ease-in-out;
 
     &:checked {
-      border-color: #f9d5a2;
-      background-color: #333333;
+      border-color: var(--color-main-4);
+      background-color: var(--color-sub-4);
     }
   }
 `;

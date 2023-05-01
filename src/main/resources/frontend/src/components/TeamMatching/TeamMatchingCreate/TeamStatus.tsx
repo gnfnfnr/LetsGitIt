@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   p {
     font-size: 20px;
-    color: #eaeaea;
+    color: var(--color-sub-1);
     font-weight: 550;
     margin-bottom: 10px;
   }
