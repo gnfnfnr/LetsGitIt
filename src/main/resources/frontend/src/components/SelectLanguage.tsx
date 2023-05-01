@@ -37,7 +37,6 @@ const RangeInput = styled.input`
   height: 13px;
   width: 100%;
   cursor: pointer;
-  // background: rgba(255, 255, 255, 0.5);
   background: ;
   border-radius: 10px;
   overflow: hidden;
@@ -47,7 +46,6 @@ const RangeInput = styled.input`
   z-index: 5;
 
   &::-webkit-slider-runnable-track {
-    // background: linear-gradient(90deg, #7c08ed 0%, #f9d5a2 100%);
     z-index: 10;
   }
 
@@ -100,7 +98,7 @@ const RangeBackGround = styled.div<{ range: string }>`
   position: absolute;
   z-index: 1;
   transform: translateY(-50%);
-  background: linear-gradient(90deg, #7c08ed 0%, #f9d5a2 100%);
+  background: linear-gradient(90deg, #7c08ed 0%, var(--color-main-4) 100%);
   border-radius: 10px;
 `;
 
