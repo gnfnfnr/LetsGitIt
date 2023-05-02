@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { BiArrowBack } from "react-icons/bi";
 import { BsFillBookmarkFill, BsCheckLg } from "react-icons/bs";
 import styled from "styled-components";
 import PostContent from "../components/TeamMatching/Post/PostContent";
@@ -63,8 +62,6 @@ const Head = styled.div`
   margin-top: 40px;
   margin-bottom: 20px;
 `;
-
-
 
 const ButtonContainer = styled.div`
   display: flex;

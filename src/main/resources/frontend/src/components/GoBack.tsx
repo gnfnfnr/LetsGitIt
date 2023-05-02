@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import styled from "styled-components";
 
@@ -16,12 +15,12 @@ const Wrapper = styled.div`
 `;
 
 const GoBack = () => {
-    
-    return(
+  return (
     <Wrapper>
-        <BiArrowBack />
-        목록
-      </Wrapper>)
-}
+      <BiArrowBack />
+      목록
+    </Wrapper>
+  );
+};
 
 export default GoBack;
