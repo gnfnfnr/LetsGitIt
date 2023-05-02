@@ -7,7 +7,7 @@ import Messages from "./pages/mail/Messages";
 import Chatting from "./pages/mail/Chatting";
 import Received from "./pages/mail/Received";
 import Applications from "./pages/mail/Applications";
-import Matching from "./pages/Matching";
+import Matching from "./pages/match/Matching";
 
 function App() {
   return (

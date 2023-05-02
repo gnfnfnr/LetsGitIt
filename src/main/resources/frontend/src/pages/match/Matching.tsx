@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import SelectLanguage from "./profile/SelectLanguage";
-import CheckButton from "../components/CheckButton";
+import React, { useState, useRef, Dispatch, SetStateAction } from "react";
+import CheckButton from "../../components/CheckButton";
 import styled from "styled-components";
-import SelectRegion from "./profile/SelectRegion";
+import SelectLanguage from "../profile/SelectLanguage";
+import SelectRegion from "../profile/SelectRegion";
+import DetailSort from "./DetailSort";
 
 const MatchingHeader = styled.header`
   max-width: var(--width-max);
@@ -73,20 +74,20 @@ const MatchingInfo = styled.div`
   margin-bottom: 37px;
 `;
 
-const MatchField = styled.div`
+const MatchField = styled.div<{ show: boolean }>`
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
-  margin-bottom: 37px;
+  margin-bottom: ${({ show }) => (show ? 161 : 87)}px;
 `;
 
 const FieldBlock = styled.div`
-  padding: 20px 0;
   max-width: 180px;
   width: 20%;
   background: #222222;
   text-align: center;
   border-radius: 10px;
+  position: relative;
 `;
 
 const TitleLeft = styled.div`
@@ -120,24 +121,121 @@ const MatchingTitle = styled.div`
   }
 `;
 
+const FieldText = styled.div`
+  padding: 20px 0px;
+`;
+
 interface fieldInfo {
-  name: string;
-  Component?: string;
+  name?: string;
+  Component: JSX.Element;
+  showSelect: boolean[];
+  setShowSelect: Dispatch<SetStateAction<boolean[]>>;
+  index: number;
 }
+
+const MatchingSort = ({
+  name,
+  Component,
+  showSelect,
+  setShowSelect,
+  index,
+}: fieldInfo) => {
+  return (
+    <FieldBlock key={name}>
+      {name ? (
+        <>
+          <FieldText
+            onClick={(event) => {
+              event.preventDefault();
+              setShowSelect(
+                showSelect.map((state, idx) => idx === index && !state)
+              );
+            }}
+          >
+            {name}
+          </FieldText>
+          {showSelect[index] && Component}
+        </>
+      ) : (
+        Component
+      )}
+    </FieldBlock>
+  );
+};
+
+const SortList = styled.div`
+  padding: 11px 16px;
+  background: #f9d5a2;
+  border-radius: 10px;
+  display: flex;
+`;
+
+const SortItem = styled.div`
+  background: #222222;
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin-right: 12px;
+`;
 
 export default function Matching() {
   const [region, setRegion] = useState("");
+  const [search, setSearch] = useState<string[]>([]);
+  console.log(search);
   const sort = [
-    { name: "진행기간", Component: <div>진행기간</div> },
-    { name: "회의유형" },
     {
-      name: "지역",
-      Component: <SelectRegion region={region} setRegion={setRegion} />,
+      name: "진행기간",
+      Component: (
+        <DetailSort
+          search={search}
+          setSearch={setSearch}
+          button
+          sort={["1달 이내", "3달 이내", "6달 이내", "1년 이내", "1년 이상"]}
+        />
+      ),
+      id: "period",
     },
-    { name: "포지션" },
-    { name: "언어" },
-    { name: "툴", Component: <div>select</div> },
+    {
+      name: "회의유형",
+      Component: (
+        <DetailSort
+          search={search}
+          setSearch={setSearch}
+          button
+          sort={["대면", "비대면", "혼합"]}
+        />
+      ),
+      id: "type",
+    },
+    {
+      Component: <div>ㅇㄹ</div>,
+      id: "language",
+    },
+    {
+      name: "포지션",
+      Component: (
+        <DetailSort
+          search={search}
+          setSearch={setSearch}
+          sort={["프론트", "서버", "안드로이드", "IOS", "기타"]}
+          button={false}
+        />
+      ),
+      id: "position",
+    },
+    {
+      Component: (
+        <SelectRegion
+          region={region}
+          setRegion={setRegion}
+          placeholder="언어"
+        />
+      ),
+      id: "region",
+    },
   ];
+  const [showSelect, setShowSeleect] = useState(
+    Array.from({ length: sort.length }, () => false)
+  );
   const [checked, setChecked] = useState<number[]>([]);
   return (
     <>
@@ -151,6 +249,37 @@ export default function Matching() {
         </MatchingTitle>
       </MatchingHeader>
       <MatchingMain>
+        <MatchField
+          show={showSelect.filter((state) => state).length ? true : false}
+        >
+          {sort.map(({ id, name, Component }, index) => (
+            <MatchingSort
+              key={id}
+              name={name}
+              Component={Component}
+              showSelect={showSelect}
+              setShowSelect={setShowSeleect}
+              index={index}
+            />
+          ))}
+        </MatchField>
+        {search.length !== 0 && (
+          <SortList>
+            {search.map((item, index) => (
+              <SortItem key={index}>
+                {item}
+                <span
+                  onClick={() =>
+                    setSearch(search.filter((state) => state !== item))
+                  }
+                >
+                  {" "}
+                  X
+                </span>
+              </SortItem>
+            ))}
+          </SortList>
+        )}
         <MatchingInfo>
           <TitleLeft>
             <TitleText>전체글 nn개</TitleText>
@@ -159,11 +288,7 @@ export default function Matching() {
           </TitleLeft>
           <div>최신순</div>
         </MatchingInfo>
-        <MatchField>
-          {sort.map(({ name, Component }) => (
-            <FieldBlock key={name}>{Component}</FieldBlock>
-          ))}
-        </MatchField>
+
         <MatchingTable>
           <TableHeader>
             <tr>
