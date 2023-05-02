@@ -1,7 +1,8 @@
-import React from "react";
-import SelectLanguage from "../components/SelectLanguage";
+import React, { useState } from "react";
+import SelectLanguage from "./profile/SelectLanguage";
 import CheckButton from "../components/CheckButton";
 import styled from "styled-components";
+import SelectRegion from "./profile/SelectRegion";
 
 const MatchingHeader = styled.header`
   max-width: var(--width-max);
@@ -55,7 +56,8 @@ const BodyTitle = styled.td`
   align-items: center;
   gap: 24px;
   & > p {
-    max-width: 80%;
+    height: 40px;
+    overflow: hidden;
   }
 
   & > span {
@@ -65,33 +67,103 @@ const BodyTitle = styled.td`
   }
 `;
 
+const MatchingInfo = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 37px;
+`;
+
+const MatchField = styled.div`
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 37px;
+`;
+
+const FieldBlock = styled.div`
+  padding: 20px 0;
+  max-width: 180px;
+  width: 20%;
+  background: #222222;
+  text-align: center;
+  border-radius: 10px;
+`;
+
+const TitleLeft = styled.div`
+  display: flex;
+`;
+
+const TitleText = styled.span`
+  margin-right: 50px;
+`;
+
+const CheckText = styled.span`
+  margin-left: 10px;
+`;
+
+const TableItem = styled.tr``;
+
+const MatchingStart = styled.div`
+  border: 1px solid var(--color-main-4);
+  padding: 20px 43px;
+`;
+
+const MatchingTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  & p {
+    margin-top: 8px;
+    margin-bottom: 24px;
+  }
+`;
+
+interface fieldInfo {
+  name: string;
+  Component?: string;
+}
+
 export default function Matching() {
-  const sort = ["진행기간", "회의유형", "지역", "포지션", "언어", "툴"];
+  const [region, setRegion] = useState("");
+  const sort = [
+    { name: "진행기간", Component: <div>진행기간</div> },
+    { name: "회의유형" },
+    {
+      name: "지역",
+      Component: <SelectRegion region={region} setRegion={setRegion} />,
+    },
+    { name: "포지션" },
+    { name: "언어" },
+    { name: "툴", Component: <div>select</div> },
+  ];
+  const [checked, setChecked] = useState<number[]>([]);
   return (
     <>
       <MatchingHeader>
-        <div>
-          <h3>팀매칭</h3>
-          <p>사이드프로젝트를 통해 개발능력을 업그레이드해보세요</p>
-          <div>팀매칭 시작하기</div>
-        </div>
-        <div>찾기</div>
-        <div>
-          {sort.map((field) => (
-            <div key={field}>{field}</div>
-          ))}
-        </div>
+        <MatchingTitle>
+          <div>
+            <h3>팀매칭</h3>
+            <p>사이드프로젝트를 통해 개발능력을 업그레이드해보세요</p>
+          </div>
+          <MatchingStart>팀매칭 시작하기</MatchingStart>
+        </MatchingTitle>
       </MatchingHeader>
       <MatchingMain>
-        <div>
-          <span>전체글 nn개</span>
-          <div>
+        <MatchingInfo>
+          <TitleLeft>
+            <TitleText>전체글 nn개</TitleText>
             <CheckButton check={false} />
-            모집 진행중
-          </div>
+            <CheckText onClick={() => {}}>모집 진행중</CheckText>
+          </TitleLeft>
           <div>최신순</div>
-        </div>
-
+        </MatchingInfo>
+        <MatchField>
+          {sort.map(({ name, Component }) => (
+            <FieldBlock key={name}>{Component}</FieldBlock>
+          ))}
+        </MatchField>
         <MatchingTable>
           <TableHeader>
             <tr>
@@ -104,7 +176,7 @@ export default function Matching() {
             </tr>
           </TableHeader>
           <TableBody>
-            <tr>
+            <TableItem>
               <td>2023.3.45</td>
               <td>
                 <img />
@@ -124,34 +196,9 @@ export default function Matching() {
               <td>3/4</td>
               <td>39</td>
               <td>4</td>
-            </tr>
+            </TableItem>
           </TableBody>
         </MatchingTable>
-        {/* <ul>
-          <li>
-            <span>작성일</span>
-            <span>작성자</span>
-            <span>제목</span>
-            <span>모집 인원</span>
-            <span>스크랩</span>
-            <span>댓글</span>
-          </li>
-          <li>
-            <span>2023.3.45</span>
-            <span>username</span>
-            <span>
-              사이드프로젝트를 통해 개발능력을
-              업그레이드해보세요사이드프로젝트를 통해 개발능력을
-              업그레이드해보세요사이드프로젝트를 통해 개발능력을
-              업그레이드해보세요사이드프로젝트를 통해 개발능력을
-              업그레이드해보세요
-            </span>
-            <span>모집완료</span>
-            <span>3/4</span>
-            <span>39</span>
-            <span>4</span>
-          </li>
-        </ul> */}
       </MatchingMain>
     </>
   );

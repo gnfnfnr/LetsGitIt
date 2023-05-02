@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import Select from "react-select";
-import regionData from "../../resource/regionData.json";
-import SelectLanguage from "../../components/SelectLanguage";
+import SelectLanguage from "./SelectLanguage";
+import SelectRegion from "./SelectRegion";
 
 const EditProfileBox = styled.div`
   max-width: 1280px;
@@ -143,37 +142,6 @@ const MiddleLongInput = styled.input`
   max-width: 220px;
 `;
 
-const RegionSelect = styled(Select)`
-  & .select__control {
-    color: var(--color-sub-2);
-    padding: 10px 16px;
-    background: var(--color-sub-3);
-    border: none;
-    max-width: 300px;
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  & .select__indicator-separator {
-    display: none;
-  }
-
-  & .select__menu {
-    color: var(--color-sub-2);
-    max-width: 240px;
-    width: 100%;
-    background: var(--color-sub-1);
-    z-index: 10;
-  }
-
-  & .select__option {
-    border-radius: 5px;
-  }
-  & .select__menu::-webkit-scrollbar {
-    display: none;
-  }
-`;
-
 const NewRangeBox = styled.div`
   display: flex;
   gap: 40px;
@@ -225,7 +193,6 @@ export default function EditProfile() {
   const [region, setRegion] = useState("");
   const [education, setEducation] = useState({ college: "", major: "" });
   const [career, setCareer] = useState({ start: "", end: "" });
-  const [isClearable, setIsClearable] = useState(true);
   const toolRef = useRef<null[] | HTMLInputElement[]>([]);
   const regex = /^http[s]?:\/\/([\S]{3,})/i;
   const maxInput = 500;
@@ -375,27 +342,7 @@ export default function EditProfile() {
           </InputItem>
           <InputItem>
             <label htmlFor="region">지역</label>
-            <RegionSelect
-              theme={(theme: any) => ({
-                ...theme,
-                borderRadius: 10,
-                colors: {
-                  ...theme.colors,
-                  neutral90: "var(--color-sub-2)",
-                  primary50: "var(--color-sub-3)",
-                  primary25: "var(--color-sub-3)",
-                  primary: "var(--color-sub-3)",
-                },
-              })}
-              className="basic-single"
-              classNamePrefix="select"
-              isClearable={isClearable}
-              name="color"
-              options={regionData}
-              placeholder="지역을 선택해주세요"
-              defaultValue={region ? region : null}
-              onChange={(op: any) => setRegion(op)}
-            />
+            <SelectRegion region={region} setRegion={setRegion} />
           </InputItem>
           <InputItem>
             <label htmlFor="education">교육</label>
