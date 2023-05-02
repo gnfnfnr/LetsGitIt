@@ -7,6 +7,7 @@ import WritorProfile from "../components/TeamMatching/Post/WritorProfile";
 import Comment from "../components/TeamMatching/Post/Comment";
 import ProjectTeamMember from "../components/TeamMatching/Post/ProjectTeamMember";
 import ProjectMethod from "../components/TeamMatching/Post/ProjectMethod";
+import GoBack from "../components/GoBack";
 
 const Wrapper = styled.div`
   display: flex;
@@ -63,17 +64,7 @@ const Head = styled.div`
   margin-bottom: 20px;
 `;
 
-const GoBack = styled.div`
-  padding: 0 20px 0 20px;
-  color: var(--color-sub-1);
-  font-size: 16px;
-  font-weight: 500;
-  svg {
-    width: 15px;
-    height: 15px;
-    fill: var(--color-sub-1);
-  }
-`;
+
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -131,10 +122,7 @@ const TeamMatchingPost = () => {
     <Wrapper>
       <PostBox>
         <Head>
-          <GoBack>
-            <BiArrowBack />
-            목록
-          </GoBack>
+          <GoBack />
         </Head>
         <ContentWrapper>
           <ProfileContainer>
