@@ -29,18 +29,20 @@ const RegionSelect = styled(Select)`
   & .select__option {
     border-radius: 5px;
   }
-  & .select__menu::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 interface RegionInfo {
   region: string;
   setRegion: Dispatch<SetStateAction<string>>;
+  placeholder: string;
 }
 
 // const [region, setRegion] = useState("");
-export default function SelectRegion({ region, setRegion }: RegionInfo) {
+export default function SelectRegion({
+  region,
+  setRegion,
+  placeholder,
+}: RegionInfo) {
   return (
     <RegionSelect
       theme={(theme: any) => ({
@@ -59,7 +61,7 @@ export default function SelectRegion({ region, setRegion }: RegionInfo) {
       isClearable={true}
       name="color"
       options={regionData}
-      placeholder="지역을 선택해주세요"
+      placeholder={placeholder}
       defaultValue={region ? region : null}
       onChange={(op: any) => setRegion(op)}
     />

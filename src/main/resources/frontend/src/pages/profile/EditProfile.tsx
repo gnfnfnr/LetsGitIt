@@ -342,7 +342,11 @@ export default function EditProfile() {
           </InputItem>
           <InputItem>
             <label htmlFor="region">지역</label>
-            <SelectRegion region={region} setRegion={setRegion} />
+            <SelectRegion
+              region={region}
+              setRegion={setRegion}
+              placeholder="지역을 선택해주세요"
+            />
           </InputItem>
           <InputItem>
             <label htmlFor="education">교육</label>

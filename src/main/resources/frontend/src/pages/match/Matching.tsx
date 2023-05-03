@@ -1,9 +1,10 @@
-import React, { useState, useRef, Dispatch, SetStateAction } from "react";
+import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
 import CheckButton from "../../components/CheckButton";
 import styled from "styled-components";
-import SelectLanguage from "../profile/SelectLanguage";
-import SelectRegion from "../profile/SelectRegion";
+import regionData from "../../resource/regionData.json";
+import languageData from "../../resource/languageData.json";
 import DetailSort from "./DetailSort";
+import CustomSelect from "../../components/CustomSelect";
 
 const MatchingHeader = styled.header`
   max-width: var(--width-max);
@@ -179,8 +180,19 @@ const SortItem = styled.div`
 
 export default function Matching() {
   const [region, setRegion] = useState("");
+  const [language, setLanguages] = useState("");
   const [search, setSearch] = useState<string[]>([]);
   console.log(search);
+  // useEffect(() => {
+  //   if (region) {
+  //     setSearch([...search, region]);
+  //   }
+  //   if (language) {
+  //     setSearch([...search, language]);
+  //   }
+  // }, [region, language]);
+  console.log(region, language);
+
   const sort = [
     {
       name: "진행기간",
@@ -207,7 +219,22 @@ export default function Matching() {
       id: "type",
     },
     {
-      Component: <div>ㅇㄹ</div>,
+      Component: (
+        <CustomSelect
+          isMulti
+          onFocus={() => setShowSeleect(showSelect.map(() => false))}
+          color={{
+            background: "var(--color-sub-3)",
+            options: "var(--color-sub-2)",
+          }}
+          options={languageData}
+          value={language}
+          onChange={(op: any) => {
+            setLanguages(op);
+          }}
+          placeholder="언어"
+        />
+      ),
       id: "language",
     },
     {
@@ -224,10 +251,19 @@ export default function Matching() {
     },
     {
       Component: (
-        <SelectRegion
-          region={region}
-          setRegion={setRegion}
-          placeholder="언어"
+        <CustomSelect
+          isMulti
+          onFocus={() => setShowSeleect(showSelect.map(() => false))}
+          color={{
+            background: "var(--color-sub-3)",
+            options: "var(--color-sub-2)",
+          }}
+          options={regionData}
+          value={region}
+          onChange={(op: any) => {
+            setRegion(op);
+          }}
+          placeholder="지역"
         />
       ),
       id: "region",
@@ -236,6 +272,7 @@ export default function Matching() {
   const [showSelect, setShowSeleect] = useState(
     Array.from({ length: sort.length }, () => false)
   );
+  console.log(showSelect);
   const [checked, setChecked] = useState<number[]>([]);
   return (
     <>
