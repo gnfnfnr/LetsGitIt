@@ -3,15 +3,11 @@ import styled from "styled-components";
 import "react-quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
 
-const QuillWrapper = styled.div`
-  display: flex;
-`;
-
 const EditorWrapper = styled.div`
+  display: flex;
   .ql-toolbar {
     box-sizing: border-box;
     background-color: var(--color-sub-2);
-    width: 745px;
     height: 60px;
     display: flex;
     align-items: center;
@@ -45,7 +41,6 @@ const EditorWrapper = styled.div`
     line-height: 1.5;
     padding: 30px;
     color: var(--color-sub-3);
-
     &.ql-blank::before {
       color: var(--color-sub-3);
     }
@@ -109,29 +104,29 @@ export default function Editor( { content, type } : PropsInterface ) {
         setCurContent(e);
     };
     let editorHeight = "300px"; // 기본 높이는 300px로 설정
+    let editorWidth = "745px";
 
   // type에 따라 editor 높이를 설정
   if (type === "project") {
-    editorHeight = "800px";
+    editorHeight = "600px";
   } else if (type === "apply") {
     editorHeight = "300px";
   } else if (type === "post") {
     editorHeight = "660px";
+    editorWidth = "1200px";
   }
 
     
 
   return (
-    <QuillWrapper>
       <EditorWrapper>
         <ReactQuill
-        style={{ height: editorHeight}}
+        style={{ height: editorHeight, width: editorWidth}}
           onChange={currContentHandle}
           modules={modules}
           value={curContent}
           placeholder="내용을 입력해주세요!"
         ></ReactQuill>
       </EditorWrapper>
-    </QuillWrapper>
   );
 }
