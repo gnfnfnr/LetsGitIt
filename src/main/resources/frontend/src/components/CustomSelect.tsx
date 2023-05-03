@@ -22,12 +22,16 @@ const RegionSelect = styled(Select)`
   & .select__option {
     border-radius: 5px;
   }
+
+  & .select__multi-value {
+    display: none;
+  }
 `;
 
 interface CustomSelectInfo {
   options: any;
   placeholder: string;
-  value: string;
+  value: null | [];
   onChange: any;
   color?: CustomSelectColor;
   onFocus: () => void;
@@ -74,7 +78,7 @@ export default function CustomSelect({
       name="color"
       options={options}
       placeholder={placeholder}
-      defaultValue={value ? value : null}
+      defaultValue={value?.length ? value : null}
       onChange={onChange}
       onFocus={onFocus}
     />

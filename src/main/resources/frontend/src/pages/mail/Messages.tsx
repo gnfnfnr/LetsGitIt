@@ -68,7 +68,7 @@ const CheckListBox = styled.li<{
   &:not(:last-child) {
     border-bottom: 1px solid #b2b2b2;
   }
-  ${({ read }) => read && "color: var(--color-sub-3);"}
+  ${({ read }) => read && "color: var(--color-sub-2);"}
 
   &:hover {
     background: #222222;

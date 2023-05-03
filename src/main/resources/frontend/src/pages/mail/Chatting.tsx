@@ -46,7 +46,7 @@ const ChattingMain = styled.main`
 `;
 
 const InputBox = styled.div`
-  background: var(--color-sub-2);
+  background: var(--color-3);
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -58,10 +58,12 @@ const InputBox = styled.div`
 
 const Input = styled.textarea`
   resize: none;
-  border: 1px solid rgba(178, 178, 178, 0.5);
+  border: 1px solid var(--color-sub-2);
   border-radius: 4px;
   padding: 16px;
   width: 70%;
+  background: inherit;
+  color: var(--color-sub-1);
 `;
 
 const InputButton = styled.button`

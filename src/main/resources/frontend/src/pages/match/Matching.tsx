@@ -179,19 +179,16 @@ const SortItem = styled.div`
 `;
 
 export default function Matching() {
-  const [region, setRegion] = useState("");
-  const [language, setLanguages] = useState("");
+  const [region, setRegion] = useState<null | []>(null);
+  // const [language, setLanguages] = useState([]);
   const [search, setSearch] = useState<string[]>([]);
-  console.log(search);
-  // useEffect(() => {
-  //   if (region) {
-  //     setSearch([...search, region]);
-  //   }
-  //   if (language) {
-  //     setSearch([...search, language]);
-  //   }
-  // }, [region, language]);
-  console.log(region, language);
+  useEffect(() => {
+    if (region) {
+      setSearch(
+        Array.from(new Set([...search, ...region.map(({ value }) => value)]))
+      );
+    }
+  }, [region]);
 
   const sort = [
     {
@@ -220,20 +217,21 @@ export default function Matching() {
     },
     {
       Component: (
-        <CustomSelect
-          isMulti
-          onFocus={() => setShowSeleect(showSelect.map(() => false))}
-          color={{
-            background: "var(--color-sub-3)",
-            options: "var(--color-sub-2)",
-          }}
-          options={languageData}
-          value={language}
-          onChange={(op: any) => {
-            setLanguages(op);
-          }}
-          placeholder="언어"
-        />
+        <div></div>
+        // <CustomSelect
+        //   isMulti
+        //   onFocus={() => setShowSeleect(showSelect.map(() => false))}
+        //   color={{
+        //     background: "var(--color-sub-3)",
+        //     options: "var(--color-sub-2)",
+        //   }}
+        //   options={languageData}
+        //   value={language ? region : null}
+        //   onChange={(op: any) => {
+        //     setLanguages(op);
+        //   }}
+        //   placeholder="언어"
+        // />
       ),
       id: "language",
     },
@@ -259,7 +257,7 @@ export default function Matching() {
             options: "var(--color-sub-2)",
           }}
           options={regionData}
-          value={region}
+          value={region ? region : null}
           onChange={(op: any) => {
             setRegion(op);
           }}
@@ -272,7 +270,7 @@ export default function Matching() {
   const [showSelect, setShowSeleect] = useState(
     Array.from({ length: sort.length }, () => false)
   );
-  console.log(showSelect);
+
   const [checked, setChecked] = useState<number[]>([]);
   return (
     <>
@@ -306,9 +304,15 @@ export default function Matching() {
               <SortItem key={index}>
                 {item}
                 <span
-                  onClick={() =>
-                    setSearch(search.filter((state) => state !== item))
-                  }
+                  onClick={() => {
+                    setSearch(search.filter((state) => state !== item));
+                    console.log(region?.filter(({ value }) => value !== item));
+                    if (region) {
+                      setRegion(
+                        region?.filter(({ value }) => value !== item) && null
+                      );
+                    }
+                  }}
                 >
                   {" "}
                   X

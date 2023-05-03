@@ -59,7 +59,7 @@ export default function Received() {
             }}
             to="/received/messages"
             style={({ isActive }) => ({
-              color: isActive ? "var(--color-sub-1)" : "var(--color-sub-3)",
+              color: isActive ? "var(--color-sub-1)" : "var(--color-sub-2)",
             })}
           >
             받은 쪽지
@@ -72,7 +72,7 @@ export default function Received() {
             }}
             to="/received/applications"
             style={({ isActive }) => ({
-              color: isActive ? "var(--color-sub-1)" : "var(--color-sub-3)",
+              color: isActive ? "var(--color-sub-1)" : "var(--color-sub-2)",
             })}
           >
             받은 지원서
