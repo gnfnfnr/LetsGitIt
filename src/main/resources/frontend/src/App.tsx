@@ -9,6 +9,7 @@ import MyPage from "./pages/MyPage";
 import TeamMatchingCreate from "./pages/TeamMatchingCreate";
 import Apply from "./pages/Apply";
 import TeamMatchingPost from "./pages/TeamMatchingPost";
+import BoardPost from "./pages/BoardPost";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/TeamMatchingCreate" element={<TeamMatchingCreate />} />
         <Route path="/TeamMatchingPost" element={<TeamMatchingPost />} />
         <Route path="/apply" element={<Apply />} />
+        <Route path="/board" element={<BoardPost />} />
       </Routes>
     </BrowserRouter>
   );
