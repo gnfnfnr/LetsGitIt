@@ -51,8 +51,12 @@ const User = styled.div`
   align-items: center;
   font-size: 15px;
   font-weight: 400;
+  cursor: pointer;
   span {
     margin-left: 10px;
+    :hover{
+        color: var(--color-sub-3);
+    }
   }
 `;
 
@@ -69,13 +73,6 @@ const Button = styled.div`
   justify-content: center;
 `;
 
-interface PropsInterface {
-  type: string;
-  username: string;
-  PostionName: string;
-  content: string;
-}
-
 const Avatar = styled.img`
   display: flex;
   height: 20px;
@@ -90,10 +87,7 @@ const ReviewContainerBox = styled.div`
   font-weight: 500;
 `;
 
-const Menu =
-  styled.div <
-  { isVisible: boolean } >
-  `
+const Menu = styled.div <{ isVisible: boolean }>`
     display: ${(props) => (props.isVisible ? "flex" : "none")};
     flex-direction: column;
     position: absolute;
@@ -112,13 +106,19 @@ const Menu =
     margin: 5px 0 5px 0;
     justify-content: space-between;
     hr {
-    width: 100%;
-    border: none;
-    border-top: 1px solid var(--color-sub-2);
-}
-
+        width: 100%;
+        border: none;
+        border-top: 1px solid var(--color-sub-2);
+    }
 `;
 
+interface PropsInterface {
+    type: string;
+    username: string;
+    PostionName: string;
+    content: string;
+}
+  
 const ReviewContainer = ({
   type,
   username,
