@@ -57,7 +57,7 @@ const LangContainer = styled.div`
   flex-direction: row;
   margin-left: 5px;
   flex-wrap: wrap;
-  width: 180px;
+  width: 175px;
   justify-content: flex-end;
 `;
 
