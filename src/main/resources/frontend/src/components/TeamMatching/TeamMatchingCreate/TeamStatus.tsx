@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, KeyboardEvent } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -122,6 +122,37 @@ const PositionContainer = styled.div`
   }
 `;
 
+const Input = styled.input`
+  width: 150px;
+  height: 50px;
+  padding: 5px 10px 5px 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: var(--color-sub-4);
+`;
+
+const InputList = styled.div`
+  border-left: solid 2px var(--color-sub-1);
+  padding: 5px 10px 5px 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+`;
+
+const ListContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+  margin-top: 10px;
+  max-width: 400px;
+  flex-wrap: wrap;
+`;
+
+const LangnToolContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+`;
+
 const TeamStatus = () => {
   const [positionList, setPositionList] = useState([
     {
@@ -154,6 +185,8 @@ const TeamStatus = () => {
     }
   ]);
   const nextId = useRef(6);
+  const [languages, setLanguages] = useState(["JAVA", "JAVASCRIPT"]);
+  const [tools, setTools] = useState(["React"]);
 
   type Position = {
     id: number,
@@ -214,6 +247,34 @@ const TeamStatus = () => {
     setInputPostion(updatedPositions);
   };
 
+  const handleLanguageKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      const newLanguage = event.currentTarget.value;
+      if (languages.includes(newLanguage)) return;
+      setLanguages([...languages, newLanguage]);
+      event.currentTarget.value = "";
+    }
+  };
+
+  const onRemoveLanguages = (language: string) => {
+    const newLanguage = languages.filter((lang) => lang !== language);
+    setLanguages(newLanguage);
+  };
+
+  const handleToolKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      const newTool = event.currentTarget.value;
+      if (tools.includes(newTool)) return;
+      setTools([...tools, newTool]);
+      event.currentTarget.value = "";
+    }
+  };
+
+  const onRemoveTools = (tool: string) => {
+    const newTools = tools.filter((t) => t !== tool);
+    setTools(newTools);
+  };
+
   return (
     <Wrapper>
       <p>
@@ -265,7 +326,7 @@ const TeamStatus = () => {
                         parseInt(event?.target.value)
                       )
                     }
-                  />{" "}
+                  />
                   <span>명</span>
                 </PositionInput>
               </PostionInputContainer>
@@ -278,8 +339,35 @@ const TeamStatus = () => {
         </AddPosition>
       </PositionContainer>
       <p>언어</p>
-
+      <LangnToolContainer>
+        <Input
+          type="text"
+          placeholder="언어를 입력하세요"
+          onKeyPress={handleLanguageKeyPress}
+        />
+        <ListContainer>
+          {languages.map((lang) => (
+            <InputList key={lang} onClick={() => onRemoveLanguages(lang)}>
+              {lang}
+            </InputList>
+          ))}
+        </ListContainer>
+      </LangnToolContainer>
       <p>툴</p>
+      <LangnToolContainer>
+        <Input
+          type="text"
+          placeholder="툴을 입력하세요"
+          onKeyPress={handleToolKeyPress}
+        />
+        <ListContainer>
+          {tools.map((tool) => (
+            <InputList key={tool} onClick={() => onRemoveTools(tool)}>
+              {tool}
+            </InputList>
+          ))}
+        </ListContainer>
+      </LangnToolContainer>
     </Wrapper>
   );
 };
