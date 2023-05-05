@@ -17,10 +17,10 @@ interface PostItemInfo {
 
 const PostItemBox = styled.div`
   color: var(--color-sub-1);
-  width: 33%;
+  width: 100%;
   background: #353535;
   border-radius: 20px;
-  margin: 40px 40px 0 0;
+  margin-bottom: 40px;
   width: 400px;
 `;
 const PostItemHeader = styled.h3`

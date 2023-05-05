@@ -8,7 +8,7 @@ import Chatting from "./pages/mail/Chatting";
 import Received from "./pages/mail/Received";
 import Applications from "./pages/mail/Applications";
 import Matching from "./pages/match/Matching";
-import Board from "./pages/Board";
+import Board from "./pages/board/Board";
 
 function App() {
   return (
@@ -24,9 +24,9 @@ function App() {
           <Route path="/received/applications" element={<Applications />} />
         </Route>
         <Route path="/matching" element={<Matching />} />
-        <Route path="/board" element={<Board />}>
-          <Route path="/board/project" element={<Board />} />
-          <Route path="/board/community" element={<Board />} />
+        <Route element={<Board />}>
+          <Route path="/board/project" />
+          <Route path="/board/community" />
         </Route>
       </Routes>
     </BrowserRouter>
