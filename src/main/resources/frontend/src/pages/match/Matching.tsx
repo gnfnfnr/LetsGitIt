@@ -5,6 +5,7 @@ import regionData from "../../resource/regionData.json";
 import languageData from "../../resource/languageData.json";
 import DetailSort from "./DetailSort";
 import CustomSelect from "../../components/CustomSelect";
+import HeaderButton from "../../components/HeaderButton";
 
 const MatchingHeader = styled.header`
   max-width: var(--width-max);
@@ -104,11 +105,6 @@ const CheckText = styled.span`
 `;
 
 const TableItem = styled.tr``;
-
-const MatchingStart = styled.div`
-  border: 1px solid var(--color-main-4);
-  padding: 20px 43px;
-`;
 
 const MatchingTitle = styled.div`
   display: flex;
@@ -280,7 +276,7 @@ export default function Matching() {
             <h3>팀매칭</h3>
             <p>사이드프로젝트를 통해 개발능력을 업그레이드해보세요</p>
           </div>
-          <MatchingStart>팀매칭 시작하기</MatchingStart>
+          <HeaderButton text="팀매칭 시작하기" />
         </MatchingTitle>
       </MatchingHeader>
       <MatchingMain>

@@ -24,7 +24,10 @@ function App() {
           <Route path="/received/applications" element={<Applications />} />
         </Route>
         <Route path="/matching" element={<Matching />} />
-        <Route path="/board" element={<Board />} />
+        <Route path="/board" element={<Board />}>
+          <Route path="/board/project" element={<Board />} />
+          <Route path="/board/community" element={<Board />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
