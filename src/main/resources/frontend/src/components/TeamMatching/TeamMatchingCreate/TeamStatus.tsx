@@ -19,6 +19,7 @@ const InitialPosition = styled.div`
   color: var(--color-sub-1);
   justify-content: space-between;
   margin-bottom: 15px;
+  margin-top: 7px;
 `;
 
 const PositionListContainer = styled.div`
