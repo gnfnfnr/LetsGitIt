@@ -284,7 +284,7 @@ const TeamStatus = () => {
       <PositionContainer>
         <InitialPosition>
           {positionList.map((pos) => (
-            <PositionListContainer>
+            <PositionListContainer key={pos.id}>
               <span>{pos.name}</span>
               <PositionInput>
                 <input
