@@ -4,6 +4,7 @@ import com.proj.letsgitit.entity.User;
 import com.proj.letsgitit.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -30,17 +31,20 @@ public class UserService implements OAuth2UserService {
         DefaultOAuth2UserService service = new DefaultOAuth2UserService();
         OAuth2User oAuth2User = service.loadUser(userRequest);
         System.out.println("oAuth2User : " + oAuth2User);
+        System.out.println("oAuth2User : " + oAuth2User.getAttributes());
         User member = saveOrUpdate(oAuth2User);
 
         session.setAttribute("oAuthToken", userRequest.getAccessToken().getTokenValue());
+        Map<String, Object> attributes = oAuth2User.getAttributes(); // OAuth 서비스의 유저 정보들
 
         return new DefaultOAuth2User(
-                Collections.singleton(new SimpleGrantedAuthority(member.getRole().toString())),
+                Collections.singleton(new SimpleGrantedAuthority(member.getRole().getKey())),
                 oAuth2User.getAttributes(), "login");
         //nameAttributeKey = Principal name에 저장됨
     }
 
     public User saveOrUpdate(OAuth2User oAuth2User) {
+        System.out.println("saveorupdate : " + oAuth2User);
         User oAuthMember = User.builder()
                 .login(oAuth2User.getAttribute("login"))
                 .name(oAuth2User.getAttribute("name"))
@@ -48,10 +52,12 @@ public class UserService implements OAuth2UserService {
                 .htmlUrl(oAuth2User.getAttribute("html_url"))
                 .email(oAuth2User.getAttribute("email"))
                 .build();
+        System.out.println("oAuthMember : " + oAuthMember);
 
-        //User member = userRepository.findByLogin(oAuthMember.getLogin());
-        User user = userRepository.save(oAuthMember);
-        System.out.println(user);
-        return user;
+        User member = userRepository.findByLogin(oAuthMember.getLogin());
+        if (member == null) {
+            return userRepository.save(oAuthMember);
+        }
+        return member;
     }
 }
