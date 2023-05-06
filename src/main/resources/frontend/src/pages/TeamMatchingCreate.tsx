@@ -5,6 +5,7 @@ import ProjectRoadmap from "../components/TeamMatching/TeamMatchingCreate/Projec
 import TeamStatus from "../components/TeamMatching/TeamMatchingCreate/TeamStatus";
 
 const Wrapper = styled.div`
+/*
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,6 +13,16 @@ const Wrapper = styled.div`
   justify-content: center;
   margin-top: 50px;
   margin-bottom: 100px;
+  */
+  display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: minmax(10px, auto) minmax(100px, 780px) minmax(30px, auto) minmax(100px, auto);
+margin-top: 50px;
+  margin-bottom: 100px;
+  justify-items: center;
+//repeat(4, minmax(100px, 800px));
+
+    //grid-auto-flow: row dense;
 `;
 
 const Title = styled.input`
@@ -30,6 +41,7 @@ const TitleContainer = styled.div`
   color: white;
   font-size: 32px;
   width: 1200px;
+  height: 50px;
   justify-content: center;
   position: relative;
 `;
@@ -62,16 +74,16 @@ const ProjectStatusContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 1200px;
   & > div {
-    margin-left: 15px;
-    padding: 10px;
+    margin-left: 30px;
     width: 50%;
   }
 `;
 
 const Bottom = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 1200px;
 `;
 
@@ -89,6 +101,11 @@ const Button = styled.div`
   position: absolute;
   right: 10px;
   bottom: 10px;
+`;
+
+const Container = styled.div`
+  width: 700px;
+  display: flex;
 `;
 
 const TeamMatchingCreate = () => {
@@ -113,16 +130,22 @@ const TeamMatchingCreate = () => {
       <EditorWrapper>
         <Editor content={content} type="post" />
       </EditorWrapper>
+
         <ProjectStatus>
           <p>• 프로젝트 팀원구성</p>
           <p>• 프로젝트 진행방식</p>
         </ProjectStatus>
-        <Bottom>
+
+
         <ProjectStatusContainer>
+          
           <TeamStatus />
+          
+          
           <ProjectRoadmap />
+          
         </ProjectStatusContainer>
-      </Bottom>
+
     </Wrapper>
   );
 };
