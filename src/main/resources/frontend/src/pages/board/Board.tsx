@@ -7,7 +7,7 @@ import { ReactComponent as LeftArrow } from "../../styles/icon/LeftArrow.svg";
 import { ReactComponent as RightArrow } from "../../styles/icon/RightArrow.svg";
 import { ReactComponent as DownArrow } from "../../styles/icon/DownArrow.svg";
 import HeaderButton from "../../components/HeaderButton";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import AllPost from "./AllPost";
 import HotPost from "./HotPost";
 
@@ -35,8 +35,11 @@ const BoardSearch = styled.div`
 `;
 
 export default function Board() {
+  const [field, setField] = useState<"project" | "community">("project");
+
   const [data, setData] = useState(postData);
   const [name, setName] = useState("프로젝트");
+  const navigate = useNavigate();
   return (
     <>
       <BoardHeader>
@@ -66,7 +69,10 @@ export default function Board() {
             커뮤니티
           </NavLink>
         </HeaderLink>
-        <HeaderButton text="게시글 작성하기" />
+        <HeaderButton
+          text="게시글 작성하기"
+          onClick={() => navigate("/board/project/create")}
+        />
       </BoardHeader>
       <BoardSearch>
         <Search />

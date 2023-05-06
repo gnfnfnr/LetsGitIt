@@ -9,19 +9,19 @@ import Received from "./pages/mail/Received";
 import Applications from "./pages/mail/Applications";
 import Matching from "./pages/match/Matching";
 import Board from "./pages/board/Board";
-import EditProfile from "./pages/EditProfile";
 import Header from "./components/Header/Header";
 import MyPage from "./pages/MyPage";
 import TeamMatchingCreate from "./pages/TeamMatchingCreate";
 import Apply from "./pages/Apply";
 import TeamMatchingPost from "./pages/TeamMatchingPost";
 import BoardPost from "./pages/BoardPost";
+import BoardCreate from "./pages/board/BoardCreate";
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mypage/edit" element={<EditProfile />} />
@@ -41,6 +41,8 @@ function App() {
         <Route path="/TeamMatchingPost" element={<TeamMatchingPost />} />
         <Route path="/apply" element={<Apply />} />
         <Route path="/board" element={<BoardPost />} />
+        <Route path="/board/project/create" element={<BoardCreate />} />
+        <Route path="/board/community/create" element={<BoardCreate />} />
       </Routes>
     </BrowserRouter>
   );

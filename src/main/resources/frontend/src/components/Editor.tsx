@@ -3,12 +3,16 @@ import styled from "styled-components";
 import "react-quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
 
-const EditorWrapper = styled.div`
+const EditorWrapper = styled.div<{ height: number }>`
   display: flex;
+  .quill {
+    width: 100%;
+    height: 100%;
+  }
   .ql-toolbar {
     box-sizing: border-box;
     background-color: var(--color-sub-2);
-    height: 60px;
+    // height: 60px;
     display: flex;
     align-items: center;
 
@@ -25,11 +29,12 @@ const EditorWrapper = styled.div`
     }
   }
 
-  .ql-toolbar.ql-snow { 
+  .ql-toolbar.ql-snow {
     border: none !important;
+    flex-wrap: wrap;
   }
 
-  .ql-container.ql-snow{
+  .ql-container.ql-snow {
     border: none !important;
   }
 
@@ -74,59 +79,65 @@ const EditorWrapper = styled.div`
   .ql-snow.ql-toolbar button:hover .ql-stroke {
     stroke: var(--color-main-4);
   }
+
+  .ql-container {
+    height: ${({ height }) => height}px;
+  }
 `;
 
-
 interface PropsInterface {
-    content: string;
-    type: string;
+  content: string;
+  type: string;
 }
 
-export default function Editor( { content, type } : PropsInterface ) {
-    if(type === "project"){
-        //editor높이 설정
-    }
-    const [curContent, setCurContent] = useState(content);
+export default function Editor({ content, type }: PropsInterface) {
+  if (type === "project") {
+    //editor높이 설정
+  }
+  const [curContent, setCurContent] = useState(content);
 
-    const modules = {
-        toolbar: [
-        [{ header: [1, 2, 3, 4, 5, 6, false] }],
-        ["bold", "italic", "underline", "strike"],
-        [{ 'align': null}, {'align': 'center'}, {'align': 'right'}, {'align': 'justify'}],
-        ["blockquote", "code-block"],
-        [{ list: "ordered" }, { list: "bullet" }],
-        ["link", "image"]
-        ]
-    };
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      ["bold", "italic", "underline", "strike"],
+      [
+        { align: null },
+        { align: "center" },
+        { align: "right" },
+        { align: "justify" },
+      ],
+      ["blockquote", "code-block"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["link", "image"],
+    ],
+  };
 
-    const currContentHandle = (e: any) => {
-        console.log(e);
-        setCurContent(e);
-    };
-    let editorHeight = "300px"; // 기본 높이는 300px로 설정
-    let editorWidth = "745px";
+  const currContentHandle = (e: any) => {
+    console.log(e);
+    setCurContent(e);
+  };
+  let editorHeight = 300; // 기본 높이는 300px로 설정
+  // let editorWidth = "745px";
 
   // type에 따라 editor 높이를 설정
   if (type === "project") {
-    editorHeight = "600px";
+    editorHeight = 600;
   } else if (type === "apply") {
-    editorHeight = "300px";
+    editorHeight = 300;
   } else if (type === "post") {
-    editorHeight = "660px";
-    editorWidth = "1200px";
+    editorHeight = 660;
+    // editorWidth = "1200px";
   }
 
-    
-
   return (
-      <EditorWrapper>
-        <ReactQuill
-        style={{ height: editorHeight, width: editorWidth}}
-          onChange={currContentHandle}
-          modules={modules}
-          value={curContent}
-          placeholder="내용을 입력해주세요!"
-        ></ReactQuill>
-      </EditorWrapper>
+    <EditorWrapper height={editorHeight}>
+      <ReactQuill
+        // style={{ height: editorHeight }}
+        onChange={currContentHandle}
+        modules={modules}
+        value={curContent}
+        placeholder="내용을 입력해주세요!"
+      ></ReactQuill>
+    </EditorWrapper>
   );
 }

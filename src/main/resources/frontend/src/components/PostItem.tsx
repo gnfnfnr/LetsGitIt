@@ -56,10 +56,15 @@ const PostItemFooter = styled.div`
   padding: 22px;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 400px) {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 `;
 const PostItemList = styled.ul`
   list-style: none;
-  background: var(--color-sub-3);
+  background: var(--color-sub-2);
   border-radius: 10px;
   display: flex;
   margin: 0px;
@@ -81,7 +86,7 @@ const Username = styled.div`
 const UserCreatedAt = styled.div`
   font-weight: 500;
   font-size: 14px;
-  color: var(--color-sub-2);
+  color: var(--color-sub-3);
 `;
 const ListItem = styled.li`
   display: flex;

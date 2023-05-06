@@ -6,6 +6,7 @@ import languageData from "../../resource/languageData.json";
 import DetailSort from "./DetailSort";
 import CustomSelect from "../../components/CustomSelect";
 import HeaderButton from "../../components/HeaderButton";
+import { useNavigate } from "react-router-dom";
 
 const MatchingHeader = styled.header`
   max-width: var(--width-max);
@@ -175,6 +176,7 @@ const SortItem = styled.div`
 `;
 
 export default function Matching() {
+  const navigate = useNavigate();
   const [region, setRegion] = useState<null | []>(null);
   // const [language, setLanguages] = useState([]);
   const [search, setSearch] = useState<string[]>([]);
@@ -249,8 +251,8 @@ export default function Matching() {
           isMulti
           onFocus={() => setShowSeleect(showSelect.map(() => false))}
           color={{
-            background: "var(--color-sub-3)",
-            options: "var(--color-sub-2)",
+            background: "var(--color-sub-2)",
+            options: "var(--color-sub-3)",
           }}
           options={regionData}
           value={region ? region : null}
@@ -276,7 +278,10 @@ export default function Matching() {
             <h3>팀매칭</h3>
             <p>사이드프로젝트를 통해 개발능력을 업그레이드해보세요</p>
           </div>
-          <HeaderButton text="팀매칭 시작하기" />
+          <HeaderButton
+            text="팀매칭 시작하기"
+            onClick={() => navigate("/TeamMatchingCreate")}
+          />
         </MatchingTitle>
       </MatchingHeader>
       <MatchingMain>

@@ -18,7 +18,7 @@ const DetailSortItem = styled.div`
   display: flex;
   gap: 8px;
   align-items: center;
-  background: var(--color-sub-2);
+  background: var(--color-sub-3);
   border-radius: 10px;
   width: max-content;
 `;

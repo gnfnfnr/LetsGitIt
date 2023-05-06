@@ -18,7 +18,7 @@ const BoardTitle = styled.h2`
 `;
 
 const HotBoardBox = styled.section`
-  background: var(--color-sub-3);
+  background: var(--color-sub-2);
   padding: 69px 0;
 `;
 

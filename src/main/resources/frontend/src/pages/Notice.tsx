@@ -17,7 +17,7 @@ interface Data {
 
 const NoticeBox = styled.div`
   color: white;
-  background: var(--color-sub-3);
+  background: var(--color-sub-2);
   display: flex;
   flex-direction: column;
   font-weight: 600;
@@ -101,7 +101,7 @@ const CheckListBox = styled.li<{
   &:not(:last-child) {
     border-bottom: 1px solid #b2b2b2;
   }
-  ${({ read }) => read && "color: var(--color-sub-2);"}
+  ${({ read }) => read && "color: var(--color-sub-3);"}
   &::before {
     ${({ read }) => !read && "content: '';"}
     position: absolute;
