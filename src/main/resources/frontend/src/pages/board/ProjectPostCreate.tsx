@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Editor from "../../components/Editor";
 import styled from "styled-components";
 import projectData from "../../resource/projectData.json";
@@ -116,11 +116,15 @@ const CompletedTeam = styled.div`
   align-items: center;
 `;
 
-const CompletedItem = styled.div`
-  background: var(--color-sub-2);
+const CompletedItem = styled.div<{ current: number; selected: number }>`
+  background: var(
+    --color-${({ current, selected }) => (current === selected ? "main-4" : "sub-2")}
+  );
   border-radius: 10px;
   padding: 16px 20px;
-  color: var(--color-sub-1);
+  color: var(
+    --color-${({ current, selected }) => (current === selected ? "sub-2" : "sub-1")}
+  );
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -164,17 +168,23 @@ const CompletedTitle = styled.div`
   }
 `;
 
-export default function BoardCreate() {
+export default function ProjectCreate() {
+  const [selected, setSelected] = useState(0);
   return (
     <BoardCreateBox>
       <div>
         <CompletedTitle>
           <span>완료한 프로젝트</span>
-          <span>3</span>
+          <span>{projectData.length}</span>
         </CompletedTitle>
         <BoardCreateCompleted>
           {projectData.map(({ id, title, team, part }) => (
-            <CompletedItem key={id}>
+            <CompletedItem
+              key={id}
+              onClick={() => setSelected(selected === id ? 0 : id)}
+              current={id}
+              selected={selected}
+            >
               <p>{title}</p>
               <CompletedTeam>
                 <div>
@@ -193,31 +203,35 @@ export default function BoardCreate() {
         <CreateBtn>게시하기</CreateBtn>
       </BoardCreateTitle>
       <Editor content="프로젝트 후기를 작성하세요" type="post" />
-      <BoardCreateInfo>
-        <li>프로젝트 정보</li>
-        <li>대표 이미지 선택</li>
-      </BoardCreateInfo>
-      <BoardCreateInfoList>
-        <InfoInputItem>
-          <label>프로젝트 분야</label>
-          <input placeholder="ex.공유 서비스" />
-        </InfoInputItem>
-        <InfoInputItem>
-          <label>시작일</label>
-          <input placeholder="ex.공유 서비스" />
+      {selected && (
+        <>
+          <BoardCreateInfo>
+            <li>프로젝트 정보</li>
+            <li>대표 이미지 선택</li>
+          </BoardCreateInfo>
+          <BoardCreateInfoList>
+            <InfoInputItem>
+              <label>프로젝트 분야</label>
+              <input placeholder="ex.공유 서비스" />
+            </InfoInputItem>
+            <InfoInputItem>
+              <label>시작일</label>
+              <input placeholder="ex.공유 서비스" />
 
-          <label>완료일</label>
-          <input placeholder="ex.공유 서비스" />
-        </InfoInputItem>
-        <InfoInputItem>
-          <label>프로젝트 팀원</label>
-          <input placeholder="ex.공유 서비스" />
-        </InfoInputItem>
-        <InfoInputItem>
-          <label>프로그래밍 언어</label>
-          <input placeholder="JAVA" />
-        </InfoInputItem>
-      </BoardCreateInfoList>
+              <label>완료일</label>
+              <input placeholder="ex.공유 서비스" />
+            </InfoInputItem>
+            <InfoInputItem>
+              <label>프로젝트 팀원</label>
+              <input placeholder="ex.공유 서비스" />
+            </InfoInputItem>
+            <InfoInputItem>
+              <label>프로그래밍 언어</label>
+              <input placeholder="JAVA" />
+            </InfoInputItem>
+          </BoardCreateInfoList>
+        </>
+      )}
     </BoardCreateBox>
   );
 }

@@ -15,7 +15,8 @@ import TeamMatchingCreate from "./pages/TeamMatchingCreate";
 import Apply from "./pages/Apply";
 import TeamMatchingPost from "./pages/TeamMatchingPost";
 import BoardPost from "./pages/BoardPost";
-import BoardCreate from "./pages/board/BoardCreate";
+import ProjectPostCreate from "./pages/board/ProjectPostCreate";
+import CommunityPostCreate from "./pages/board/CommunityPostCreate";
 
 function App() {
   return (
@@ -41,8 +42,11 @@ function App() {
         <Route path="/TeamMatchingPost" element={<TeamMatchingPost />} />
         <Route path="/apply" element={<Apply />} />
         <Route path="/board" element={<BoardPost />} />
-        <Route path="/board/project/create" element={<BoardCreate />} />
-        <Route path="/board/community/create" element={<BoardCreate />} />
+        <Route path="/board/project/create" element={<ProjectPostCreate />} />
+        <Route
+          path="/board/community/create"
+          element={<CommunityPostCreate />}
+        />
       </Routes>
     </BrowserRouter>
   );

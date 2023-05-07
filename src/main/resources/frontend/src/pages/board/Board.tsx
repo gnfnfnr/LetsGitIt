@@ -35,11 +35,15 @@ const BoardSearch = styled.div`
 `;
 
 export default function Board() {
-  const [field, setField] = useState<"project" | "community">("project");
-
+  const [field, setField] = useState<0 | 1>(0);
   const [data, setData] = useState(postData);
-  const [name, setName] = useState("프로젝트");
+  // const [name, setName] = useState("프로젝트");
   const navigate = useNavigate();
+
+  const select = [
+    { name: "프로젝트", url: "/board/project/create" },
+    { name: "커뮤니티", url: "/board/community/create" },
+  ];
   return (
     <>
       <BoardHeader>
@@ -51,7 +55,7 @@ export default function Board() {
             })}
             onClick={() => {
               setData(postData);
-              setName("프로젝트");
+              setField(0);
             }}
           >
             프로젝트
@@ -63,7 +67,7 @@ export default function Board() {
             })}
             onClick={() => {
               setData(postData);
-              setName("커뮤니티");
+              setField(1);
             }}
           >
             커뮤니티
@@ -71,14 +75,14 @@ export default function Board() {
         </HeaderLink>
         <HeaderButton
           text="게시글 작성하기"
-          onClick={() => navigate("/board/project/create")}
+          onClick={() => navigate(select[field].url)}
         />
       </BoardHeader>
       <BoardSearch>
         <Search />
       </BoardSearch>
-      <HotPost data={data} name={name} />
-      <AllPost data={data} name={name} />
+      <HotPost data={data} name={select[field].name} />
+      <AllPost data={data} name={select[field].name} />
     </>
   );
 }
