@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Notice from "./Notice";
 import Model from "../components/Modal";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const NavList = styled.ul`
   display: flex;
@@ -22,11 +23,15 @@ const NavBtn = styled.div`
 export default function Home() {
   const [showNotice, setShowNotice] = useState(false);
   const navigate = useNavigate();
+
   return (
     <>
       <nav>
         <NavList>
+          <NavBtn onClick={() => navigate("/board/project")}>게시판</NavBtn>
+          <NavBtn onClick={() => navigate("/received/messages")}>쪽지</NavBtn>
           <NavBtn onClick={() => navigate("/mypage/edit")}>프로필 수정</NavBtn>
+          <NavBtn onClick={() => navigate("/matching")}>팀매칭</NavBtn>
           <li>
             <NavBtn>
               <span onClick={() => setShowNotice(true)}>알림</span>

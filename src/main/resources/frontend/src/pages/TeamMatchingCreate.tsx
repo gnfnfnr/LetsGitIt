@@ -35,10 +35,9 @@ const TitleContainer = styled.div`
 `;
 
 const EditorWrapper = styled.div`
-  display: flex;
   background-color: black;
   width: 1200px;
-  margin-bottom: 20px;
+  margin-top: 20px;
   justify-content: center;
 `;
 
@@ -52,6 +51,8 @@ const ProjectStatus = styled.div`
   font-size: 20px;
   font-weight: 550;
   width: 1200px;
+  box-sizing: border-box;
+
   p {
     width: 50%;
     color: var(--color-sub-1);
@@ -113,11 +114,11 @@ const TeamMatchingCreate = () => {
       <EditorWrapper>
         <Editor content={content} type="post" />
       </EditorWrapper>
-        <ProjectStatus>
-          <p>• 프로젝트 팀원구성</p>
-          <p>• 프로젝트 진행방식</p>
-        </ProjectStatus>
-        <Bottom>
+      <ProjectStatus>
+        <p>• 프로젝트 팀원구성</p>
+        <p>• 프로젝트 진행방식</p>
+      </ProjectStatus>
+      <Bottom>
         <ProjectStatusContainer>
           <TeamStatus />
           <ProjectRoadmap />
