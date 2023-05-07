@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
+import Select from "react-select";
+import regionData from "../../../resource/regionData.json";
 
 const Wrapper = styled.div`
   background-color: black;
@@ -86,6 +88,35 @@ const ButtonContainer = styled.div`
   }
 `;
 
+
+const LocationSelect =  styled(Select)`
+  color: var(--color-sub-1);
+  & .select__control {
+    width: 150px;
+    height: 50px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: var(--color-sub-4);
+    border: none;
+    outline: none;
+    color: var(--color-sub-1);
+    box-Shadow: none;
+  }
+
+  & .select__indicator-separator,
+  .select__dropdown-indicator {
+    display: none;
+  }
+
+  & .select__menu {
+    width: 150px;
+    color: var(--color-sub-1);
+    background: var(--color-sub-4);
+    z-index: 10;
+  }
+`;
+
 export default function ProjectRoadmap() {
   const [selectedTerm, setSelectedTerm] = useState("");
   const [selectedMeet, setSelectedMeet] = useState("");
@@ -99,8 +130,26 @@ export default function ProjectRoadmap() {
     setSelectedMeet(event.target.value);
   };
 
-  const handleLocation = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedLocation(event.target.value);
+  const colourStyles = {
+    option: (style: any, { isFocused }: any) => { 
+      return {
+        ...style,
+        backgroundColor: isFocused ? 'var(--color-sub-2)' : null,
+        color: 'var(--color-sub-1)'
+      }
+    },
+    singleValue: (base: any) => ({ 
+      ...base,
+      color: "var(--color-sub-1)" 
+    }),
+    input: (base: any) => ({ 
+      ...base,
+      color: "var(--color-sub-1)" 
+    }),
+    control: (base: any) => ({ 
+      ...base,
+      height: '30px'
+    }),
   };
 
   return (
@@ -194,6 +243,18 @@ export default function ProjectRoadmap() {
       </ButtonContainer>
 
       <p>지역</p>
+      <LocationSelect
+        styles={colourStyles}
+        className="basic-single"
+        classNamePrefix="select"
+          options={regionData}
+          placeholder="언어를 입력하세요"
+          maxMenuHeight={100}
+          onChange={(op: any) => {
+            setSelectedLocation(op.label)
+          }
+          }
+        />
     </Wrapper>
   );
 }
