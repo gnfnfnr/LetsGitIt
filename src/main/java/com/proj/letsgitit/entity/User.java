@@ -1,11 +1,17 @@
 package com.proj.letsgitit.entity;
 
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.annotation.sql.DataSourceDefinitions;
 import javax.persistence.*;
+import java.net.URL;
 
 @Entity
+@Setter
+@Getter
 @NoArgsConstructor
 @Table(name="user")
 public class User {
@@ -21,7 +27,7 @@ public class User {
     String name; //근데 이건 무슨 컬럼이지..? 일단 노션에 써있어서 넣음 -> 깃에서 레포 이름 가져올 때 객체명
 
     @Column(name="id")  //이건 깃이 부여한 id...? 아마도
-    String id;
+    int id;
 
     @Column(name="html_url") //유저 깃 주소
     String htmlUrl;
@@ -91,4 +97,17 @@ public class User {
 
     @Column(name="lang5_skill")
     String lang5Skill;
+
+    @Column(name="role")
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @Builder
+    public User(String login, String name, int id, String htmlUrl, String email) {
+        this.login = login;
+        this.name = name;
+        this.id = id;
+        this.htmlUrl = htmlUrl;
+        this.email = email;
+    }
 }
