@@ -3,14 +3,16 @@ import { BsFillBookmarkFill, BsCheckLg } from "react-icons/bs";
 import styled from "styled-components";
 import PostContent from "../components/TeamMatching/Post/PostContent";
 import WritorProfile from "../components/TeamMatching/Post/WritorProfile";
-import Comment from "../components/TeamMatching/Post/Comment";
+import CommentList from "../components/TeamMatching/Post/Comment/CommentList";
 import ProjectTeamMember from "../components/TeamMatching/Post/ProjectTeamMember";
 import ProjectMethod from "../components/TeamMatching/Post/ProjectMethod";
 import GoBack from "../components/GoBack";
+import CommentInputBox from "../components/TeamMatching/Post/Comment/CommentInputBox";
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
+  min-height: 800px;
   margin-bottom: 40px;
 `;
 
@@ -45,8 +47,13 @@ const ContentContainer = styled.div`
 `;
 
 const CommentContainer = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   padding: 0 20px 0 20px;
+  p {
+    font-size: 16px;
+    color: var(--color-sub-1);
+  }
 `;
 
 const ProjectInfoContainer = styled.div`
@@ -110,7 +117,42 @@ const StateButton = styled.button`
 const TeamMatchingPost = () => {
   const [processState, setProcessState] = useState(true); //false = 모집완료
   const [bookMark, setBookMark] = useState(false);
-
+  const [comments, setComments] = useState([
+    {
+      //profileImg: img,
+      username: "user1",
+      content: "예시 댓글 어쩌고 저쩌고",
+      time: "2023.03.28 12:01",
+      reply: [
+        {
+          //profileImg: img,
+          username: "user1",
+          content: "대댓글",
+          time: "2023.03.28 12:05"
+        }
+      ]
+    },
+    {
+      //profileImg: img,
+      username: "user2",
+      content: "예시 댓글 어쩌고 저쩌고2222",
+      time: "2023.03.28 12:03",
+      reply: [
+        {
+          //profileImg: img,
+          username: "user1",
+          content: "대댓글11",
+          time: "2023.03.28 12:05"
+        },
+        {
+          //profileImg: img,
+          username: "user1",
+          content: "대댓글22",
+          time: "2023.03.28 12:05"
+        }
+      ]
+    }
+  ]);
   const handleClickBookMark = () => {
     setBookMark(!bookMark);
   };
@@ -130,7 +172,19 @@ const TeamMatchingPost = () => {
               <PostContent />
             </ContentContainer>
             <CommentContainer>
-              <Comment />
+              <>
+                <p>댓글 {comments.length}개</p>
+                <CommentInputBox />
+                {comments.map((comment, idx) => (
+                  <CommentList
+                    key={idx}
+                    username={comment.username}
+                    content={comment.content}
+                    time={comment.time}
+                    reply={comment.reply}
+                  />
+                ))}
+              </>
             </CommentContainer>
           </Middle>
           <ProjectInfoContainer>

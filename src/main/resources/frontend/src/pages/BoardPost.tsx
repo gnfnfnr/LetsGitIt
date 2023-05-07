@@ -2,12 +2,13 @@ import { useState } from "react";
 import { BsFillBookmarkFill, BsCheckLg } from "react-icons/bs";
 import { MdModeEdit } from "react-icons/md";
 import styled from "styled-components";
-import Comment from "../components/TeamMatching/Post/Comment";
+import CommentList from "../components/TeamMatching/Post/Comment/CommentList";
 import GoBack from "../components/GoBack";
 import ProjectInfo from "../components/Project/ProjectInfo";
 import ProjectTeam from "../components/Project/ProjectTeam";
 import PostInfo from "../components/TeamMatching/Post/PostInfo";
 import ReviewContainer from "../components/Project/ReviewContainer";
+import CommentInputBox from "../components/TeamMatching/Post/Comment/CommentInputBox";
 
 const Wrapper = styled.div`
   display: flex;
@@ -72,8 +73,11 @@ const PostInfoContainer = styled.div`
 `
 
 const CommentContainer = styled.div`
-  display: grid;
   padding: 0 20px 0 20px;
+  p {
+    font-size: 16px;
+    color: var(--color-sub-1);
+  }
 `;
 
 const ProjectInfoContainer = styled.div`
@@ -150,6 +154,40 @@ const BoardPost = () => {
   const [positions, setPositions] = useState(["IOS", "안드로이드", "서버"]);
   const [title, setTitle] = useState("스마트팜교육 chatGPT 챗봇");
   const [date, setDate] = useState("2023.04.12");
+  const [comments, setComments] = useState([
+    {
+      //profileImg: img,
+      username: "user1",
+      content: "예시 댓글 어쩌고 저쩌고",
+      time: "2023.03.28 12:01",
+      reply: [{
+        //profileImg: img,
+        username: "user1",
+        content: "대댓글",
+        time: "2023.03.28 12:05"
+      },]
+    },
+    {
+      //profileImg: img,
+      username: "user2",
+      content: "예시 댓글 어쩌고 저쩌고2222",
+      time: "2023.03.28 12:03",
+      reply: [
+        {
+          //profileImg: img,
+          username: "user1",
+          content: "대댓글11",
+          time: "2023.03.28 12:05"
+        },
+        {
+            //profileImg: img,
+            username: "user1",
+            content: "대댓글22",
+            time: "2023.03.28 12:05"
+          },
+      ]
+    }
+  ]);
 
   const handleClickBookMark = () => {
     setBookMark(!bookMark);
@@ -180,7 +218,21 @@ const BoardPost = () => {
                <ReviewContainer type="write" username = "user1" PostionName="IOS" content="contentsd"/>
             </ContentContainer>
             <CommentContainer>
-              <Comment />
+              <>
+              <p>댓글 {comments.length}개</p>
+              <CommentInputBox />
+              {
+                comments.map((comment, idx) => (
+                  <CommentList
+                    key={idx}
+                    username={comment.username} 
+                    content={comment.content} 
+                    time={comment.time} 
+                    reply={comment.reply}
+                  />
+                ))
+              }
+              </>
             </CommentContainer>
           </Middle>
           <ProjectInfoContainer>
