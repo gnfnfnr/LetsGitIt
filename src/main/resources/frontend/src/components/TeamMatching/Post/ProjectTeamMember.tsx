@@ -175,8 +175,8 @@ const ProjectTeamMember = () => {
 
       <h3>언어/툴</h3>
       <LangContainer>
-        {langsTools.map((items) => (
-          <LangList>{items}</LangList>
+        {langsTools.map((items, index) => (
+          <LangList key={index}>{items}</LangList>
         ))}
       </LangContainer>
     </Wrapper>
