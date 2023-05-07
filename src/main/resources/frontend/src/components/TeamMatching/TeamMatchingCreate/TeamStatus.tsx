@@ -1,5 +1,7 @@
 import { useState, useRef, KeyboardEvent } from "react";
 import styled from "styled-components";
+import Select from "react-select";
+import languageData from "../../../resource/languageData.json";
 
 const Wrapper = styled.div`
   background-color: black;
@@ -154,6 +156,38 @@ const LangnToolContainer = styled.div`
   align-items: flex-start;
 `;
 
+const LanguageSelect =  styled(Select)`
+  color: var(--color-sub-1);
+  & .select__control {
+    width: 150px;
+    height: 50px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: var(--color-sub-4);
+    border: none;
+    outline: none;
+    color: var(--color-sub-1);
+    box-Shadow: none;
+  }
+
+  & .select__indicator-separator,
+  .select__dropdown-indicator {
+    display: none;
+  }
+
+  & .select__menu {
+    color: var(--color-sub-1);
+    background: var(--color-sub-4);
+    z-index: 10;
+  }
+
+  .select-value{
+  border: 1px solid darkgray !important;
+}
+
+`;
+
 const TeamStatus = () => {
   const [positionList, setPositionList] = useState([
     {
@@ -187,7 +221,7 @@ const TeamStatus = () => {
   ]);
   const nextId = useRef(6);
   const [languages, setLanguages] = useState(["JAVA", "JAVASCRIPT"]);
-  const [tools, setTools] = useState(["React"]);
+  const [tools, setTools] = useState(["VS Code"]);
 
   type Position = {
     id: number,
@@ -248,15 +282,6 @@ const TeamStatus = () => {
     setInputPostion(updatedPositions);
   };
 
-  const handleLanguageKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      const newLanguage = event.currentTarget.value;
-      if (languages.includes(newLanguage)) return;
-      setLanguages([...languages, newLanguage]);
-      event.currentTarget.value = "";
-    }
-  };
-
   const onRemoveLanguages = (language: string) => {
     const newLanguage = languages.filter((lang) => lang !== language);
     setLanguages(newLanguage);
@@ -274,6 +299,24 @@ const TeamStatus = () => {
   const onRemoveTools = (tool: string) => {
     const newTools = tools.filter((t) => t !== tool);
     setTools(newTools);
+  };
+
+  const colourStyles = {
+    option: (style: any, { isFocused }: any) => { 
+      return {
+        ...style,
+        backgroundColor: isFocused ? 'var(--color-sub-2)' : null,
+        color: 'var(--color-sub-1)'
+      }
+    },
+    singleValue: (base: any) => ({ 
+      ...base,
+      color: "var(--color-sub-1)" 
+    }),
+    input: (base: any) => ({ 
+      ...base,
+      color: "var(--color-sub-1)" 
+    }),
   };
 
   return (
@@ -341,11 +384,19 @@ const TeamStatus = () => {
       </PositionContainer>
       <p>언어</p>
       <LangnToolContainer>
-        <Input
-          type="text"
+        <LanguageSelect
+        styles={colourStyles}
+        className="basic-single"
+        classNamePrefix="select"
+          options={languageData}
           placeholder="언어를 입력하세요"
-          onKeyPress={handleLanguageKeyPress}
+          onChange={(op: any) => {
+            if(languages.includes(op.label)) return;
+            else setLanguages([...languages, op.label])
+          }
+          }
         />
+        
         <ListContainer>
           {languages.map((lang) => (
             <InputList key={lang} onClick={() => onRemoveLanguages(lang)}>
