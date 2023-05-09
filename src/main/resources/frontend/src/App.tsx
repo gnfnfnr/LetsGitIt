@@ -10,6 +10,7 @@ import TeamMatchingCreate from "./pages/TeamMatchingCreate";
 import Apply from "./pages/Apply";
 import TeamMatchingPost from "./pages/TeamMatchingPost";
 import BoardPost from "./pages/BoardPost";
+import CommunityPost from "./pages/CommunityPost";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/TeamMatchingCreate" element={<TeamMatchingCreate />} />
         <Route path="/TeamMatchingPost" element={<TeamMatchingPost />} />
+        <Route path="/CommunityPost" element={<CommunityPost/>} />
         <Route path="/apply" element={<Apply />} />
         <Route path="/board" element={<BoardPost />} />
       </Routes>

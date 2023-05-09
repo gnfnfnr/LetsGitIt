@@ -65,7 +65,7 @@ const PostContent = () => {
             <Top>
                 <p>{title}</p>
                 <InfoContainer>
-                {date}
+                <span>작성일 {date}</span>
             <PostInfo />
             </InfoContainer>
             </Top>
