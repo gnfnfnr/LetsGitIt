@@ -48,7 +48,9 @@ public class UserService {
 
     private String PROFILE_REQUEST_URL = "https://api.github.com/user";
 
-    @Autowired UserRepository userRepository;
+    @Autowired
+    UserRepository userRepository;
+
     public OAuthToken getOauthToken(String code) throws JsonProcessingException {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("client_id", clientId);
@@ -68,7 +70,8 @@ public class UserService {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(response.getBody(), OAuthToken.class);
     }
-    public GithubProfile getGithubProfile(OAuthToken oAuthToken) throws  JsonProcessingException {
+
+    public GithubProfile getGithubProfile(OAuthToken oAuthToken) throws JsonProcessingException {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "token " + oAuthToken.getAccessToken());
         RestTemplate restTemplate = new RestTemplate();
@@ -80,6 +83,7 @@ public class UserService {
         );
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(response.getBody(), GithubProfile.class);
+    }
 
     public User saveAndGetUser(GithubProfile githubProfile) {
         User user = User.builder()

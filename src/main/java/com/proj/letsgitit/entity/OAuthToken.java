@@ -1,7 +1,8 @@
 package com.proj.letsgitit.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OAuthToken {
     private String accessToken;
     private String tokenType;
