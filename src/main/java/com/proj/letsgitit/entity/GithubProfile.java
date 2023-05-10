@@ -1,7 +1,9 @@
 package com.proj.letsgitit.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
 public class GithubProfile {
     private String login;
