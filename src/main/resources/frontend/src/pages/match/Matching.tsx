@@ -7,6 +7,7 @@ import DetailSort from "./DetailSort";
 import CustomSelect from "../../components/CustomSelect";
 import HeaderButton from "../../components/HeaderButton";
 import { useNavigate } from "react-router-dom";
+import Selected from "./Selected";
 
 const MatchingHeader = styled.header`
   max-width: var(--width-max);
@@ -123,6 +124,12 @@ const FieldText = styled.div`
   padding: 20px 0px;
 `;
 
+const SelectedSection = styled.div`
+  width: 240px;
+  box-sizing: border-box;
+  margin: 0 auto;
+`;
+
 interface fieldInfo {
   name?: string;
   Component: JSX.Element;
@@ -175,19 +182,19 @@ const SortItem = styled.div`
   margin-right: 12px;
 `;
 
+type Op = { value: string; label: string; select?: boolean }[];
+
 export default function Matching() {
   const navigate = useNavigate();
-  const [region, setRegion] = useState<null | []>(null);
+  const [region, setRegion] = useState<Op | []>([]);
   // const [language, setLanguages] = useState([]);
   const [search, setSearch] = useState<string[]>([]);
   useEffect(() => {
-    if (region) {
-      setSearch(
-        Array.from(new Set([...search, ...region.map(({ value }) => value)]))
-      );
-    }
+    console.log("Df");
+    setSearch(
+      Array.from(new Set([...search, ...region.map(({ value }) => value)]))
+    );
   }, [region]);
-
   const sort = [
     {
       name: "진행기간",
@@ -215,21 +222,9 @@ export default function Matching() {
     },
     {
       Component: (
-        <div></div>
-        // <CustomSelect
-        //   isMulti
-        //   onFocus={() => setShowSeleect(showSelect.map(() => false))}
-        //   color={{
-        //     background: "var(--color-sub-3)",
-        //     options: "var(--color-sub-2)",
-        //   }}
-        //   options={languageData}
-        //   value={language ? region : null}
-        //   onChange={(op: any) => {
-        //     setLanguages(op);
-        //   }}
-        //   placeholder="언어"
-        // />
+        <div>
+          {/* <Selected options={languageData} placeholder="언어" value={[]}/> */}
+        </div>
       ),
       id: "language",
     },
@@ -247,20 +242,14 @@ export default function Matching() {
     },
     {
       Component: (
-        <CustomSelect
-          isMulti
-          onFocus={() => setShowSeleect(showSelect.map(() => false))}
-          color={{
-            background: "var(--color-sub-2)",
-            options: "var(--color-sub-3)",
-          }}
-          options={regionData}
-          value={region ? region : null}
-          onChange={(op: any) => {
-            setRegion(op);
-          }}
-          placeholder="지역"
-        />
+        <div>
+          <Selected
+            options={regionData}
+            placeholder="지역"
+            value={region}
+            setValue={setRegion}
+          />
+        </div>
       ),
       id: "region",
     },
@@ -306,16 +295,15 @@ export default function Matching() {
                 {item}
                 <span
                   onClick={() => {
+                    console.log("dfff");
+
                     setSearch(search.filter((state) => state !== item));
-                    console.log(region?.filter(({ value }) => value !== item));
-                    if (region) {
-                      setRegion(
-                        region?.filter(({ value }) => value !== item) && null
-                      );
-                    }
+                    setRegion([
+                      { value: item, label: item, select: false },
+                      ...region,
+                    ]);
                   }}
                 >
-                  {" "}
                   X
                 </span>
               </SortItem>
@@ -367,6 +355,9 @@ export default function Matching() {
           </TableBody>
         </MatchingTable>
       </MatchingMain>
+      {/* <SelectedSection>
+        
+      </SelectedSection> */}
     </>
   );
 }
