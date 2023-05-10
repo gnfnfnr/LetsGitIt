@@ -1,7 +1,19 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import styled from "styled-components";
-import NoticeItem from "../components/NoticeItem";
 import noticeData from "../resource/noticeData.json";
+
+interface Open {
+  setShowNotice: Dispatch<SetStateAction<boolean>>;
+}
+
+interface Data {
+  id: number;
+  read: boolean;
+  showDelete: boolean;
+  checked: number[];
+  setChecked: Dispatch<SetStateAction<number[]>>;
+  Children: JSX.Element;
+}
 
 const NoticeBox = styled.div`
   color: white;
@@ -75,9 +87,98 @@ const HeaderSelect = styled.div`
   }
 `;
 
-interface Open {
-  setShowNotice: Dispatch<SetStateAction<boolean>>;
+const CheckListBox = styled.li<{
+  check: boolean;
+  showDelete: boolean;
+  read: boolean;
+}>`
+  display: flex;
+  gap: 20px;
+  padding: 12px 0 9px;
+  position: relative;
+  padding-left: 26px;
+  margin: 0 20px;
+  &:not(:last-child) {
+    border-bottom: 1px solid #b2b2b2;
+  }
+  ${({ read }) => read && "color: var(--color-sub-3);"}
+  &::before {
+    ${({ read }) => !read && "content: '';"}
+    position: absolute;
+    top: 14px;
+    left: 0;
+    width: 14px;
+    height: 14px;
+
+    ${({ showDelete, check }) =>
+      showDelete
+        ? `
+            ${check ? "content: '✔'" : "content: ''"};
+            color: white;
+            border: 2px solid var(--color-main-4);
+            border-radius: 4px;
+            text-align: center;
+            font-size: 8px;
+        `
+        : "background: var(--color-main-4);    border-radius: 50%;"}
+  }
+`;
+
+function CheckList({
+  showDelete,
+  checked,
+  setChecked,
+  Children,
+  id,
+  read,
+}: Data) {
+  return (
+    <CheckListBox
+      onClick={() => {
+        setChecked(
+          checked.includes(id)
+            ? checked.filter((el) => el !== id)
+            : [...checked, id]
+        );
+      }}
+      check={checked.includes(id)}
+      showDelete={showDelete}
+      read={read}
+    >
+      {Children}
+    </CheckListBox>
+  );
 }
+
+const ItemTitle = styled.span`
+  widht: 20%;
+
+  & > input {
+    display: none;
+  }
+`;
+
+const ItemContent = styled.div`
+  widht: 80%;
+  & > p {
+    margin: 0;
+    padding-bottom: 6px;
+  }
+`;
+
+const ItemSort = styled.span`
+  position: relative;
+  padding-right: 20px;
+  &::after {
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    content: "";
+    width: 1px;
+    height: 12px;
+    background-color: white;
+  }
+`;
 
 export default function Notice({ setShowNotice }: Open) {
   const [data, setData] = useState(noticeData);
@@ -120,12 +221,23 @@ export default function Notice({ setShowNotice }: Open) {
       </NoticeHeader>
       <NoticeList>
         {data.map((dt) => (
-          <NoticeItem
+          <CheckList
             key={dt.id}
-            {...dt}
+            id={dt.id}
+            read={dt.read}
             showDelete={showDelete}
             checked={checked}
             setChecked={setChecked}
+            Children={
+              <>
+                <ItemTitle>댓글</ItemTitle>
+                <ItemContent>
+                  <p>{dt.title}</p>
+                  <ItemSort>{dt.sort}</ItemSort>
+                  <span>1분전</span>
+                </ItemContent>
+              </>
+            }
           />
         ))}
       </NoticeList>

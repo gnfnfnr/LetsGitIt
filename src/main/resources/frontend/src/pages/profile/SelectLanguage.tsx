@@ -1,7 +1,7 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
 import Select from "react-select";
-import languageData from "../resource/languageData.json";
+import languageData from "../../resource/languageData.json";
 
 const CustomSelect = styled(Select)`
   & .select__control {
@@ -37,7 +37,6 @@ const RangeInput = styled.input`
   height: 13px;
   width: 100%;
   cursor: pointer;
-  // background: rgba(255, 255, 255, 0.5);
   background: ;
   border-radius: 10px;
   overflow: hidden;
@@ -47,7 +46,6 @@ const RangeInput = styled.input`
   z-index: 5;
 
   &::-webkit-slider-runnable-track {
-    // background: linear-gradient(90deg, #7c08ed 0%, #f9d5a2 100%);
     z-index: 10;
   }
 
@@ -100,7 +98,7 @@ const RangeBackGround = styled.div<{ range: string }>`
   position: absolute;
   z-index: 1;
   transform: translateY(-50%);
-  background: linear-gradient(90deg, #7c08ed 0%, #f9d5a2 100%);
+  background: linear-gradient(90deg, #7c08ed 0%, var(--color-main-4) 100%);
   border-radius: 10px;
 `;
 
@@ -160,8 +158,17 @@ export default function SelectLanguage({
   languages,
   setLanguages,
 }: Language) {
-  const [isClearable, setIsClearable] = useState(true);
-
+  const [fullData, setFullData] = useState<any[]>(languageData);
+  useEffect(() => {
+    const disabled = languages.map(({ name }) => name.label);
+    setFullData(
+      fullData.map((el) =>
+        disabled.includes(el.label)
+          ? { ...el, isDisabled: true }
+          : { ...el, isDisabled: false }
+      )
+    );
+  }, [languages]);
   return (
     <>
       <CustomSelect
@@ -177,14 +184,14 @@ export default function SelectLanguage({
         })}
         className="basic-single"
         classNamePrefix="select"
-        isClearable={isClearable}
+        isClearable={true}
         name="color"
         defaultValue={
-          Object.keys(!languages[locate].name).length
+          Object.keys(languages[locate].name).length
             ? languages[locate].name
             : null
         }
-        options={languageData}
+        options={fullData}
         placeholder="언어를 선택해주세요"
         onChange={(op: any) =>
           setLanguages(
@@ -192,7 +199,7 @@ export default function SelectLanguage({
               locate === el.index
                 ? {
                     index: el.index,
-                    name: op,
+                    name: { ...op },
                     range: el.range,
                   }
                 : el

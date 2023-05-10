@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import Select from "react-select";
-import regionData from "../resource/regionData.json";
-import SelectLanguage from "../components/SelectLanguage";
+import SelectLanguage from "./SelectLanguage";
+import SelectRegion from "./SelectRegion";
 
 const EditProfileBox = styled.div`
   max-width: 1280px;
-  background: var(--color-sub-2);
+  background: var(--color-sub-3);
   margin: 65px auto 0;
   padding: 85px 110px 92px;
   box-sizing: border-box;
@@ -39,8 +38,8 @@ const EditProfileButton = styled.div`
   }
 `;
 const ButtonCancel = styled.button`
-  border: 2px solid var(--color-sub-3);
-  color: var(--color-sub-3);
+  border: 2px solid var(--color-sub-2);
+  color: var(--color-sub-2);
 `;
 const ButtonComplete = styled.button`
   background: var(--color-main-4);
@@ -58,7 +57,7 @@ const LargeInput = styled.textarea`
   all: unset;
   resize: none;
   height: 230px;
-  border: 2px solid var(--color-sub-3);
+  border: 2px solid var(--color-sub-2);
   border-radius: 10px;
   padding: 18px 16px;
   box-sizing: border-box;
@@ -92,7 +91,7 @@ const InputItem = styled.li`
     color: var(--color-sub-2);
     font-weight: 500;
     font-size: 20px;
-    background: var(--color-sub-3);
+    background: var(--color-sub-2);
     border-radius: 10px;
     padding: 18px 16px;
     width: 100%;
@@ -143,37 +142,6 @@ const MiddleLongInput = styled.input`
   max-width: 220px;
 `;
 
-const RegionSelect = styled(Select)`
-  & .select__control {
-    color: var(--color-sub-2);
-    padding: 10px 16px;
-    background: var(--color-sub-3);
-    border: none;
-    max-width: 300px;
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  & .select__indicator-separator {
-    display: none;
-  }
-
-  & .select__menu {
-    color: var(--color-sub-2);
-    max-width: 240px;
-    width: 100%;
-    background: var(--color-sub-1);
-    z-index: 10;
-  }
-
-  & .select__option {
-    border-radius: 5px;
-  }
-  & .select__menu::-webkit-scrollbar {
-    display: none;
-  }
-`;
-
 const NewRangeBox = styled.div`
   display: flex;
   gap: 40px;
@@ -185,15 +153,24 @@ const NewRange = styled.div`
   display: flex;
   width: 100%;
   height: 13px;
-  background: var(--color-sub-3);
+  background: var(--color-sub-2);
   border-radius: 10px;
 `;
 
 const BorderInput = styled.input`
-  border-left: 1px solid;
+  border-left: 2px solid var(--color-sub-2);
   padding-left: 17px;
-  /* max-width: 50px; */
-  width: min-content;
+  width: 100%;
+`;
+
+const WarnInput = styled.span`
+  font-size: 14px;
+  margin-left: 10px;
+`;
+
+const CountInput = styled.span`
+  font-size: 14px;
+  float: right;
 `;
 
 export default function EditProfile() {
@@ -207,17 +184,22 @@ export default function EditProfile() {
   const [introInput, setIntroInput] = useState("");
   const [languages, setLanguages] = useState([
     {
-      name: { value: "", label: "" },
+      name: { value: "Bash", label: "Bash" },
       range: "50",
       index: 0,
     },
   ]);
-  const [tools, setTools] = useState("");
+  const [tools, setTools] = useState([""]);
   const [region, setRegion] = useState("");
   const [education, setEducation] = useState({ college: "", major: "" });
-  const [career, setCareer] = useState([{ start: "", end: "" }]);
-  const [isClearable, setIsClearable] = useState(true);
-  console.log(languages, region);
+  const [career, setCareer] = useState({ start: "", end: "" });
+  const toolRef = useRef<null[] | HTMLInputElement[]>([]);
+  const regex = /^http[s]?:\/\/([\S]{3,})/i;
+  const maxInput = 500;
+  useEffect(() => {
+    toolRef.current[toolRef.current.length - 1]?.focus();
+  }, [tools.length]);
+  console.log(region);
   return (
     <EditProfileBox>
       <EditProfileInputs>
@@ -237,33 +219,49 @@ export default function EditProfile() {
             <InputsDetialList>
               {platformInputs.map(({ site, input }) => (
                 <InputDetailItem key={site}>
-                  <label htmlFor={site}>{site}</label>
+                  <label htmlFor={site}>
+                    {site}
+                    {!regex.test(input) && (
+                      <WarnInput>올바른 주소를 입력해주세요</WarnInput>
+                    )}
+                  </label>
                   <BasicInput
                     type="text"
                     placeholder="URL을 입력해주세요"
                     id={site}
                     value={input}
-                    onChange={(event) =>
+                    onChange={(event) => {
                       setPlatformInputs(
                         platformInputs.map((el) => ({
                           site: el.site,
                           input:
                             site === el.site ? event.target.value : el.input,
                         }))
-                      )
-                    }
+                      );
+                    }}
                   />
                 </InputDetailItem>
               ))}
             </InputsDetialList>
           </InputItem>
           <InputItem>
-            <label htmlFor="introduce">소개글</label>
-            {/* <span>1/1000 자</span> */}
+            <label htmlFor="introduce">
+              소개글
+              <CountInput>
+                {/* introInput.replace(/[\0-\x7f]|([0-\u07ff]|(.))/g, "$&$1$2").length */}
+                {introInput.length} / {maxInput} 자
+              </CountInput>
+            </label>
             <LargeInput
               id="introduce"
               value={introInput}
-              onChange={(event) => setIntroInput(event.target.value)}
+              onChange={(event) =>
+                setIntroInput(
+                  introInput.length > maxInput - 1
+                    ? event.target.value.substring(0, maxInput)
+                    : event.target.value
+                )
+              }
             />
           </InputItem>
         </InputsList>
@@ -314,36 +312,40 @@ export default function EditProfile() {
           </InputItem>
           <InputItem>
             <label htmlFor="career">소프트웨어 툴</label>
-            <div>
-              <BorderInput
-                placeholder="elicpse github"
-                value={tools}
-                onChange={(event) => setTools(event.target.value)}
-              />
-            </div>
+            <MultiInputBox>
+              {tools.map((tool, index) => (
+                <BorderInput
+                  key={`tools${index}`}
+                  ref={(el) => (toolRef.current[index] = el)}
+                  placeholder="github"
+                  value={tool}
+                  onChange={(event) =>
+                    setTools(
+                      tools.map((el, idx) => {
+                        console.log(el);
+                        return index === idx ? event.target.value : el;
+                      })
+                    )
+                  }
+                  onKeyPress={(e) => {
+                    if (e.key === "Enter") {
+                      if (toolRef.current[index + 1]) {
+                        toolRef.current[index + 1]?.focus();
+                      } else {
+                        setTools([...tools, ""]);
+                      }
+                    }
+                  }}
+                />
+              ))}
+            </MultiInputBox>
           </InputItem>
           <InputItem>
             <label htmlFor="region">지역</label>
-            <RegionSelect
-              theme={(theme: any) => ({
-                ...theme,
-                borderRadius: 10,
-                colors: {
-                  ...theme.colors,
-                  neutral90: "var(--color-sub-2)",
-                  primary50: "var(--color-sub-3)",
-                  primary25: "var(--color-sub-3)",
-                  primary: "var(--color-sub-3)",
-                },
-              })}
-              className="basic-single"
-              classNamePrefix="select"
-              isClearable={isClearable}
-              name="color"
-              options={regionData}
+            <SelectRegion
+              region={region}
+              setRegion={setRegion}
               placeholder="지역을 선택해주세요"
-              defaultValue={region ? region : null}
-              onChange={(op: any) => setRegion(op)}
             />
           </InputItem>
           <InputItem>
@@ -372,9 +374,27 @@ export default function EditProfile() {
           <InputItem>
             <label htmlFor="career">경력</label>
             <MultiInputBox>
-              <NumberInput type="number" placeholder="YYYY" />
+              <NumberInput
+                placeholder="YYYY"
+                value={career.start}
+                onChange={(event) =>
+                  setCareer({
+                    ...career,
+                    start: event.target.value.replace(/[^0-9]/g, ""),
+                  })
+                }
+              />
               ~
-              <NumberInput type="number" placeholder="YYYY" />
+              <NumberInput
+                placeholder="YYYY"
+                value={career.end}
+                onChange={(event) =>
+                  setCareer({
+                    ...career,
+                    end: event.target.value.replace(/[^0-9]/g, ""),
+                  })
+                }
+              />
               <MiddleLongInput
                 type="text"
                 id="career"

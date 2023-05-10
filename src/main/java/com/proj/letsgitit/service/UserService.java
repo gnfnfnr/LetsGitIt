@@ -30,6 +30,7 @@ import java.util.*;
 
 @Service
 @RequiredArgsConstructor
+
 public class UserService {
     @Value("${githubApiUrl}")
     private String githubApiUrl;
@@ -79,7 +80,6 @@ public class UserService {
         );
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(response.getBody(), GithubProfile.class);
-    }
 
     public User saveAndGetUser(GithubProfile githubProfile) {
         User user = User.builder()
