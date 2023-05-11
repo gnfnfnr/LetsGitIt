@@ -173,6 +173,8 @@ const SortList = styled.div`
   background: #f9d5a2;
   border-radius: 10px;
   display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
 `;
 
 const SortItem = styled.div`
@@ -182,19 +184,24 @@ const SortItem = styled.div`
   margin-right: 12px;
 `;
 
-type Op = { value: string; label: string; select?: boolean }[];
+type Op = { value: string; label: string }[];
 
 export default function Matching() {
   const navigate = useNavigate();
   const [region, setRegion] = useState<Op | []>([]);
-  // const [language, setLanguages] = useState([]);
+  const [languages, setLanguages] = useState<Op | []>([]);
   const [search, setSearch] = useState<string[]>([]);
   useEffect(() => {
-    console.log("Df");
     setSearch(
-      Array.from(new Set([...search, ...region.map(({ value }) => value)]))
+      Array.from(
+        new Set([
+          ...search,
+          ...region.map(({ value }) => value),
+          ...languages.map(({ value }) => value),
+        ])
+      )
     );
-  }, [region]);
+  }, [region, languages]);
   const sort = [
     {
       name: "진행기간",
@@ -222,9 +229,12 @@ export default function Matching() {
     },
     {
       Component: (
-        <div>
-          {/* <Selected options={languageData} placeholder="언어" value={[]}/> */}
-        </div>
+        <Selected
+          options={languageData}
+          placeholder="언어"
+          value={languages}
+          setValue={setLanguages}
+        />
       ),
       id: "language",
     },
@@ -242,14 +252,12 @@ export default function Matching() {
     },
     {
       Component: (
-        <div>
-          <Selected
-            options={regionData}
-            placeholder="지역"
-            value={region}
-            setValue={setRegion}
-          />
-        </div>
+        <Selected
+          options={regionData}
+          placeholder="지역"
+          value={region}
+          setValue={setRegion}
+        />
       ),
       id: "region",
     },
@@ -295,13 +303,9 @@ export default function Matching() {
                 {item}
                 <span
                   onClick={() => {
-                    console.log("dfff");
-
                     setSearch(search.filter((state) => state !== item));
-                    setRegion([
-                      { value: item, label: item, select: false },
-                      ...region,
-                    ]);
+                    setRegion(region.filter(({ value }) => value !== item));
+                    setLanguages(region.filter(({ value }) => value !== item));
                   }}
                 >
                   X
@@ -355,9 +359,6 @@ export default function Matching() {
           </TableBody>
         </MatchingTable>
       </MatchingMain>
-      {/* <SelectedSection>
-        
-      </SelectedSection> */}
     </>
   );
 }

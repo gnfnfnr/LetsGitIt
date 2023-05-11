@@ -1,4 +1,4 @@
-import React, { useState, Dispatch, SetStateAction } from "react";
+import React, { useState, Dispatch, SetStateAction, useEffect } from "react";
 import styled from "styled-components";
 
 const SelectBox = styled.div`
@@ -40,7 +40,7 @@ const Menuitem = styled.div`
   }
 `;
 
-type Op = { value: string; label: string; select?: boolean }[];
+type Op = { value: string; label: string }[];
 
 interface SelectedOptions {
   placeholder: string;
@@ -57,8 +57,10 @@ export default function Selected({
 }: SelectedOptions) {
   const [showMenu, setShowMenu] = useState(false);
   const [data, setData] = useState(options);
-  //   const [picked, setPicked] = useState(value);
-  //   console.log(picked);
+  useEffect(() => {
+    const find = value.map(({ value }) => value);
+    setData(options.filter((op) => !find.includes(op.value)));
+  }, [value]);
   return (
     <SelectBox>
       <SelectPlaceholder onClick={() => setShowMenu(!showMenu)}>
@@ -66,25 +68,15 @@ export default function Selected({
       </SelectPlaceholder>
       {showMenu && (
         <SelectMenu>
-          {data.map(
-            (dt) =>
-              !dt.select && (
-                <Menuitem
-                  onClick={() => {
-                    setData(
-                      data.map((el) =>
-                        el.value === dt.value
-                          ? { ...el, select: true }
-                          : { ...el, select: false }
-                      )
-                    );
-                    setValue([{ ...dt, select: true }, ...value]);
-                  }}
-                >
-                  {dt.value}
-                </Menuitem>
-              )
-          )}
+          {data.map((dt) => (
+            <Menuitem
+              onClick={() => {
+                setValue([dt, ...value]);
+              }}
+            >
+              {dt.value}
+            </Menuitem>
+          ))}
         </SelectMenu>
       )}
     </SelectBox>
