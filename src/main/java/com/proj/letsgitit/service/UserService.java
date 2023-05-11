@@ -88,6 +88,8 @@ public class UserService {
     public User saveAndGetUser(GithubProfile githubProfile) {
         User findUser = userRepository.findById(githubProfile.getId());
         if (findUser != null) {
+            findUser.setHtmlUrl(githubProfile.getHtml_url());
+            findUser.setLogin(githubProfile.getLogin());
             return findUser;
         }
         findUser = User.builder()
