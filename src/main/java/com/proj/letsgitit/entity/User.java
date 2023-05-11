@@ -24,7 +24,7 @@ public class User {
     String login;
 
     @Column(name="name")
-    String name; //근데 이건 무슨 컬럼이지..? 일단 노션에 써있어서 넣음 -> 깃에서 레포 이름 가져올 때 객체명
+    String name; //이름
 
     @Column(name="id")  //이건 깃이 부여한 id...? 아마도
     long id;
