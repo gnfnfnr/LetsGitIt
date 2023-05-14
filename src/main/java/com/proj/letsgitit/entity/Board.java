@@ -17,8 +17,8 @@ import java.time.LocalDateTime;
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="b_id")
-    int bId;
+    @Column(name="post_id")
+    int postId;
     @Column(name="type")
     int type;
     @Column(name="title")
