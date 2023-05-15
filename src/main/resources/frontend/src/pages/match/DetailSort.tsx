@@ -12,6 +12,7 @@ const DetailSortBox = styled.div`
   bottom: -95px;
   left: 0;
   border-radius: 10px;
+  position: absolute;
 `;
 const DetailSortItem = styled.div`
   padding: 18px;

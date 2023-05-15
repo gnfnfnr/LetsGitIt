@@ -1,4 +1,10 @@
-import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
+import React, {
+  useState,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+  useRef,
+} from "react";
 import CheckButton from "../../components/CheckButton";
 import styled from "styled-components";
 import regionData from "../../resource/regionData.json";
@@ -8,6 +14,8 @@ import CustomSelect from "../../components/CustomSelect";
 import HeaderButton from "../../components/HeaderButton";
 import { useNavigate } from "react-router-dom";
 import Selected from "./Selected";
+import matchingData from "../../resource/matchingData.json";
+import { MatchingSort } from "./MatchingSort";
 
 const MatchingHeader = styled.header`
   max-width: var(--width-max);
@@ -32,44 +40,54 @@ const TableHeader = styled.thead`
   background: #222222;
   border-top: 3px solid #444444;
   border-bottom: 3px solid #444444;
+  & tr {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 4fr 0.5fr 0.5fr 0.5fr;
+    padding: 20px 0;
+    word-break: keep-all;
+  }
 
-  & th {
-    height: 60px;
+  @media (max-width: 1060px) {
+    & tr {
+      grid-template-columns: 1.5fr 4fr 1fr 1fr 1fr;
+    }
+    &>tr>th: first-child {
+      display: none;
+    }
   }
 `;
 
-const TableBody = styled.tbody`
-  & td {
-    border-bottom: 2px solid #444444;
-    text-align: center;
-    height: 80px;
-    padding: 0 15px;
-  }
-`;
+const TableBody = styled.tbody``;
 
-const BodyUser = styled.td`
+const ItemAuthor = styled.td`
+  padding: 0 20px;
   display: flex;
   align-items: center;
+  gap: 20px;
   & > img {
     width: 44px;
     height: 44px;
+    object-fit: contain;
   }
 `;
 
-const BodyTitle = styled.td`
+const ItemTitle = styled.td`
   display: flex;
   align-items: center;
   gap: 24px;
   & > p {
-    height: 40px;
-    overflow: hidden;
+    max-width: 650px;
+    width: 100%;
+    text-align: left;
   }
+`;
 
-  & > span {
-    padding: 10px 14px;
-    background: #222222;
-    border-radius: 10px;
-  }
+const ItemState = styled.span<{ state: number }>`
+  border-radius: 10px;
+  width: 70px;
+  margin-right: 20px;
+
+  ${({ state }) => state && "  padding: 10px 14px; background: #222222;"}
 `;
 
 const MatchingInfo = styled.div`
@@ -85,15 +103,6 @@ const MatchField = styled.div<{ show: boolean }>`
   margin-bottom: ${({ show }) => (show ? 161 : 87)}px;
 `;
 
-const FieldBlock = styled.div`
-  max-width: 180px;
-  width: 20%;
-  background: #222222;
-  text-align: center;
-  border-radius: 10px;
-  position: relative;
-`;
-
 const TitleLeft = styled.div`
   display: flex;
 `;
@@ -106,7 +115,21 @@ const CheckText = styled.span`
   margin-left: 10px;
 `;
 
-const TableItem = styled.tr``;
+const TableItem = styled.tr`
+  border-bottom: 2px solid #444444;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 4fr 0.5fr 0.5fr 0.5fr;
+  text-align: center;
+  align-items: center;
+  min-height: 80px;
+
+  @media (max-width: 1060px) {
+    grid-template-columns: 1.5fr 4fr 1fr 1fr 1fr;
+    &>td: first-child {
+      display: none;
+    }
+  }
+`;
 
 const MatchingTitle = styled.div`
   display: flex;
@@ -119,54 +142,6 @@ const MatchingTitle = styled.div`
     margin-bottom: 24px;
   }
 `;
-
-const FieldText = styled.div`
-  padding: 20px 0px;
-`;
-
-const SelectedSection = styled.div`
-  width: 240px;
-  box-sizing: border-box;
-  margin: 0 auto;
-`;
-
-interface fieldInfo {
-  name?: string;
-  Component: JSX.Element;
-  showSelect: boolean[];
-  setShowSelect: Dispatch<SetStateAction<boolean[]>>;
-  index: number;
-}
-
-const MatchingSort = ({
-  name,
-  Component,
-  showSelect,
-  setShowSelect,
-  index,
-}: fieldInfo) => {
-  return (
-    <FieldBlock key={name}>
-      {name ? (
-        <>
-          <FieldText
-            onClick={(event) => {
-              event.preventDefault();
-              setShowSelect(
-                showSelect.map((state, idx) => idx === index && !state)
-              );
-            }}
-          >
-            {name}
-          </FieldText>
-          {showSelect[index] && Component}
-        </>
-      ) : (
-        Component
-      )}
-    </FieldBlock>
-  );
-};
 
 const SortList = styled.div`
   padding: 11px 16px;
@@ -202,6 +177,7 @@ export default function Matching() {
       )
     );
   }, [region, languages]);
+
   const sort = [
     {
       name: "진행기간",
@@ -229,12 +205,14 @@ export default function Matching() {
     },
     {
       Component: (
-        <Selected
-          options={languageData}
-          placeholder="언어"
-          value={languages}
-          setValue={setLanguages}
-        />
+        <div>
+          <Selected
+            options={languageData}
+            placeholder="언어"
+            value={languages}
+            setValue={setLanguages}
+          />
+        </div>
       ),
       id: "language",
     },
@@ -262,11 +240,12 @@ export default function Matching() {
       id: "region",
     },
   ];
-  const [showSelect, setShowSeleect] = useState(
+  const [showSelect, setShowSelect] = useState(
     Array.from({ length: sort.length }, () => false)
   );
 
   const [checked, setChecked] = useState<number[]>([]);
+
   return (
     <>
       <MatchingHeader>
@@ -291,7 +270,7 @@ export default function Matching() {
               name={name}
               Component={Component}
               showSelect={showSelect}
-              setShowSelect={setShowSeleect}
+              setShowSelect={setShowSelect}
               index={index}
             />
           ))}
@@ -335,27 +314,26 @@ export default function Matching() {
             </tr>
           </TableHeader>
           <TableBody>
-            <TableItem>
-              <td>2023.3.45</td>
-              <td>
-                <img />
-                <span>username</span>
-              </td>
-              <BodyTitle>
-                <p>
-                  사이드프로젝트를 통해 개발능력을
-                  업그레이드해보세요사이드프로젝트를 통해 개발능력을
-                  업그레이드해보세요사이드프로젝트를 통해 개발능력을
-                  업그레이드해보세요사이드프로젝트를 통해 개발능력을
-                  업그레이드해보세요
-                </p>
-                <span>모집완료</span>
-              </BodyTitle>
-
-              <td>3/4</td>
-              <td>39</td>
-              <td>4</td>
-            </TableItem>
+            {matchingData.map(
+              ({ id, createdAt, author, title, scrap, comment, state }) => (
+                <TableItem key={id}>
+                  <td>{createdAt.slice(0, 10)}</td>
+                  <ItemAuthor>
+                    {author.image && <img src={author.image} alt="유저 사진" />}
+                    <span>{author.username}</span>
+                  </ItemAuthor>
+                  <ItemTitle>
+                    <p>{title}</p>
+                    <ItemState state={state}>
+                      {state ? "모집중" : "모집완료"}
+                    </ItemState>
+                  </ItemTitle>
+                  <td>3/4</td>
+                  <td>{scrap}</td>
+                  <td>{comment}</td>
+                </TableItem>
+              )
+            )}
           </TableBody>
         </MatchingTable>
       </MatchingMain>
