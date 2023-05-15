@@ -1,4 +1,10 @@
-import React, { useState, Dispatch, SetStateAction, useEffect } from "react";
+import React, {
+  useState,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+} from "react";
 import styled from "styled-components";
 
 const SelectBox = styled.div`
@@ -55,14 +61,27 @@ export default function Selected({
   value,
   setValue,
 }: SelectedOptions) {
+  const selectRef = useRef<HTMLDivElement | null>(null);
+
   const [showMenu, setShowMenu] = useState(false);
   const [data, setData] = useState(options);
   useEffect(() => {
     const find = value.map(({ value }) => value);
     setData(options.filter((op) => !find.includes(op.value)));
   }, [value]);
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent): void {
+      if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
+        setShowMenu(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [selectRef]);
   return (
-    <SelectBox>
+    <SelectBox ref={selectRef}>
       <SelectPlaceholder onClick={() => setShowMenu(!showMenu)}>
         {placeholder}
       </SelectPlaceholder>
