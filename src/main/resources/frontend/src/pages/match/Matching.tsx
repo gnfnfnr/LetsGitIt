@@ -49,9 +49,9 @@ const TableHeader = styled.thead`
 
   @media (max-width: 1060px) {
     & tr {
-      grid-template-columns: 1.5fr 4fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1.5fr 4fr 1fr;
     }
-    &>tr>th: first-child {
+    &>tr>th: nth-child(n + 5) {
       display: none;
     }
   }
@@ -97,10 +97,13 @@ const MatchingInfo = styled.div`
 `;
 
 const MatchField = styled.div<{ show: boolean }>`
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  row-gap: 40px;
   margin-bottom: ${({ show }) => (show ? 161 : 87)}px;
+  @media (max-width: 1060px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 const TitleLeft = styled.div`
@@ -124,8 +127,8 @@ const TableItem = styled.tr`
   min-height: 80px;
 
   @media (max-width: 1060px) {
-    grid-template-columns: 1.5fr 4fr 1fr 1fr 1fr;
-    &>td: first-child {
+    grid-template-columns: 1fr 1.5fr 4fr 1fr;
+    &>td: nth-child(n + 5) {
       display: none;
     }
   }
@@ -177,12 +180,17 @@ export default function Matching() {
       )
     );
   }, [region, languages]);
+  const [showSelect, setShowSelect] = useState(
+    Array.from({ length: 5 }, () => false)
+  );
 
   const sort = [
     {
       name: "진행기간",
       Component: (
         <DetailSort
+          showSelect={showSelect}
+          setShowSelect={setShowSelect}
           search={search}
           setSearch={setSearch}
           button
@@ -195,6 +203,8 @@ export default function Matching() {
       name: "회의유형",
       Component: (
         <DetailSort
+          showSelect={showSelect}
+          setShowSelect={setShowSelect}
           search={search}
           setSearch={setSearch}
           button
@@ -205,14 +215,12 @@ export default function Matching() {
     },
     {
       Component: (
-        <div>
-          <Selected
-            options={languageData}
-            placeholder="언어"
-            value={languages}
-            setValue={setLanguages}
-          />
-        </div>
+        <Selected
+          options={languageData}
+          placeholder="언어"
+          value={languages}
+          setValue={setLanguages}
+        />
       ),
       id: "language",
     },
@@ -220,6 +228,8 @@ export default function Matching() {
       name: "포지션",
       Component: (
         <DetailSort
+          showSelect={showSelect}
+          setShowSelect={setShowSelect}
           search={search}
           setSearch={setSearch}
           sort={["프론트", "서버", "안드로이드", "IOS", "기타"]}
@@ -240,9 +250,6 @@ export default function Matching() {
       id: "region",
     },
   ];
-  const [showSelect, setShowSelect] = useState(
-    Array.from({ length: sort.length }, () => false)
-  );
 
   const [checked, setChecked] = useState<number[]>([]);
 

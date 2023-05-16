@@ -9,7 +9,7 @@ import styled from "styled-components";
 
 const FieldBlock = styled.div`
   max-width: 180px;
-  width: 20%;
+  width: 100%;
   background: #222222;
   text-align: center;
   border-radius: 10px;
@@ -35,28 +35,12 @@ export const MatchingSort = ({
   setShowSelect,
   index,
 }: fieldInfo) => {
-  const selectRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    console.log(selectRef);
-    function handleClickOutside(e: MouseEvent): void {
-      if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
-        setShowSelect(showSelect.map(() => false));
-        console.log(selectRef);
-        console.log(selectRef);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [selectRef]);
   return (
-    <FieldBlock key={name} ref={selectRef}>
+    <FieldBlock key={name}>
       {name ? (
         <>
           <FieldText
             onClick={(event) => {
-              // event.preventDefault();
               setShowSelect(
                 showSelect.map((state, idx) => idx === index && !state)
               );
