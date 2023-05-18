@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import PostItem from "../../components/PostItem";
 import styled from "styled-components";
-import { ReactComponent as LeftArrow } from "../../styles/icon/LeftArrow.svg";
-import { ReactComponent as RightArrow } from "../../styles/icon/RightArrow.svg";
+import { ReactComponent as LeftArrow } from "../../styles/Icons/LeftArrow.svg";
+import { ReactComponent as RightArrow } from "../../styles/Icons/RightArrow.svg";
 
 const BoardTitle = styled.h2`
   font-weight: 600;

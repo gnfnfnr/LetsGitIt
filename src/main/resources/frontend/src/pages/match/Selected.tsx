@@ -20,7 +20,7 @@ const SelectMenu = styled.div`
   margin-top: 16px;
   background: #222222;
   border-radius: 10px;
-
+  z-index: 5;
   &::-webkit-scrollbar {
     display: none;
   }

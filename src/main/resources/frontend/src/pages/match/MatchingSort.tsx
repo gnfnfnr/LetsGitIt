@@ -41,8 +41,9 @@ export const MatchingSort = ({
         <>
           <FieldText
             onClick={(event) => {
+              event.preventDefault();
               setShowSelect(
-                showSelect.map((state, idx) => idx === index && !state)
+                showSelect.map((state, idx) => idx === index && true)
               );
             }}
           >

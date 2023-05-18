@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PostItem from "../../components/PostItem";
 import styled from "styled-components";
-import { ReactComponent as DownArrow } from "../../styles/icon/DownArrow.svg";
+import { ReactComponent as DownArrow } from "../../styles/Icons/DownArrow.svg";
 
 const BoardTitle = styled.h2`
   font-weight: 600;

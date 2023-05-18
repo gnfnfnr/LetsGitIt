@@ -1,21 +1,19 @@
-import React, {
-  useState,
-  useEffect,
-  Dispatch,
-  SetStateAction,
-  useRef,
-} from "react";
+import React, { useState, useEffect } from "react";
 import CheckButton from "../../components/CheckButton";
 import styled from "styled-components";
 import regionData from "../../resource/regionData.json";
 import languageData from "../../resource/languageData.json";
 import DetailSort from "./DetailSort";
-import CustomSelect from "../../components/CustomSelect";
 import HeaderButton from "../../components/HeaderButton";
 import { useNavigate } from "react-router-dom";
 import Selected from "./Selected";
 import matchingData from "../../resource/matchingData.json";
 import { MatchingSort } from "./MatchingSort";
+import { ReactComponent as Close } from "../../styles/Icons/Close.svg";
+import { ReactComponent as Reset } from "../../styles/Icons/Reset.svg";
+import { ReactComponent as DownArrow } from "../../styles/Icons/DownArrow.svg";
+import { ReactComponent as UpArrow } from "../../styles/Icons/UpArrow.svg";
+import { ReactComponent as Search } from "../../styles/Icons/Search.svg";
 
 const MatchingHeader = styled.header`
   max-width: var(--width-max);
@@ -32,8 +30,8 @@ const MatchingMain = styled.main`
 `;
 
 const MatchingTable = styled.table`
-  width: 100%;
   border-collapse: collapse;
+  // margin: 0 20px;
 `;
 
 const TableHeader = styled.thead`
@@ -57,7 +55,26 @@ const TableHeader = styled.thead`
   }
 `;
 
-const TableBody = styled.tbody``;
+const TableBody = styled.tbody`
+  @media (max-width: 900px) {
+    & tr {
+      grid-template-columns: initial;
+    }
+
+    & td {
+      display: flex;
+    }
+
+    & td::before {
+      content: attr(dataType);
+
+      padding-left: 15px;
+      font-size: 15px;
+      font-weight: bold;
+      text-align: left;
+    }
+  }
+`;
 
 const ItemAuthor = styled.td`
   padding: 0 20px;
@@ -93,16 +110,18 @@ const ItemState = styled.span<{ state: number }>`
 const MatchingInfo = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 37px;
+  margin: 0 20px 37px;
 `;
 
 const MatchField = styled.div<{ show: boolean }>`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   row-gap: 40px;
-  margin-bottom: ${({ show }) => (show ? 161 : 87)}px;
+  justify-items: center;
+  margin-bottom: 87px;
   @media (max-width: 1060px) {
     grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 `;
 
@@ -153,6 +172,14 @@ const SortList = styled.div`
   display: flex;
   flex-wrap: wrap;
   row-gap: 10px;
+  margin-bottom: 60px;
+  align-items: center;
+  position: relative;
+
+  & > svg {
+    position: absolute;
+    right: 20px;
+  }
 `;
 
 const SortItem = styled.div`
@@ -160,6 +187,63 @@ const SortItem = styled.div`
   border-radius: 10px;
   padding: 8px 10px;
   margin-right: 12px;
+
+  & > span {
+    margin-right: 6px;
+  }
+`;
+
+const TitleRight = styled.div`
+  position: relative;
+  & > svg {
+    margin-left: 8px;
+  }
+`;
+
+const TitleOrder = styled.ul`
+  all: unset;
+  list-style: none;
+  padding: 11px 9px;
+  background: var(--color-sub-3);
+  position: absolute;
+  top: 20px;
+  width: 80px;
+  left: -10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  color: var(--color-sub-2);
+  font-weight: bold;
+
+  & > li:not(:last-child) {
+    margin-bottom: 16px;
+  }
+`;
+
+const MatchingSearch = styled.div`
+  display: flex;
+  align-items: center;
+  background: var(--color-sub-3);
+  border-radius: 20px;
+  width: max-content;
+`;
+
+const SearchInput = styled.input`
+  padding: 11px 12px;
+  width: calc(100% - 66px);
+`;
+
+const SearchLabel = styled.label`
+  width: 40px;
+  height: 40px;
+  background: var(--color-sub-1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: var(--color-sub-3);
+  }
 `;
 
 type Op = { value: string; label: string }[];
@@ -169,6 +253,7 @@ export default function Matching() {
   const [region, setRegion] = useState<Op | []>([]);
   const [languages, setLanguages] = useState<Op | []>([]);
   const [search, setSearch] = useState<string[]>([]);
+  const [showOrder, setShowOrder] = useState(false);
   useEffect(() => {
     setSearch(
       Array.from(
@@ -266,6 +351,12 @@ export default function Matching() {
             onClick={() => navigate("/TeamMatchingCreate")}
           />
         </MatchingTitle>
+        <MatchingSearch>
+          <SearchInput />
+          <SearchLabel>
+            <Search />
+          </SearchLabel>
+        </MatchingSearch>
       </MatchingHeader>
       <MatchingMain>
         <MatchField
@@ -286,27 +377,47 @@ export default function Matching() {
           <SortList>
             {search.map((item, index) => (
               <SortItem key={index}>
-                {item}
-                <span
+                <span>{item}</span>
+
+                <Close
                   onClick={() => {
                     setSearch(search.filter((state) => state !== item));
                     setRegion(region.filter(({ value }) => value !== item));
                     setLanguages(region.filter(({ value }) => value !== item));
                   }}
-                >
-                  X
-                </span>
+                />
               </SortItem>
             ))}
+            <Reset
+              onClick={() => {
+                setSearch([]);
+                setRegion([]);
+                setLanguages([]);
+              }}
+            />
           </SortList>
         )}
         <MatchingInfo>
           <TitleLeft>
-            <TitleText>전체글 nn개</TitleText>
+            <TitleText>전체글 {matchingData.length}개</TitleText>
             <CheckButton check={false} />
             <CheckText onClick={() => {}}>모집 진행중</CheckText>
           </TitleLeft>
-          <div>최신순</div>
+          <TitleRight
+            onClick={() => {
+              setShowOrder(!showOrder);
+            }}
+          >
+            최신순
+            {showOrder ? <UpArrow /> : <DownArrow />}
+            {showOrder && (
+              <TitleOrder>
+                <li>조회순</li>
+                <li>댓글순</li>
+                <li>스크랩순</li>
+              </TitleOrder>
+            )}
+          </TitleRight>
         </MatchingInfo>
 
         <MatchingTable>
@@ -324,18 +435,18 @@ export default function Matching() {
             {matchingData.map(
               ({ id, createdAt, author, title, scrap, comment, state }) => (
                 <TableItem key={id}>
-                  <td>{createdAt.slice(0, 10)}</td>
-                  <ItemAuthor>
+                  <td datatype="작성일">{createdAt.slice(0, 10)}</td>
+                  <ItemAuthor datatype="작성자">
                     {author.image && <img src={author.image} alt="유저 사진" />}
                     <span>{author.username}</span>
                   </ItemAuthor>
-                  <ItemTitle>
+                  <ItemTitle datatype="제목">
                     <p>{title}</p>
                     <ItemState state={state}>
                       {state ? "모집중" : "모집완료"}
                     </ItemState>
                   </ItemTitle>
-                  <td>3/4</td>
+                  <td datatype="모집인원">3/4</td>
                   <td>{scrap}</td>
                   <td>{comment}</td>
                 </TableItem>
