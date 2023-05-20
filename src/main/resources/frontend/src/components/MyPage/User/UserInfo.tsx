@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { AiTwotoneMail, AiFillLinkedin, AiOutlineGithub } from "react-icons/ai";
 import { RxNotionLogo } from "react-icons/rx";
 import { SiVelog } from "react-icons/si";
+import UserLinks from "./UserLinks";
 
 const Wrapper = styled.div`
   height: 348px;
@@ -69,24 +70,7 @@ export default function UserInfo() {
         <EmailIcon />
         {useremail}
       </EmailContainer>
-      <ButtonContainer>
-        <Button>
-          <AiOutlineGithub />
-          Github
-        </Button>
-        <Button>
-          <RxNotionLogo />
-          Notion
-        </Button>
-        <Button>
-          <SiVelog />
-          Velog
-        </Button>
-        <Button>
-          <AiFillLinkedin />
-          LinkedIn
-        </Button>
-      </ButtonContainer>
+      <UserLinks />
       {content}
     </Wrapper>
   );

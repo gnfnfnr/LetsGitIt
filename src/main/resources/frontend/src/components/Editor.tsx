@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "react-quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
 
 const EditorWrapper = styled.div<{ height: number }>`
   display: flex;
+  width: 100%;
   .quill {
     width: 100%;
     height: 100%;
@@ -91,9 +92,6 @@ interface PropsInterface {
 }
 
 export default function Editor({ content, type }: PropsInterface) {
-  if (type === "project") {
-    //editor높이 설정
-  }
   const [curContent, setCurContent] = useState(content);
 
   const modules = {
@@ -118,6 +116,10 @@ export default function Editor({ content, type }: PropsInterface) {
   };
   let editorHeight = 300; // 기본 높이는 300px로 설정
   // let editorWidth = "745px";
+
+  useEffect(()=> {
+    
+  }, []);
 
   // type에 따라 editor 높이를 설정
   if (type === "project") {
