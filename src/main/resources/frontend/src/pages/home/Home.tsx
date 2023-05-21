@@ -17,6 +17,7 @@ const HomeTabContainer = styled.div`
     align-items: center;
     grid-column: 1 / 2 span;
     width: 100%;
+    padding-left: 50px;
 `;
 
 const IntroWrapper = styled.div`
@@ -29,6 +30,7 @@ const AnimationWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-self: start;
+    padding-left: 150px;
 `;
 export default function SignOutHome() {
 
