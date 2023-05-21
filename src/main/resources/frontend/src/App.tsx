@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { GlobalStyle } from "./styles/global-style";
-import Home from "./pages/Home";
 import EditProfile from "./pages/profile/EditProfile";
 import Messages from "./pages/mail/Messages";
 import Chatting from "./pages/mail/Chatting";
@@ -18,7 +17,7 @@ import BoardPost from "./pages/BoardPost";
 import CommunityPost from "./pages/CommunityPost";
 import ProjectPostCreate from "./pages/board/ProjectPostCreate";
 import CommunityPostCreate from "./pages/board/CommunityPostCreate";
-import SignOutHome from "./pages/home/SignOutHome";
+import Home from "./pages/home/Home";
 
 function App() {
   return (
@@ -26,7 +25,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <Routes>
-        <Route path="/" element={<SignOutHome />} />
+        <Route path="/" element={<Home />} />
         <Route path="/mypage/edit" element={<EditProfile />} />
         <Route element={<Received />}>
           <Route path="/received/messages" element={<Messages />}>
