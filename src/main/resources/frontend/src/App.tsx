@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { GlobalStyle } from "./styles/global-style";
 import Home from "./pages/Home";
 import EditProfile from "./pages/profile/EditProfile";
@@ -17,6 +17,9 @@ import TeamMatchingPost from "./pages/TeamMatchingPost";
 import BoardPost from "./pages/BoardPost";
 import ProjectPostCreate from "./pages/board/ProjectPostCreate";
 import CommunityPostCreate from "./pages/board/CommunityPostCreate";
+import UserHome from "./pages/home/UserHome";
+import CheckMatchng from "./pages/home/CheckMatchng";
+import SelectMatching from "./pages/home/SelectMatching";
 
 function App() {
   return (
@@ -25,6 +28,12 @@ function App() {
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route>
+          <Route element={<UserHome />}>
+            <Route path="/home/check" element={<CheckMatchng />} />
+            <Route path="/home/select" element={<SelectMatching />} />
+          </Route>
+        </Route>
         <Route path="/mypage/edit" element={<EditProfile />} />
         <Route element={<Received />}>
           <Route path="/received/messages" element={<Messages />}>

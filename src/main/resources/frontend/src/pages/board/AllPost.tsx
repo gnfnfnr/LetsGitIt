@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PostItem from "../../components/PostItem";
+import PostItem, { PostItemInfo } from "../../components/PostItem";
 import styled from "styled-components";
 import { ReactComponent as DownArrow } from "../../styles/Icons/DownArrow.svg";
 
@@ -55,20 +55,6 @@ const BoardSort = styled.div`
   color: var(--color-sub-1);
   cursor: pointer;
 `;
-
-interface PostItemInfo {
-  id: number;
-  title: string;
-  image: string;
-  watch: number;
-  reply: number;
-  scrap: number;
-  user: {
-    username: string;
-    image: string;
-  };
-  tags: string[] | null;
-}
 
 interface AllPostInfo {
   data: PostItemInfo[];

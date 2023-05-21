@@ -3,6 +3,7 @@
     "id": 1,
     "title": "Benign neoplasm of soft tissue of peritoneum",
     "part": "안드로이드",
+    "startDate": "2022-06-29 10:24:24",
     "team": [
       {
         "username": "agrocock0",
@@ -20,6 +21,7 @@
   },
   {
     "id": 2,
+    "startDate": "2023-02-29 10:24:24",
     "title": "Insect bite (nonvenomous) of right ear, sequela",
     "part": "fronend",
     "team": [
@@ -39,6 +41,7 @@
   },
   {
     "id": 3,
+    "startDate": "2023-05-21 10:24:24",
     "title": "Crushing injury of left elbow, sequela",
     "part": "fronend",
     "team": [
@@ -54,6 +57,7 @@
   },
   {
     "id": 4,
+    "startDate": "2023-04-21 10:24:24",
     "title": "Monosomies and deletions from the autosomes, NEC",
     "part": "안드로이드",
     "team": [

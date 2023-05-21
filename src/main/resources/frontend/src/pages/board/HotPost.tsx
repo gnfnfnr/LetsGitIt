@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PostItem from "../../components/PostItem";
+import PostItem, { PostItemInfo } from "../../components/PostItem";
 import styled from "styled-components";
 import { ReactComponent as LeftArrow } from "../../styles/Icons/LeftArrow.svg";
 import { ReactComponent as RightArrow } from "../../styles/Icons/RightArrow.svg";
@@ -53,20 +53,6 @@ const PostNumber = styled.div`
   color: var(--color-sub-1);
   align-self: end;
 `;
-
-interface PostItemInfo {
-  id: number;
-  title: string;
-  image: string;
-  watch: number;
-  reply: number;
-  scrap: number;
-  user: {
-    username: string;
-    image: string;
-  };
-  tags: string[] | null;
-}
 
 interface AllPostInfo {
   data: PostItemInfo[];

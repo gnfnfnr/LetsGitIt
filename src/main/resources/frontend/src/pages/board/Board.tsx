@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from "react";
-import PostItem from "../../components/PostItem";
+import React, { useState } from "react";
 import postData from "../../resource/postData.json";
 import styled from "styled-components";
 import { ReactComponent as Search } from "../../styles/Icons/Search.svg";
-import { ReactComponent as LeftArrow } from "../../styles/Icons/LeftArrow.svg";
-import { ReactComponent as RightArrow } from "../../styles/Icons/RightArrow.svg";
-import { ReactComponent as DownArrow } from "../../styles/Icons/DownArrow.svg";
 import HeaderButton from "../../components/HeaderButton";
 import { NavLink, useNavigate } from "react-router-dom";
 import AllPost from "./AllPost";
