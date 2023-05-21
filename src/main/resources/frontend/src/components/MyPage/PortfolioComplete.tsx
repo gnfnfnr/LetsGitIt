@@ -4,15 +4,18 @@ import UserSkill from "./User/UserSkill";
 import ProjectDetail from "./Project/ProjectDetail";
 import { BiArrowBack } from "react-icons/bi";
 import UserProfile from "./User/UserProfile";
-import Project from "./Project/Project";
+import {Project, ProjectViewMode} from "./Project/Project";
 import UserStat from "./User/UserStat";
 
-const PortfolioContainer = styled.div`
+const PortfolioContainer = styled.div<{ backgroundColor: boolean }>`
   display: flex;
-  width: 1000px;
+  max-width: 1000px;
+  min-height: 980px;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
   padding: 40px 100px 20px 100px;
-  background-color: var(--color-sub-2);
+  background-color: ${props => props.backgroundColor ? 'var(--color-sub-2)' : 'none'};
   color: var(--color-sub-1);
   border-radius: 20px;
   flex-direction: column;
@@ -34,7 +37,6 @@ const ProjectDetailContainer = styled.div<{ backgroundColor: boolean }>`
   color: var(--color-sub-1);
   border-radius: 20px;
   flex-direction: column;
-  height: 1100px;
 `;
 
 const Back = styled(BiArrowBack)`
@@ -48,6 +50,7 @@ const Back = styled(BiArrowBack)`
 const UpperContainer = styled.div`
   display: flex;
   flex: 1;
+  margin-bottom: 20px;
 `;
 
 const RightContainer = styled.div`
@@ -92,7 +95,11 @@ interface PortfolioCompleteProps {
   onClickReload: () => void;
 }
 
-const PortfolioComplete = ({
+interface PortfolioViewProps {
+  selectedProject: ProjectItemInterface[];
+}
+
+export const PortfolioComplete = ({
   selectedProject,
   onRemoveSelectedProject,
   onClickReload
@@ -125,17 +132,20 @@ const PortfolioComplete = ({
   return (
     <>
       {showDetail ? (
-        <ProjectDetailContainer 
+        <PortfolioContainer 
           backgroundColor={ backgroundColor ? true : false}>
           <Back onClick={goBack} />
           <ProjectDetail
+          type=""
             title={onClickProject?.title || ""}
             content={onClickProject?.content || ""}
             removeBackgroundColor={removeBackgroundColor}
           />
-        </ProjectDetailContainer>
+        </PortfolioContainer>
       ) : (
-        <PortfolioContainer>
+        <PortfolioContainer
+        backgroundColor={ backgroundColor ? true : false}
+        >
           <UpperContainer>
             <UserProfileContainer>
               <UserProfile />
@@ -167,4 +177,69 @@ const PortfolioComplete = ({
   );
 };
 
-export default PortfolioComplete;
+
+export const PortfolioView = ({ selectedProject }: PortfolioViewProps) => {
+
+  const [showDetail, setShowDetail] = useState(false);
+  const [onClickProject, setOnClickProject] = useState<ProjectItemInterface>();
+  const [backgroundColor, setBackgroundColor] = useState(true);
+
+  const removeBackgroundColor = () => {
+    setBackgroundColor(!backgroundColor);
+  }
+
+  const goBack = () => {
+    setShowDetail(false);
+  };
+
+  const handleProjectClick = (id: number) => {
+    setShowDetail(true);
+    setOnClickProject(selectedProject[id]);
+  };
+
+  return (
+    <>
+    {showDetail ? (
+      <PortfolioContainer 
+        backgroundColor={ backgroundColor ? true : false}>
+        <Back onClick={goBack} />
+        <ProjectDetail
+        type="read"
+          title={onClickProject?.title || ""}
+          content={onClickProject?.content || ""}
+          removeBackgroundColor={removeBackgroundColor}
+        />
+      </PortfolioContainer>
+    ) : (
+        <PortfolioContainer
+        backgroundColor={ backgroundColor ? true : false}>
+          <UpperContainer>
+            <UserProfileContainer>
+              <UserProfile />
+            </UserProfileContainer>
+            <RightContainer>
+              <StatContainer>
+                <UserStat />
+              </StatContainer>
+              <SkillContainer>
+                <p>Skills</p>
+                <UserSkill type="portfolio" />
+              </SkillContainer>
+            </RightContainer>
+          </UpperContainer>
+          <BottomContainer>
+            <ProjectContainer>
+              <ProjectViewMode
+                selectedProject={selectedProject}
+                handleProjectClick={handleProjectClick}
+              />
+            </ProjectContainer>
+          </BottomContainer>
+        </PortfolioContainer>
+        )}
+        </>
+  );
+ 
+};
+
+

@@ -145,7 +145,12 @@ interface ProjectProps {
   reloadPortfolio: () => void;
 }
 
-const Project = ({
+interface ProjectViewModeProps {
+  selectedProject: ProjectItemInterface[];
+  handleProjectClick: (id: number) => void;
+}
+
+export const Project = ({
   selectedProject,
   handleProjectClick,
   removeProject,
@@ -223,4 +228,41 @@ const Project = ({
   );
 };
 
-export default Project;
+
+export const ProjectViewMode = ({
+  selectedProject,
+  handleProjectClick
+}: ProjectViewModeProps) => {
+
+  const onClickProject = (id: number) => {
+    handleProjectClick(id);
+  };
+
+  const goToEditPage = () => {
+    //go to edit Page
+  };
+
+  return (
+    <Wrapper>
+      <Top>
+        <p>{selectedProject.length} Projects </p>
+          <Setting onClick={goToEditPage} />
+      </Top>
+      <ProjectItems>
+        {selectedProject.map((project, index) => (
+          <ProjectItem
+            key={index}
+            settingMode={false}
+            onClick={() => {onClickProject(index);}}
+          >
+            
+            <p>{project.title}</p>
+            <span>{project.content}</span>
+          </ProjectItem>
+        ))}
+      </ProjectItems>
+     
+    </Wrapper>
+  );
+};
+

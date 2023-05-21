@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react";
 import styled from "styled-components";
 import { ReactComponent as ProjectIcon } from "../../styles/Icons/ImportProjectIcon.svg";
-import PortfolioComplete from "./PortfolioComplete";
+import {PortfolioComplete} from "./PortfolioComplete";
 
 const Wrapper = styled.div`
   display: flex;

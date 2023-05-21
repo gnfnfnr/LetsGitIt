@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "react-quill/dist/quill.snow.css";
 import Editor from "../../Editor";
@@ -93,12 +93,13 @@ const EditorWrapper = styled.div`
 `;
 
 interface PropsInterface {
+  type: string;
   title: string;
   content: string;
   removeBackgroundColor: () => void;
 }
 
-const ProjectDetail = ({ title, content, removeBackgroundColor }: PropsInterface) => {
+const ProjectDetail = ({ type, title, content, removeBackgroundColor }: PropsInterface) => {
   const [projectTitle, setProjectTitle] = useState<string>(title);
   const [projectContent, setProjectContent] = useState<string>(content);
   const [isUser, setIsUser] = useState<boolean>(true); //User일 때
@@ -106,6 +107,12 @@ const ProjectDetail = ({ title, content, removeBackgroundColor }: PropsInterface
   const [currTitle, setCurrTitle] = useState(title);
   const [curContent, setCurContent] = useState(content);
 
+  useEffect(()=>{
+    if(type==="read"){
+      setIsUser(false);
+      setIsEditMode(false);
+    }
+  }, []);
   const onEditButton = () => {
     setIsEditMode(true);
     removeBackgroundColor();

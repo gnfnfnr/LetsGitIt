@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { GlobalStyle } from "./styles/global-style";
-import Home from "./pages/Home";
 import EditProfile from "./pages/profile/EditProfile";
 import Messages from "./pages/mail/Messages";
 import Chatting from "./pages/mail/Chatting";
@@ -18,12 +17,13 @@ import BoardPost from "./pages/BoardPost";
 import CommunityPost from "./pages/CommunityPost";
 import ProjectPostCreate from "./pages/board/ProjectPostCreate";
 import CommunityPostCreate from "./pages/board/CommunityPostCreate";
+import Home from "./pages/home/Home";
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      {/* <Header /> */}
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mypage/edit" element={<EditProfile />} />
