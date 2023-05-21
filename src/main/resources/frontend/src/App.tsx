@@ -18,14 +18,15 @@ import BoardPost from "./pages/BoardPost";
 import CommunityPost from "./pages/CommunityPost";
 import ProjectPostCreate from "./pages/board/ProjectPostCreate";
 import CommunityPostCreate from "./pages/board/CommunityPostCreate";
+import SignOutHome from "./pages/home/SignOutHome";
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      {/* <Header /> */}
+      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<SignOutHome />} />
         <Route path="/mypage/edit" element={<EditProfile />} />
         <Route element={<Received />}>
           <Route path="/received/messages" element={<Messages />}>

@@ -69,7 +69,28 @@ const Dot = styled.div`
   }
 `;
 
+const Button = styled.button`
+  width: 80px;
+  height: 24px;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 13px;
+  background-color: var(--color-sub-4);
+  color: var(--color-sub-1);
+  margin-right: 30px;
+  :hover{
+    background-color: var(--color-sub-3);
+    color: var(--color-sub-2);
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  margin-right: 30px;
+`;
+
 const Header = () => {
+  const [isLogIn, setIsLogIn] = useState<Boolean>(false);
   const [newMessage, setNewMessage] = useState <Boolean>(true);
   const [newAlert, setNewAlert] = useState <Boolean>(false);
 
@@ -83,23 +104,36 @@ const Header = () => {
   const onClickMessage = () => {};
 
   return (
-    <Wrapper>
-      <NavWrapper>
-        {headers.map((menu, index) => (
-          <NavStyle to={menu.path} key={index}>
-            <p>{menu.name}</p>
-          </NavStyle>
-        ))}
-      </NavWrapper>
-      <InfoContainer>
-        <Dot className={newMessage ? "new" : ""} />
-        <button onClick={onClickMessage}>쪽지</button>
-        <Dot className={newAlert ? "new" : ""} />
-
-        <button onClick={onClickAlert}>알림</button>
-      </InfoContainer>
-    </Wrapper>
+    <>
+      {isLogIn ? (
+        <Wrapper>
+          <NavWrapper>
+            {headers.map((menu, index) => (
+              <NavStyle to={menu.path} key={index}>
+                <p>{menu.name}</p>
+              </NavStyle>
+            ))}
+          </NavWrapper>
+          <InfoContainer>
+            <Dot className={newMessage ? "new" : ""} />
+            <button onClick={onClickMessage}>쪽지</button>
+            <Dot className={newAlert ? "new" : ""} />
+            <button onClick={onClickAlert}>알림</button>
+          </InfoContainer>
+        </Wrapper>
+      ) : (
+        <Wrapper>
+         
+        <ButtonContainer>
+          <Button>로그인</Button>
+          <Button>회원가입</Button>
+        </ButtonContainer>
+        
+       </Wrapper>
+      )}
+    </>
   );
 };
+
 
 export default Header;
