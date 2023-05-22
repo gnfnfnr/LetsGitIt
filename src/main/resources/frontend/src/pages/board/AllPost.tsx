@@ -98,7 +98,8 @@ export default function AllPost({ data, name }: AllPostInfo) {
           </BoardSort>
         </MainBoardHeader>
         <PostMainBox>
-          {mainData && mainData[page].map((item) => <PostItem {...item} />)}
+          {mainData &&
+            mainData[page].map((item) => <PostItem {...item} key={item.id} />)}
         </PostMainBox>
         <MainBoardPages>
           {fullPageNumber &&

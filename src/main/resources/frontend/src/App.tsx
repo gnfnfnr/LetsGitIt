@@ -43,8 +43,8 @@ function App() {
         </Route>
         <Route path="/matching" element={<Matching />} />
         <Route element={<Board />}>
-          <Route path="/board/project" />
-          <Route path="/board/community" />
+          <Route path="/board/project" element={<Board />} />
+          <Route path="/board/community" element={<Board />} />
         </Route>
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/TeamMatchingCreate" element={<TeamMatchingCreate />} />

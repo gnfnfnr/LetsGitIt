@@ -163,7 +163,7 @@ export default function SelectMatching() {
               </ContentDate>
               <ContentTeam>
                 {data[index].team.map(({ username, image }) => (
-                  <TeamUser>
+                  <TeamUser key={username}>
                     <img src={image} alt="프로필 사진" />
                     <span>{username}</span>
                   </TeamUser>

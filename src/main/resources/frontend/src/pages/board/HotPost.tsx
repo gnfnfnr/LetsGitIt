@@ -128,8 +128,8 @@ export default function HotPost({ data, name }: AllPostInfo) {
         />
         <PostBox>
           {hotData &&
-            hotData[slide].map((item, index) => {
-              return <PostItem {...item} />;
+            hotData[slide].map((item) => {
+              return <PostItem {...item} key={item.id} />;
             })}
         </PostBox>{" "}
         <RightArrow
