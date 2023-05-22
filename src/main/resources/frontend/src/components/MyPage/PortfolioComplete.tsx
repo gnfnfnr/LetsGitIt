@@ -10,9 +10,7 @@ import UserStat from "./User/UserStat";
 const PortfolioContainer = styled.div<{ backgroundColor: boolean }>`
   display: flex;
   max-width: 1000px;
-  min-height: 980px;
   width: 100%;
-  height: 100%;
   box-sizing: border-box;
   padding: 40px 100px 20px 100px;
   background-color: ${props => props.backgroundColor ? 'var(--color-sub-2)' : 'none'};
@@ -25,18 +23,6 @@ const PortfolioContainer = styled.div<{ backgroundColor: boolean }>`
 const UserProfileContainer = styled.div`
   display: flex;
   flex: 1;
-`;
-
-const ProjectDetailContainer = styled.div<{ backgroundColor: boolean }>`
-  display: flex;
-  width: 1000px;
-  box-sizing: border-box;
-  padding: 40px 100px 20px 100px;
-  min-height: 800px;
-  background-color: ${props => props.backgroundColor ? 'var(--color-sub-2)' : 'none'};
-  color: var(--color-sub-1);
-  border-radius: 20px;
-  flex-direction: column;
 `;
 
 const Back = styled(BiArrowBack)`
@@ -133,7 +119,7 @@ export const PortfolioComplete = ({
     <>
       {showDetail ? (
         <PortfolioContainer 
-          backgroundColor={ backgroundColor ? true : false}>
+          backgroundColor={false}>
           <Back onClick={goBack} />
           <ProjectDetail
           type=""
@@ -144,7 +130,7 @@ export const PortfolioComplete = ({
         </PortfolioContainer>
       ) : (
         <PortfolioContainer
-        backgroundColor={ backgroundColor ? true : false}
+        backgroundColor={true}
         >
           <UpperContainer>
             <UserProfileContainer>
@@ -201,7 +187,7 @@ export const PortfolioView = ({ selectedProject }: PortfolioViewProps) => {
     <>
     {showDetail ? (
       <PortfolioContainer 
-        backgroundColor={ backgroundColor ? true : false}>
+        backgroundColor={false}>
         <Back onClick={goBack} />
         <ProjectDetail
         type="read"
@@ -212,7 +198,7 @@ export const PortfolioView = ({ selectedProject }: PortfolioViewProps) => {
       </PortfolioContainer>
     ) : (
         <PortfolioContainer
-        backgroundColor={ backgroundColor ? true : false}>
+        backgroundColor={true}>
           <UpperContainer>
             <UserProfileContainer>
               <UserProfile />
