@@ -2,7 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const CheckMatchingBox = styled.div`
+const CheckMatchingBox = styled.article`
+  max-width: 1360px;
+  margin: 0 auto 115px;
   width: 100%;
   color: #ffffff;
   background: #222222;
@@ -13,7 +15,6 @@ const CheckMatchingBox = styled.div`
   padding: 40px 0;
   align-items: center;
   text-align: center;
-  margin-bottom: 115px;
   @media (max-width: 600px) {
     font-size: 16px;
   }

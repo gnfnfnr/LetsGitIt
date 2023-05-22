@@ -6,17 +6,21 @@ import { ReactComponent as DownArrow } from "../../styles/Icons/DownArrow.svg";
 import { Outlet } from "react-router-dom";
 
 const UserHomeBox = styled.div`
-  max-width: 1280px;
-  margin: 170px auto 0;
+  margin-top: 170px;
 `;
 const BestPostContent = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
   justify-content: space-between;
+
+  @media (max-width: 940px) {
+    justify-content: center;
+  }
 `;
 const UserHomePost = styled.section`
-  margin-bottom: 120px;
+  max-width: 1360px;
+  margin: 0 auto 120px;
   padding: 0 40px;
 `;
 const BestPostTitle = styled.div`
