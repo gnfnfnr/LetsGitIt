@@ -32,6 +32,12 @@ const Title = styled.div`
 const ComponentWapper = styled.div`
   display: flex;
   margin: 20px 0 50px 15px;
+  overflow-x: auto;
+  white-space: nowrap;
+  ::-webkit-scrollbar {
+    display: none;
+}
+  
 `;
 
 const Archive = () => {
@@ -42,19 +48,21 @@ const Archive = () => {
       </Title>
       <ComponentWapper>
         <PostCard type="" />
+        <PostCard type="" />
+        <PostCard type="" />
       </ComponentWapper>
 
       <Title>
-        <BsFillBookmarkFill />
-        스크랩한 글
+        <BsFillBookmarkFill /> 스크랩한 글
       </Title>
       <ComponentWapper>
+        <PostCard type="bookmark" />
+        <PostCard type="bookmark" />
         <PostCard type="bookmark" />
       </ComponentWapper>
 
       <Title>
-        <FaFolder />
-        완료한 프로젝트
+        <FaFolder /> 완료한 프로젝트
       </Title>
       <ComponentWapper></ComponentWapper>
     </ArchieveWapper>

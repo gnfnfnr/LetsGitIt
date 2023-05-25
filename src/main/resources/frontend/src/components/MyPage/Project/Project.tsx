@@ -179,12 +179,9 @@ export const Project = ({
     removeProject(id);
   };
 
-  const [view, setView] = useState(false);
-
-  const onClick = () => {
-    setView(true);
+  const onClickImportProject = () => {
     reloadPortfolio();
-  }
+  };
 
   return (
     <Wrapper>
@@ -221,7 +218,7 @@ export const Project = ({
       </ProjectItems>
       {settingMode && (
         <ImportButtonContainer>
-          <ImportButton onClick={onClick}>깃허브에서 프로젝트 가져오기</ImportButton>
+          <ImportButton onClick={onClickImportProject}>깃허브에서 프로젝트 가져오기</ImportButton>
         </ImportButtonContainer>
       )}
     </Wrapper>
@@ -253,7 +250,7 @@ export const ProjectViewMode = ({
           <ProjectItem
             key={index}
             settingMode={false}
-            onClick={() => {onClickProject(index);}}
+            onClick={() => {onClickProject(index)}}
           >
             
             <p>{project.title}</p>
