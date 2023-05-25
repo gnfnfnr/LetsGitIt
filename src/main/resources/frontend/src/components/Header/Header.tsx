@@ -1,6 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
+import Model from "../Modal";
+import Notice from "../../pages/Notice"
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
   display: flex;
@@ -89,16 +92,15 @@ const Header = () => {
   const [isLogIn, setIsLogIn] = useState<Boolean>(true);
   const [newMessage, setNewMessage] = useState <Boolean>(true);
   const [newAlert, setNewAlert] = useState <Boolean>(false);
+  const [showNotice, setShowNotice] = useState(false);
+  const navigate = useNavigate();
 
   const headers = [
-    { name: "팀매칭", path: "/teammatching" },
+    { name: "팀매칭", path: "/matching" },
     { name: "프로젝트", path: "/project" },
     { name: "커뮤니티", path: "/community" },
     { name: "마이페이지", path: "/mypage" }
   ];
-
-  const onClickAlert = () => {};
-  const onClickMessage = () => {};
 
   return (
     <>
@@ -113,9 +115,9 @@ const Header = () => {
           </NavWrapper>
           <InfoContainer>
             <Dot className={newMessage ? "new" : ""} />
-            <button onClick={onClickMessage}>쪽지</button>
+            <button onClick={() => navigate("/received/messages")}>쪽지</button>
             <Dot className={newAlert ? "new" : ""} />
-            <button onClick={onClickAlert}>알림</button>
+            <button onClick={() => setShowNotice(true)}>알림</button>
           </InfoContainer>
         </Wrapper>
       ) : (
@@ -127,6 +129,13 @@ const Header = () => {
         </ButtonContainer>
         
        </Wrapper>
+      )}
+
+      {showNotice && (
+        <Model
+          Children={<Notice setShowNotice={setShowNotice} />}
+          setShowNotice={setShowNotice}
+        />
       )}
     </>
   );
