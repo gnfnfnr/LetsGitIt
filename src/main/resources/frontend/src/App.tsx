@@ -18,6 +18,7 @@ import CommunityPost from "./pages/CommunityPost";
 import ProjectPostCreate from "./pages/board/ProjectPostCreate";
 import CommunityPostCreate from "./pages/board/CommunityPostCreate";
 import Home from "./pages/home/Home";
+import { LoginPage } from "./LoginPage";
 
 function App() {
   return (
@@ -35,20 +36,21 @@ function App() {
         </Route>
         <Route path="/matching" element={<Matching />} />
         <Route element={<Board />}>
-          <Route path="/board/project" />
-          <Route path="/board/community" />
+          <Route path="/project" />
+          <Route path="/community" />
         </Route>
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/TeamMatchingCreate" element={<TeamMatchingCreate />} />
-        <Route path="/TeamMatchingPost" element={<TeamMatchingPost />} />
-        <Route path="/CommunityPost" element={<CommunityPost/>} />
+        <Route path="/matching/:id" element={<TeamMatchingPost />} />
+        <Route path="/community/:id" element={<CommunityPost/>} />
         <Route path="/apply" element={<Apply />} />
-        <Route path="/board" element={<BoardPost />} />
-        <Route path="/board/project/create" element={<ProjectPostCreate />} />
+        <Route path="/project/finish/:id" element={<BoardPost />} />
+        <Route path="/project/create" element={<ProjectPostCreate />} />
         <Route
-          path="/board/community/create"
+          path="/community/create"
           element={<CommunityPostCreate />}
         />
+        <Route path="/login/github/authorized" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>
   );
