@@ -52,7 +52,7 @@ public class UserController {
 
     @GetMapping("/login/getGithubUrl")
     public @ResponseBody String getGithubUrl(HttpServletRequest request) {
-        String reqUrl = githubApiUrl + "?client_id=" + clientId + "&redirect_uri=" + githubRedirectUrl;
+        String reqUrl = githubApiUrl + "?client_id=" + clientId;
         return reqUrl;
     }
 
