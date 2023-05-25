@@ -24,11 +24,8 @@ const NavStyle = styled(NavLink)`
   font-size: 17px;
   text-decoration: none;
 
-  &.active, &:hover {
-    background: linear-gradient(to right, #9734dd, var(--color-main-4) 70%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration: none;
+  &.active{
+    color: var(--color-main-4);
   }
 `;
 
