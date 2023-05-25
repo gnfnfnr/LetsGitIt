@@ -78,7 +78,7 @@ interface ProjectItemInterface {
 interface PortfolioCompleteProps {
   selectedProject: ProjectItemInterface[];
   onRemoveSelectedProject: (id: number) => void;
-  onClickReload: () => void;
+  onClickReImportProject: () => void;
 }
 
 interface PortfolioViewProps {
@@ -88,7 +88,7 @@ interface PortfolioViewProps {
 export const PortfolioComplete = ({
   selectedProject,
   onRemoveSelectedProject,
-  onClickReload
+  onClickReImportProject
 }: PortfolioCompleteProps) => {
   const [showDetail, setShowDetail] = useState(false);
   const [onClickProject, setOnClickProject] = useState<ProjectItemInterface>();
@@ -112,7 +112,7 @@ export const PortfolioComplete = ({
   };
 
   const reloadPortfolio = () =>{
-    onClickReload();
+    onClickReImportProject();
   }
 
   return (

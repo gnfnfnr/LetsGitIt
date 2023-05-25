@@ -173,7 +173,7 @@ const ProjectDetail = ({ type, title, content, removeBackgroundColor }: PropsInt
           </Button>
         </ButtonContainer>
       ) : ""}
-      {isEditMode ? (
+      {isEditMode ? ( //수정모드
         <ButtonContainer>
           <Button
             style={{ backgroundColor: "var(--color-sub-3)" }}
@@ -200,20 +200,20 @@ const ProjectDetail = ({ type, title, content, removeBackgroundColor }: PropsInt
             <Editor content={content} type="project"/>
           </EditorWrapper>
           <ProjectInfoContainer>
-          <ProjectStatus>
-          <p>• 프로젝트 정보</p>
-          </ProjectStatus>
-          <DetailInputContainer>
-            <ProjectDetailInput />
-          </DetailInputContainer>
+            <ProjectStatus>
+              <p>• 프로젝트 정보</p>
+            </ProjectStatus>
+            <DetailInputContainer>
+              <ProjectDetailInput />
+            </DetailInputContainer>
           </ProjectInfoContainer>
           </>
         ) : (
           <>
             <ProjectDetailInfoContainer>
-        <ProjectDetailInfo />
-        </ProjectDetailInfoContainer>
-          <Content>{projectContent}</Content>
+              <ProjectDetailInfo />
+            </ProjectDetailInfoContainer>
+            <Content>{projectContent}</Content>
           </>
         )}
       
