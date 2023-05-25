@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { GlobalStyle } from "./styles/global-style";
 import EditProfile from "./pages/profile/EditProfile";
 import Messages from "./pages/mail/Messages";
@@ -17,6 +17,9 @@ import BoardPost from "./pages/BoardPost";
 import CommunityPost from "./pages/CommunityPost";
 import ProjectPostCreate from "./pages/board/ProjectPostCreate";
 import CommunityPostCreate from "./pages/board/CommunityPostCreate";
+import UserHome from "./pages/home/UserHome";
+import CheckMatchng from "./pages/home/CheckMatchng";
+import SelectMatching from "./pages/home/SelectMatching";
 import Home from "./pages/home/Home";
 
 function App() {
@@ -26,6 +29,12 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route>
+          <Route element={<UserHome />}>
+            <Route path="/home/check" element={<CheckMatchng />} />
+            <Route path="/home/select" element={<SelectMatching />} />
+          </Route>
+        </Route>
         <Route path="/mypage/edit" element={<EditProfile />} />
         <Route element={<Received />}>
           <Route path="/received/messages" element={<Messages />}>
@@ -35,8 +44,8 @@ function App() {
         </Route>
         <Route path="/matching" element={<Matching />} />
         <Route element={<Board />}>
-          <Route path="/board/project" />
-          <Route path="/board/community" />
+          <Route path="/board/project" element={<Board />} />
+          <Route path="/board/community" element={<Board />} />
         </Route>
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/TeamMatchingCreate" element={<TeamMatchingCreate />} />

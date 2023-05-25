@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import styled from "styled-components";
 
 const DetailSortBox = styled.div`
@@ -8,10 +8,22 @@ const DetailSortBox = styled.div`
   font-size: 18px;
   position: absolute;
   background: #000000;
-  padding: 18.5px 13.5px;
+  padding: 18.5px 0;
   bottom: -95px;
   left: 0;
   border-radius: 10px;
+  position: absolute;
+  z-index: 10;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    top: 60px;
+    overflow: auto;
+    bottom: initial;
+    height: 200px;
+  }
 `;
 const DetailSortItem = styled.div`
   padding: 18px;
@@ -21,6 +33,12 @@ const DetailSortItem = styled.div`
   background: var(--color-sub-3);
   border-radius: 10px;
   width: max-content;
+  @media (max-width: 500px) {
+    width: 100%;
+    justify-content: center;
+    padding: 14px;
+    font-size: 14px;
+  }
 `;
 
 const RoundButton = styled.div`
@@ -36,6 +54,8 @@ interface DetailSortInfo {
   button?: boolean;
   setSearch: Dispatch<SetStateAction<string[]>>;
   search: string[];
+  setShowSelect: Dispatch<SetStateAction<boolean[]>>;
+  showSelect: boolean[];
 }
 
 export default function DetailSort({
@@ -43,9 +63,24 @@ export default function DetailSort({
   button,
   setSearch,
   search,
+  setShowSelect,
+  showSelect,
 }: DetailSortInfo) {
+  const selectRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    console.log(selectRef);
+    function handleClickOutside(e: MouseEvent): void {
+      if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
+        setShowSelect(showSelect.map(() => false));
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [selectRef]);
   return (
-    <DetailSortBox>
+    <DetailSortBox ref={selectRef}>
       {sort.map((time) => (
         <DetailSortItem
           onClick={() =>

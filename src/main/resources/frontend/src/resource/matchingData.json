@@ -1,0 +1,628 @@
+[
+  {
+    "id": 1,
+    "createdAt": "2022-12-15 05:21:46",
+    "author": {
+      "username": "bvandijk0",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADxSURBVDjLY/z//z8DJYCJgUJAsQEsMEZ5efn/f//+Mfz58weOf//+Dce/fv2C0yC8d+9eRpA+RkrDgAWZ07rx3ZVqfyEdEDs2NvY6so3o+MyZM5pwAwL67msqSLCv4WFjgTsHqEgRl2YQhgFG3867mpJirIs0JdlNmBiZGR6++c7QGyXDSKwXwGHgWHldU1KOYy03B8e/2YmSYC94enpegdn28+dPuM0wbz18+FAH7oX97ZrXgZRW9MxnV2Am//jxQwXd2cixgeICqsSCt7f3f3yBhpwmQPjz589UTge2trb/sQUWsq0fPnxgxBoLA5qZANTo8jopO/z6AAAAAElFTkSuQmCC"
+    },
+    "title": "Inj cutan sensory nerve at low leg level, unsp leg, sequela",
+    "state": 0,
+    "scrap": 71,
+    "comment": 87,
+    "applicaitons": 9
+  },
+  {
+    "id": 2,
+    "createdAt": "2022-08-27 19:05:52",
+    "author": {
+      "username": "ditchingham1",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAG+SURBVDjLnZNNSwJRFIbfGccPCKJMoqSwdBcEobUQWrmIChJs07pVuA36By0KWrTtB7hqGSQSFBGCbdq0ECkhSmgxldmHOuP9aO4VpSEV6cDhHu7c85z3nLkXnHP048/RKO+0r6JPO9nc7LivCErL8vk8p5SCEILWKlzXdWSzWfj9foRCIcTjcaWVo/2mNRoNBINBGf8GizgWi8k1k8nYFNgAopqwi0KzM2oxKAMYZ5YiYHmGwDCM7gDTNGWV8Fi54yCBof4AudKwrEpYUwGxqjPGkZgjqNfrvQHCFsZfuvzO4d4KxEdx8PLBa/XPpQJGm7PgloKN+UZvBRX6LgGLk3oXBV588c/OgJ1ccso15MEKX7X6ZUilUlBVFYqiyDWRSKBivONxvGgDtG+ilTStOh3IV25lNU3TEA6HEYlEZCyg5VoZrgEX1o6W122A7ezWIKhyPuL04ayUlodFkvCWihqpYv9qFwFfAMSkB0uHsdk2gBKaNEyT3+kFfL9Wkbk5BXMyOByONiR9nYZWd+Ht40VcOD8lbLc9A3rs2ZMPw/IqKAq4l/JKxZKtX68yitenMibMgNtteuJ/HtN/7AcakErwOe40HwAAAABJRU5ErkJggg=="
+    },
+    "title": "Nondisplaced unsp fracture of right lesser toe(s), init",
+    "state": 0,
+    "scrap": 49,
+    "comment": 46,
+    "applicaitons": 10
+  },
+  {
+    "id": 3,
+    "createdAt": "2023-01-01 22:38:15",
+    "author": {
+      "username": "jmeredyth2",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIgSURBVDjLdVI9a1RBFD3z9r3sVwrdWCwYUkSLWKaQWOwf0EpIKSIi6QSxWyxSrE3+gUVEQREsU1ooiIRImhSCCImNIcj6kcVNNm/fzP2yeJu46yYXDpdh7jlzOHOdmeG47r+7azeuXMdWZwNiClEZQMHKuHqhgedrL/Dm4Xt3zIkxVEwMtXxYVMCqg/4PIfAw5T+BwDADSGRIJIeq5neeRgSi4QMFRhEVFKMSSBhBCEEIJIxioYyyTYICne2AArc62x+X72Q/MXXQRplzu2kUoV2ZwttvH0CBW2cKvLJfe/3v+7147vYkTc/gSCIYZ3CcYrq/i1s7r3tLs25vmOOOf8FeXlsA3FqYf1T3oQhN/4CzIxhlMA6AK6BYcqhsP2mD7Gby4PPmaAbCTZ67V/dchqRdSMiJRgGapeDub6SdLrKZxboeSnMsRFNuUHUW2j/MiRwAJih5GAco9cEH++hzBfDSGM9AraZWgFEG5QATgnJOljAQ8RnEM1Rc7ZRvNJgIlOnE+glk0DnAxMP0lD0wtY6jHqAyap19ngN5AAqwBwidcQdC63H3C1ycQCWMWM9fFkRJGSX/AxywPu6gryvx1rN24lJESQlQhQnBiAAzFMpVFKsJ4k8bbdNoZWwPACA8vrwERivML9aziYsQVphPAUoxcbSLeGujreyWz63urJ4qAABZ89KC9rgJ0oaaq0EAM9dRxrpOJCvnn37dHJ7/C8hDreOQ71qxAAAAAElFTkSuQmCC"
+    },
+    "title": "Displaced fracture of posterior wall of right acetabulum",
+    "state": 0,
+    "scrap": 47,
+    "comment": 42,
+    "applicaitons": 10
+  },
+  {
+    "id": 4,
+    "createdAt": "2022-11-10 19:55:12",
+    "author": {
+      "username": "rgaze3",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHcSURBVDjLhZPZihpBFIbrJeY2wbcQmjxdIGSSTC4zQxLyAK4o7igoKm7TPW49LoiYjqLG3DWpZmx7/tQpsR1xycW5qTr/9/+n+jTTdR3dbhftdhutVgvNZhOapkFVVTQajSsA7FKxTqcDx3GOajqdSki1Wr0IYeRMAsMwpPNkMnEhdCZSoFQqnYUwikzN5EYH9XpdNU0Ttm3LcwJWKhXk8/mTEEauu0YhfhKRDcuysDBt5H5tk4zHYxSLReRyuSMII+dd5M1mAxL//uvgw8Mz3t4DWWN7NxqNKAXS6fQBhIkZ+Wq1kk3r9Rpz4XytPeNLF/iqAx8f9pDhcEgpEI/HXQir1WpvxIx8uVzKps7Kls53AvCjB3x7PIQMBgNKgUgkIiGSUi6XFTEjXywWsunxj433qoM7fQ+51oDMzy2k1+tRCoRCoSt3lkKhoIgZ+Xw+P4J8F4DPTeDm3oK92aZIJpMIBAKvD15UzKdks1k+m81cyDsB+SRGuG2tYVpPL8Ued4SXlclklFQqxWkTCaILyG3bgWXvnf1+v8d9xFPLkUgklFgsxmkTd5+YxOL8QHwWQBWNRr3ipTktWL/fPym+CKAKh8PeYDDISezz+TwnV/l/v6tw9Qrxq3P3/wBazDrstPR7KQAAAABJRU5ErkJggg=="
+    },
+    "title": "Unspecified subluxation of left toe(s), subsequent encounter",
+    "state": 0,
+    "scrap": 27,
+    "comment": 88,
+    "applicaitons": 6
+  },
+  {
+    "id": 5,
+    "createdAt": "2022-07-17 08:58:33",
+    "author": {
+      "username": "mbrooker4",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAMZSURBVBgZBcFLaFxVHMDh3zn33Dt38poknTSJTVva1LaKxpQ07UJLKlQRTYVUcKNCwWUtCuJWXLkQxIVCl1kIIaCCG0GwXdgkamJS0hLHWs2znbym05m8JjP3nnv+fp8SEQBe+fT21XRT6h2t6ANCQAGgAFEgDuvcfLkot9R26ZOxG4MRgBIRAF7/fGLs2+t9z2itmgU8BAAARACEwm7MyHSZ9ZVaJTd3v3X8xmDNAABoT50KjNf81yaeVgoUiINEHNYK+3HCxacbOX/SMOkKdeJOlwY++KnFAAAotdQ0/PuEV4qeUE0snvg0+Yfp6XqD+rAdjQIcnU0Bg/2d/BKspxfW6oeViHDlm9euvvTsueGXT14Ev5WNSsjufo2NJzkWV6c4f+x9WjPddDc7GtMeKd9QqUa8+9WM9f5sGLsw0Nv33atnLnmSbqa8H7ARBcwXfKCF57sCbt0d5anMc1RshpVywmIx4njW5/vJtUh3tmc/7j/WG/yjEwqR5b8tw9/5mIe1efIHbpNvzHO64yCTuR9IBR5h4BEGPoIGpdGHs50XSiZiubKK5xqYXdwlCUvsHv2NOTPN1KMchw50UCwv4BtN4HmkjMYBImAC46fL1RLFxGeiuEdp2yMIY1pSLxBtHmX/8R/ICUecRPieAgFBkThIHJjt3Z3iKcKuOtvB0rrD+S0s5QP2ZqAuzNLeukZlfwctKZQojAYHhD4kVtC55fkfo60qtfI4qdQKKooIwibCjCXVPMXxTI2Zfx9wpK0XAZyAAL6nsZHFFFe3vvx58tc3L53tP1Jo81mq1YicQRpX6c4+pFaGO/kM2Z63mZuNcQDASIdPXHOY8S+mls5e7728+djMDvR56kRDiE0CGrOWuwtFVosHeevyZ6TSGURABO5tWsQJcdViAKa/nr137sPR6nbhQfrm8ijOWYyfhvoXOdTzHnPlOlTZ4gREK7RTGKOcTZw1AAAublv/aGgouxdLvYhoBBwAkEk7AEQg7SuUwvme2kmsyysRAaD/2s1rNpYhpdQZQeoAABAQQBAAEACqzrk7Gkb+B+5ReIstDYkxAAAAAElFTkSuQmCC"
+    },
+    "title": "Contact w powered woodworking and forming machines, subs",
+    "state": 0,
+    "scrap": 54,
+    "comment": 9,
+    "applicaitons": 7
+  },
+  {
+    "id": 6,
+    "createdAt": "2023-01-17 05:03:49",
+    "author": {
+      "username": "hhalliburton5",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJvSURBVDjLpZM5aFRRGIW/+2bmZYzJTEzMuCbRGIjRiAsYEIKNIoIiWGgluCCChZ3aCyJqK6hFxMLCpbKxERE3DIpFEgtjonGJYSYzMcYsb7nvvvtbTMC9yil/OB8/nHOUiDAXOcxRcwYkAQbube5JZ9asUepXnhBOvR+OzcQWIPzNpQCYad392iQBlDirGzqvp5RSIGUzSmGCsebRnjPDMnsFSLgZkTgqTucfngLuJAEwEmB1RVi4QqwT4GRQqpr00m0s7bjgIgJYvPwjvjy5SaJqXaM/tvB23+X2dBkQKUesJtYuYgXrfyaaGWW6+IhUeglIhJkZxPjLWbzuANmVG5n40Er//a6LZYCStDU+2gPRM0RTk1SvPki6rg1Q+IX7SFKRWb6R8fdvcJWmOrOYqrrG7OwHDsl5OWrajgIWRBAsVo/gDXdhojTZ5p2E+Vu4lYpPPf2Y0Bff89fPAkQkDrBeHxJ/R+IpxEzgjfUiUkW2ZRfByFUc15CqamK+/YhHKWo/0T1Qzi1ExBpsVMLqElaPUhh4RuBXkm3ZQzByBScVoSdXUHrSTW3nIRwT259F0iKKGDHjiPlK8d1LPL+O3Npd6EIXCVcIJ5soPe2mZm2eivoGML8USbT9ZryvldG0Wz3UN+gkKpZhVI7860ssyLkE4w18e/GK2g2rSKRbiYNARNvwJyAILw5d3duBsL3fydXvO36Nt7dOMvD0ORWN67GlflmYMrr4uCAIoJ5prNwoB/jHGs8ea49OHzmexInpeXCXTx8Gp7P1tZ07zvX2/msLfwH2b631NzUvSna0rURS4XO/WDq8+3zf0P/G9AOyUDsBCTaamwAAAABJRU5ErkJggg=="
+    },
+    "title": "Occup of bus injured in collision w hv veh in traf, subs",
+    "state": 1,
+    "scrap": 77,
+    "comment": 57,
+    "applicaitons": 2
+  },
+  {
+    "id": 7,
+    "createdAt": "2023-04-27 00:33:21",
+    "author": {
+      "username": "ocollomosse6",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJlSURBVDjLpZNrSJNRGMdlr7qat+zKaoYhjqYphRCWCtKFoCj60CeRpDB0djHUSMOZm0JhGEmlNhczXXunDgy7TNcVcsjGpk6dNsiJyyjWNg3ZnJfef69vMBBkFn34wXMu/995DocTBCDof1h1cvBJnM5RTsBVyYLzBgvfigjopbGDfyUwK+Nfu2RsTNcTDO5aAk4RC1/KQ2BqjetbU+AiOZip/xNyLndQSeCHmMBUIQFzTjDWFDiu0O0qzmJKU4OvPSmYuETAXhKM8WshsOYR0NZlRAUUtOXt+Dk99hYufSu+6x7D8fEAnLozmLEq0V3M8ww1F4QGFEhz+Aa3QQmHsQPeQZJGxdRuEwnp+SRjwCs0FpwIf3guwfayKBE+owxzI50M3oGn0JbuQW323vE7uac2rSpoFB6Pll/M0FjEofDZe2Go2ocu0VGG5dpjUWOEXpPlp72X5h/irhBIcrNYNunp5s+31gFTWmCsAfiQDWiOgXq2H1Q7H1TPSVCfmjBaHY4HFzJfNOQd5vgFZGHmo5n7bEBfQlPMBNGVCqgTQZGxWGjhwivbCKorHb/UybDf5UFekE76Bf3lu5ccz0uxpIgBOvgMlGoXPeZhvnkbHY7GbEMYnHVseKQb4OquQF+JYMEvMIsElFsroTfQL/TqCBYVOzHfsh0++RZ4mqIxJ98Kj2wzc7qtJhLTb6pguJ5A+QXDLZfLTGXxi45762G7TUs6BKtirWZjWByG/opkH52pWvEKEyphRK8oLan9aurkgCSGslRHYVTCwQjNkDgSpptcqrMwafZd2cGUyTZhRMDf+C/8Blefvm4GxFC9AAAAAElFTkSuQmCC"
+    },
+    "title": "Disp fx of lateral malleolus of unspecified fibula",
+    "state": 0,
+    "scrap": 35,
+    "comment": 38,
+    "applicaitons": 1
+  },
+  {
+    "id": 8,
+    "createdAt": "2022-08-14 17:33:40",
+    "author": {
+      "username": "mfontenot7",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE4SURBVDjLY/j//z8DJZhh8BhQXl5+oLi4+EBubu6BtLS0A/Hx8Qrh4eEH/Pz8Dri6uh4gaABQcwBQ84eUlJT/QM0TQGJAzQ1AzQtsbGwUiPIC0GYHoOb/kZGR/4GaC/DZjDMMgM6eEBgY+N/Nze0/0GYBkg0A2iwA0uzi4vLfyMhoAskGgJwNtLnA2tr6v4GBwX8FBQUHkHjIlAcKpaueX2jZ/PKDb9fdBgwDQDZDA6wAxNfU1JwAdMF/CQmJD4KCggbJ8x5vAGpU8Gq71dCw/vl/DAOgNh8AORuo2QBo8wGg5gNAzQe4uLgOsLCwGIDUJc56eCFl3qMHZCUk+4prDWGT7l0wz7lkQLIB1kVXApyqry0wybggYJh8wUEv/qwCSQZ4t948kD734f/kWQ/+h028+2HwZCYAjxChYziQ1VwAAAAASUVORK5CYII="
+    },
+    "title": "Occupant of anml-drn vehicle injured in clsn w 2/3-whl mv",
+    "state": 0,
+    "scrap": 37,
+    "comment": 17,
+    "applicaitons": 3
+  },
+  {
+    "id": 9,
+    "createdAt": "2022-05-21 10:40:52",
+    "author": {
+      "username": "mwhitlock8",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAANCSURBVBgZBcHbT1t1AMDx72lPKS29UCiz0BUMQxwwJptMSIAZzRgu6oOJ+jKjkQdjTAx/gI9mezAmJkb3ppKYqHsxe9oMOh0ZODd3xYVtFOLK1dG0pYWensvv4udjaK0BAACYmp8cAz4GjgEtgAmUgeta6XNfjn33CwAAgKG1BmBqftIEpoE3X8+cCCZCLVSsBiwXhLQRPOHy1iUhhfxVCPn2N6d+2gMwtNZMzU8GgD8Gk30jJzMvUbGDOLgsVwzqdJCCpdDCJYTFlnOVm5s3F4Qnjv/w1oWyDwCYPtrcPTLaNkhRung+AyF81EQdFnUUnSDbdoj1coD2yAsMpp497DrejwD+0vjqKPDZ6e7X/PdllS1q1JRgz45QdAJUbMhu7FKuVgkmChjxLMPJg1xevNH5/fXpe/6hySNfTLQNHTL8IbZ8AvQ+WmWEW0/81Gwfixt7qPoSwY5HOLEseVXCLEkONWd8tx4/bDKBY5lYmrvWJvl6H73+AygEuW0X264RT2kqTTMsqx1wNI0iSDbvcOLpo3iO6DeB5rDZQM7aZNuxiIY72XGjlEqKeIvNvoRFXg6QvnMOaVfJZw5S3AkTCUXxXNHo01obhgbXqaCtVkxPcukvD6M+xNayydpqjDYnhPA0+5M9BJfv4Nk10BohhGFKoYoVt5Ju9jcSrX+O9byJ7QVoVR8RD0ucDY/dnCDd1EVPaohdu8rC+u8UqxNIocqm8MTtx8XVdFc4w2//zdMY7qLOn0Eol/G+95BaIZVEodksr9G/f4Q9t8YnFz4Euh/4PFd89fPDWdERacG0NigX/iSRcLCFi9SKXCHLv4UlVvKL7NQK5IorDGTGeCb1PLuBe6O+b189P+M63sWZxVleTA8Q9zeQiChsYSOk4KlYO6lYB63xTgL+EC3RNLfX5rm2csOyXGImgOd471zJ3p1zau7hiSPHebRt8o9wmL72Oa5ysYXLgWQvw50n+Ts3x5WlWScs23uWz2ZrhtYagFe+fjkqPHFeeHL83ZH3TWQKrcMYPoNkvMKnF0/T1zrM1aW53Qbd3rtwZmkdwNBaAwAAMHJm6A0p5AdSqn4lVQIAKO/47yeFIlBTMrB9VgsAgP8BON24AjtZfcoAAAAASUVORK5CYII="
+    },
+    "title": "Nondisp seg fx shaft of ulna, unsp arm, 7thQ",
+    "state": 1,
+    "scrap": 55,
+    "comment": 7,
+    "applicaitons": 8
+  },
+  {
+    "id": 10,
+    "createdAt": "2022-06-16 02:45:05",
+    "author": { "username": "ljinks9", "image": null },
+    "title": "Poisn by mixed bact vaccines w/o a pertuss, assault, subs",
+    "state": 0,
+    "scrap": 69,
+    "comment": 31,
+    "applicaitons": 10
+  },
+  {
+    "id": 11,
+    "createdAt": "2022-08-13 23:09:34",
+    "author": {
+      "username": "ebellwooda",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAI2SURBVDjLhVPfa1JRHPepnnrrT/Al6KG/YG9RD0EPFXsJCkaMHjMKIamVNQhqQW3LFqtZq9Yg1KXVcBhdZ9ZDgyblT9y8Z1fdvXo3Ua9D1E/ne6c3bUIHPtxzPr++5164JgCmDsJ+0/FI2BTu5v6n9xgSEZNWLh0BN9r6FfTTewyx1f3QqsOIre5r9ZvY0aM/d/U9Be+WHiO4PIg5n70mCEIizgM0MRQ4W+Bn93PPOJY+n8H4G6vUU8BFM8fYtL8I17ctTH7IQ9M0GBP5s1AowP5WguOjjIsTSYUyRsFXweNkjOHJooL5oIoJrwJazve7E2c8o/r52ksJDxc2YZlKgzJGQVAINPjC6y8qN8jwr5T0wJ35LByfZNx4JelnhyuPq9MMroCMZWFxxygICb5WvV7Hv+v6rIRH3k1YXzCDazabkGUZye+2hlHAVizNRDwKeo3Oohs53DlYnzEsCEWdU1UV8dhv5NM+KOFDfwu2QgcatcxtpJJR/WPlcjkwcQ0bG0wHFSuKgvW1FEqZpyAvZYyC7MjhVmFmGJXUXShMQEmcRU0cNaCJ97HN5lAV70FL2UFeyhgFRe/BhvzgHCTLKSiTQ9j2XkLlh003E2hPHGnkIS9lul9hp5a5hVLgCpSpC8jaBiEOncD66aM6aE8caeQhL2W6C5zlXye5cLPn6n3BPeSlTHeBmWOMo1aOHEMlfh5a+jI3j+igPXGkkaftNe/5Fzg5wGHjcHMkOKptJNocaQPdmT/bXw90YXDpsgAAAABJRU5ErkJggg=="
+    },
+    "title": "Other seasonal allergic rhinitis",
+    "state": 1,
+    "scrap": 88,
+    "comment": 46,
+    "applicaitons": 4
+  },
+  {
+    "id": 12,
+    "createdAt": "2022-07-23 05:59:43",
+    "author": {
+      "username": "gbreinleinb",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAEXSURBVDjLY/j//z8DJZhhmBpg2POQn2wDDDof8HvOe3osYtXzDzCxuM2vP3gvfn4MJIfXAP22e0Ies58eK9r2+r//3Kf3YOIhq17eK9v95j9ITrv2jhBWA/Ra7kVEr375vXDrq/9+s57eUy+4IY0kJx2w6Nk9kFzE0uffgXIRKAboNtxlC1/+/GPljjdABc9+q+ZcM0Z3qmb5LWOQXOmml/8DZz7+qJB0hQ3FBerFNyNC5z/9nrXqxX+Pvgf35OMuSSPJSXtPfXQPJBc089F3oFwE1jBQTLkiZNtw51jq4qf/XVvuwsPAa9Kjexkrnv8HyclFXxTCGwsyERf4LctvHvPuvAePBf8pDz/Y1N45BpIbKUmZFAwAR3nW32nUrY0AAAAASUVORK5CYII="
+    },
+    "title": "Poisoning by other topical agents, assault, subs encntr",
+    "state": 0,
+    "scrap": 92,
+    "comment": 81,
+    "applicaitons": 2
+  },
+  {
+    "id": 13,
+    "createdAt": "2023-02-19 06:21:31",
+    "author": {
+      "username": "bdelvesc",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJBSURBVDjLhdKxa5NBGMfx713yvkmbJnaoFiSF4mJTh06Kg4OgiyCCRXCof4YIdXdxFhQVHPo3OFSoUx0FySQttaVKYq2NbdO8ed/L3fM4JG3tYPvAcfBw9+HHPWdUlf/V0tLSqKo+EpEHInJFRIohhDUR+RBCeDM7O7ua55QSkRfVanVufHyckZERrLV0Op2Zra2tmXq9fg+YsmcAdyYnJykUCke9OI6ZmJgghHAZ4KwE3ntPs9mkVCohIjQaDWq1GiEEAM5KoHEcY62lVCrRarUoFotUKpUjIL/y/uqXYmV62ph/LSVrr30P4bEFcM4B0Ov1jk547/uAUTs1ceNdZIwB7V/GGHz6+9LXxY96eDiEgHMOY8xJAK8p4grZz5cElwNbwZgyxYu3EFM01lriOCZJEqIoIooiALIsGwA9Y1UcwcWoKNLdpLu9zvbnBWqNBhuvn5EDUmB0EH/1E2TZw5U+YLQovkun+Ytsaw1xCbnCOap334LC7s4Oe/ttvA+ICLmhMXRxDufczUECS37oAuevPwUEVFFp4/eXkXSdYc2IopSepnjtUh5/wg9gfn6+OQBUNaRIUkfDHhraSLoBKqikIF3yHJDLHaAkFOLciVHnyVAVj/S2Ub/XRyQD9aAZKgkaOohvo6ENgykcA07VEFDfQv1uf4W9Y8y30bCPhg4qKZJtMnjTPqBO/vhkZ7h3EJeRslWNQMqgY2jIAIfa/m5sIKSpqpPsGEiz599e3b+GchtD+bSvjQJm2SG6cNj6C+QmaxAek5tyAAAAAElFTkSuQmCC"
+    },
+    "title": "Laceration of plantar artery of unspecified foot, sequela",
+    "state": 0,
+    "scrap": 61,
+    "comment": 46,
+    "applicaitons": 4
+  },
+  {
+    "id": 14,
+    "createdAt": "2022-07-12 01:22:02",
+    "author": {
+      "username": "tcollinged",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFhSURBVDjLjVJRSsNAEJ3WpkKgIA2hVIL/fngJv/3rNbyD4BU8QD57AOkBjOQCPUHIX2m1YAtCku64b5NZtnSrThhmNzvz5s1jesxMsDzPX5RSj7jrSBIPh4ONzvlpNps9m0IkwrMsW+73e/7L1us1z+fzd6kbUGdAhr0uv0hpUowPUTteWP9EvL9happGyo4BaoUyouurARDMmZ1YfFama13XpwCYD5mK2RZR192AGU1a2l4GLQAfdbSRW2aqO59lcNHXUSeVH1U7N7dFwkoAqqryA0CHh9tL20GUJuqZ+3A4pO322z+CW4QOq9WKNpuNuUdRRHEcUxAErdjnRpClQnFZlpbBbrcz76PR6ESDvo+BdE6SxDjOeoHsu3cE/BQGoCnu6uOO6NVAAMbjMem1pqIo7BjQ4VcGLsBkMjFdXRGn0+n/AMIwNA4QnyHHLJ1Hg7c0Te+ALo5Eia5rPRZS9wNIBbXTpSVpqgAAAABJRU5ErkJggg=="
+    },
+    "title": "Nondisp osteochon fx r patella, 7thM",
+    "state": 0,
+    "scrap": 15,
+    "comment": 77,
+    "applicaitons": 7
+  },
+  {
+    "id": 15,
+    "createdAt": "2022-08-23 03:21:05",
+    "author": {
+      "username": "edungaye",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADzSURBVDjLY/z//z8DJYCJgUJAsQEsMEZ5efn/f//+Mfz58weOf//+Dce/fv2C0yC8d+9eRpA+RkrDAO6Czi3vrpT7COnA+LGxsdeRbUTHZ86c0UQx4MfvvwyZi55cvXX7a8jeZvXrQEWKuDSDMAyAvdCy+cV/EW42hk/ffzOcvvP1zMNbX+JOTdW7TowX4GGQs/jFlVfvvzPdvfop+OxM/euenp5XYLb9/PkTbjPMWw8fPtRB8cK3n/8YVuUpasG99OOHCrqzkWMDwwUUx4K3t/d/fIGGnCZA+PPnz1ROB7a2tv+xBRayrR8+fGDEGQsDlpkACSYJhTJIjokAAAAASUVORK5CYII="
+    },
+    "title": "Deficient foreskin",
+    "state": 1,
+    "scrap": 29,
+    "comment": 28,
+    "applicaitons": 4
+  },
+  {
+    "id": 16,
+    "createdAt": "2022-08-30 21:38:33",
+    "author": { "username": "cgrisdalef", "image": null },
+    "title": "Oth disrd of Eustachian tube, unspecified ear",
+    "state": 0,
+    "scrap": 61,
+    "comment": 11,
+    "applicaitons": 1
+  },
+  {
+    "id": 17,
+    "createdAt": "2023-01-19 17:30:24",
+    "author": {
+      "username": "mpittendreighg",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHlSURBVBgZpcE7a1RRFIbh95yZXEaSSLwWFkFEkICKhWhhIV7AxlKsbSz9DQpa+gfsbERQsUhnEYOFFiJoYSrBO6IBY5I5c2bvtfb6jCIIYjfPU0liFDUjqhlR99r9FfEfHoFZkNwxg9ZFm5xkTptFY0HbOl02Hdvf4y/hIUoRHsKLMBcWgZkwD6wE2YNbi1/p8sf6wCkBHsJLkIswD8xF9iB5IZtIHmQLtk11aftOl03nDk/x6NUGpw9OsTYo3H26yoXjs/TGK8Qmwav3A5aW17h0cjfJg9tL34jWqJM7gxTMTnWIgImxmjYXeuMVNxe+UAFX731kbuc483t67Nk+zt5dk7QWROPUTXKevWk4um8LD5+vMjlWcfnMTrqdin4qCGhSIQJOHJjhl41hIVlBTaHut+LU/DSPX69z9tAMgxTcePCZZKIZFiRohoWQePmuz4eVhARDE5Ey9VqbsSKeLK/TqSsk6CdHEk0qIGhyIQQ3Fz7xY+Bs7XW4fnEOJVGdvr6s80dm+fQ9kS1IHiQT2YPkQfbAPDAXVgIrwkPM7Zhg8c5buusbTpsL05Md8ljFpFXYhHCvMK+xEFZEKYEHlAgkkPit2nflhYatIxORAmVHFigVyIFKIAvkggj+VUliFDUj+gngimmFTeOsxAAAAABJRU5ErkJggg=="
+    },
+    "title": "Other sprain of left elbow, sequela",
+    "state": 0,
+    "scrap": 76,
+    "comment": 53,
+    "applicaitons": 6
+  },
+  {
+    "id": 18,
+    "createdAt": "2022-07-01 17:01:40",
+    "author": {
+      "username": "bpevrealh",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAH2SURBVDjLldPLSxtRFAbwm7ooUheuSn2iQqHtLkZTFGsXShA3LYUi2FJR8VWhuhC6iFAfiEZRE0jUUNDGNKVVxIJUSnGj4APFQhf9D0pCXs1z8tav9wyJjI9ovfAxA3PPb+4Z5jAAjK98HgWP8ooU8dygmlRYElBEIhFvPB4/SiQSuCj8OfR6ve4skgKUVBwMBiEIwkl8Ph88Hg/sdruI2Gw2GAyGUwgtGQG0IRwOIxqNildKIBCA1+uFw+EQgVAoBHqJ0WgUkXMAFadCABX4/X44nc5zLSW/iewUwNs42UD31HeqFZfLJZ7EarWmB85GitBJ6Hu43e7/B6RI76dqtC3I4fY4rwdQYrEYuswVGFxrRMPcPYQiwauBHssjvPlYgc7FcrTMy9G/+hxLBzr0LT+BSpuDrLyMx5cC3eaH+PpzBiuHerHw84EW2o0+mHbH0WlRoXz05tEDtSw7LdDK+6XiqR890Hzvxsh6OwbWmjH0rQNzW8N4+aEKd9+xRFrgxfv7+LKvhWVvEqadccxvj3HkNWa3htBuqUORmv3NfcvkUuBYCjybLUG9Lh+107dRNZGNVwuVmNkcQItZhTLNHWRVsgbpLJTxv0/ghWmHSTF2C02mGig1efj955dAAygFCgi5bJSL+1m4UJ2BzFL2NDn6BVT7D+X3feV2c5mYAAAAAElFTkSuQmCC"
+    },
+    "title": "Electrolytic, caloric and water-balance agents",
+    "state": 0,
+    "scrap": 69,
+    "comment": 93,
+    "applicaitons": 7
+  },
+  {
+    "id": 19,
+    "createdAt": "2022-12-07 17:24:02",
+    "author": {
+      "username": "nuci",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAH/SURBVDjLjZPNaxNRFMWrf4cFwV13JVKXLuta61apIChIV0rblUqhjYpRcUaNboxIqxFTQgVti4hQQTe1C7FFSUmnmvmM85XJzCSpx3efzmTSRtqBw7yZ9+5v7rl3bg+AHhK7DjClmAZ20UGm/XFcApAKgsBqNptbrVYL3cT2IQjCnSQkCRig4FqtBs/zYtm2DdM0oaoqh8iyDFEUY0gUvI8AdMD3fYRhyO8k13VhWRY0TeOAer0O+kg2m/0LIcDx9LdDgxff5jJzKjJzCmbe6fi0anEABTiOA13Xd1jiNTlxfT01UVB/CfMG7r/WILxScaOo4FpeBrPEfUdWDMPgmVQqlTbgtCjls4sGjl16PxuRny5oGH3yA7oZoPjR4BDbqeHlksLrUa1W24DJWRU3Wer9Qw/Gk+kVmA2lGuDKtMQzsVwfl6c3eE3IUgyYeCFjsqCgb3DqQhJwq/gTY7lyV61Jdhtw7qFUSjNA/8m8kASkc5tYXnN4BvTs1kO23uAdIksx4OjI19Grzys4c7fkfCm5MO0QU483cf5eGcurNq8BWfD8kK11HtwBoDYeGV4ZO5X57ow8knBWLGP49jqevVF5IKnRaOxQByD6kT6smFj6bHb0OoJsV1cAe/n7f3PQRVsx4B/kMCuQRxt7CWZnXT69CUAvQfYwzpFo9Hv/AD332dKni9XnAAAAAElFTkSuQmCC"
+    },
+    "title": "Pressure ulcer of left elbow, stage 4",
+    "state": 0,
+    "scrap": 38,
+    "comment": 80,
+    "applicaitons": 4
+  },
+  {
+    "id": 20,
+    "createdAt": "2023-01-26 10:47:10",
+    "author": {
+      "username": "onapthinej",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJOSURBVDjLjZPbaxNBFMarf4cFwb9AIgXBR18Enyw+i1gs4g01kphSlPjQeAtNzNqGNLVpNCGhEvBS21Rr0ZIK6ovFiKbNbXNpdpNsstncUz9nNiauErEDHwMz8/1mzjlz+gD0UZGxh0hFNPAf7SXa3fUpAKparVZoNpvbrVYLvUT2YbFYTEqIEjBAzZIkoVwud1UsFiEIAjKZjAxJp9NgGKYL6Zh3UQA9UK1WUa/X5ZmqVCqhUCiA4zgZUKlUQC+xWq1tCAUM3v6+74hu2cH4eUz6OcwFcvgYEmUANYiiiFF3Aq5XHIJRCeqHLOJbFcg5OW6Mqm495fL2NznYl7OwveYxsZSF6QUHEpIc9+eQgOvuFL6EMjC6wrg4GZZfIwOGbazX8TaPY/qAr5Ms72oOBt8WknwVem8KWmcCY0/S0E1HcXYyhjNMBAYH2waYF8izl3I4eGLqmjLjz9by+PRNxCMS0k0C0c+yMDjj0MwmMOGJ4+Vqtg0Yn+dwf5HH/sG75/4uWzAiwbfCQ+dMYSGQxdhMHMPmMFY+8MgX623AiDu9+YAADg35LErzHU8SGkcSI4+T0DoSuGRnoZ5mcdIUwdC9zd85OHpjQzP+nMOVmZj4NSZBKNVh9LbN6xslnGai8CxmMP+Ol81criwntgugZTysDmovTEXEUVcKV8lt520s5kjJvP4MTpkjyApVXCZmvTWKRqMh6w9A5yO9Xy9ijUgZCi1lL/UEkMUf/+qDHtruAn5BDpAvXKYbOzGTsyW5exWAfgrZQTt3RFu//yfHVsX/fi5tjwAAAABJRU5ErkJggg=="
+    },
+    "title": "Unsp physeal fracture of upper end of humerus, left arm",
+    "state": 1,
+    "scrap": 5,
+    "comment": 18,
+    "applicaitons": 3
+  },
+  {
+    "id": 21,
+    "createdAt": "2023-03-24 16:52:47",
+    "author": {
+      "username": "glougheadk",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAALASURBVDjLjZNJTFNRGIW7ZOFON2xMiBtDHOJKgom6dYgsWKCJTRgUIkSCYYOiiURiq1ZKsEUmAYMUEgm0MrWFIHagiEALhYJCKW2lpZOU9nUejve9CIJTvMn3huSe7/15N4e11HYnhVBK6CcYCRQhMdd4C5O11zH2+Eqiv/Ic1V120thamNYvZB8q5eccSAHAomGRzar1YQ5sE0I4ta/g1r+Ga64dm1PN2FDUwyLnwyjhYKHjLlS1eeitOAsiUO0KDB335nYEjplmQgvsmkZ8/SDEurQGRvETLHVVQdtcDgWPzQhq2alzuwL1vDl9Rj2O1eEmLIoeYEpYgDFOFsjYIGOjregIGgoOo6nkGLoeZaNJwIWgczh9V0Bfxlai0hlrBG5/DKFoEuFYEp5AHIu2EKbNQZjcERhdEQzMuiAYMkl3wrsCGpkh2CczBJLrZDMVTsDmjWHJHsYaCaq/+PBSZkm+GDT17g3vE9CItdsZEq3X+NHoh+VblAkP6Tyol5lX6gbXMn4N/ybYQTThVM6aKUyb/BBKzYo/7fmnoHvCodFZKcwQQd3AmvK/BSK1I1P8yWmet/jhoeKwb8cwOO0At2d5tbyhrLFUcNVXWJOFa9XnfRcqTtzfJ+hQbop7Jh3JNWeIOYlIPAlfKAGLJwp+Xyuq3uZhYEEInU0O/kgxcvjHcboklceE2xV22Yjegw1vFIFIAlESjieSoMiz1hpE3tOLkOhrITHUgV680ZvgjxbRghCra0Sf3qm0YdywBacvxoRJlhF4g3F83gzjcuUpDC20YO96Ny+kBWC6sCBrgEqjhmbZDasriO0AOUK7H6L3Jjx8o8OZ22l4Js8HR57LhDmy3J8T7C3T37pQzb2EbN5RPJffYL5M3+l35h/srTOpsJFUmPpRYaYLpMIJUmGKnX9wK7M4NUaPTfARuPT/+w5sF/jkpVJK3QAAAABJRU5ErkJggg=="
+    },
+    "title": "Other articular cartilage disorders, hip",
+    "state": 0,
+    "scrap": 16,
+    "comment": 53,
+    "applicaitons": 4
+  },
+  {
+    "id": 22,
+    "createdAt": "2023-05-11 08:14:24",
+    "author": { "username": "jgreenroydl", "image": null },
+    "title": "Lead-induced chronic gout, unspecified hip",
+    "state": 1,
+    "scrap": 80,
+    "comment": 29,
+    "applicaitons": 9
+  },
+  {
+    "id": 23,
+    "createdAt": "2023-03-23 08:52:54",
+    "author": { "username": "rmactimpanym", "image": null },
+    "title": "Unspecified subluxation of unspecified thumb, sequela",
+    "state": 1,
+    "scrap": 47,
+    "comment": 54,
+    "applicaitons": 7
+  },
+  {
+    "id": 24,
+    "createdAt": "2022-06-14 10:36:17",
+    "author": {
+      "username": "ffairclothn",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKOSURBVDjLlZPtS1NhGMb3D8y/xY+FwQKXr4mWFYT2wQhNQqEXKohIlNLIT2NNxLLYVtAiGIGSL9nm1lTmW3rczpk7287cdNTci9vU7Wy7Os9DR3J+qQMX93Nu7ut3nvt+nqMAoPhbDoejwmKxaKemppbHxsZ+mc3muMlk4oxG49A7w9DZ0vqjhdPpVEpmnWTOBYNBxGIx7O3tIZPJIJlMwu12YejlU3FY12fQagbKjgH+mL/wPI9isYiDgwMQiCAIiEajyOfzKOb3Ie5zsEy/x4vnD2wD/Y/LjgDky8Scy+VAHlEUQd69Xi8SiQSFZve3cZh2oXC4icnxt+h90mWgAMl8Stp2IZ1OU0MqlaKQcDgMlmVB8vm8iEySRTbtprvISbpz+2bh3t1bFQrJrNva2gIRx3HURHomoJ2dHbrOHiYlACMZg9J6V9phFjabDR0dHTpFeXk5/lVkNgQcj8fh8/nQ1ta2SgEMw8Dj8cBut0Ov19NiEkOhEM3LOTJYv9+PQCCASCSClpaWKAWQItlEIEQkJ+fl6NjwY4HxUrHCNi40X9k9ASCSzaUAKyNgdiMIuzuEiUUWNY2XXCdakEEklrYws8pj5gePuc0IXn0cR835xpH/GqJr049vaz4sCXGoztUV1FXVp+lF0mg0OqvVikhCOsrwGlzCCtZ9i1jxLGCJdWDR/R0enqMDFCJR9Gtfo7K6buToJg4ODir7nvVOf/hshO+nm0IIYNkzjyVujkJYP0OPb3R0FJXqqkmVSqU89jP19PQoHz66P9LZ3S6aJ0yYX5+lkDXeCfvyVxg/vUFtXW1OrVbrZPMxgKzu7q4z7Z03hq9db2UuX70Ya2puiDU01TP1DbXDkrmitP43h3Pjic5IKdYAAAAASUVORK5CYII="
+    },
+    "title": "Nondisp fx of lateral malleolus of unsp fibula, 7thK",
+    "state": 1,
+    "scrap": 66,
+    "comment": 73,
+    "applicaitons": 10
+  },
+  {
+    "id": 25,
+    "createdAt": "2023-03-06 03:19:53",
+    "author": {
+      "username": "mbrosiuso",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJCSURBVBgZBcFBi1VlGADg5/3Od+/cYWjUTYlRS43Zi1BGuGlVizZB0EJaFf2JNpHgPt1kBf2EXFlEZFFCUJsIsWmhI07iqOPM3HvPPed7e57ITAAAcO3mw1wOg2Fo4PbOo6NoGfuL4d7du4tv+r29yz9dfXsemQkAAK78cD8/vHDKw4Mm0DKtxqZ2fP3bE7/f2vn2wb2d9yoAAMA4psdH6c7DVEpaDc3+fPDG6XXnzxy3MS1vXf/u4LMCAACQ6IJZZdqFaRdm0+K/J3NnTnDx3DEb07WPCwAAAEQw6ahB7cKsFtt74eb20tN5mtSi3r5+9o/Z5tZWRAFASp8KoSsFiNRastaJErquk6iR5ZWXzn85iQgSkghu3NdACE0XTGsRmVoLESGTasiF1q8tH1wx9h1lU8Rzfrz1souvv6gWShQt6YLSMGW9kpmqVZRsvbGfypYOt3/29O8/XTrO7hcEEoEOHWZoH/xCC1XkrA1z+9t3rPZ2tNXCibPvq1sf2dzoZBZAyqQU/vn8nOVwIFqJalXU9eedvHAJjUypOXrwlf4ZKWQWhBTq5mtgWja1HPpqlZnjQr97DQloDudFP7BcsRpGi34wX/aOv/BYxbuf/Lp7bGOyXi1ltoFAJhptZXNtxXQpxwXtUBv35fDU7NSb/sWNy6+ehKrPDCOZ5Ej2si1pC5lzOR7J8UAO+3J8hgYAavatDkePtGFCFrKTOaGtybZBrmT2RE8ZjIsFAKi5WP61ffWd0xIBAAAASMT3tLwN8D9pITwp1Smo1gAAAABJRU5ErkJggg=="
+    },
+    "title": "Oth osteopor w current path fracture, l forearm, sequela",
+    "state": 1,
+    "scrap": 46,
+    "comment": 87,
+    "applicaitons": 3
+  },
+  {
+    "id": 26,
+    "createdAt": "2023-01-24 17:48:43",
+    "author": {
+      "username": "lfourcadep",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAITSURBVBgZpcHLThNhGIDh9/vn7/RApwc5VCmFWBPi1mvwAlx7BW69Afeu3bozcSE7E02ILjCRhRrds8AEbKVS2gIdSjvTmf+TYqLu+zyiqszDMCf75PnnnVwhuNcLpwsXk8Q4BYeSOsWpkqrinJI6JXVK6lSRdDq9PO+19vb37XK13Hj0YLMUTVVyWY//Cf8IVwQEGEeJN47S1YdPo4npDpNmnDh5udOh1YsZRcph39EaONpnjs65oxsqvZEyTaHdj3n2psPpKDLBcuOOGUWpZDOG+q0S7751ObuYUisJGQ98T/Ct4Fuo5IX+MGZr95jKjRKLlSxXxFxOEmaaN4us1Upsf+1yGk5ZKhp8C74H5ZwwCGO2drssLZZo1ouIcs2MJikz1oPmapHlaoFXH1oMwphyTghyQj+MefG+RblcoLlaJG/5y4zGCTMikEwTctaxXq/w9kuXdm9Cuzfh9acujXqFwE8xmuBb/hCwl1GKAnGccDwIadQCfD9DZ5Dj494QA2w2qtQW84wmMZ1eyFI1QBVQwV5GiaZOpdsPaSwH5HMZULi9UmB9pYAAouBQbMHHrgQcnQwZV/KgTu1o8PMgipONu2t5KeaNiEkxgAiICDMCCFeEK5aNauAOfoXx8KR9ZOOLk8P7j7er2WBhwWY9sdbDeIJnwBjBWBBAhGsCmiZxPD4/7Z98b/0QVWUehjkZ5vQb/Un5e/DIsVsAAAAASUVORK5CYII="
+    },
+    "title": "Dislocation of distal interphalangeal joint of thmb, init",
+    "state": 1,
+    "scrap": 84,
+    "comment": 92,
+    "applicaitons": 6
+  },
+  {
+    "id": 27,
+    "createdAt": "2022-08-29 23:15:05",
+    "author": {
+      "username": "sbayntonq",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAALPSURBVDjLbVLdS1NhGP+d7bS5tcZYkzmzWmqKSSISpElEUEEkXfRxGRFBEA2MSC93o3TT6Ka/wECJQG+7CfrSLFLzIkd+TDsOjFg559nH2XvOe07Pe9Qy64XnfDzv8/ye3+/3vpJlWdhaQ0NDPtM0ezjnHRRBClCsUowbhvGwu7s7jx1L2gIYHBxspeaR6urqQ36/Hw6HA/QPTdOQyWSwRIuALvX29k7/A0DNPtr8VFdXV88YQzqdRqFQENMhyzLC4bBdnEwmFyjXEo/HS1sADvGg5O1IJFKv6zrm5uYWVVWN0rdLhPienZ1dEcDErp6kxLYzkMWDkh1erxepVArU1BWLxZRtNUpfX98ZRVGS0WjUrv0fQKXQTNPE99JOo0ROsBM1xLbyLw+Utzes8VQjvuc8tuaLzRNwWjosbsAyNkLXOQam22xTwxVZXNg3gcZbU9IGAzLxyuXTkMgOyemh93nApD25grbphLgObqiU6kG2mEV/VwILT9/9kSAmiULjxzPI7hAkyUcAuwBPgNImUMyBr89DY+uoCTXh2vAdxJmxDYAowhSTGNZmJknnbgSOnMDd548pz8AsDkb6I8EGNFUdh6oVcK/0HsVEUHpzf9UiAB1ChkVUA40NcLhC5IwJg5rPNl8HJxbc5DCJ5UoujaM1ncizEiaXX7OWfodLtgjdoilCa/bzNJxuPwItndAMZjcrP+ehmwYB6tCpZr2sonX/SeT1ovxhaVSzAYRWiyQEDkfh9O6l68UIQINB/oT9B6iZ22DfcssI+qowlR7DWGr0C1nRRgCMtJowDeHBDAHsASp8KBHAwHgCzCzbbGpDzWivPYePyihSsy+gcbSuPLDKNoCQ4K65Cc9BJySX2z7C4XY6CZoM0stLKk49uQrJ4UEm+xWJghPHHvHyximwMhZHemB7YV8cfTOM32+6Ycg7Vbxce4WRAt0YAby5fgEeKcjVvgWNOgAAAABJRU5ErkJggg=="
+    },
+    "title": "Milt op involving unsp fire/conflagr/hot subst, milt",
+    "state": 0,
+    "scrap": 38,
+    "comment": 40,
+    "applicaitons": 5
+  },
+  {
+    "id": 28,
+    "createdAt": "2022-08-09 06:21:28",
+    "author": {
+      "username": "mpateselr",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGsSURBVDjLpZIxixNRFIW/kVHQQlwEQdgUdkkgTX6BkMIi/yJY5geE/ISAZIuUSb9lgnYWNsraaOkkTSSz6MLWJhmY9+7ZIm8mCUYLvfDg8d49h3POvZEk/qdigMFgkEqqSEp6vV79b4But/shz/OXzrlkMpnU4/BeabfbzGaz2pt3NzIJAd4DAplhAm+w3W7pdDqMRqNaqcB7/3U6nTbjR095fnYfGQiQCRPogOT2yTnD4RDn3CeAqMhg8Panzs8e7AAGkpDApJLITJiJ5U3GoPMiKhUQ5HoDJMwCsLjbMUnu7ThEAHnbNQrMDBkBYCWwIHTuBIEzMC8sNO2ai7vtlQjM6XcCc4Y3lT514FnBUqHEnSJwDry30v8xyV6RBM5OWfAe7+OQegAqjPIgQEl4f1LB7qOUa2DB++E4FbIqKpJEq9VK8zyvPHz8jFedi6PED6VL4vLiNd+Tz3jvkyzL6vcAsiyr9Pt9bn8sWVyvWVxvmKdrFqtfzNM189WGZLUmSTcsv10xHo9xztV285doNptfGo2GVavVK4UF+tOJ4/h9FEUCPkrar/K/1h35Nbw8S+DdbwAAAABJRU5ErkJggg=="
+    },
+    "title": "Nondisp fx of prox phalanx of l idx fngr, 7thG",
+    "state": 0,
+    "scrap": 52,
+    "comment": 2,
+    "applicaitons": 3
+  },
+  {
+    "id": 29,
+    "createdAt": "2022-07-24 11:07:27",
+    "author": {
+      "username": "kruseworths",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHJSURBVDjLY/j//z8DJZiBZgY4tN9wcO6+0erZd2uKc+fNfoeWGxMcW27Msiq+3GWUdIZXL/okI14D7JqvB+csf3Rv4p6X//t3Pf/fvf35/8Ilj3471V3bph9zmougC6xrr8mETbu7q3jl40/FKx5+LVzy8Ltd+eUZBvGnOYjygk3llfKCZY++u3fcWutcd21B07on/61yz88kKgwsCi8qJc++9yhu2p37ppnnQ4C4oWblo/9WOReXEjTANOsCs1PD9VVZ8+9/N0k7m6Yfe5LLOPFMR+Wyh/9dqq5eUvc6xIbXALOs8zEZc+9/C+q+ddEw/rSfXuRxLfP0swuqgAYEt934pOq2nxenAUbJZ0TjJt9+Vbn80X+v5huXrbLOb7LMOLfVterqjcYVj/+Htd38qey4TxqrAQaxpxntSy7PBvnVPO0MSmCZJ5/ZWL7g/v+ozlv/lex2K2EYoB9zigsYPS6lSx7+j+i59UYn6JgtTIGK635hdY/D9dnT7vxP6L/9X9F+b4icxTYmFAMsMs6ti+2/9S9hwu3/Ac3X32oHHOlVdtoroGS/R0vb9/Aip8ILrwLrrv33rbn63zD02F5Zy22GtM8LdDMAACVPr6ZjGHxnAAAAAElFTkSuQmCC"
+    },
+    "title": "Corrosion of third degree of back of hand",
+    "state": 1,
+    "scrap": 37,
+    "comment": 20,
+    "applicaitons": 1
+  },
+  {
+    "id": 30,
+    "createdAt": "2022-07-02 04:31:56",
+    "author": { "username": "pposkittt", "image": null },
+    "title": "Toxic effect of mercury and its compounds, self-harm",
+    "state": 1,
+    "scrap": 27,
+    "comment": 84,
+    "applicaitons": 3
+  },
+  {
+    "id": 31,
+    "createdAt": "2022-07-04 09:38:59",
+    "author": {
+      "username": "bkendredu",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKNSURBVBgZBcFfSNx1AADwz/f7u7uZntNKPVtlixIytmlbkrVg/UEqiGrQS7SXCOqlmlRQD5HFXuptDILwZRQ9Vtb6yxb9cdZLachcEW0SUm5T2dL0dne/u/v1+YTq0zoLfcbljAGIiACIAIA6lhyuLXozV+gzrv/eMaU9JHlijhCIgRCJgRiQEBCQNVj6eazw5TE5OWNKe6gm9A6TYPk3VmeJkSQikiBEsoxiFz276Tk2lgNJntjCbfsB+0k3+fMEZ76gsYFAliFw6TwtV9MkaiLkKJ/j1CQL02yukG/j1sd46AjbRgCBNKWSUq9RIyciBsrnmP+AGMhFuoYYOkBHH3ccZHaCMyeo1qlVSRtUiCIieod5/H3uO8TNj7K+wLevsDgF7H6G0hDVKpU6aZ0aURMSAvJtdA8w+CQPHqHzRmbe5a/vgTsPkm2hkpI2qBBFBFyc46sXmJlgc4V8K3e/RvFapg6zcZ5CkR0PU6mTNqkRsrdl9h1icZ4EIZBvY+cBbriHjQt8/JzjuZJvNsrWNi9Ky2tG29o9Mf2ZnCYEkoyRl8kXWfyB2aN0DVAs+TwpmS2U7dt7u+uu6vfd6U98On/SSutWEcSM7h1sG6Z7gOv3sv4vpybB5NJZQ7cMasSGwWtGNUJqZOddPmxvFYHA5RXSMrBylmqVf/4Ay2sX5EPRIwPPg5fun3BTzy61EOTUkNXR4OsXyXewOEe1zsKvvPes/9ZXnV76ydzStFdHj3rr+FNaki0KWSZ5o1+n3itGXNlPoUjM2NpDR4nOEjGqpKmp1d9tL223Wv7b2uayH+dO2rW0NhOqD+gs9BrXa0wTdVRQQw0V1Hmnrd1H7W3KMWhtZkYuV395fe7S6P8L1PAuhFtHgAAAAABJRU5ErkJggg=="
+    },
+    "title": "Age-rel osteopor w crnt path fx, unsp hand, 7thK",
+    "state": 0,
+    "scrap": 37,
+    "comment": 15,
+    "applicaitons": 7
+  },
+  {
+    "id": 32,
+    "createdAt": "2022-08-27 08:35:43",
+    "author": {
+      "username": "gjanodetv",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIiSURBVBgZpcE7SJZhFMDx/3neV/u8ZlhoVxAkESoyJYoa3BojDCFc25psaS8CWxoEhxAagiCpHCpqaa3AyiIISwjTtHIou3wX/b73nFOPIEG0SL+fuDv/Q04Mjp052ttz6WvR69wBM9wMNcXNMTdcFXPHVVEzGqsrhamphXPjl/tH0p4jPcNVubrQkmM96gpFHQZG0mLFQ/FrnvUqVTzwW+rqXBxoZ71OD80Spe5GVM4UB9wcNTAcM0fN0MzRzFE3yuq0tTagpkQBdyIJQhAIQQgJJCKkIZAmKf7zBeV3Q1RJidqqlMgyJQpqShQAEUGCkAQhJIIECF5ieW6c+uZ9VD7dJ60ORKZGFNycVSJEAQgihCAkiVD88IDa5i4at3ZRmHsI+RkiMyUKZsoaEQERogBofoFv7+7RsLkJ/XGHLZ2n+P72Bm4ZZkYUskqFVSKICJGIEH15c5Pm9uOwPMnEtevUN5X4MfOI77OPySoZUXA1ogQQQEQQoPB5Ei0s0bCpiK3MgBuaf0pb71nmn1yhimWiYGasESAA4sris6s07dqPFV/hVqK7rwMrfySXm6ZxxyG6aiaI5MTg2FjLzm39poqpoars2fCUkwdztO6uQfMTuJd5fnuK7r5OJNkINcd4NHphpdpLB8Td+dvE8OH5vQPXtyfhPZ4tAc4fgaSmg8XXL5m+e/5Wyj9kK+Xc5Ghfyc1xM9wMN8PNcTPcHMxw99ZfSC4lgw+6sSMAAAAASUVORK5CYII="
+    },
+    "title": "Laceration with foreign body of nose, initial encounterLaceration with foreign body of nose, initial encounterLaceration with foreign body of nose, initial encounterLaceration with foreign body of nose, initial encounterLaceration with foreign body of nose, initial encounter",
+    "state": 1,
+    "scrap": 90,
+    "comment": 30,
+    "applicaitons": 4
+  },
+  {
+    "id": 33,
+    "createdAt": "2022-09-10 19:49:00",
+    "author": {
+      "username": "jkomorowskiw",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIxSURBVDjLpdNdSFNhGAfww0Cri+gyKLowpMC+LsooEy+SgqJuKqRIiIQKkryoi4zaUmbWSHKdPkYz05xdnKNobmwW6Vi6tbk2TDYl82PTTSr3PXe2s2T+O+dgYwV54S7+vBcvz4/neXleAgCRTf570UXdLda9ORUytW1LDbbkp1TK8h8PLu1rvn92C7houBxfEbA/E+Hn4C6wAQMYTxO8vbkwvMjBYiKED3X7BUQAaFqao6XLgxZyDaxyAp9JArYnBCLjd5CM2bDIupCI6MEEtRjQtWK2rx7t13fzQMUfYHNfx7H4wtQ9xFwPEZuuR+I7jWSgH9H5FrBRI4KeGgTcN6CoKoT3YyMaL+TxwCYBoOi6M5+6i37xgM9YICQ8elnAmKCai4YDJHCPnEDnrUJMdFfxxUg/Ik2JlSPq7anYtAw+0x74zXs54AqYGRLxMN9FK/yem5hySpcMDYfh6hX/DXRR15yhcclS2FEBv+Ugl0OIjFWCmVUgGR9FzE8h6mvGF7MMY21lMJNHecCZBrRUWXhhcrn9ga0IOy4Kxey8BoGZWnwbKsCkbSOGX+cJwFtJEQ9I04C+o5SNTojBuOXc3I8Qn1Nh7v062BUiWHXnWLtD+1TVTxt7anPhfHUayqs7eKAkDajbz3tN5HpYH4swJBfBQq7Fu6aSROZOcAWlLyt3Ch1kzr/iIv0DyHpqirMCvloVJ7MChGJ9w5H0Cq8K6Lx9gAeqVwM8X/6F/Lkh8+43zznRPkqpYfEAAAAASUVORK5CYII="
+    },
+    "title": "Plantar fascial fibromatosis",
+    "state": 1,
+    "scrap": 2,
+    "comment": 96,
+    "applicaitons": 3
+  },
+  {
+    "id": 34,
+    "createdAt": "2022-08-23 01:07:56",
+    "author": { "username": "zmounceyx", "image": null },
+    "title": "Assault by paintball gun discharge, sequela",
+    "state": 1,
+    "scrap": 16,
+    "comment": 54,
+    "applicaitons": 10
+  },
+  {
+    "id": 35,
+    "createdAt": "2022-10-09 00:45:00",
+    "author": {
+      "username": "bclerky",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJvSURBVDjLjdM/TFNRFMfx733vtdBa0QiUqFEHI3FRw4TooDGGuOpCHPy3sOji4OCgicTRERMHSWcGB/wDhmhwMEZDIkj8g0YFqmCtYJFi7Xv3z3GoUjAO3O0m59587j2/o0SE0dHRI8UH1wfM3DTm6wTtmfFWVrfyamRkZLe19onT5TU+lm83Ojnc82pVp4MgaA16e3vH29raztW+7s+k6gEBrfWKQuccIrJin0gkAPhHYMh3d3Lw5gsGn31kcrpIfkETBD6httQEfvVW5XBzr7uWBPGx/szatIADpRSTX4ocb99OMpn6L38x1NzsU5eDjo6Ondbabtd4Al8Zfjx8hFKKwqIjmUwxPrPA46kLrKubpRRpsvl69m26yt6dm1H4LAmCF/cydQ2CiKCUItIWAxjnSKXyJGIbcIS4+BRfCyWcOCJjWCY4ia8MhQcVQTzmIwLFUkShXMbKTxZ1yPdSmQIhSKWmKnh+N7O2UUBk6cdFoFh2TM3swNW8ZFGXmC9so7mpptrKquAUPobC4BAAobY4B/O/LHuaLtIydZ5X77LMH7iG0QYBIu2qAm/4TqYuLThLRSCCQhj7fBatNcNRRLQxRvSyA601x/cPI7JCcBoPw9zAEEop1qdiiI24cqyPPw9iWZbQWlMb85YJnt7OpNIObKWgecs6bg194MtsiSAeEEWWeNwHqQbJzL7tqiYxKq/xMExeOsPRwfc457DWYowhDENyuRwNDQ2k0+lqGJWqzIIxZlfLm/sfkxsSiMDExATGGIwxS3PgeR65XI5sNovneURRVLnkb8vONNcf2JqKH5r+qT/1vJsbW+04/wbW84QVgHdG+gAAAABJRU5ErkJggg=="
+    },
+    "title": "Encounter for attention to cystostomy",
+    "state": 0,
+    "scrap": 56,
+    "comment": 39,
+    "applicaitons": 8
+  },
+  {
+    "id": 36,
+    "createdAt": "2022-09-03 14:09:19",
+    "author": {
+      "username": "gfrostickz",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGvSURBVDjLxZPbSgJRGIV9BB+h+yikuomIJigo6UBnKtJOUFSkSBIhMUZmBywUNDtQG6KMCrITXVnzCANSYUNNOoMzzEjuR/jbXWjQjN0UdLFuNnt9e/9r8RsAwPAbGf4c0BsSi8b2JOS5UN9cpwo7d6Kw82fqW19IRK0rqaIfAb1B0eS7zeC1mwzu9AtU7pwYKfe5iukzBZsXeJMuoCcoGH3EGI5loXPjy5yTeZGnCBhmj2Vc53oxagBdfsG+y2BwRhS20LzD2yK7eq0C5eTsGsD0gczs3GeBfJcuBKid5WjvpQrta0lGA5hAEhO+y0KThy8IqHZw9GJUJY/oALr8KRSOvUN3QIgWApjdr1FPVPkcAWkAjW6eWr7KwExExj9kgB2HEpSNPlK6NTYv8WjpQoGaGW7wu7li7GnQeSRDtf0Z6dbYHUgxxGhqcPNofD+NK6cS+arKR5+M/SEBV9kSqNT6YKp3cdoMnBEZquzPdOV0gupYT7JtvmS+zhYvz5Jw2RJLnCoeiNPWTRE0AMeRBLYDCaZQGiaJxvfS+Usj2yIMEVm3RLAQ84Ae4N+28QM8btMbbDzl6wAAAABJRU5ErkJggg=="
+    },
+    "title": "Contact w lifting and transmission devices, NEC",
+    "state": 1,
+    "scrap": 84,
+    "comment": 78,
+    "applicaitons": 6
+  },
+  {
+    "id": 37,
+    "createdAt": "2022-10-03 21:16:27",
+    "author": {
+      "username": "psturley10",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAALISURBVDjLpZNpMNRhHMc31ExNmjRTDdVMsxXLkntnTcmxJTKFMK6JnK1KcheKDDZXubbSoRdlNFFNGFTIbeiNsyjHnzI0ZrFk/621+21bx6wx9caLz/Pi+T3fz/Ob56AAoKwH2WAU2QyP+wNO6xKY3WgOsMseKJQvTrm6p0ohplzcuqR4/lsQ0QQmhzA0SxkUW6QPbv47xz9t3zBjd3ZeStu0g+OAFJGUESnUtYLwRqjHjyhqxxFCvVtE+dwxC84vc5ZklmV1dHnhrJUNlW9ty588ZS+wzSHiVwkMwxpAPRm/b0/kcOqF82/m5wyYpIBhwpXfyTCOyAjKLJT0Frji29sktD+xQgeX7ikrGoTVY3nhhJaJZFj/hFA+vD+YeMFOe7QwVhOF6c4yYHYUU53FaEm3Hl8UhNbKBKJdagVC1b0i0zPvyS3eRLayz7Didp+hSteb+fMT3XELwu8lGKtNg6DrNRaIRnQ9DSBlAr2QGsTo2euKlVUkC9t2JFNciUSKCwEFF0LMCi2S8LpjJWJBIwQDl8FrC8KXZ77oyXZDW7aD+qIguBrYsNEOCpv65VsPiE3Kn+y6DjHZgrl+L5AjHpj5HI2hPPPxKeNDH1cOUffKBwgpSk4iitLu5fDd9IOcsU9RS2FPkMPu4HfHoI9rSfalM4yk3aqtCA4HvcPjnTTz5XBkskZlZ0UIxIJ6kEO++D1yDtPSTnq5LJFjlh5/zTvQuVQBk3BtVWYEPc/7qjqvpzwaHRWZ+NHqjLkhD/Dar+FrrsXPqjSGJjNBe5CRSM9ZLbhYDgO2pp0+W8PqZQoLmCHQ+9AJNdFqaHpgg7oEo9E7/keOy24sWEON5q7NNg6jbV0R0APLQGeXQotdggR/HQhbciFszUJrkgWe+x0AK/AeaH6vligGzbdIxopAHmdTFZLjRRNV37YRVWVY1pVG6VD/9xv/AJGzmhVs7+fUAAAAAElFTkSuQmCC"
+    },
+    "title": "Hemangioma of skin and subcutaneous tissue",
+    "state": 1,
+    "scrap": 28,
+    "comment": 43,
+    "applicaitons": 10
+  },
+  {
+    "id": 38,
+    "createdAt": "2022-06-27 18:00:10",
+    "author": {
+      "username": "lbasant11",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIfSURBVDjLjZNNSJRRFIafcRJSnGEszTQddQZUJCGTCiGjXLkaiIKgTUhECK6K1oGroE20adEmQnfVIqEYhKRgyiwlFBkcqVzYHzNiVo7f982957QQpxk08cDhcA+c57735R5Uld3kt+5u3a5fwi5jtL9/275PVfOHZDKp1lqMMWxWYwzpdJpEIkFdXR3RaJRYLObbnNlTSMvlckQiEQAKwapKb28vqko8Hi9SUAQwxgAwPr/xMqtgBUQFa6Gv3eC67v8Bnuehqhw9uLKtkRDaHWBiqRJRwciGgko7Tb0dI9hxBcdxdgYAHKvN/LvZOujSY0LhHrJf4jsrcF0XVeXl4j6sKkagMTdKZ/g4wdpO0uM3KfOFiwBF/2DV/kRVOdmQ5lRDmjM1szS4zwhUhbC/nnKg/SLR4Cdmh/tKtwBuTAw0zYXeo6qICCPDwyy8uU9161lwppl8OEJFaJ0afwbjeLEtABFpLin1k1ydRVWpDfymrfkQgcos4n4GFeyfdzSfvs6a692ZvNsdyAOuJa4Gsb4X+0urGFt6jtgcLRUfCYWPINkZVNbpOteKeF/ZuzdFuONC/XfP3MoDrLEDrufpQnqeteUsM2/v0dTWQ3kgg5pl8PmZepICBHFSVLc0UuZ4l18NHW73qSqDg4NaaOb5yAwnLj3AX7KImhVAi3z3l7XyY+4DqdGhR0XLtBmvb3dl1Eq5iqIiBan5igiqOvUX9fhxNiezxvQAAAAASUVORK5CYII="
+    },
+    "title": "Other specified arthritis, unspecified ankle and foot",
+    "state": 0,
+    "scrap": 16,
+    "comment": 25,
+    "applicaitons": 5
+  },
+  {
+    "id": 39,
+    "createdAt": "2022-08-12 03:17:39",
+    "author": {
+      "username": "amold12",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAABjSURBVCjPY/zPgB8wMVCqgAVElP//x/AHDH+D4S8w/sWwl5GBgfE/MSYU/IfpheiEwTNEm5D6H9lmBLxFtAmR/3+h6YWY95xoE7z/o+uHwM9Em2D7/yeSzSAICdc/xJhAMLIA+V1VH3Z4v2kAAAAASUVORK5CYII="
+    },
+    "title": "Corrosion of third degree of scalp [any part], sequela",
+    "state": 1,
+    "scrap": 29,
+    "comment": 27,
+    "applicaitons": 2
+  },
+  {
+    "id": 40,
+    "createdAt": "2022-07-14 21:49:39",
+    "author": {
+      "username": "jipsgrave13",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKbSURBVDjLpZNdSNNRGMb/EcjsxiCkMKhGCEaxTAoh60qyIiKaiDTNUklTWatwoLnSbbiaa5vDMefGcv/+29gHa3ObqWvpprTp5kckrpvu2q0XhVZU7OlsF2I32sfFe/G85zy/l/c5HAoA9T+15eHS0lJOIpHI/ScA//liXYd55vOLUGxN6l1Zu8ssNPwxgJgr2x3zENpnofC9Q3fgPTK6VhGo3BZAzBy+OQbpqxXclDnh9o+/FZhmsrpO4cWle3rOloDX01F7ryWMRs0oRBrbfKb3aMg7m9H3n9qg1Oi0vwGWl5f1JKwkCSsZjUY/RCKR9OrqKoYY97e5uTk4HA6QHmQa4xdyF2q1el0ulyclEklSJBJFMklrU6kUCADhcJgbi8UQCARioVAIdru92ufzwWg0VvGZMtwaPgG9QQexWFyTAQuFwo8UmXI4Ho9jamqqYGJiguX3+0vcbvc+m83GMZvNeQaDoXhgYGB343DJV7Gfh2p9Ee6I69kEAoFAMJrdY3Jy8hMBgEzjBoNBWK3W6wLrWfCZ0nQzfRL1puNpkacKzoQG7a4rOKfemzbRRrS0tHRkAWNjY+MjIyMFTqeTZbFYOCaTKb+NKYV3UQf3gjZrtCf60R9qBx3rw21rBU49ZoHXyq3MAjweD5cAwDAM1+VyQafTXWsk+2bMqqAA8vE29L5sQo+/HpLRZuinpag1n0FhN/Vz4zlomv5BwmJptdoilUq1p8Z4BI54P6yzStDRPjx784RAWjE4LUGT9QIKu3K+7++kijcAJCyQsKBUKiGTyXB1kI2Lmv0oV+ejTJGHuuHT0EV60MBUoPBBLi43nA9v+5k211HpjvUbdDkOdlGpQ8Jdx3g8Xs5fAdgPqfUDXTuR30mxN/d/AaKgrAVJC0Z9AAAAAElFTkSuQmCC"
+    },
+    "title": "Pasngr in pk-up/van inj in clsn w hv veh in traf, sequela",
+    "state": 1,
+    "scrap": 10,
+    "comment": 89,
+    "applicaitons": 2
+  },
+  {
+    "id": 41,
+    "createdAt": "2022-12-31 07:55:35",
+    "author": { "username": "vdixson14", "image": null },
+    "title": "Nondisp fx of prox phalanx of l rng fngr, 7thG",
+    "state": 1,
+    "scrap": 64,
+    "comment": 72,
+    "applicaitons": 2
+  },
+  {
+    "id": 42,
+    "createdAt": "2022-05-26 02:14:34",
+    "author": {
+      "username": "jgonnet15",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAACjSURBVDjL7ZNBCsIwEEVz1mwTo1YjiHdIqyWgFBGPonWTC8T2BjlE4JsUwU0ILe7ExUtgPvNmNkMAkG8gPyAwxiAHYwxKKUgpk/kg8N5n4Zwn6865j4CVLXj1AA//rArsW4hAzCil4wTFsUdx6rBuLLaXJ+aH+zTBqukDFpuzxe5qsagnCIbV32vHybF5Wd/GC3JkBfHJEZu11hBCJHPyvwXyAt6tONifnq6xAAAAAElFTkSuQmCC"
+    },
+    "title": "Oth fx unsp patella, subs for opn fx type 3A/B/C w malunion",
+    "state": 1,
+    "scrap": 15,
+    "comment": 48,
+    "applicaitons": 10
+  },
+  {
+    "id": 43,
+    "createdAt": "2022-10-13 21:13:42",
+    "author": {
+      "username": "tlofthouse16",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJcSURBVDjLpZPvS1NRGMfvv9Db6FUvIpDqLwj6AZER1EhBkvTFTALNlWJrkwKRoWKGjZltaUmuYmsIq7SEtrSt1qakzh/TtunSdq9j8253u3fL1vh27t2KNAqsAx+ecw7n+z0PzzkPBYD6HyjZZVNNpzXINz0OQP2IYPwI1YMFXOmfQ+O9WTT0eVFvmMQl/Qcobo+jVueG2uDkRZ1koLEEc9qRNWwXRddYTjIQb/4XqjtGIRmojX6k0+ltI2+15Q1UA4sQBAG8BA+e56W5w+H4jQmbDgsPy+C3ajDVdwzT3UUVlFiwZDKJshbvT1JkLQp+HQJtBWNXIuF9DqTCiHstcN04vkaJ1U5wHLgEgUsUIrfJQKCHwM43Y2P1KZjRDqRnBvEt5MTM/eoMJT4Vy8YRj8elKBFnSWTJHovoEhHPXkMu7UQ6WIt1z0X4BuRw6+XwaGV7qIbeacRiMUQLiPNYNCZl4LF1g51RIZdxQQhUIrNSjuS8GqH+06i73psvoqJnApFIZFMNxPXrwXYw48qCuAKZT2fBzTZhyXASjM+JkkZL3qBO5wHDMIS1QmTge2fE/MtGkvYbZJbl+LJyDgmSSUB/Al85WjpzpsGcN6jVvkc4TBPCoAnuoR7MDasx/aILn92lEJbLsT51Ff67p7C6OAmaFs/RkNWb8KMXTBduOqSfVdVmh7n9KJAMYcFQArt6J97eKcZw8yHUqPQk7SfkZhOIRsQkGWztrpbzRdkNlw4b7ltwaw7DXLUrNaLaf+CP3bh1o/Tgjkxr5d6sra04+6rzyNgz5b7df2vn7z39IYTVO0xbAAAAAElFTkSuQmCC"
+    },
+    "title": "Unsp fx shaft of r fibula, 7thE",
+    "state": 0,
+    "scrap": 3,
+    "comment": 29,
+    "applicaitons": 3
+  },
+  {
+    "id": 44,
+    "createdAt": "2023-03-21 01:32:14",
+    "author": {
+      "username": "ddoberer17",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAALWSURBVBgZBcHLi1V1AADg73fuuXMd5947jzuO+WgSylIhdROEJNFIkBptclmEuza1yPBfyHWLKBcJLdq0KFBMEotKxCBSNDVJ0xzHxzyqM/ec+z739H3hwKH95xozjblSqQQAAgCAIAACBvnQ8uLy93FjpjH3+ccnhCgYDPsACIJCIYBWP0VQFJFiWCjkPjx6ZC4ulUpyA6H/pezsJZPnWpaOzhqrVd28ecGN7LgHS4lare7xSqIUl61mHe8cKJTjkgggSVYk20espqnWmevS9KE0TYXuJd12U7vV1Gun2u3UoJMJYYggDoDx8XUUfWvfn+Kj31TenDazYaPR/m3twVa1iZqRUiQuj0hbHSF0EURAkCSJNG36bya3OjnQ/uoW+VDR+lm/m2o1M/1uS7eT6XVbQihADDA+PkPRNzFel7y7w+SnKwYvb1CZ7prtrShXn7S2UlIeKWu2elglEBFAp9OVpS3JaqI5lvv3WTpf/KXIO6LeaZ12qtfNdLLUsJcJIIgDYHR0QrWeGa/XQfmtLUY/OC/On7KxcU1ntG1T9YrKyJJe+65S9LaAOACaSSZNu8j8uvDIvX5k/TO5507ctHAw83j+M1fvzUvbbb120ws7KgJiIQioTzxhddB1udVyt1c2NTnl0b5g3+mBk38OtWvL5vbutXlqqx+ufeOn37+WDesiKIrCL/N3nLp13f1/VnQ6HWmaSbtdF7cVbjx6YPe2XfIot2vDq/LQ9+LzeywP74oCWoPMUt5XGakaGx23pjKmuqZqy3xi8/0FS9mKcqh6Y/t74Mi+456e2akwFBGEEKmpq4aaSj5qbahaf2PRxoW2O3t2Sporrj244NjZw+DYd4fdXrwiEokHg1ye5zZN7bapQQBB2IpXmA7B/seJi1dO2bPzJSevfmIkxM5f/tGUWeH1Qwe/XTcz/VqpHCMIgAAAeDj8w/Lwb0MDkVjDrGhx8sz/ABdNCpr3mlcAAAAASUVORK5CYII="
+    },
+    "title": "Traum hemor r cereb w LOC w death d/t brain injury bf consc",
+    "state": 0,
+    "scrap": 50,
+    "comment": 38,
+    "applicaitons": 4
+  },
+  {
+    "id": 45,
+    "createdAt": "2022-10-15 19:34:25",
+    "author": {
+      "username": "mlettington18",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAH8SURBVDjLjZPLaxNRFIfHLrpx10WbghXxH7DQx6p14cadiCs31Y2LLizYhdBFWyhYaFUaUxLUQFCxL61E+0gofWGLRUqGqoWp2JpGG8g4ybTJJJm86897Ls4QJIm98DED9/6+mXNmjiAIwhlGE6P1P5xjVAEQiqHVlMlkYvl8/rhQKKAUbB92u91WSkKrlcLJZBK6rptomoZoNApFUbhElmU4HA4u8YzU1PsmWryroxYrF9CBdDqNbDbLr0QikUAsFkM4HOaCVCoFesjzpwMuaeXuthYcw4rtvG4KKGxAAgrE43FEIhGzlJQWxE/RirQ6i8/T7XjXV2szBawM8yDdU91GKaqqInQgwf9xCNmoB7LYgZn+Oud0T121KfiXYokqf8X+5jAyR3NQvtzEq96z4os7lhqzieW6TxJN3UVg8yEPqzu38P7xRVy+cPoay52qKDhUf0HaWsC3xRvstd3Qvt9mTWtEOPAJf/+L8oKAfwfLnil43z7Bkusqdr2X4Btvg1+c5fsVBZJ/H9aXbix/2EAouAVx4zVmHl2BtOrkPako2DsIwulexKhnG/cmfbg+uIbukXkooR/I5XKcioLu+8/QNTyGzqE36OidQNeDJayLe7yZBuUEv8t9iRIcU6Z4FprZ36fTxknC7GyCBrBY0ECSE4yzAY1+gyH4Ay9cw2Ifwv9mAAAAAElFTkSuQmCC"
+    },
+    "title": "Oth parlyt synd fol ntrm intcrbl hemor aff right nondom side",
+    "state": 0,
+    "scrap": 29,
+    "comment": 9,
+    "applicaitons": 1
+  },
+  {
+    "id": 46,
+    "createdAt": "2023-01-20 02:01:23",
+    "author": {
+      "username": "tbowdrey19",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAH5SURBVDjLpZK/a5NhEMe/748kRqypmqQQgz/oUPUPECpCoEVwyNStIA6COFR33boIjg6mg4uL0k0EO1RFISKImkHQxlbQRAsx0dgKJm/e53nunnOwViR5leJnuZs+973jHBHB/+D/ah7X2LXWloilyMw5YgtD3CDiBWN4Zno8bQcJHBFBucauZfsolZDCru0OfFcAAUISrLZDfPzSKxuiibOT+T6JCwDMtrQzYQvZHQ5Cw2h3GK0OI9AWBzJJZFOxgtJUGpTABQAiLu5OOviuGIEWkBUwC7pasNZj7N2ThNJUjBQY4pznAoEWsBWwxU+JFXSVRTzmQWvKRR5RG4KVGMgKrAVYflexAAugDCEygdbUCI2F7zobk7FZY76DIDQgrT9HCwwt1FsBhhIu4p4D3kiS8B0MJz28ftfGSPfl8MPLxbGBAqVpptbslJc+fEPMA7JDPrIpH3FX8LzaROdrE5O51jalgid3Lh4b6/sDALh6971riErGcFET58gwDPGndG9JT6ReHcwfPorGygu8rdxvGxMeP3XtzcofgigWZ0/EtQ7n0/sOTe0/Mo7V5WeoVu61z1yvZzZX+BsnZx9opYLpevXp7eXKIrL5UWit0n0r/Isb50bjRGreiyWmgs76lfM31y5tSQAAc6czHjONXLi13thygih+AEq4N6GqMsuhAAAAAElFTkSuQmCC"
+    },
+    "title": "Dehydration of newborn",
+    "state": 1,
+    "scrap": 89,
+    "comment": 15,
+    "applicaitons": 8
+  },
+  {
+    "id": 47,
+    "createdAt": "2022-06-12 20:30:57",
+    "author": {
+      "username": "etomek1a",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHlSURBVDjLpVPLShxBFD3T3WOUUUGYByhkI+50o6Bmo3ErAVG3Qvb5giyThets8gmC+DYQzEaGBMUnBhQRJAEXQuZJ8Mlodz28t6rbGY2b4IXqU1XcOvfc01UxrTWeEx5/ptbOssQzILVylVKQChCMkucagrA6JKTQtK+uJyc6Gg2B0npwvLfJ+Z/KH2Z+J+4VEJs5nFh4B3BLUhCrBILAzv1bmvvAbWD2rt9nCSRqCCIfCFtTdFjYoUVIwgQ0BJEc5UxmIGoJuGkTMeBPiQ4qq4R8MEpkhJSSyZhMPyQA/4XP33L6qhLoKGbW8wZnNwoG5zftennLYum8ot9+2uWpVRBQBTISc5tFsBmu62BxqwjPBb7sFNFQ52DlZwnxOOFeAe3pevihB07UArvguTGMv0rDo92x/jQoHyO9aZM43J2y2GNbEEJVCVgBt80Hv+5RJdLFFR0nZpAjwqXtQmh3LQGxcT9xkvymJ/WwIiEridajfVZB4oVXJeBbx+FSxdX98oOK2YMyAoV/lER/zrP9COsB0Q11JfH9sIzXnUn8IBwkfBzHp+dUrOYtGA+ohc6Xjcj9raA904CT/BXaWupM8lOhwssXXiR98XH6V7NPRHzDeEjyJTCPRzxJcHZ5kzdX77nP+Q6ZHT+VaotBJwAAAABJRU5ErkJggg=="
+    },
+    "title": "Blister (nonthermal) of right middle finger",
+    "state": 0,
+    "scrap": 1,
+    "comment": 3,
+    "applicaitons": 3
+  },
+  {
+    "id": 48,
+    "createdAt": "2022-06-05 21:56:37",
+    "author": {
+      "username": "ltreuge1b",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAI6SURBVDjLpZO9a5NRFMZ/b9Jq0iY20qoVxY/FELGgFoRuFQR18atLtUgHRyfR0Un/AKU4qVOxg6hLHXRwUhQaNUiLCK1iQSs1GvP9vvd933vvcUixCcnmhXMPHHh+POfA44gI//O6AGT5mejqb0QCRIeICREdINpHjA+hwmiFaA9CRd+5aacVYDTdB8bb6CLgwNoHCBQfnW934JdWiIsg1mtMHRCxgIOwTnAiG5HQ67CC1thgFV2dA+sjEjS6DcAqxCrEemwYOIsN3Q4A4wMasQokXBM1ixViXRCNBK0OIgC6VmhYlqBJ7GGth1gPVS9TXC1jwiqi6+0OrFGopVdo/zOYAERjVIXY7q1YXadWqJLYeYbySq7tBhEA4xXQlRUSmQkSBybpSR8DGyLGpV4s0zN4kk3bD1H6tkAQibQDHBHC/DzFF9cw7hKYECshWtUo512SAylMZZYt+y/i9vaz8OBEdwtABJJHJglLvyi9vIWVEERRWq3Qn74AKkd2eoZEysOL9KJVcKoFgFY40Qi9hy8hOkX1zSwhe5BohuRmF+t/BbGY2lv2jl5F+/7N7NRIct2BVhSf38ade4j9k8f78prCco7UroNYdx6xHsNjaWzwg1hskW1D4xntB1fW1m8PU+7u6OWBzOk7g/vimFoWkYD3Tz4xPJbBifZB/Djv7l/Pi7VHOwKyUyPfhyZmdkQjy4guNkLQdPdoPM3Pjx9YfHrjcVeniGo/iOXujXliBbG2qeRfx1pEZPAvfWh3mkWk9eIAAAAASUVORK5CYII="
+    },
+    "title": "Superficial frostbite of finger(s)",
+    "state": 0,
+    "scrap": 58,
+    "comment": 67,
+    "applicaitons": 7
+  },
+  {
+    "id": 49,
+    "createdAt": "2022-09-30 04:54:03",
+    "author": { "username": "bstretton1c", "image": null },
+    "title": "Nondisp oblique fx shaft of l ulna, 7thN",
+    "state": 1,
+    "scrap": 52,
+    "comment": 33,
+    "applicaitons": 10
+  },
+  {
+    "id": 50,
+    "createdAt": "2022-09-14 04:05:04",
+    "author": {
+      "username": "cjackalin1d",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIvSURBVDjLpZNPiBJRHMffG6aZHcd1RNaYSspxSbFkWTpIh+iwVEpsFC1EYO2hQ9BlDx067L1b0KVDRQUa3jzWEughiDDDZRXbDtauU5QV205R6jo6at+3lNShKdgHH77zm9/f994MHQwGZCuLI1tctgVKpZJQLBYluxj6ty3M3V+alfvNG1Efzy03XGT9e3vu+rkD9/5rAiTPiGI/2RvZNrrSkmWL52ReGNw9f+3hzD8LIHmC9M2M4pHI2upbEqD18tdPnwmzOWJlpi/fmrAtcMrfnld5k+gvdeKTrcXT07FJxVovMHuMtsiUv3/xjzOoVCo3Lcs6DEi32xVAIBKJ0MzCY3My6BN1XSeqqpKnperGiamDUi6Xa3U6nTemaRLoGodEy+v1hlEsjBdXBEGg+Xz+2fgORazVamclSSLVavXMnjGHlM1m78iy7Gi321dDoVAYRQK0UCiMU0pfN5vNXShggH2gDud21gloeNahO6EfoSr4Iopi3TCMBS4aja40Go1vmOA9Ao7DsYgORx0ORxkadzqdS9AYdBn+uKIoTI9omsa28GTzO3iEBeMCHGyCIPQDdDd0lU0AaswG7L0X52QAHbs/uXkL6HD7twnKrIPL5Sqyjm63m00U93g8JdjHoC9QJIYCdfB8+CWmUqkuHKMI8rPThQahr8BeUEWwBt4BFZ33g0vJZPIQ/+s+kcCDDQSTn1c0BElD2HXj0Emv13tg+y/YrUQiITBNp9OdH302kDq15BFkAAAAAElFTkSuQmCC"
+    },
+    "title": "Cytologic evidence of malignancy on smear of anus",
+    "state": 0,
+    "scrap": 7,
+    "comment": 78,
+    "applicaitons": 10
+  }
+]

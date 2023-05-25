@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-interface PostItemInfo {
+export interface PostItemInfo {
   id: number;
   title: string;
   image: string;
@@ -103,7 +103,7 @@ export default function PostItem({ ...item }: PostItemInfo) {
         <MainImage src={item.image} />
         <MainTags>
           {item.tags?.map((tag) => (
-            <TagLabel>{tag}</TagLabel>
+            <TagLabel key={tag}>{tag}</TagLabel>
           ))}
         </MainTags>
       </PostItemMain>

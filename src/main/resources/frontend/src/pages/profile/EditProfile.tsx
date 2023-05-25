@@ -5,7 +5,7 @@ import SelectRegion from "./SelectRegion";
 
 const EditProfileBox = styled.div`
   max-width: 1280px;
-  background: var(--color-sub-3);
+  background: var(--color-sub-2);
   margin: 65px auto 0;
   padding: 85px 110px 92px;
   box-sizing: border-box;
@@ -38,8 +38,8 @@ const EditProfileButton = styled.div`
   }
 `;
 const ButtonCancel = styled.button`
-  border: 2px solid var(--color-sub-2);
-  color: var(--color-sub-2);
+  border: 2px solid var(--color-sub-3);
+  color: var(--color-sub-3);
 `;
 const ButtonComplete = styled.button`
   background: var(--color-main-4);
@@ -57,7 +57,7 @@ const LargeInput = styled.textarea`
   all: unset;
   resize: none;
   height: 230px;
-  border: 2px solid var(--color-sub-2);
+  border: 2px solid var(--color-sub-3);
   border-radius: 10px;
   padding: 18px 16px;
   box-sizing: border-box;
@@ -88,10 +88,10 @@ const InputItem = styled.li`
   width: 100%;
 
   & input[type="text"] {
-    color: var(--color-sub-2);
+    color: var(--color-sub-3);
     font-weight: 500;
     font-size: 20px;
-    background: var(--color-sub-2);
+    background: var(--color-sub-3);
     border-radius: 10px;
     padding: 18px 16px;
     width: 100%;
@@ -153,12 +153,12 @@ const NewRange = styled.div`
   display: flex;
   width: 100%;
   height: 13px;
-  background: var(--color-sub-2);
+  background: var(--color-sub-3);
   border-radius: 10px;
 `;
 
 const BorderInput = styled.input`
-  border-left: 2px solid var(--color-sub-2);
+  border-left: 2px solid var(--color-sub-3);
   padding-left: 17px;
   width: 100%;
 `;
@@ -303,7 +303,7 @@ export default function EditProfile() {
                     fillRule="evenodd"
                     clipRule="evenodd"
                     d="M9 11V20H11V11H20V9H11V0H9V9H0V11H9Z"
-                    fill="var(--color-sub-3)"
+                    fill="var(--color-sub-2)"
                   />
                 </svg>
                 <NewRange />

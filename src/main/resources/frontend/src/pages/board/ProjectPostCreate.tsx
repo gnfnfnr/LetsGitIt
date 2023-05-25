@@ -188,8 +188,13 @@ export default function ProjectCreate() {
               <p>{title}</p>
               <CompletedTeam>
                 <div>
-                  {team.map(({ image }, index) => (
-                    <UserImage src={image} alt="팀원" index={index} />
+                  {team.map(({ username, image }, index) => (
+                    <UserImage
+                      src={image}
+                      alt="팀원"
+                      index={index}
+                      key={username}
+                    />
                   ))}
                 </div>
                 <CompletedPart>{part}</CompletedPart>
