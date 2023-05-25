@@ -6,12 +6,11 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: black;
   height: 100px;
 `;
 const NavWrapper = styled.div`
   display: flex;
-  width: 350px;
+  width: 400px;
   justify-content: space-between;
   margin-right: 50px;
 `;
@@ -25,7 +24,7 @@ const NavStyle = styled(NavLink)`
   font-size: 17px;
   text-decoration: none;
 
-  &.active {
+  &.active, &:hover {
     background: linear-gradient(to right, #9734dd, var(--color-main-4) 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -90,13 +89,14 @@ const ButtonContainer = styled.div`
 `;
 
 const Header = () => {
-  const [isLogIn, setIsLogIn] = useState<Boolean>(false);
+  const [isLogIn, setIsLogIn] = useState<Boolean>(true);
   const [newMessage, setNewMessage] = useState <Boolean>(true);
   const [newAlert, setNewAlert] = useState <Boolean>(false);
 
   const headers = [
     { name: "팀매칭", path: "/teammatching" },
-    { name: "게시판", path: "/board" },
+    { name: "프로젝트", path: "/project" },
+    { name: "커뮤니티", path: "/community" },
     { name: "마이페이지", path: "/mypage" }
   ];
 
