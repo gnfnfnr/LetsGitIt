@@ -5,6 +5,7 @@ import UserSkill from "../components/MyPage/User/UserSkill";
 import MyPageTab from "../components/MyPage/MyPageTab";
 import { ReactComponent as arrowIcon } from "../styles/Icons/leftarrowIcon.svg";
 import profile from "../styles/Icons/BasicProfile.png";
+import { useNavigate } from "react-router-dom";
 
 const ArrowIcon = styled(arrowIcon)`
   display: flex;
@@ -102,6 +103,8 @@ const MyPage = () => {
   //false = before, true=after
 
   const [username, setUsername] = useState("username");
+  const navigate = useNavigate();
+
   return (
     <Wrapper>
       <TopContainer>
@@ -113,7 +116,8 @@ const MyPage = () => {
         {afterEditProfile && <UserSkill type="" />}
       </TopContainer>
       <ProfileContainer>
-        <EditButton className={afterEditProfile ? "editMode" : ""}>
+        <EditButton className={afterEditProfile ? "editMode" : ""}
+        onClick={() => navigate("/mypage/edit")}>
           프로필 수정
         </EditButton>
         <Comment className={afterEditProfile ? "editMode" : ""}>

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { redirect } from "react-router";
 import styled from "styled-components";
+import axios from "axios";
 
 const Wrapper = styled.div`
     display: flex;
@@ -41,6 +43,17 @@ const TextContainer = styled.div`
 
 const Intro = () => {
 
+    const userCode = [];
+    const handleOpenNewTab = (url : string) => {
+        window.open(url, "_blank", "noopener, noreferrer");
+      };
+
+      ///login/github/authorized?code=61d040a0e52a7b736648
+ 
+      //
+
+      
+
     return(
         <Wrapper>
             <TextContainer>
@@ -48,7 +61,7 @@ const Intro = () => {
             </TextContainer>
             <StartContainer>
                 깃허브 계정으로
-                <button>시작하기</button>
+                <button onClick={() => handleOpenNewTab("https://github.com/login/oauth/authorize?client_id=2fdad6f3e6e4332a9edc")}>시작하기</button>
             </StartContainer>
         </Wrapper>
     );
