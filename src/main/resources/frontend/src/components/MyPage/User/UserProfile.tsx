@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import profile from "../../../styles/Icons/BasicProfile.png";
+import { AiTwotoneMail } from "react-icons/ai";
+import UserLinks from "./UserLinks";
 
 const Wrapper = styled.div`
   display: flex;
-  color: white;
+  color: var(--color-sub-1);
   flex-direction: column;
   align-items: left;
   width: 300px;
@@ -27,16 +29,28 @@ const Avatar = styled.img`
   justify-content: center;
 `;
 
-interface UserInterface {
-  username: string;
-  location: string;
-  education: string;
-  work: string;
-}
+const LinkContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+`;
+
+const EmailContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 20px;
+`;
+
+const EmailIcon = styled(AiTwotoneMail)`
+  fill: var(--color-sub-1);
+  margin-right: 5px;
+`;
 
 const UserProfile = () => {
-  const [userInfo, setUserInfo] = useState<UserInterface>({
+  const [userInfo, setUserInfo] = useState({
     username: "UserName",
+    email: "user@gmail.com",
     location: "서울특별시",
     education: "한국외국어대학교 경영학 전공",
     work: "2020-2023 CJ"
@@ -45,6 +59,13 @@ const UserProfile = () => {
     <Wrapper>
       <Avatar src={profile} alt="프로필 사진" />
       <p>{userInfo.username}</p>
+      <EmailContainer>
+        <EmailIcon />
+        {userInfo.email}
+      </EmailContainer>
+      <LinkContainer>
+        <UserLinks />
+      </LinkContainer>
       <p>Location</p> <span>{userInfo.location}</span>
       <p>Education</p> <span>{userInfo.education}</span>
       <p>Work Experience</p> <span>{userInfo.work}</span>

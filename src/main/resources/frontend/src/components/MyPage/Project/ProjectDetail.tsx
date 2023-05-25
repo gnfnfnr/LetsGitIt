@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "react-quill/dist/quill.snow.css";
 import Editor from "../../Editor";
+import ProjectDetailInfo from "./ProjectDetailInfo";
+import ProjectDetailInput from "./ProjectDetailInput";
 
 const PortfolioContainer = styled.div`
   display: flex;
@@ -55,20 +57,8 @@ const HrWrapper = styled.div`
 
 const TitleContainer = styled.div`
   display: flex;
-  color: white;
+  color: var(--color-sub-1);
   padding: 5px 5px 0px 50px;
-  font-size: 32px;
-  ${Hr} {
-    margin-bottom: 5px;
-  }
-`;
-
-const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: var(--color-sub-2);
-  color: white;
-  padding: 5px 5px 5px 50px;
   font-size: 32px;
   ${Hr} {
     margin-bottom: 5px;
@@ -77,28 +67,66 @@ const ContentContainer = styled.div`
 
 const Content = styled.div`
   border: none;
-  background-color: var(--color-sub-2);
-  color: white;
+  color: var(--color-sub-1);
   font-size: 15px;
-  padding: 5px 5px 5px 50px;
-  margin-top: 20px;
-  
+  display: flex;
+  background-color: var(--color-sub-2);
+  padding: 30px 5px 5px 50px;
+  font-size: 15px;
+  margin-left: 50px;
+  min-height: 500px;
 `;
 
 const EditorWrapper = styled.div`
   display: flex;
   background-color: black;
   padding: 0px 0px 5px 50px;
-  margin-bottom: 150px;
+  margin-bottom: 10px;
+`;
+
+const ProjectDetailInfoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-left: 50px;
+  width: 750px;
+`;
+
+const DetailInputContainer = styled.div`
+  display: flex;
+`;
+
+const ProjectStatus = styled.div`
+  height: 65px;
+  width: 750px;
+  display: flex;
+  background-color: var(--color-sub-2);
+  border-top: 2px solid var(--color-sub-3);
+  padding: 0 0 0 30px;
+  margin-top: 40px;
+  font-size: 20px;
+  font-weight: 550;
+  box-sizing: border-box;
+  p {
+    width: 50%;
+    color: var(--color-sub-1);
+  }
+`;
+
+const ProjectInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
 `;
 
 interface PropsInterface {
+  type: string;
   title: string;
   content: string;
   removeBackgroundColor: () => void;
 }
 
-const ProjectDetail = ({ title, content, removeBackgroundColor }: PropsInterface) => {
+const ProjectDetail = ({ type, title, content, removeBackgroundColor }: PropsInterface) => {
   const [projectTitle, setProjectTitle] = useState<string>(title);
   const [projectContent, setProjectContent] = useState<string>(content);
   const [isUser, setIsUser] = useState<boolean>(true); //User일 때
@@ -106,6 +134,12 @@ const ProjectDetail = ({ title, content, removeBackgroundColor }: PropsInterface
   const [currTitle, setCurrTitle] = useState(title);
   const [curContent, setCurContent] = useState(content);
 
+  useEffect(()=>{
+    if(type==="read"){
+      setIsUser(false);
+      setIsEditMode(false);
+    }
+  }, []);
   const onEditButton = () => {
     setIsEditMode(true);
     removeBackgroundColor();
@@ -132,14 +166,14 @@ const ProjectDetail = ({ title, content, removeBackgroundColor }: PropsInterface
 
   return (
     <PortfolioContainer>
-      {isUser ? (
+      {isUser ? ( //유저한테만 수정하기 버튼 보이기
         <ButtonContainer>
           <Button onClick={onEditButton} style={{ backgroundColor: "var(--color-main-4)" }}>
             수정하기
           </Button>
         </ButtonContainer>
       ) : ""}
-      {isEditMode ? (
+      {isEditMode ? ( //수정모드
         <ButtonContainer>
           <Button
             style={{ backgroundColor: "var(--color-sub-3)" }}
@@ -161,13 +195,26 @@ const ProjectDetail = ({ title, content, removeBackgroundColor }: PropsInterface
         </HrWrapper>
       </TitleContainer>
         {isEditMode ? (
+          <>
           <EditorWrapper>
             <Editor content={content} type="project"/>
           </EditorWrapper>
+          <ProjectInfoContainer>
+            <ProjectStatus>
+              <p>• 프로젝트 정보</p>
+            </ProjectStatus>
+            <DetailInputContainer>
+              <ProjectDetailInput />
+            </DetailInputContainer>
+          </ProjectInfoContainer>
+          </>
         ) : (
-          <ContentContainer>
-          <Content>{projectContent}</Content>
-          </ContentContainer>
+          <>
+            <ProjectDetailInfoContainer>
+              <ProjectDetailInfo />
+            </ProjectDetailInfoContainer>
+            <Content>{projectContent}</Content>
+          </>
         )}
       
     </PortfolioContainer>

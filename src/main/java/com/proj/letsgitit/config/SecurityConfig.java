@@ -1,29 +1,44 @@
 package com.proj.letsgitit.config;
 
-import com.proj.letsgitit.service.UserService;
-import lombok.RequiredArgsConstructor;
+import com.proj.letsgitit.config.jwt.JwtAuthenticationFilter;
+import com.proj.letsgitit.config.jwt.JwtTokenProvider;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
-@EnableWebSecurity
-@RequiredArgsConstructor
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private final UserService userService;
+@EnableWebSecurity(debug = true)
+public class SecurityConfig {
+    private final JwtTokenProvider jwtTokenProvider;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().disable()
+    public SecurityConfig(JwtTokenProvider jwtTokenProvider) {
+        this.jwtTokenProvider = jwtTokenProvider;
+    }
+
+    @Bean
+    public BCryptPasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
+    }
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
                 .csrf().disable()
-                .authorizeRequests()
-                .anyRequest().authenticated()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+
                 .and()
-                .oauth2Login()
-                //.loginPage("/").permitAll() ///는 아무나 다 허가
-                //.defaultSuccessUrl("/")//로그인 성공시 이동 url
-                .userInfoEndpoint()
-                .userService(userService);
+                .formLogin().disable()
+                .httpBasic().disable()
+
+                .authorizeRequests()
+                //이거 우리꺼로 수정해야함
+                .antMatchers ("/api/**", "/login/**", "/oauth2/**").permitAll ()
+                .and()
+                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
+        return http.build();
     }
 }

@@ -145,7 +145,12 @@ interface ProjectProps {
   reloadPortfolio: () => void;
 }
 
-const Project = ({
+interface ProjectViewModeProps {
+  selectedProject: ProjectItemInterface[];
+  handleProjectClick: (id: number) => void;
+}
+
+export const Project = ({
   selectedProject,
   handleProjectClick,
   removeProject,
@@ -174,12 +179,9 @@ const Project = ({
     removeProject(id);
   };
 
-  const [view, setView] = useState(false);
-
-  const onClick = () => {
-    setView(true);
+  const onClickImportProject = () => {
     reloadPortfolio();
-  }
+  };
 
   return (
     <Wrapper>
@@ -216,11 +218,48 @@ const Project = ({
       </ProjectItems>
       {settingMode && (
         <ImportButtonContainer>
-          <ImportButton onClick={onClick}>깃허브에서 프로젝트 가져오기</ImportButton>
+          <ImportButton onClick={onClickImportProject}>깃허브에서 프로젝트 가져오기</ImportButton>
         </ImportButtonContainer>
       )}
     </Wrapper>
   );
 };
 
-export default Project;
+
+export const ProjectViewMode = ({
+  selectedProject,
+  handleProjectClick
+}: ProjectViewModeProps) => {
+
+  const onClickProject = (id: number) => {
+    handleProjectClick(id);
+  };
+
+  const goToEditPage = () => {
+    //go to edit Page
+  };
+
+  return (
+    <Wrapper>
+      <Top>
+        <p>{selectedProject.length} Projects </p>
+          <Setting onClick={goToEditPage} />
+      </Top>
+      <ProjectItems>
+        {selectedProject.map((project, index) => (
+          <ProjectItem
+            key={index}
+            settingMode={false}
+            onClick={() => {onClickProject(index)}}
+          >
+            
+            <p>{project.title}</p>
+            <span>{project.content}</span>
+          </ProjectItem>
+        ))}
+      </ProjectItems>
+     
+    </Wrapper>
+  );
+};
+

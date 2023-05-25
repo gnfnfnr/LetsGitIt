@@ -10,15 +10,15 @@ const TabWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 110px;
-  margin-bottom: 110px;
+  margin-top:50px;
+  margin-bottom: 150px;
   position: relative;
 `;
 
 const TabContainer = styled.div`
   display: inline-flex;
   flex-direction: row;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 `;
 
 interface TabListProps {

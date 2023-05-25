@@ -1,7 +1,6 @@
 import { useState,useEffect } from "react";
 import styled from "styled-components";
-import { ReactComponent as ProjectIcon } from "../../styles/Icons/ImportProjectIcon.svg";
-import PortfolioComplete from "./PortfolioComplete";
+import {PortfolioComplete} from "./PortfolioComplete";
 
 const Wrapper = styled.div`
   display: flex;
@@ -26,14 +25,6 @@ const Button = styled.button`
   border: solid 2px var(--color-main-4);
   border-radius: 60px;
   color: var(--color-main-4);
-`;
-
-const ImportProjectIcon = styled(ProjectIcon)`
-  margin: 150px 0 50px 0;
-  cursor: pointer;
-  &.hide {
-    display: none;
-  }
 `;
 
 const ProjectContainer = styled.div`
@@ -74,6 +65,28 @@ const ProjectItem = styled.div`
   & ~ & {
     margin-right: 30px;
     margin-bottom: 30px;
+  }
+`;
+
+const ProjectImportContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-sub-2);
+  height: 370px;
+  width: 1280px;
+
+  button{
+    width: 380px;
+    height: 80px;
+    border: 1px solid var(--color-main-4);
+    color: var(--color-main-4);
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  &.hide {
+    display: none;
   }
 `;
 
@@ -166,18 +179,18 @@ const Portfolio = () => {
   };
 
 
-  function onClickReload() {
-   
+  function onClickReImportProject() {
+    setImportPortfolio(true);
+    setIsDone(false);
   }
 
   return (
     <Wrapper>
       {!isDone && (
         <>
-          <ImportProjectIcon
-            onClick={onClickImportPorject}
-            className={isInitial ? "" : "hide"}
-          />
+          <ProjectImportContainer className={isInitial ? "" : "hide"}>
+            <button onClick={onClickImportPorject}>깃허브에서 프로젝트 가져오기</button>
+          </ProjectImportContainer>
           {importPortfolio && (
             <ProjectContainer>
               {importProjectItems.map((project, index) => (
@@ -205,7 +218,7 @@ const Portfolio = () => {
         <PortfolioComplete
           selectedProject={selectedProject}
           onRemoveSelectedProject={onRemoveSelectedProject}
-          onClickReload={onClickReload}
+          onClickReImportProject={onClickReImportProject}
         />
       )}
     </Wrapper>

@@ -3,7 +3,6 @@ import Notice from "./Notice";
 import Model from "../components/Modal";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Rate from "./Rate";
 
 const NavList = styled.ul`
   display: flex;
