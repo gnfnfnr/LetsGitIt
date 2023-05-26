@@ -22,6 +22,7 @@ import CheckMatchng from "./pages/home/CheckMatchng";
 import SelectMatching from "./pages/home/SelectMatching";
 import Home from "./pages/home/Home";
 import { LoginPage } from "./LoginPage";
+import RecruitmentComplete from "./components/TeamMatching/RecruitmentComplete";
 
 function App() {
   return (
@@ -57,6 +58,8 @@ function App() {
         <Route path="/project/create" element={<ProjectPostCreate />} />
         <Route path="/community/create" element={<CommunityPostCreate />} />
         <Route path="/login/github/authorized" element={<LoginPage />} />
+
+        <Route path="/recruitmentComplete" element={<RecruitmentComplete />} />
       </Routes>
     </BrowserRouter>
   );
