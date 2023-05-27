@@ -151,7 +151,6 @@ const AfterProgressContainer = () => {
   const widthArray1 = [93, 75, 71];
   const widthArray2 = [43, 75, 98];
   
-
   return (
     <AfterProgressWrapper>
       <AfterContainer>
@@ -206,7 +205,7 @@ const Animation = () => {
         }
         return prevProgress;
       });
-    }, 3500 / 3);
+    }, 500);
 
     return () => clearInterval(interval);
   }, []);
@@ -215,7 +214,7 @@ const Animation = () => {
     if (progress === 3) {
       setTimeout(() => {
         setAnimationFinished(true);
-      }, 500);
+      }, 100);
     }
   }, [progress]);
 
