@@ -23,6 +23,7 @@ import SelectMatching from "./pages/home/SelectMatching";
 import Home from "./pages/home/Home";
 import { LoginPage } from "./LoginPage";
 import RecruitmentComplete from "./components/TeamMatching/RecruitmentComplete";
+import { ProjectBoard } from "./pages/projectBoard/ProjectBoard";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
         <Route path="/login/github/authorized" element={<LoginPage />} />
 
         <Route path="/recruitmentComplete" element={<RecruitmentComplete />} />
+        <Route path="/project/:id" element={<ProjectBoard />} />
       </Routes>
     </BrowserRouter>
   );
