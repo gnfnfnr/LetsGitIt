@@ -5,8 +5,9 @@ import Intro from "./Intro";
 import Animation from "./Animation";
 
 const Wrapper = styled.div`
+    justify-content: center;
     display: grid;
-    grid-template-rows: repeat(3, minmax(max-content, 25rem));
+    grid-template-rows: repeat(2, minmax(max-content, 25rem));
     grid-template-columns: repeat(2, minmax(max-content, 30rem)); 
     gap: 1rem;
 `;
