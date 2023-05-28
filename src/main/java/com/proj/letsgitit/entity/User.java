@@ -5,9 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.annotation.sql.DataSourceDefinitions;
 import javax.persistence.*;
-import java.net.URL;
 
 @Entity
 @Setter
@@ -18,7 +16,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="u_id")
-    int uId;
+    Long uId;
 
     @Column(name="login")   //이게 깃에서 id를 가져올 때 객체명
     String login;
@@ -27,7 +25,7 @@ public class User {
     String name; //이름
 
     @Column(name="id")  //이건 깃이 부여한 id...? 아마도
-    long id;
+    long gitId;
 
     @Column(name="html_url") //유저 깃 주소
     String htmlUrl;
@@ -103,10 +101,10 @@ public class User {
     private Role role;
 
     @Builder
-    public User(String login, String name, long id, String htmlUrl, String email) {
+    public User(String login, String name, long gitId, String htmlUrl, String email) {
         this.login = login;
         this.name = name;
-        this.id = id;
+        this.gitId = gitId;
         this.htmlUrl = htmlUrl;
         this.email = email;
     }
