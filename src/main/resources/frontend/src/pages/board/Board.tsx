@@ -34,7 +34,6 @@ const BoardSearch = styled.div`
 export default function Board() {
   const [field, setField] = useState<0 | 1>(0);
   const [data, setData] = useState(postData);
-  // const [name, setName] = useState("프로젝트");
   const navigate = useNavigate();
 
   const select = [

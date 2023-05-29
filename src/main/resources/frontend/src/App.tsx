@@ -22,6 +22,7 @@ import CheckMatchng from "./pages/home/CheckMatchng";
 import SelectMatching from "./pages/home/SelectMatching";
 import Home from "./pages/home/Home";
 import { LoginPage } from "./LoginPage";
+import Project from "./pages/Project";
 
 function App() {
   return (
@@ -44,10 +45,11 @@ function App() {
           <Route path="/received/applications" element={<Applications />} />
         </Route>
         <Route path="/matching" element={<Matching />} />
-        <Route element={<Board />}>
+        {/* <Route element={<Board />}>
           <Route path="/project" />
           <Route path="/community" />
-        </Route>
+        </Route> */}
+        <Route element={<Project />} path="/project" />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/TeamMatchingCreate" element={<TeamMatchingCreate />} />
         <Route path="/matching/:id" element={<TeamMatchingPost />} />

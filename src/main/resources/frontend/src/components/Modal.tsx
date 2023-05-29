@@ -2,7 +2,8 @@ import React, { Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
 
 const ModalBox = styled.section`
-  position: absolute;
+  position: fixed;
+  z-index: 300;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
