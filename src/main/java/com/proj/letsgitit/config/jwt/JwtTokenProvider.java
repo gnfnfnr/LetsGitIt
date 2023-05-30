@@ -14,7 +14,7 @@ public class JwtTokenProvider {
     private long accessTokenValidityInMilliseconds;
     @Value("${jwt.refresh-token.expire-length:10000}")
     private long refreshTokenValidityInMilliseconds;
-    @Value("${jwt.token.secret-key:secret-key}")
+    @Value("${jwt.token.secret-key}")
     private String secretKey;
 
     public String createAccessToken(String payload) {

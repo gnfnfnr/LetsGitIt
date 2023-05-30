@@ -2,7 +2,9 @@ package com.proj.letsgitit.config.jwt;
 
 import com.proj.letsgitit.entity.Role;
 import lombok.Builder;
+import lombok.Getter;
 
+@Getter
 public class LoginResponse {
     private Long id;
     private String login;

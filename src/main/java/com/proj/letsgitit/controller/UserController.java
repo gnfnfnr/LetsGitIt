@@ -44,6 +44,7 @@ public class UserController {
     @GetMapping("/login/oauth2")
     public ResponseEntity login(String code) throws IOException, JsonProcessingException {
         LoginResponse loginResponse = userService.login(code);
+        System.out.println("access_token: " + loginResponse.getAccessToken());
         return ResponseEntity.ok().body(loginResponse);
     }
 }

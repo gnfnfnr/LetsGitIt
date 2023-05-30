@@ -43,6 +43,8 @@ public class OAuthToken {
         return bearer;
     }
 
+    public OAuthToken(){
+    }
     @Builder
     public OAuthToken(String accessToken, String scope, String tokenType) {
         this.accessToken = accessToken;
