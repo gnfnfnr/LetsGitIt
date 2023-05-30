@@ -10,7 +10,7 @@ const TabTable = styled.table`
 
 const TabHeader = styled.th<{ active: boolean; color: string }>`
   padding: 10px;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 600;
   width: 200px;
   text-align: center;
@@ -25,6 +25,7 @@ const TabContent = styled.td<{ active: boolean }>`
   padding: 10px;
   border: none;
   text-align: center;
+  font-size: 0.96rem;
   transition: opacity 0.3s ease-in-out;
   opacity: ${({ active }) => (active ? 1 : 0)};
   white-space: pre-line;

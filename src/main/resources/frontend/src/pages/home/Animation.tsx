@@ -3,6 +3,9 @@ import styled, { css, keyframes } from "styled-components";
 
 const Wrapper = styled.div`
   color: var(--color-sub-1);
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
 `;
 
 const fadeTransition = css`
@@ -59,7 +62,7 @@ const ProgressCircle = styled.div`
 `;
 
 const Text = styled.p`
-  font-size: 50px;
+  font-size: 3.125rem;
   font-weight: bold;
   margin-bottom: 20px;
 `;
@@ -150,16 +153,12 @@ const AfterProgressContainer = () => {
   const indexArray = [97, 50, 82];
   const widthArray1 = [93, 75, 71];
   const widthArray2 = [43, 75, 98];
-  
+
   return (
     <AfterProgressWrapper>
       <AfterContainer>
         {indexArray.map((index, i) => (
-          <ProgressAfterCircle
-            key={index}
-            width={index}
-            color={colors[0]}
-          />
+          <ProgressAfterCircle key={index} width={index} color={colors[0]} />
         ))}
       </AfterContainer>
       <AfterContainer>
@@ -223,11 +222,7 @@ const Animation = () => {
       <Container>
         <Text>Let’s git it!</Text>
         <FadeInTransition>
-          {animationFinished ? (
-            <AfterProgressContainer />
-          ) : (
-            <ProgressBar />
-          )}
+          {animationFinished ? <AfterProgressContainer /> : <ProgressBar />}
         </FadeInTransition>
       </Container>
     </Wrapper>
