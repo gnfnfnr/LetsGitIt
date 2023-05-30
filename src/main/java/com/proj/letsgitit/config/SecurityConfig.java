@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserRepository userRepository;
 
-    public static final String FRONT_URL = "http://localhost:9000";
+    public static final String FRONT_URL = "http://3.35.159.112:9000";
 
     private CorsFilter corsFilter;
 
