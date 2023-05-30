@@ -1,16 +1,15 @@
 package com.proj.letsgitit.service;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.proj.letsgitit.config.jwt.JwtProperties;
+import com.proj.letsgitit.config.jwt.InMemoryProviderRepository;
+import com.proj.letsgitit.config.jwt.JwtTokenProvider;
+import com.proj.letsgitit.config.jwt.LoginResponse;
 import com.proj.letsgitit.entity.GithubProfile;
 import com.proj.letsgitit.entity.OAuthToken;
 import com.proj.letsgitit.entity.User;
 import com.proj.letsgitit.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -21,12 +20,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-
 @Service
 @RequiredArgsConstructor
-
 public class UserService {
     @Value("${githubApiUrl}")
     private String githubApiUrl;
@@ -44,9 +39,34 @@ public class UserService {
 
     private String PROFILE_REQUEST_URL = "https://api.github.com/user";
 
-    @Autowired
-    UserRepository userRepository;
+    private final InMemoryProviderRepository inMemoryProviderRepository;
+    private final UserRepository userRepository;
+    private final JwtTokenProvider jwtTokenProvider;
 
+    public LoginResponse login(String code) throws JsonProcessingException {
+        // access token 가져오기
+        OAuthToken oAuthToken = getOauthToken(code);
+        // 유저 정보 가져오기
+        GithubProfile githubProfile = getGithubProfile(oAuthToken);
+        //유저 DB에 저장하기
+        User user = saveAndGetUser(githubProfile);
+
+        //우리 애플리케이션의 JWT 토큰 만들기
+        String accessToken = jwtTokenProvider.createAccessToken(String.valueOf(user.getId()));
+        String refreshToken = jwtTokenProvider.createRefreshToken();
+
+        return LoginResponse.builder()
+                .id(user.getId())
+                .login(user.getLogin())
+                .name(user.getName())
+                .email(user.getEmail())
+                .htmlUrl(user.getHtmlUrl())
+                .role(user.getRole())
+                .tokenType("Bearer")
+                .accessToken(accessToken)
+                .refreshToken(refreshToken)
+                .build();
+    }
     public OAuthToken getOauthToken(String code) throws JsonProcessingException {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("client_id", clientId);
@@ -67,61 +87,34 @@ public class UserService {
         return objectMapper.readValue(response.getBody(), OAuthToken.class);
     }
 
-    public GithubProfile getGithubProfile(String token) {
-        RestTemplate restTemplate = new RestTemplate();
-
+    public GithubProfile getGithubProfile(OAuthToken oAuthToken) throws JsonProcessingException {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", "token " + token);
-
+        headers.add("Authorization", "token " + oAuthToken.getAccessToken());
+        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.exchange(
                 PROFILE_REQUEST_URL,
                 HttpMethod.GET,
                 new HttpEntity<>(headers),
                 String.class
         );
-
         ObjectMapper objectMapper = new ObjectMapper();
-        GithubProfile githubProfile = null;
-        try {
-            githubProfile = objectMapper.readValue(response.getBody(), GithubProfile.class);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
+        return objectMapper.readValue(response.getBody(), GithubProfile.class);
+    }
+
+    public User saveAndGetUser(GithubProfile githubProfile) {
+        User findUser = userRepository.findById(githubProfile.getId());
+        if (findUser != null) {
+            findUser.setHtmlUrl(githubProfile.getHtml_url());
+            findUser.setLogin(githubProfile.getLogin());
+            return findUser;
         }
-        return githubProfile;
-    }
-
-    public String saveUserAndGetToken(String token) {
-
-        GithubProfile githubProfile = getGithubProfile(token);
-
-        User findUser = userRepository.findByLogin(githubProfile.getLogin());
-        if (findUser == null) { //update 일단 생략함....
-            findUser = User.builder()
-                    .login(githubProfile.getLogin())
-                    .name(githubProfile.getName())
-                    .gitId(githubProfile.getGitId())
-                    .htmlUrl(githubProfile.getHtml_url())
-                    .email(githubProfile.getEmail())
-                    .build();
-            userRepository.save(findUser);
-        }
-        return createToken(findUser);
-    }
-
-    public String createToken(User user) {
-        String jwtToken = JWT.create()
-                .withSubject(user.getEmail()) //String 타입이 필요한데 id는 long타입이라 email로
-                .withExpiresAt(new Date(System.currentTimeMillis()+ JwtProperties.EXPIRATION_TIME))
-                .withClaim("id", user.getGitId())
-                .withClaim("nickname", user.getName())
-                .sign(Algorithm.HMAC512(JwtProperties.SECRET));
-
-        return jwtToken;
-    }
-    public User getUser(HttpServletRequest request) {
-        Long id = (Long) request.getAttribute("id");
-
-        User user = userRepository.findByGitId(id);
-        return user;
+        findUser = User.builder()
+                .login(githubProfile.getLogin())
+                .name(githubProfile.getName())
+                .id(githubProfile.getId())
+                .htmlUrl(githubProfile.getHtml_url())
+                .email(githubProfile.getEmail())
+                .build();
+        return userRepository.save(findUser);
     }
 }
