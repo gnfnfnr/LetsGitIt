@@ -52,11 +52,11 @@ public class UserService {
         User user = saveAndGetUser(githubProfile);
 
         //우리 애플리케이션의 JWT 토큰 만들기
-        String accessToken = jwtTokenProvider.createAccessToken(String.valueOf(user.getId()));
+        String accessToken = jwtTokenProvider.createAccessToken(String.valueOf(user.getUId()));
         String refreshToken = jwtTokenProvider.createRefreshToken();
 
         return LoginResponse.builder()
-                .id(user.getId())
+                .id(user.getUId())
                 .login(user.getLogin())
                 .name(user.getName())
                 .email(user.getEmail())
@@ -102,7 +102,7 @@ public class UserService {
     }
 
     public User saveAndGetUser(GithubProfile githubProfile) {
-        User findUser = userRepository.findById(githubProfile.getId());
+        User findUser = userRepository.findByGitId(githubProfile.getGitId());
         if (findUser != null) {
             findUser.setHtmlUrl(githubProfile.getHtml_url());
             findUser.setLogin(githubProfile.getLogin());
@@ -111,7 +111,7 @@ public class UserService {
         findUser = User.builder()
                 .login(githubProfile.getLogin())
                 .name(githubProfile.getName())
-                .id(githubProfile.getId())
+                .gitId(githubProfile.getGitId())
                 .htmlUrl(githubProfile.getHtml_url())
                 .email(githubProfile.getEmail())
                 .build();
