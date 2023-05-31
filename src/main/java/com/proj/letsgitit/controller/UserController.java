@@ -62,7 +62,7 @@ public class UserController {
         return ResponseEntity.ok().headers(headers).body("login");
     }
     //jwt 토큰으로 유저 정보 요청하기
-    @GetMapping("/me")
+    @GetMapping("/users")
     public ResponseEntity<Object> getCurrentUser(HttpServletRequest request) {
 
         User user = userService.getUser(request);
