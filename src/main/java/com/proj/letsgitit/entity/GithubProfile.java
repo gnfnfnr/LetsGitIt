@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 public class GithubProfile {
     private String login;
-    private long gitId;
+    private long id;
     private String node_id;
     private String avatar_url;
     private String gravatar_id;
