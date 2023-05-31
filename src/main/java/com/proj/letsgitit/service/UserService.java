@@ -20,6 +20,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -116,5 +118,15 @@ public class UserService {
                 .email(githubProfile.getEmail())
                 .build();
         return userRepository.save(findUser);
+    }
+
+    public User getUser(HttpServletRequest request) {
+        // 해당 request에 JwtRequestFilter를 거쳐 인증이 완료된 사용자의
+        // gitId 가 요소로 추가되어 있을 것이므로 이를 활용
+        Long gitId = (Long) request.getAttribute("gitId");
+        // 가져온 gitId로 DB에서 사용자 정보를 가져와 User 객체에 담는다.
+        User user = userRepository.findByGitId(gitId);
+        // User 객체를 반환한다.
+        return user;
     }
 }

@@ -2,9 +2,11 @@ package com.proj.letsgitit.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.proj.letsgitit.config.jwt.LoginResponse;
+import com.proj.letsgitit.entity.User;
 import com.proj.letsgitit.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,7 +46,19 @@ public class UserController {
     @GetMapping("/login/oauth2")
     public ResponseEntity login(String code) throws IOException, JsonProcessingException {
         LoginResponse loginResponse = userService.login(code);
-        System.out.println("access_token: " + loginResponse.getAccessToken());
-        return ResponseEntity.ok().body(loginResponse);
+        //System.out.println("access_token: " + loginResponse.getAccessToken());
+        String jwtToken = loginResponse.getAccessToken();
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "Bearer "+jwtToken);
+        return ResponseEntity.ok().headers(headers).body("login-success");
+    }
+    //jwt 토큰으로 유저 정보 요청하기
+    @GetMapping("/me")
+    public ResponseEntity<Object> getCurrentUser(HttpServletRequest request) {
+
+        User user = userService.getUser(request);
+
+        //ResponseEntity를 이용해 바디 값에 인증된 사용자 정보를 넘겨준다.
+        return ResponseEntity.ok().body(user);
     }
 }
