@@ -34,12 +34,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
         String token = jwtHeader.replace(JwtProperties.TOKEN_PREFIX, "");
 
-        Long gitId = null;
+        Long userCode = null;
 
         try {
-            gitId = JWT.require(Algorithm.HMAC512(JwtProperties.SECRET)).build().verify(token)
+            userCode = JWT.require(Algorithm.HMAC512(JwtProperties.SECRET)).build().verify(token)
                     .getClaim("id").asLong();
-                    System.out.print("유저 : " + gitId);
+                    System.out.print("유저 : " + userCode);
         } catch (TokenExpiredException e) {
             e.printStackTrace();
             request.setAttribute(JwtProperties.HEADER_STRING, "토큰 만료");
@@ -48,7 +48,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             request.setAttribute(JwtProperties.HEADER_STRING, "유효하지않는 토큰");
         }
 
-        request.setAttribute("gitId", gitId);
+        request.setAttribute("userCode", userCode);
 
         filterChain.doFilter(request, response);
     }
