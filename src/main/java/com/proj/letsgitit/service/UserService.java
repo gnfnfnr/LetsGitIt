@@ -83,13 +83,13 @@ public class UserService {
 
     public String saveUserAndGetToken(String token) throws JsonProcessingException {
         GithubProfile githubProfile = getGithubProfile(token);
-        User user = userRepository.findByGitId(githubProfile.getGitId());
+        User user = userRepository.findByEmail(githubProfile.getEmail());
         //User findUser = userRepository.findByGitId(githubProfile.getGitId());
         if (user == null) {
             user = User.builder()
                     .login(githubProfile.getLogin())
                     .name(githubProfile.getName())
-                    .gitId(githubProfile.getGitId())
+                    .id(githubProfile.getId())
                     .htmlUrl(githubProfile.getHtml_url())
                     .email(githubProfile.getEmail())
                     .build();

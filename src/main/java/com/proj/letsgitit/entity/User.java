@@ -24,8 +24,8 @@ public class User {
     @Column(name="name")
     String name; //이름
 
-    @Column(name="git_id")  //이건 깃이 부여한 id...? 아마도
-    long gitId;
+    @Column(name="id")  //이건 깃이 부여한 id...? 아마도
+    long id;
 
     @Column(name="html_url") //유저 깃 주소
     String htmlUrl;
@@ -101,10 +101,10 @@ public class User {
     private Role role;
 
     @Builder
-    public User(String login, String name, long gitId, String htmlUrl, String email) {
+    public User(String login, String name, long id, String htmlUrl, String email) {
         this.login = login;
         this.name = name;
-        this.gitId = gitId;
+        this.id = id;
         this.htmlUrl = htmlUrl;
         this.email = email;
     }
