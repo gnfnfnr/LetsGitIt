@@ -55,6 +55,10 @@ public class UserController {
     //jwt 토큰으로 유저 정보 요청하기
     @GetMapping("/me")
     public ResponseEntity<Object> getCurrentUser(HttpServletRequest request) {
-        User user = userService.getUser
+
+        User user = userService.getUser(request);
+
+        //ResponseEntity를 이용해 바디 값에 인증된 사용자 정보를 넘겨준다.
+        return ResponseEntity.ok().body(user);
     }
 }
