@@ -15,8 +15,8 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="u_id")
-    Long uId;
+    @Column(name="user_code")
+    Long userCode;
 
     @Column(name="login")   //이게 깃에서 id를 가져올 때 객체명
     String login;
@@ -24,7 +24,7 @@ public class User {
     @Column(name="name")
     String name; //이름
 
-    @Column(name="id")  //이건 깃이 부여한 id...? 아마도
+    @Column(name="git_id")  //이건 깃이 부여한 id...? 아마도
     long gitId;
 
     @Column(name="html_url") //유저 깃 주소
