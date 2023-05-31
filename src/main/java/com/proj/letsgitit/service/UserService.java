@@ -20,6 +20,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -116,5 +118,9 @@ public class UserService {
                 .email(githubProfile.getEmail())
                 .build();
         return userRepository.save(findUser);
+    }
+
+    public User getUser(HttpServletRequest request) {
+        Long gitId = (Long) request.getAttribute("gitId");
     }
 }
