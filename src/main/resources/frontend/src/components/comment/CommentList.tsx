@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import basicProfile from "../../../../styles/Icons/BasicProfile.png";
+import basicProfile from "../../styles/Icons/BasicProfile.png";
 import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs";
 import CommentInputBox from "./CommentInputBox";
 

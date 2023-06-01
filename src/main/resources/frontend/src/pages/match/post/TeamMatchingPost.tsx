@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { BsFillBookmarkFill, BsCheckLg } from "react-icons/bs";
-import { MdModeEdit } from "react-icons/md";
 import styled from "styled-components";
-import CommentList from "../components/TeamMatching/Post/Comment/CommentList";
-import GoBack from "../components/GoBack";
-import ProjectInfo from "../components/Project/ProjectInfo";
-import ProjectTeam from "../components/Project/ProjectTeam";
-import PostInfo from "../components/TeamMatching/Post/PostInfo";
-import ReviewContainer from "../components/Project/ReviewContainer";
-import CommentInputBox from "../components/TeamMatching/Post/Comment/CommentInputBox";
+import PostContent from "../../../components/post/PostContent";
+import WritorProfile from "../../../components/post/WritorProfile";
+import CommentList from "../../../components/comment/CommentList";
+import ProjectTeamMember from "./ProjectTeamMember";
+import ProjectMethod from "./ProjectMethod";
+import GoBack from "../../../components/GoBack";
+import CommentInputBox from "../../../components/comment/CommentInputBox";
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
+  min-height: 800px;
   margin-bottom: 40px;
 `;
 
@@ -34,45 +34,21 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: row;
 `;
-const PositionList = styled.div`
+const ProfileContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  text-align: right;
   flex: 1;
   padding: 0 20px 0 20px;
-  color: var(--color-sub-1);
-  font-weight: 450;
-  span{
-      margin-bottom: 10px;
-  }
 `;
 
 const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
   padding: 0 20px 0 20px;
   align-items: start;
-  color: var(--color-sub-1);
-  h3{
-      margin: 0px;
-      font-size: 32px;
-    font-weight: 500;
-  }
 `;
 
-const PostInfoContainer = styled.div`
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
-    width: 100%;
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 30px;
-`
-
 const CommentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 0 20px 0 20px;
   p {
     font-size: 16px;
@@ -108,7 +84,12 @@ const ButtonContainer = styled.div`
     text-align: center;
     margin-right: 10px;
     border-radius: 10px;
-    
+
+    svg {
+      width: 11px;
+      height: 12px;
+      fill: var(--color-sub-4);
+    }
   }
 `;
 
@@ -131,41 +112,25 @@ const StateButton = styled.button`
   color: var(--color-sub-1);
   background-color: var(--color-sub-4);
   width: 97px;
-  svg {
-      path
-      {width: 13px;
-      height: 12px;
-      //fill: var(--color-sub-1);
-     // stroke: var(--color-sub-1);
-      }
-      
-    }
 `;
 
-const Left = styled.div`
-    display: flex;
-    margin-top: 95px;
-    width: 150px;
-`;
-
-const BoardPost = () => {
-  const [isWritten, setIsWritten] = useState(false);
+const TeamMatchingPost = () => {
+  const [processState, setProcessState] = useState(true); //false = 모집완료
   const [bookMark, setBookMark] = useState(false);
-  const [positions, setPositions] = useState(["IOS", "안드로이드", "서버"]);
-  const [title, setTitle] = useState("스마트팜교육 chatGPT 챗봇");
-  const [date, setDate] = useState("2023.04.12");
   const [comments, setComments] = useState([
     {
       //profileImg: img,
       username: "user1",
       content: "예시 댓글 어쩌고 저쩌고",
       time: "2023.03.28 12:01",
-      reply: [{
-        //profileImg: img,
-        username: "user1",
-        content: "대댓글",
-        time: "2023.03.28 12:05"
-      },]
+      reply: [
+        {
+          //profileImg: img,
+          username: "user1",
+          content: "대댓글",
+          time: "2023.03.28 12:05"
+        }
+      ]
     },
     {
       //profileImg: img,
@@ -180,15 +145,14 @@ const BoardPost = () => {
           time: "2023.03.28 12:05"
         },
         {
-            //profileImg: img,
-            username: "user1",
-            content: "대댓글22",
-            time: "2023.03.28 12:05"
-          },
+          //profileImg: img,
+          username: "user1",
+          content: "대댓글22",
+          time: "2023.03.28 12:05"
+        }
       ]
     }
   ]);
-
   const handleClickBookMark = () => {
     setBookMark(!bookMark);
   };
@@ -200,51 +164,34 @@ const BoardPost = () => {
           <GoBack />
         </Head>
         <ContentWrapper>
-            <Left>
-          <PositionList>
-            {positions.map((item)=>(
-                <span>{item}</span>
-            ))}
-          </PositionList>
-          </Left>
+          <ProfileContainer>
+            <WritorProfile />
+          </ProfileContainer>
           <Middle>
             <ContentContainer>
-              <h3>{title}</h3>
-              <PostInfoContainer>
-                <span>작성일 {date}</span>
-              <PostInfo />
-              </PostInfoContainer>
-               <ReviewContainer type="" username = "user1" PostionName="IOS" content="contentsd"/>
-               <ReviewContainer type="write" username = "user1" PostionName="IOS" content="contentsd"/>
+              <PostContent />
             </ContentContainer>
             <CommentContainer>
               <>
-              <p>댓글 {comments.length}개</p>
-              <CommentInputBox />
-              {
-                comments.map((comment, idx) => (
+                <p>댓글 {comments.length}개</p>
+                <CommentInputBox />
+                {comments.map((comment, idx) => (
                   <CommentList
                     key={idx}
-                    username={comment.username} 
-                    content={comment.content} 
-                    time={comment.time} 
+                    username={comment.username}
+                    content={comment.content}
+                    time={comment.time}
                     reply={comment.reply}
                   />
-                ))
-              }
+                ))}
               </>
             </CommentContainer>
           </Middle>
           <ProjectInfoContainer>
             <ButtonContainer>
-              {isWritten ? 
               <StateButton>
-                작성 완료 <BsCheckLg />
-              </StateButton> :
-              <StateButton>
-              작성하기 <MdModeEdit />
-            </StateButton> 
-              }
+                {processState ? "모집 진행중" : "모집 완료"}
+              </StateButton>
               <BookMarkButton
                 className={bookMark ? "marked" : ""}
                 onClick={handleClickBookMark}
@@ -252,8 +199,9 @@ const BoardPost = () => {
                 스크랩 {bookMark ? <BsCheckLg /> : <BsFillBookmarkFill />}
               </BookMarkButton>
             </ButtonContainer>
-            <ProjectInfo />
-            <ProjectTeam/>
+
+            <ProjectMethod />
+            <ProjectTeamMember />
           </ProjectInfoContainer>
         </ContentWrapper>
       </PostBox>
@@ -261,4 +209,4 @@ const BoardPost = () => {
   );
 };
 
-export default BoardPost;
+export default TeamMatchingPost;

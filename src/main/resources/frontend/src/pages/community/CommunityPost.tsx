@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { BsFillBookmarkFill, BsCheckLg } from "react-icons/bs";
 import styled from "styled-components";
-import PostContent from "../components/TeamMatching/Post/PostContent";
-import WritorProfile from "../components/TeamMatching/Post/WritorProfile";
-import CommentList from "../components/TeamMatching/Post/Comment/CommentList";
-import GoBack from "../components/GoBack";
-import CommentInputBox from "../components/TeamMatching/Post/Comment/CommentInputBox";
+import PostContent from "../../components/post/PostContent";
+import WritorProfile from "../../components/post/WritorProfile";
+import GoBack from "../../components/GoBack";
+import CommentInputBox from "../../components/comment/CommentInputBox";
+import CommentList from "../../components/comment/CommentList";
 
 const Wrapper = styled.div`
   display: flex;

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
-import UserInfo from "../components/MyPage/User/UserInfo";
-import UserSkill from "../components/MyPage/User/UserSkill";
-import MyPageTab from "../components/MyPage/MyPageTab";
-import { ReactComponent as arrowIcon } from "../styles/Icons/leftarrowIcon.svg";
-import profile from "../styles/Icons/BasicProfile.png";
+import UserInfo from "../../components/portfolio/User/UserInfo";
+import UserSkill from "../../components/portfolio/User/UserSkill";
+import MyPageTab from "./MyPageTab";
+import { ReactComponent as arrowIcon } from "../../styles/Icons/leftarrowIcon.svg";
+import profile from "../../styles/Icons/BasicProfile.png";
 import { useNavigate } from "react-router-dom";
 
 const ArrowIcon = styled(arrowIcon)`

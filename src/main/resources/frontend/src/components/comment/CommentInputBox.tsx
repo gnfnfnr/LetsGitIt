@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import basicProfile from "../../../../styles/Icons/BasicProfile.png";
+import basicProfile from "../../styles/Icons/BasicProfile.png";
 
 const Wrapper = styled.div`
   display: flex;

@@ -9,12 +9,12 @@ import Applications from "./pages/mail/Applications";
 import Matching from "./pages/match/Matching";
 import Board from "./pages/board/Board";
 import Header from "./components/Header/Header";
-import MyPage from "./pages/MyPage";
-import TeamMatchingCreate from "./pages/TeamMatchingCreate";
-import Apply from "./pages/Apply";
-import TeamMatchingPost from "./pages/TeamMatchingPost";
-import BoardPost from "./pages/BoardPost";
-import CommunityPost from "./pages/CommunityPost";
+import MyPage from "./pages/myPage/MyPage";
+import TeamMatchingCreate from "./pages/match/write/TeamMatchingCreate";
+import Apply from "./pages/match/apply/Apply";
+import TeamMatchingPost from "./pages/match/post/TeamMatchingPost";
+import ReviewPost from "./pages/projectReview/ReviewPost";
+import CommunityPost from "./pages/community/CommunityPost";
 import ProjectPostCreate from "./pages/board/ProjectPostCreate";
 import CommunityPostCreate from "./pages/board/CommunityPostCreate";
 import UserHome from "./pages/home/UserHome";
@@ -22,7 +22,7 @@ import CheckMatchng from "./pages/home/CheckMatchng";
 import SelectMatching from "./pages/home/SelectMatching";
 import Home from "./pages/home/Home";
 import { LoginPage } from "./LoginPage";
-import RecruitmentComplete from "./components/TeamMatching/RecruitmentComplete";
+import RecruitmentComplete from "./pages/match/RecruitmentComplete";
 import { ProjectBoard } from "./pages/projectBoard/ProjectBoard";
 
 function App() {
@@ -55,7 +55,7 @@ function App() {
         <Route path="/matching/:id" element={<TeamMatchingPost />} />
         <Route path="/community/:id" element={<CommunityPost />} />
         <Route path="/apply" element={<Apply />} />
-        <Route path="/project/finish/:id" element={<BoardPost />} />
+        <Route path="/project/review/:id" element={<ReviewPost />} />
         <Route path="/project/create" element={<ProjectPostCreate />} />
         <Route path="/community/create" element={<CommunityPostCreate />} />
         <Route path="/login/github/authorized" element={<LoginPage />} />

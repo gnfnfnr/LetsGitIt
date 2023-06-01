@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { FaFolder } from "react-icons/fa";
 import { GiFeather } from "react-icons/gi";
-import PostCard from "../PostCard";
+import PostCard from "../../../components/PostCard";
 
 const ArchieveWapper = styled.div`
   width: 100%;

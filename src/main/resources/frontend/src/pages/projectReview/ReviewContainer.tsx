@@ -127,7 +127,7 @@ const ReviewContainer = ({
 }: PropsInterface) => {
   const [writeMode, setWriteMode] = useState(false);
   const [newReview, setNewReview] = useState("");
-  const [showUserMenu, setShowUserMenu] = useState(true);
+  const [showUserMenu, setShowUserMenu] = useState(false);
 
   useEffect(() => {
     type === "write" ? setWriteMode(true) : setWriteMode(false);

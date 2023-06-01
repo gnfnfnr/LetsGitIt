@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { ReactComponent as leftarrowIcon } from "../../styles/Icons/leftarrowIcon.svg";
 import { ReactComponent as rightarrowIcon } from "../../styles/Icons/rightarrowIcon.svg";
 
-const Archive = lazy(() => import("./Archive"));
-const Portfolio = lazy(() => import("./Portfolio"));
+const Archive = lazy(() => import("./archieve/Archive"));
+const Portfolio = lazy(() => import("../../components/portfolio/Portfolio"));
 
 const TabWrapper = styled.div`
   display: flex;

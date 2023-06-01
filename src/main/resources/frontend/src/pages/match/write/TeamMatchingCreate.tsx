@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Editor from "../components/Editor";
-import ProjectRoadmap from "../components/TeamMatching/TeamMatchingCreate/ProjectRoadmap";
-import TeamStatus from "../components/TeamMatching/TeamMatchingCreate/TeamStatus";
+import Editor from "../../../components/Editor";
+import ProjectRoadmap from "./ProjectRoadmap";
+import TeamStatus from "./TeamStatus";
 
 const Wrapper = styled.div`
   display: grid;

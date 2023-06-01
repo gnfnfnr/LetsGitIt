@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Editor from "../components/Editor";
+import Editor from "../../../components/Editor";
 import { BiArrowBack } from "react-icons/bi";
-import {PortfolioView} from "../components/MyPage/PortfolioComplete";
+import {PortfolioView} from "../../../components/portfolio/PortfolioComplete";
 
 const ApplyBox = styled.div`
     display: flex;
