@@ -2,9 +2,11 @@
   {
     "id": 1,
     "title": "Benign neoplasm of soft tissue of peritoneum",
+    "process": 20,
     "part": "안드로이드",
     "startDate": "2022-06-29 10:24:24",
     "image": null,
+    "tags": ["python", "c", "js", "java", "python", "c", "js", "java"],
     "team": [
       {
         "username": "agrocock0",
@@ -25,6 +27,7 @@
     "startDate": "2023-02-29 10:24:24",
     "image": "http://dummyimage.com/600x500.png/5fa2dd/ffffff",
     "title": "Insect bite (nonvenomous) of right ear, sequela",
+    "process": 40,
     "part": "fronend",
     "team": [
       {
@@ -46,7 +49,9 @@
     "startDate": "2023-05-21 10:24:24",
     "image": null,
     "title": "Crushing injury of left elbow, sequela",
+    "process": 0,
     "part": "fronend",
+    "tags": ["python", "c", "js", "java"],
     "team": [
       {
         "username": "cjeakins0",
@@ -63,6 +68,7 @@
     "startDate": "2023-04-21 10:24:24",
     "image": "http://dummyimage.com/600x500.png/5fa2dd/ffffff",
     "title": "Monosomies and deletions from the autosomes, NEC",
+    "process": 23,
     "part": "안드로이드",
     "team": [
       {
@@ -115,6 +121,7 @@
     "id": 5,
     "startDate": "2023-05-21 10:24:24",
     "title": "Other specified injury of unspecified internal jugular vein",
+    "process": 100,
     "part": "fronend",
     "team": [
       {
