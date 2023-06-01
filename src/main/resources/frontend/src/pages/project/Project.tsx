@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import projectData from "../resource/projectData.json";
-import { ReactComponent as User } from "../styles/Icons/User.svg";
-import { ReactComponent as RightLongArrow } from "../styles/Icons/RightLongArrow.svg";
-import { ReactComponent as DownArrow } from "../styles/Icons/DownArrow.svg";
-import { ReactComponent as Chatting } from "../styles/Icons/Chatting.svg";
-import InfoBar from "../components/InfoBar";
+import projectData from "../../resource/projectData.json";
+import { ReactComponent as Member } from "../../styles/Icons/Member.svg";
+import { ReactComponent as RightLongArrow } from "../../styles/Icons/RightLongArrow.svg";
+import { ReactComponent as DownArrow } from "../../styles/Icons/DownArrow.svg";
+import { ReactComponent as Chatting } from "../../styles/Icons/Chatting.svg";
+import InfoBar from "../../components/Project/InfoBar";
+import { useNavigate } from "react-router-dom";
 
 const ProjectBox = styled.div`
   max-width: var(--width-max);
@@ -267,6 +268,7 @@ export default function Project() {
   const [data, setData] = useState(projectData);
   const [showField, setShowField] = useState(false);
   const [hover, setHover] = useState("");
+  const navigate = useNavigate();
   return (
     <ProjectBox>
       <section>
@@ -278,6 +280,7 @@ export default function Project() {
               (1000 * 60 * 60 * 24);
             return (
               <ProjectPost
+                onClick={() => navigate(`/project/process/${id}`)}
                 key={`user${id}`}
                 onMouseEnter={() => setHover(`user${id}`)}
                 onMouseLeave={() => setHover("")}
@@ -287,7 +290,7 @@ export default function Project() {
                   src={
                     image
                       ? image
-                      : require("../assets/images/defaultProjectImage.png")
+                      : require("../../assets/images/defaultProjectImage.png")
                   }
                 />
                 {hover === `user${id}` ? (
@@ -340,7 +343,7 @@ export default function Project() {
                     src={
                       image
                         ? image
-                        : require("../assets/images/defaultProjectImage.png")
+                        : require("../../assets/images/defaultProjectImage.png")
                     }
                   />
                   <ProjectNavigate>
@@ -351,7 +354,7 @@ export default function Project() {
                     <div>{title}</div>
                     {hover === `hot${id}` && (
                       <ProjectInfoDetail>
-                        <User />
+                        <Member />
                         {team.length}
                       </ProjectInfoDetail>
                     )}
@@ -391,7 +394,7 @@ export default function Project() {
               onMouseLeave={() => setHover("")}
             >
               <ProjectTeam>
-                <User />
+                <Member />
                 {team.length}
               </ProjectTeam>
               <ProjectAll>
@@ -400,7 +403,7 @@ export default function Project() {
                   src={
                     image
                       ? image
-                      : require("../assets/images/defaultProjectImage.png")
+                      : require("../../assets/images/defaultProjectImage.png")
                   }
                 />
                 {hover === `all${id}` && (

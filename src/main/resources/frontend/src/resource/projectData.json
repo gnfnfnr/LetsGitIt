@@ -10,14 +10,17 @@
     "team": [
       {
         "username": "agrocock0",
+        "part": "backend",
         "image": "http://dummyimage.com/248x318.png/5fa2dd/ffffff"
       },
       {
         "username": "kmerrett1",
+        "part": "backend",
         "image": "http://dummyimage.com/208x329.png/cc0000/ffffff"
       },
       {
         "username": "mdawe2",
+        "part": "backend",
         "image": "http://dummyimage.com/240x159.png/ff4444/ffffff"
       }
     ]
@@ -32,14 +35,17 @@
     "team": [
       {
         "username": "rbawme0",
+        "part": "backend",
         "image": "http://dummyimage.com/100x339.png/cc0000/ffffff"
       },
       {
         "username": "ochitter1",
+        "part": "backend",
         "image": "http://dummyimage.com/154x382.png/cc0000/ffffff"
       },
       {
         "username": "jreddle2",
+        "part": "backend",
         "image": "http://dummyimage.com/111x172.png/5fa2dd/ffffff"
       }
     ]
@@ -55,10 +61,12 @@
     "team": [
       {
         "username": "cjeakins0",
+        "part": "backend",
         "image": "http://dummyimage.com/176x274.png/ff4444/ffffff"
       },
       {
         "username": "cpollock1",
+        "part": "backend",
         "image": "http://dummyimage.com/235x315.png/dddddd/000000"
       }
     ]
@@ -73,46 +81,57 @@
     "team": [
       {
         "username": "gfeldheim0",
+        "part": "backend",
         "image": "http://dummyimage.com/241x183.png/cc0000/ffffff"
       },
       {
         "username": "tnorris1",
+        "part": "backend",
         "image": "http://dummyimage.com/134x259.png/ff4444/ffffff"
       },
       {
         "username": "mwoodrooffe2",
+        "part": "backend",
         "image": "http://dummyimage.com/102x170.png/cc0000/ffffff"
       },
       {
         "username": "fblune3",
+        "part": "backend",
         "image": "http://dummyimage.com/127x179.png/cc0000/ffffff"
       },
       {
         "username": "imcmechan4",
+        "part": "backend",
         "image": "http://dummyimage.com/171x147.png/dddddd/000000"
       },
       {
         "username": "rbawme0",
+        "part": "backend",
         "image": "http://dummyimage.com/100x339.png/cc0000/ffffff"
       },
       {
         "username": "ochitter1",
+        "part": "backend",
         "image": "http://dummyimage.com/154x382.png/cc0000/ffffff"
       },
       {
         "username": "jreddle2",
+        "part": "backend",
         "image": "http://dummyimage.com/111x172.png/5fa2dd/ffffff"
       },
       {
         "username": "rbawme0",
+        "part": "backend",
         "image": "http://dummyimage.com/100x339.png/cc0000/ffffff"
       },
       {
         "username": "ochitter1",
+        "part": "backend",
         "image": "http://dummyimage.com/154x382.png/cc0000/ffffff"
       },
       {
         "username": "jreddle2",
+        "part": "backend",
         "image": "http://dummyimage.com/111x172.png/5fa2dd/ffffff"
       }
     ]
@@ -126,22 +145,27 @@
     "team": [
       {
         "username": "awaeland0",
+        "part": "backend",
         "image": "http://dummyimage.com/137x184.png/5fa2dd/ffffff"
       },
       {
         "username": "dwelland1",
+        "part": "backend",
         "image": "http://dummyimage.com/156x264.png/5fa2dd/ffffff"
       },
       {
         "username": "edegregoli2",
+        "part": "backend",
         "image": "http://dummyimage.com/180x316.png/dddddd/000000"
       },
       {
         "username": "rdadge3",
+        "part": "backend",
         "image": "http://dummyimage.com/239x212.png/ff4444/ffffff"
       },
       {
         "username": "cjanz4",
+        "part": "backend",
         "image": "http://dummyimage.com/163x346.png/ff4444/ffffff"
       }
     ]
