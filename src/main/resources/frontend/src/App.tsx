@@ -58,7 +58,7 @@ function App() {
         <Route path="/project/review/:id" element={<ReviewPost />} />
         <Route path="/project/create" element={<ProjectPostCreate />} />
         <Route path="/community/create" element={<CommunityPostCreate />} />
-        <Route path="/login/github/authorized" element={<LoginPage />} />
+        <Route path="/login/oauth2" element={<LoginPage />} />
 
         <Route path="/recruitmentComplete" element={<RecruitmentComplete />} />
         <Route path="/project/:id" element={<ProjectBoard />} />
