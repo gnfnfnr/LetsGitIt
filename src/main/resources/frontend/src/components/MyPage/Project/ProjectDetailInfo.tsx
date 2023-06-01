@@ -5,22 +5,23 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(6,max-content);
     grid-template-rows: repeat(2, 1fr);
-    font-size: 16px;
+    font-size: 1rem;
     background-color: var(--color-sub-2);
     color: var(--color-sub-1);
+    width: 100%;
     height: 100px;
     align-items: center;
     justify-items: left;
     
     p{
         font-weight: 500;
-        font-size: 16px;
+        font-size: 1rem;
         margin-left: 20px;
         margin-right: 20px;
     }
     span{
         font-weight: 400;
-        font-size: 16px;
+        font-size: 1rem;
         margin-right: 10px;
     }
 `;

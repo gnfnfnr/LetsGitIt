@@ -18,17 +18,20 @@ const Title = styled.input`
   border-bottom: solid 2px var(--color-sub-3);
   color: var(--color-sub-1);
   padding: 0 100px 10px 50px;
-  font-size: 32px;
+  font-size: 2rem;
   box-sizing: border-box;
-  width: 1200px;
+  width: 100%;
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    padding: 0 20px;
+  }
 `;
 
 const TitleContainer = styled.div`
   display: flex;
   width: 80%;
-  color: white;
+  color: var(--color-sub-1);
   font-size: 32px;
-  width: 1200px;
   height: 50px;
   justify-content: center;
   position: relative;
@@ -37,9 +40,13 @@ const TitleContainer = styled.div`
 const EditorWrapper = styled.div`
   display: flex;
   background-color: black;
-  width: 1200px;
+  width: 80%;
+  height: 90%;
   margin-bottom: 20px;
   justify-content: center;
+  @media (max-width: 768px) {
+    height: 60%;
+  }
 `;
 
 const ProjectStatus = styled.div`
@@ -51,7 +58,7 @@ const ProjectStatus = styled.div`
   margin-top: 40px;
   font-size: 20px;
   font-weight: 550;
-  width: 1200px;
+  width: 80%;
   p {
     width: 50%;
     color: var(--color-sub-1);
@@ -62,7 +69,7 @@ const ProjectStatusContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 1200px;
+  width: 80%;
   & > div {
     margin-left: 30px;
     width: 50%;
@@ -76,13 +83,16 @@ const Button = styled.div`
   height: 40px;
   background-color: var(--color-main-4);
   color: var(--color-sub-2);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   align-items: center;
   justify-content: center;
   position: absolute;
   right: 10px;
   bottom: 10px;
+  @media (max-width: 768px) {
+    width: 20%;
+  }
 `;
 
 const TeamMatchingCreate = () => {
@@ -117,6 +127,7 @@ const TeamMatchingCreate = () => {
         <TeamStatus />
         <ProjectRoadmap />
       </ProjectStatusContainer>
+      
     </Wrapper>
   );
 };

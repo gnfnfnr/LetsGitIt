@@ -6,18 +6,18 @@ const Wrapper = styled.div`
   height: 348px;
   width: 510px;
   box-sizing: border-box;
-  background-color: #222222;
-  color: white;
+  background-color: var(--color-sub-2);
+  color: var(--color-sub-1);
   padding: 20px;
   border-radius: 20px;
   justify-content: flex-start;
-  font-size: 20px;
+  font-size: 1.25rem;
 `;
 
 const ToolContainer = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: 18px;
+  font-size: 1.125rem;
   width: 450px;
   margin-left: 10px;
   justify-content: space-between;
@@ -55,7 +55,7 @@ const Language = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 12px;
-  font-size: 20px;
+  font-size: 1.25rem;
 
   span {
     margin-left: 10px;
@@ -89,7 +89,6 @@ const ProgressBar = styled.div<ProgressBarProps>`
     top: 0;
     left: 0;
     height: 100%;
-    background-color: #f44336;
     width: ${(props) => props.width}%;
     background-image: linear-gradient(to right, #7c08ed, #f9d5a2);
     transition: width 0.5s ease-in-out;
@@ -107,7 +106,7 @@ const Dot = styled.div`
   display: flex;
   width: 6px;
   height: 6px;
-  background: #F8D3A2;
+  background: var(--color-main-4);
   border-radius: 10px;
   z-index:1;
 `;

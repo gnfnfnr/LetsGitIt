@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   color: var(--color-sub-1);
   p {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 550;
     margin-bottom: 10px;
   }
@@ -29,7 +29,7 @@ const PositionListContainer = styled.div`
   flex-direction: row;
   align-items: center;
   p {
-    font-size: 16px;
+    font-size: 0.93rem;
   }
 `;
 
@@ -64,7 +64,7 @@ const PostionNameInput = styled.input`
   padding: 2px 15px 2px 15px;
   width: 154px;
   height: 30px;
-  font-size: 15px;
+  font-size: 0.93rem;
   color: var(--color-sub-1);
   background-color: var(--color-sub-4);
   margin-right: 10px;
@@ -93,7 +93,7 @@ const AddPosition = styled.div`
   display: flex;
   flex-direction: row;
   p {
-    font-size: 16px;
+    font-size: 1rem;
     align-items: flex-start;
     margin-right: 10px;
     margin-top: 7px;
@@ -119,7 +119,7 @@ const PositionContainer = styled.div`
   flex-direction: column;
   span {
     color: var(--color-sub-1);
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 450;
     margin-right: 10px;
   }

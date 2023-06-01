@@ -3,23 +3,22 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
-  color: white;
+  color: var(--color-sub-1);
   flex-direction: row;
   margin: 40px 0 20px 30px;
 `;
 
 const StatComponent = styled.div`
   display: flex;
-  color: white;
   flex-direction: column;
   margin-right: 200px;
   p {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 550;
     margin: 0;
   }
   span {
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: 600;
   }
 `;

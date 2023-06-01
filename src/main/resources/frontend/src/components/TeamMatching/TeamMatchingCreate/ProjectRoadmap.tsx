@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   p {
-    font-size: 20px;
+    font-size: 1.25rem;
     color: var(--color-sub-1);
     font-weight: 550;
     margin-bottom: 10px;
@@ -20,7 +20,7 @@ const Label = styled.label`
   border-radius: 10px;
   margin-top: 5px;
   padding: 10px 7px 10px 7px;
-  font-size: 15px;
+  font-size: 0.93rem;
   font-weight: 550;
   display: flex;
   align-items: center;

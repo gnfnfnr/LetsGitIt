@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   align-items: center;
   color: var(--color-sub-1);
   padding: 20px;
-  font-size: 15px;
+  font-size: 0.93rem;
   border-radius: 20px;
   background-color: var(--color-sub-2);
 `;
@@ -56,13 +56,13 @@ const Text = styled.div<{ initial: boolean }>`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: ${({ initial }) => (initial ? "14px" : "12px")};
+  font-size: ${({ initial }) => (initial ? "0.875rem" : "0.75rem")};
   text-align: center;
   justify-content: center;
   color: var(--color-sub-1);
   line-height: 2;
   span {
-    font-size: 32px;
+    font-size: 2rem;
   }
 `;
 
@@ -73,10 +73,10 @@ const DayInfo = styled.div`
   align-items: center;
   justify-content: center;
   span {
-    font-size: 15px;
+    font-size: 0.93rem;
   }
   p {
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 500;
     margin: 0;
   }

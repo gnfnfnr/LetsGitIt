@@ -22,7 +22,7 @@ const Position = styled.div`
   color: var(--color-sub-1);
   justify-content: space-between;
   font-weight: 450;
-  font-size: 20px;
+  font-size: 1.25rem;
   position: relative;
   &.write {
     background-color: var(--color-sub-2);
@@ -49,7 +49,7 @@ const User = styled.div`
   padding: 3px 10px 3px 10px;
   box-sizing: border-box;
   align-items: center;
-  font-size: 15px;
+  font-size: 0.94rem;
   font-weight: 400;
   cursor: pointer;
   span {
@@ -67,7 +67,7 @@ const Button = styled.div`
   border-radius: 10px;
   width: 44px;
   height: 30px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 450;
   align-items: center;
   justify-content: center;
@@ -83,7 +83,7 @@ const Avatar = styled.img`
 const ReviewContainerBox = styled.div`
   display: flex;
   margin: 15px 0 50px 0;
-  font-size: 15px;
+  font-size: 0.94rem;
   font-weight: 500;
 `;
 
@@ -97,7 +97,7 @@ const Menu = styled.div <{ isVisible: boolean }>`
     width: 115px;
     height: 65px;
     padding: 10px 5px 10px 5px;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
     text-align: center;
     color: var(--color-sub-2);

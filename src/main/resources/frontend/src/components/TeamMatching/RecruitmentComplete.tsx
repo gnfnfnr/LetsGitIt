@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   color: var(--color-sub-1);
-  font-size: 15px;
+  font-size: 0.93rem;
 
   button {
     width: 96px;
@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   }
 
   span {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
 `;
 

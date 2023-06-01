@@ -6,10 +6,9 @@ import { MdModeEdit } from "react-icons/md";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-right: 8px;
 `;
 const CardContainer = styled.div`
-  height: 400px;
+  width: 100%;
   width: 400px;
   display: flex;
   box-sizing: border-box;

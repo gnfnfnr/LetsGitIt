@@ -9,14 +9,13 @@ const Wrapper = styled.div`
   color: var(--color-sub-1);
   flex-direction: column;
   align-items: left;
-  width: 300px;
   p {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 550;
     margin: 10px 0px 10px 0px;
   }
   span {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 `;
 
@@ -32,14 +31,13 @@ const Avatar = styled.img`
 const LinkContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 300px;
 `;
 
 const EmailContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 15px;
-  font-size: 20px;
+  font-size: 1.25rem;
 `;
 
 const EmailIcon = styled(AiTwotoneMail)`

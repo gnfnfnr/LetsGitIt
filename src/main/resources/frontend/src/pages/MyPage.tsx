@@ -13,20 +13,19 @@ const ArrowIcon = styled(arrowIcon)`
 `;
 
 const Wrapper = styled.div`
-  background-color: black;
-  padding: 100px 30px 30px 30px;
-  color: white;
+  width: 100%;
+  padding: 50px 5px;
+  color: var(--color-sub-1);
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100%;
-  justify-items: center;
+  justify-content: center;
   position: relative;
   span {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
   .username {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 `;
 
@@ -44,7 +43,7 @@ const EditButton = styled.button`
   height: 37px;
   background-color: #222222;
   color: #b2b2b2;
-  font-size: 18px;
+  font-size: 1.125rem;
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -73,7 +72,8 @@ const ProfileContainer = styled.div`
 
 const TabContainer = styled.div`
   display: flex;
-  justify-items: center;
+  width: 100%;
+  justify-content: center;
   margin-bottom: 100px;
 `;
 

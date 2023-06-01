@@ -31,13 +31,13 @@ const ProjectItem = styled.div<ProjectItemProps>`
   position: relative;
   p {
     margin: 0px 0px 15px 0px;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: var(--color-main-4);
   }
   span {
     margin-top: 0;
-    font-size: 18px;
-    color: white;
+    font-size: 1.125rem;
+    color: var(--color-sub-1);
   }
   ${(props) =>
     !props.settingMode &&
@@ -82,7 +82,7 @@ const Top = styled.div`
   align-items: center;
   justify-content: space-between;
   p {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600;
   }
 `;
@@ -103,7 +103,7 @@ const Button = styled.button<Props>`
   width: 56px;
   height: 40px;
   padding: 3px;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 550;
   box-sizing: border-box;
   margin-left: 10px;
@@ -119,7 +119,7 @@ const ImportButton = styled.button`
   width: 382px;
   border: 2px solid var(--color-main-4);
   color: var(--color-main-4);
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   text-align: center;
   z-index: 2;

@@ -11,14 +11,18 @@ const TabWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top:50px;
-  margin-bottom: 150px;
-  position: relative;
+  margin-bottom: 50px;
+  width: 100%;
 `;
 
 const TabContainer = styled.div`
   display: inline-flex;
   flex-direction: row;
   margin-bottom: 25px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  
 `;
 
 interface TabListProps {
@@ -34,10 +38,11 @@ const TabList = styled.div<TabListProps>`
   align-items: center;
   border-radius: 10px;
   color: var(--color-sub-3);
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   border: none;
   cursor: pointer;
+  position: relative;
   &.active {
     color: black;
     background-color: var(--color-main-4);
@@ -52,9 +57,9 @@ const ProfileComment = styled.div`
   align-items: center;
   color: var(--color-main-4);
   position: absolute;
-  top: -4px;
-  left: -40px;
-  width: 500px;
+  top: 15%;
+  left: -2%;
+  width: 100%;
   &.editMode {
     display: none;
   }
@@ -65,9 +70,9 @@ const ArchiveComment = styled.div`
   align-items: center;
   position: absolute;
   color: var(--color-main-4);
-  right: -130px;
-  top: 18px;
-  width: 500px;
+  top: 17.5%;
+  left: 63%;
+  width: 100%;
   &.editMode {
     display: none;
   }
@@ -110,16 +115,6 @@ const MyPageTab = () => {
   ];
   return (
     <TabWrapper>
-      {isInit && (
-        <ProfileComment className={isInit ? "" : "editMode"}>
-          <span style={{ marginTop: "23px" }}>
-            GitHub의 Repository에서 프로젝트를 가져와서
-            <br />
-            개발 포트폴리오를 만들어보세요
-          </span>
-          <RArrowIcon />
-        </ProfileComment>
-      )}
       <TabContainer>
         {tabList.map((tab, index) => {
           return (
@@ -133,12 +128,24 @@ const MyPageTab = () => {
         })}
       </TabContainer>
       {isInit && (
+        <ProfileComment className={isInit ? "" : "editMode"}>
+          <span style={{ marginTop: "23px" }}>
+            GitHub의 Repository에서 프로젝트를 가져와서
+            <br />
+            개발 포트폴리오를 만들어보세요
+          </span>
+          <RArrowIcon />
+        </ProfileComment>
+      )}
+      {isInit && (
         <ArchiveComment className={isInit ? "" : "editMode"}>
           <ArrowIcon />
           <span>렛츠깃잇에서의 활동들을 모아볼 수 있어요</span>
         </ArchiveComment>
       )}
+
       {tabList[activeTab].Content}
+
     </TabWrapper>
   );
 };

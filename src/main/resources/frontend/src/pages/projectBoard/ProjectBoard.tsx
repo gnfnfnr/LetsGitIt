@@ -48,7 +48,7 @@ const TitleContainer = styled.div`
   width: 950px;
   height: 50px;
   padding: 12px 20px;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 500;
 
   svg {

@@ -9,12 +9,12 @@ const Wrapper = styled.div`
   height: 348px;
   width: 510px;
   box-sizing: border-box;
-  background-color: #222222;
+  background-color: var(--color-sub-2);
   color: var(--color-sub-3);
   padding: 40px 20px 20px 25px;
   border-radius: 20px;
   justify-content: flex-start;
-  font-size: 20px;
+  font-size: 1.25rem;
 `;
 
 const EmailIcon = styled(AiTwotoneMail)`
@@ -22,42 +22,11 @@ const EmailIcon = styled(AiTwotoneMail)`
   margin-right: 5px;
 `;
 
-const Button = styled.button`
-  display: flex;
-  padding: 6px;
-  align-items: center;
-  height: 15px;
-  width: 80%;
-  background-color: var(--color-sub-3);
-  color: black;
-  svg {
-    margin-right: 8px;
-  }
-  :hover {
-    background-color: #222222;
-    color: var(--color-sub-3);
-  }
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin: 20px 0 20px 0;
-  width: 460px;
-  font-size: 18px;
-  & > * {
-    margin-right: 10px;
-  }
-  & > *:last-child {
-    margin-right: 0;
-  }
-`;
-
 const EmailContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 15px;
-  font-size: 20px;
+  font-size: 1.25rem;
 `;
 
 export default function UserInfo() {

@@ -3,9 +3,10 @@ import styled from "styled-components";
 import "react-quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
 
-const EditorWrapper = styled.div<{ height: number }>`
+const EditorWrapper = styled.div`
   display: flex;
   width: 100%;
+  height: 100%;
   .quill {
     width: 100%;
     height: 100%;
@@ -41,9 +42,9 @@ const EditorWrapper = styled.div<{ height: number }>`
 
   .ql-editor {
     box-sizing: border-box;
-    margin-top: 40px;
+    margin-top: 20px;
     background-color: var(--color-sub-2);
-    font-size: 15px;
+    font-size: 0.93rem;
     line-height: 1.5;
     padding: 30px;
     color: var(--color-sub-3);
@@ -82,7 +83,7 @@ const EditorWrapper = styled.div<{ height: number }>`
   }
 
   .ql-container {
-    height: ${({ height }) => height}px;
+    height: 100%;
   }
 `;
 
@@ -132,7 +133,7 @@ export default function Editor({ content, type }: PropsInterface) {
   }
 
   return (
-    <EditorWrapper height={editorHeight}>
+    <EditorWrapper>
       <ReactQuill
         // style={{ height: editorHeight }}
         onChange={currContentHandle}

@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-items: center;
   flex-direction: column;
-  width: 1000px;
+  width: 100%;
   height: 350px;
   border-radius: 20px;
   padding: 20px;
@@ -29,11 +29,15 @@ const Button = styled.button`
 
 const ProjectContainer = styled.div`
   display: flex;
+  padding: 0 10px;
   flex-wrap: wrap;
+  row-gap: 30px;
+  margin-left: 30px;
   p {
     font-size: 24px;
     font-weight: 600;
   }
+
 `;
 
 const ProjectItem = styled.div`
@@ -45,6 +49,8 @@ const ProjectItem = styled.div`
   border-radius: 10px;
   flex-direction: column;
   flex-basis: calc(33.333% - 30px);
+  margin-right: 30px;
+  
   p {
     margin-top: 0px;
     margin-bottom: 5px;
@@ -61,11 +67,6 @@ const ProjectItem = styled.div`
     background-color: var(--color-sub-4);
   }
   
-  margin-right: 30px;
-  & ~ & {
-    margin-right: 30px;
-    margin-bottom: 30px;
-  }
 `;
 
 const ProjectImportContainer = styled.div`
@@ -74,7 +75,7 @@ const ProjectImportContainer = styled.div`
   justify-content: center;
   background-color: var(--color-sub-2);
   height: 370px;
-  width: 1280px;
+  width: 100%;
 
   button{
     width: 380px;
@@ -82,8 +83,12 @@ const ProjectImportContainer = styled.div`
     border: 1px solid var(--color-main-4);
     color: var(--color-main-4);
     text-align: center;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 500;
+    @media (max-width: 768px) {
+      width: 80%;
+      font-size: 1.2rem;
+  }
   }
   &.hide {
     display: none;

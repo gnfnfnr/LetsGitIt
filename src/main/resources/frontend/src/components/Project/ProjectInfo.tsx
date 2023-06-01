@@ -20,7 +20,7 @@ const List = styled.div`
   justify-content: space-between;
   font-weight: 450;
   margin-bottom: 20px;
-  font-size: 15px;
+  font-size: 0.94rem;
   span {
     font-weight: 400;
   }
@@ -35,7 +35,7 @@ const Line = styled.hr`
 const Top = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: 15px;
+  font-size: 0.94rem;
   font-weight: 550;
   span {
     margin-right: 10px;

@@ -6,12 +6,12 @@ import { GiFeather } from "react-icons/gi";
 
 const Wrapper = styled.div`
   width: 900px;
-  background-color: #222222;
-  color: white;
+  background-color: var(--color-sub-2);
+  color: var(--color-sub-1);
   padding: 20px;
   border-radius: 20px;
   justify-content: flex-start;
-  font-size: 20px;
+  font-size: 1.25rem;
   svg {
     margin-right: 5px;
     height: 24px;

@@ -6,12 +6,12 @@ import { GiFeather } from "react-icons/gi";
 import PostCard from "../PostCard";
 
 const ArchieveWapper = styled.div`
-  width: 1000px;
+  width: 100%;
   min-height: 350px;
   display: flex;
   border-radius: 20px;
   background-color: var(--color-sub-2);
-  color: white;
+  color: var(--color-sub-1);
   flex-direction: column;
   padding: 20px;
   justify-content: space-between;
@@ -21,7 +21,7 @@ const Title = styled.div`
   display: flex;
   align-items: center;
   margin-top: 25px;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   svg {
     height: 24px;
@@ -32,12 +32,18 @@ const Title = styled.div`
 const ComponentWapper = styled.div`
   display: flex;
   margin: 20px 0 50px 15px;
-  overflow-x: auto;
+  overflow-x: hidden; 
+`;
+
+const PostCardContainer = styled.div`
+  display: flex;
+  width: 100%; 
+  overflow-x: auto; 
   white-space: nowrap;
+  gap: 10px;
   ::-webkit-scrollbar {
     display: none;
-}
-  
+  }
 `;
 
 const Archive = () => {
@@ -47,18 +53,19 @@ const Archive = () => {
         <GiFeather /> 내 게시글
       </Title>
       <ComponentWapper>
-        <PostCard type="" />
-        <PostCard type="" />
-        <PostCard type="" />
+        <PostCardContainer>
+          <PostCard type="" />
+          <PostCard type="" />
+        </PostCardContainer>
       </ComponentWapper>
 
       <Title>
         <BsFillBookmarkFill /> 스크랩한 글
       </Title>
       <ComponentWapper>
+      <PostCardContainer>
         <PostCard type="bookmark" />
-        <PostCard type="bookmark" />
-        <PostCard type="bookmark" />
+        </PostCardContainer>
       </ComponentWapper>
 
       <Title>

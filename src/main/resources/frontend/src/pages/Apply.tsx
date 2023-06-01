@@ -13,12 +13,13 @@ const ApplyBox = styled.div`
 
 const Wrapper  = styled.div`
     display: grid;
-    grid-auto-columns: repeat(6,minmax(10px, max-content));
+    width: 80%;
+    grid-auto-columns: repeat(6,minmax(10px, 1fr));
     grid-template-rows: 1fr;
     align-items: center;
     padding: 10px;
     h3{
-        font-size: 36px;
+        font-size: 2.25rem;
         font-weight: 600;
         margin-bottom: 30px;
         color: var(--color-sub-1);
@@ -31,10 +32,10 @@ const ButtonContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin-bottom: 60px;
-    
+    width: 80%;
     button{
         text-align: center;
-        font-size: 20px;
+        font-size: 1.25rem;
         font-weight: 550;
         width: 240px;
         height: 58px;
@@ -50,30 +51,34 @@ const ButtonContainer = styled.div`
 
 const EditorWrapper = styled.div`
     display: flex;
-    width: 80%;
+    width: 100%;
+    height: 200px;
     justify-content: center;
 `;
 const PortfolioWrapper = styled.div`
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 80%;
 `;
 
 const PortfolioContainer = styled.div`
     display: flex;
     border-radius: 10px;
-    width: 1000px;
+    width: 100%;
     height: 100%;
 `;
 
 const Editcontainer = styled.div`
     display: flex;
     justify-content: center;
+    height: 100%;
+    width: 80%;
+    margin-bottom: 40px;
 `;
 const GoBack = styled.div`
   padding: 0 20px 0 20px;
   color: var(--color-sub-1);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   svg {
     width: 20px;

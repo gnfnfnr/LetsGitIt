@@ -19,7 +19,7 @@ const Line = styled.hr`
 const Top = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: 15px;
+  font-size: 0.94rem;
   font-weight: 550;
   span {
     margin-right: 10px;
@@ -40,7 +40,7 @@ const PosList = styled.div`
   margin-bottom: 10px;
   span{
       margin-top: 6px;
-      font-size: 15px;
+      font-size: 0.94rem;
   }
 `;
 
@@ -52,7 +52,7 @@ const Position = styled.div`
   padding: 3px 10px 3px 10px;
   background-color: var(--color-sub-4);
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 0.94rem;
   color: var(--color-sub-1);
   align-items: center;
   margin-bottom: 10px;

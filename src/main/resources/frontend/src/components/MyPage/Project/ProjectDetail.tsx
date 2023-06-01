@@ -8,7 +8,8 @@ import ProjectDetailInput from "./ProjectDetailInput";
 const PortfolioContainer = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
+  height: 100%;
+  width: 80%;
 `;
 
 const Button = styled.button`
@@ -21,28 +22,19 @@ const Button = styled.button`
   font-size: 16px;
   font-weight: 600;
   z-index: 1;
-  & + & {
-    margin-left: 15px;
-  }
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
-  position: absolute;
-  top: 0px;
-  right: 30px;
+  align-items: center;
+  margin-top: 10px; 
+  margin-right: 50px; /* Adjust the right margin as needed */
+  gap: 15px; /* Add gap between buttons */
+  position: absolute; /* Add absolute positioning */
+  right: 18%; /* Position it at the right side */
 `;
 
-const Title = styled.input`
-  border: none;
-  border-bottom: solid 2px var(--color-sub-3);
-  color: var(--color-sub-1);
-  padding: 5px 5px 5px 50px;
-  font-size: 32px;
-  position: relative;
-  width: 100%;
-`;
 
 const Hr = styled.hr`
   border: none;
@@ -55,13 +47,34 @@ const HrWrapper = styled.div`
   border-top: 2px solid var(--color-sub-3);
 `;
 
+
+const Title = styled.input`
+  border: none;
+  border-bottom: solid 2px var(--color-sub-3);
+  color: var(--color-sub-1);
+  padding: 5px 5px 5px 50px;
+  font-size: 32px;
+  width: 100%;
+  position: relative;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  
+`;
+
 const TitleContainer = styled.div`
   display: flex;
   color: var(--color-sub-1);
   padding: 5px 5px 0px 50px;
   font-size: 32px;
+  width: 100%;
+  
   ${Hr} {
     margin-bottom: 5px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -70,11 +83,15 @@ const Content = styled.div`
   color: var(--color-sub-1);
   font-size: 15px;
   display: flex;
+  width: 100%;
   background-color: var(--color-sub-2);
   padding: 30px 5px 5px 50px;
   font-size: 15px;
   margin-left: 50px;
   min-height: 500px;
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 const EditorWrapper = styled.div`
@@ -82,6 +99,11 @@ const EditorWrapper = styled.div`
   background-color: black;
   padding: 0px 0px 5px 50px;
   margin-bottom: 10px;
+  width: 100%;
+  height: 500px;
+  @media (max-width: 768px) {
+    height: 350px;
+  }
 `;
 
 const ProjectDetailInfoContainer = styled.div`
@@ -89,7 +111,7 @@ const ProjectDetailInfoContainer = styled.div`
   justify-content: center;
   margin-bottom: 20px;
   margin-left: 50px;
-  width: 750px;
+  width: 100%;
 `;
 
 const DetailInputContainer = styled.div`
@@ -166,14 +188,23 @@ const ProjectDetail = ({ type, title, content, removeBackgroundColor }: PropsInt
 
   return (
     <PortfolioContainer>
-      {isUser ? ( //유저한테만 수정하기 버튼 보이기
+      <TitleContainer>
+        <Title
+          value={currTitle}
+          onChange={currTitleHandle}
+          disabled={!isEditMode}
+        />
+      </TitleContainer>
+
+      {isUser && !isEditMode ? (
         <ButtonContainer>
           <Button onClick={onEditButton} style={{ backgroundColor: "var(--color-main-4)" }}>
             수정하기
           </Button>
         </ButtonContainer>
-      ) : ""}
-      {isEditMode ? ( //수정모드
+      ) : null}
+
+      {isEditMode ? (
         <ButtonContainer>
           <Button
             style={{ backgroundColor: "var(--color-sub-3)" }}
@@ -184,29 +215,20 @@ const ProjectDetail = ({ type, title, content, removeBackgroundColor }: PropsInt
           <Button style={{ backgroundColor: "var(--color-main-4)" }}>저장하기</Button>
         </ButtonContainer>
       ) : null}
-      <TitleContainer>
-        <Title
-          value={currTitle}
-          onChange={currTitleHandle}
-          disabled={!isEditMode}
-        />
-        <HrWrapper>
-          <Hr />
-        </HrWrapper>
-      </TitleContainer>
+     
         {isEditMode ? (
           <>
           <EditorWrapper>
             <Editor content={content} type="project"/>
           </EditorWrapper>
-          <ProjectInfoContainer>
+          {/*<ProjectInfoContainer>
             <ProjectStatus>
               <p>• 프로젝트 정보</p>
             </ProjectStatus>
             <DetailInputContainer>
               <ProjectDetailInput />
             </DetailInputContainer>
-          </ProjectInfoContainer>
+          </ProjectInfoContainer>*/}
           </>
         ) : (
           <>

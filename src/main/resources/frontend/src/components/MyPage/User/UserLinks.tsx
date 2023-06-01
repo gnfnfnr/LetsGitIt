@@ -15,7 +15,7 @@ const Button = styled.button`
     margin-right: 8px;
   }
   :hover {
-    background-color: #222222;
+    background-color: var(--color-sub-2);
     color: var(--color-sub-3);
   }
 `;
@@ -24,7 +24,7 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  font-size: 18px;
+  font-size: 1.125rem;
   & > * {
     margin-right: 10px;
     margin-bottom: 10px;
