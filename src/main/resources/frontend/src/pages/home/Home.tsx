@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   grid-template-rows: repeat(2, minmax(max-content, 25rem));
   grid-template-columns: repeat(2, minmax(max-content, 30rem));
   gap: 1rem;
-  width: 100%;
+  width: 100vw;
   @media (max-width: 768px) {
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: 1fr;

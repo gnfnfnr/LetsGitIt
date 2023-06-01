@@ -57,7 +57,7 @@ const TextContainer = styled.div`
   margin-bottom: 30px;
   @media (max-width: 768px) {
     margin-bottom: 20px;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -76,10 +76,7 @@ const Intro = () => {
         <span>깃허브 계정으로</span>
         <button
           onClick={() =>
-            handleOpenNewTab(
-              "https://github.com/login/oauth/authorize?client_id=2fdad6f3e6e4332a9edc"
-            )
-          }
+            handleOpenNewTab("https://github.com/login/oauth/authorize?client_id=2fdad6f3e6e4332a9edc")}
         >
           시작하기
         </button>
