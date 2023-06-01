@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   padding: 0 20px 0 20px;
   color: var(--color-sub-1);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   svg {
