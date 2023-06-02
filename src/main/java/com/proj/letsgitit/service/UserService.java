@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.proj.letsgitit.config.jwt.JwtProperties;
 import com.proj.letsgitit.entity.GithubProfile;
 import com.proj.letsgitit.entity.OAuthToken;
+import com.proj.letsgitit.entity.Role;
 import com.proj.letsgitit.entity.User;
 import com.proj.letsgitit.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -84,7 +85,7 @@ public class UserService {
     public String saveUserAndGetToken(String token) throws JsonProcessingException {
         GithubProfile githubProfile = getGithubProfile(token);
         User user = userRepository.findByEmail(githubProfile.getEmail());
-        //User findUser = userRepository.findByGitId(githubProfile.getGitId());
+
         if (user == null) {
             user = User.builder()
                     .login(githubProfile.getLogin())
@@ -92,6 +93,7 @@ public class UserService {
                     .id(githubProfile.getId())
                     .htmlUrl(githubProfile.getHtml_url())
                     .email(githubProfile.getEmail())
+                    .role(Role.USER)
                     .build();
 
             userRepository.save(user);
@@ -104,7 +106,7 @@ public class UserService {
         String jwtToken = JWT.create()
                 .withSubject(user.getEmail())
                 .withExpiresAt(new Date(System.currentTimeMillis()+JwtProperties.EXPIRATION_TIME))
-                .withClaim("id", user.getUserCode())
+                .withClaim("id", user.getUserId())
                 .withClaim("name", user.getName())
                 .sign(Algorithm.HMAC512(JwtProperties.SECRET));
         return jwtToken;
@@ -113,9 +115,9 @@ public class UserService {
     public User getUser(HttpServletRequest request) {
         // 해당 request에 JwtRequestFilter를 거쳐 인증이 완료된 사용자의
         // gitId 가 요소로 추가되어 있을 것이므로 이를 활용
-        Long userCode = (Long) request.getAttribute("userCode");
+        Long userId = (Long) request.getAttribute("userId");
         // 가져온 gitId로 DB에서 사용자 정보를 가져와 User 객체에 담는다.
-        User user = userRepository.findByUserCode(userCode);
+        User user = userRepository.findByUserId(userId);
         // User 객체를 반환한다.
         return user;
     }
