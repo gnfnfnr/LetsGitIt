@@ -1,5 +1,4 @@
 import React from "react";
-import projectData from "../../resource/projectData.json";
 import styled from "styled-components";
 import { ReactComponent as Member } from "../../styles/Icons/Member.svg";
 import { ReactComponent as Owner } from "../../styles/Icons/Owner.svg";
@@ -9,6 +8,7 @@ const ReviseTeam = styled.div`
   color: var(--color-sub-1);
   padding: 18px 18px 32px;
   border-radius: 20px;
+  height: min-content;
 `;
 const TeamTitle = styled.div`
   display: flex;
@@ -28,6 +28,7 @@ const TeamMember = styled.li`
   border-radius: 10px;
   margin-bottom: 8px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  gap: 28px;
 `;
 const MemberName = styled.span`
   &:first-child {
@@ -83,7 +84,7 @@ export default function ProjectMembers({
         <span>프로젝트 팀원</span>
         <MemberCount>
           <Member />
-          {team.length}
+          {team.length + 1}
         </MemberCount>
       </TeamTitle>
       <TeamList>
@@ -103,7 +104,7 @@ export default function ProjectMembers({
           {UserButton}
         </TeamMember>
         {team.map(({ username, image, part }) => (
-          <TeamMember>
+          <TeamMember key={username}>
             <MemberBox>
               <MemberImage src={image} />
               <SortRow>
