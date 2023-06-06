@@ -1,10 +1,10 @@
 package com.proj.letsgitit.repository;
 
 import com.proj.letsgitit.entity.User;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends CrudRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<User, Long> {
     public User findByLogin(String login);
-    public User findById(Long id);
-    public User findByName(String name);
+    public User findByEmail(String email);
+    public User findByUserId(Long userId);
 }

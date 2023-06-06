@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const TabTable = styled.table`
-color: var(--color-sub-1);
+  color: var(--color-sub-1);
   width: 100%;
   border-collapse: collapse;
   justify-content: center;
@@ -10,23 +10,31 @@ color: var(--color-sub-1);
 
 const TabHeader = styled.th<{ active: boolean; color: string }>`
   padding: 10px;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 600;
-  min-width: 100px;
+  width: 200px;
   text-align: center;
   border-bottom: solid 8px var(--color-sub-4);
   cursor: pointer;
   transition: width 0.3s ease-in-out;
-  ${({ active, color }) => active && `width: 400px; border-bottom: 8px solid ${color};`}
+  ${({ active, color }) => active && `width: 350px; border-bottom: 8px solid ${color};`}
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
+
 
 const TabContent = styled.td<{ active: boolean }>`
   padding: 10px;
   border: none;
   text-align: center;
+  font-size: 0.96rem;
   transition: opacity 0.3s ease-in-out;
   opacity: ${({ active }) => (active ? 1 : 0)};
   white-space: pre-line;
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export default function HomeTab() {

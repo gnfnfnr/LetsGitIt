@@ -2,6 +2,8 @@ package com.proj.letsgitit.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OAuthToken {
     private String accessToken;
@@ -41,5 +43,13 @@ public class OAuthToken {
         return bearer;
     }
 
+    public OAuthToken(){
+    }
+    @Builder
+    public OAuthToken(String accessToken, String scope, String tokenType) {
+        this.accessToken = accessToken;
+        this.scope = scope;
+        this.tokenType = tokenType;
+    }
 
 }

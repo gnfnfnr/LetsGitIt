@@ -1,34 +1,24 @@
 package com.proj.letsgitit.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.proj.letsgitit.entity.GithubProfile;
+import com.proj.letsgitit.config.jwt.JwtProperties;
 import com.proj.letsgitit.entity.OAuthToken;
 import com.proj.letsgitit.entity.User;
 import com.proj.letsgitit.service.UserService;
-import org.kohsuke.github.GHUser;
-import org.kohsuke.github.GitHub;
-import org.kohsuke.github.GitHubBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
+@RequiredArgsConstructor
 public class UserController {
 
     @Value("${githubApiUrl}")
@@ -47,21 +37,37 @@ public class UserController {
 
     private String PROFILE_REQUEST_URL = "https://api.github.com/user";
 
-    @Autowired
-    UserService userService;
+    private final UserService userService;
 
     @GetMapping("/login/getGithubUrl")
     public @ResponseBody String getGithubUrl(HttpServletRequest request) {
-        String reqUrl = githubApiUrl + "?client_id=" + clientId + "&redirect_uri=" + githubRedirectUrl;
+        String reqUrl = githubApiUrl + "?client_id=" + clientId;
         return reqUrl;
     }
 
     @GetMapping("/login/oauth2")
-    public ResponseEntity getCode(String code) throws IOException, JsonProcessingException {
+    public ResponseEntity login(@RequestParam(value = "code", required = false) String code) throws IOException, JsonProcessingException {
         OAuthToken oAuthToken = userService.getOauthToken(code);
-        GithubProfile githubProfile = userService.getGithubProfile(oAuthToken);
-        User newUser = userService.saveAndGetUser(githubProfile);
-        return ResponseEntity.ok(newUser);
-    }
 
+        //발급 받은 accessToken으로 회원 정보 DB 저장
+        String jwtToken = userService.saveUserAndGetToken(oAuthToken.getAccessToken());
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(JwtProperties.HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtToken);
+
+        //test 용
+        System.out.println("code : " + code);
+        System.out.println("oauthToken : " + oAuthToken);
+        System.out.println("jwtToken : " + jwtToken);
+        System.out.println("headers : " + headers);
+        return ResponseEntity.ok().headers(headers).body("login");
+    }
+    //jwt 토큰으로 유저 정보 요청하기
+    @GetMapping("/users")
+    public ResponseEntity<Object> getCurrentUser(HttpServletRequest request) {
+
+        User user = userService.getUser(request);
+        System.out.println("user : "+ user);
+        //ResponseEntity를 이용해 바디 값에 인증된 사용자 정보를 넘겨준다.
+        return ResponseEntity.ok().body(user);
+    }
 }

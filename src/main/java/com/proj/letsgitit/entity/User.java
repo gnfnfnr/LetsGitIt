@@ -5,9 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.annotation.sql.DataSourceDefinitions;
 import javax.persistence.*;
-import java.net.URL;
 
 @Entity
 @Setter
@@ -17,8 +15,8 @@ import java.net.URL;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="u_id")
-    int uId;
+    @Column(name="user_id")
+    Long userId;
 
     @Column(name="login")   //이게 깃에서 id를 가져올 때 객체명
     String login;
@@ -103,11 +101,12 @@ public class User {
     private Role role;
 
     @Builder
-    public User(String login, String name, long id, String htmlUrl, String email) {
+    public User(String login, String name, long id, String htmlUrl, String email, Role role) {
         this.login = login;
         this.name = name;
         this.id = id;
         this.htmlUrl = htmlUrl;
         this.email = email;
+        this.role = role;
     }
 }
