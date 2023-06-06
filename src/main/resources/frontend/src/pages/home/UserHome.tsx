@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PostItem from "../../components/PostItem";
-import postData from "../../resource/PostData.json";
+import postData from "../../resource/postData.json";
 import styled from "styled-components";
 import { ReactComponent as DownArrow } from "../../styles/Icons/DownArrow.svg";
 import { Outlet } from "react-router-dom";

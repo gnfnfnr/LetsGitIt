@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PostItem from "../../components/PostItem";
-import postData from "../../resource/PostData.json";
+import postData from "../../resource/postData.json";
 import styled from "styled-components";
 import { ReactComponent as Search } from "../../styles/Icons/Search.svg";
 import HeaderButton from "../../components/HeaderButton";
